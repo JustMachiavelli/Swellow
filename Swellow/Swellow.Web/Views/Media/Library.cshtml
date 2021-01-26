@@ -1,0 +1,32 @@
+﻿@model LibraryViewModel
+
+@{ ViewData["Title"] = Model.LibraryName; }
+
+
+<div class="mt-5 mx-5">
+    <div class="row">
+        @foreach (var videoPreview in Model.VideoPreviews)
+        {
+            <div class="col-md-eight col-sm-6 card bg-transparent border-0 ">
+                @if (videoPreview.Type == "movie")
+                {
+                    <a asp-controller="Media" asp-action="Movie" asp-route-id="@videoPreview.Id">
+                        <img src="@videoPreview.PathPoster" class="card-img-top" alt="影视海报" asp-append-version="true">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@videoPreview.Title</h5>
+                        </div>
+                    </a>
+                }
+                else if (videoPreview.Type == "tv")
+                {
+                    <a asp-controller="Media" asp-action="Tv" asp-route-id="@videoPreview.Id">
+                        <img src="@videoPreview.PathPoster" class="card-img-top" alt="影视海报" asp-append-version="true">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">@videoPreview.Title</h5>
+                        </div>
+                    </a>
+                }
+            </div>
+        }
+    </div>
+</div>

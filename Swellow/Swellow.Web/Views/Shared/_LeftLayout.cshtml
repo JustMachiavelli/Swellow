@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-md-1 col-sm-6" style="padding-top:4%">
+    <ul class="nav flex-column">
+        <li class="nav-item" style="font-size:2em">
+            服务器
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" asp-controller="Settings" asp-action="Dashboard">控制台</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Settings" asp-action="Users">用户</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Settings" asp-action="LibraryPreviews">媒体库</a>
+        </li>
+        <li class="nav-item" style="font-size:2em;margin-top:2%">
+            数据
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Settings" asp-action="Cache">命名规则</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Settings" asp-action="Cache">刮削</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Settings" asp-action="Cache">缓存</a>
+        </li>
+    </ul>
+</div>
+
+@*页面主体*@
+<div class="col-md-11" style="background-color:gainsboro;padding-top:4%">
+    @RenderBody()
+</div>

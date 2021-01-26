@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body class="home-body">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        @*导航栏左侧的logo*@
+        <img src="~/images/layout/logoName.svg" height="70">
+
+       @if (ViewData["Title"].ToString() != "我的媒体库")
+        {
+        <div class="navbar-nav">
+            <a href='javascript:history.go(-1)' class="mx-2" >
+                <img src="~/images/layout/back.svg" height="45" />
+            </a>
+            <a asp-controller="Media" asp-action="Home" class="mx-2" >
+                <img src="~/images/layout/home.svg" height="45" />
+            </a>
+        </div>
+        }
+        <div class="navbar-nav ml-auto">
+            <a asp-controller="Media" asp-action="Search" class="mx-2" >
+                <img src="~/images/layout/search.svg" height="45" />
+            </a>
+            <a asp-controller="Settings" asp-action="Dashboard" class="mx-2" >
+                <img src="~/images/layout/settings.svg" height="45" />
+            </a>
+        </div>
+    </nav>
+
+    <nav class="navbar">
+        <img src="~/images/layout/logoName.svg" height="70">
+    </nav>
+
+    @*页面主体*@
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
