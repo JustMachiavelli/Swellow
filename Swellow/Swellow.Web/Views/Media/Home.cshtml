@@ -1,0 +1,21 @@
+﻿@model HomeViewModel
+
+@{ ViewData["Title"] = "我的媒体库"; }
+
+
+<div class="mt-5 mx-5">
+    <h2>我的媒体库</h2>
+    <div class="row mt-md-4">
+        @foreach (var libraryPreview in Model.LibraryPreviews)
+        {
+            <div class="col-md-2 col-6 card bg-transparent border-0">
+                <a asp-controller="Media" asp-action="Library" asp-route-id="@libraryPreview.Id">
+                    <img src="@libraryPreview.PathPicture" class="card-img-top" alt="媒体库预览图" asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@libraryPreview.Name</h5>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

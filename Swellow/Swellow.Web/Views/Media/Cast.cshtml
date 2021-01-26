@@ -1,0 +1,77 @@
+﻿@model CastDetailViewModel
+
+@{ ViewData["Title"] = Model.Cast.Name; }
+
+<div class="row">
+    <div class="col-md-2 col-12">
+        <img class="poster-overspread" src="@Model.Cast.PathHeadPicture" alt="演员海报" />
+    </div>
+
+    <div class="col-md-10 col-12">
+        <div class="display-2">
+            @Model.Cast.Name
+        </div>
+        <div style="font-size:2rem">
+            出生日期：1970-01-01
+        </div>
+    </div>
+</div>
+
+@if (Model.VideoActedPreviews.Count() != 0)
+{
+    <h2 class="mt-5">参演作品</h2>
+    <div class="row">
+        @foreach (var videoPreview in Model.VideoActedPreviews)
+        {
+            <div class="col-md-2 col-6 card bg-transparent border-0">
+            @if (videoPreview.Type == "movie")
+            {
+                <a asp-controller="Media" asp-action="Movie" asp-route-id="@videoPreview.Id">
+                    <img src="@videoPreview.PathPoster" class="card-img-top" alt="影片海报" asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@videoPreview.Title</h5>
+                    </div>
+                </a> }
+            else
+            {
+                <a asp-controller="Media" asp-action="Tv" asp-route-id="@videoPreview.Id">
+                    <img src="@videoPreview.PathPoster" class="card-img-top" alt="电视海报" asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@videoPreview.Title</h5>
+                    </div>
+                </a>
+            }
+            </div>}
+     </div>
+}
+
+
+
+
+@if (Model.VideoDirectedPreviews.Count() != 0)
+{
+    <h2 class="mt-5">导演作品</h2>
+    <div class="row">
+        @foreach (var videoPreview in Model.VideoDirectedPreviews)
+        {
+            <div class="col-md-2 col-6 card bg-transparent border-0">
+            @if (videoPreview.Type == "movie")
+            {
+                <a asp-controller="Media" asp-action="Movie" asp-route-id="@videoPreview.Id">
+                    <img src="@videoPreview.PathPoster" class="card-img-top" alt="影片海报" asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@videoPreview.Title</h5>
+                    </div>
+                </a> }
+            else
+            {
+                <a asp-controller="Media" asp-action="Tv" asp-route-id="@videoPreview.Id">
+                    <img src="@videoPreview.PathPoster" class="card-img-top" alt="电视海报" asp-append-version="true">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">@videoPreview.Title</h5>
+                    </div>
+                </a>
+            }
+            </div>}
+     </div>
+}
