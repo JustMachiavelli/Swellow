@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
+      "projectUniqueName": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
       "projectName": "Swellow.Environment",
-      "projectPath": "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
+      "projectPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
       "packagesPath": "C:\\Users\\JuneRain\\.nuget\\packages\\",
-      "outputPath": "D:\\MyProject\\Swellow\\Swellow.Environment\\obj\\",
+      "outputPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\JuneRain\\AppData\\Roaming\\NuGet\\NuGet.Config",

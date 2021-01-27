@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyProject\\Swellow\\Swellow.Data\\Swellow.Data.csproj": {}
+    "D:\\MyGit\\Swellow\\Swellow\\Swellow.Data\\Swellow.Data.csproj": {}
   },
   "projects": {
-    "D:\\MyProject\\Swellow\\Swellow.Data\\Swellow.Data.csproj": {
+    "D:\\MyGit\\Swellow\\Swellow\\Swellow.Data\\Swellow.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyProject\\Swellow\\Swellow.Data\\Swellow.Data.csproj",
+        "projectUniqueName": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Data\\Swellow.Data.csproj",
         "projectName": "Swellow.Data",
-        "projectPath": "D:\\MyProject\\Swellow\\Swellow.Data\\Swellow.Data.csproj",
+        "projectPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Data\\Swellow.Data.csproj",
         "packagesPath": "C:\\Users\\JuneRain\\.nuget\\packages\\",
-        "outputPath": "D:\\MyProject\\Swellow\\Swellow.Data\\obj\\",
+        "outputPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JuneRain\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj": {
-                "projectPath": "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj"
+              "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj": {
+                "projectPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj"
               }
             }
           }
@@ -80,14 +80,14 @@
         }
       }
     },
-    "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj": {
+    "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
+        "projectUniqueName": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
         "projectName": "Swellow.Environment",
-        "projectPath": "D:\\MyProject\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
+        "projectPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\Swellow.Environment.csproj",
         "packagesPath": "C:\\Users\\JuneRain\\.nuget\\packages\\",
-        "outputPath": "D:\\MyProject\\Swellow\\Swellow.Environment\\obj\\",
+        "outputPath": "D:\\MyGit\\Swellow\\Swellow\\Swellow.Environment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JuneRain\\AppData\\Roaming\\NuGet\\NuGet.Config",
