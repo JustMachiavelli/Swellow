@@ -45,7 +45,7 @@ namespace Swellow.Data.SqlModel.People
                 }
                 else
                 {
-                    return Environment.LocalPath.PathNobodyPicture;
+                    return "/images/default/nobody.svg";
                 }
             }
         }
