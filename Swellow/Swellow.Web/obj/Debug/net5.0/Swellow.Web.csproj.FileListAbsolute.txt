@@ -376,8 +376,6 @@ D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\Libra
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\LibraryPreviews.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\_ViewStart.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
-D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Shared\_LeftLayout.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.RazorTargetAssemblyInfo.cache
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.RazorTargetAssemblyInfo.cs
@@ -387,3 +385,5 @@ D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.dll
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\ref\Swellow.Web.dll
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.pdb
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.genruntimeconfig.cache
+D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Media\_Layout.cshtml.g.cs
+D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\_Layout.cshtml.g.cs

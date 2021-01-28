@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body class="home-body">
+
+    <div class="row">
+        <div class="col-md-1 col-sm-6">
+            <ul class="nav flex-column border-right">
+                <li class="nav-item display-4">
+                    服务器
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" asp-controller="Settings" asp-action="Dashboard">控制台</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Settings" asp-action="Users">用户</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Settings" asp-action="LibraryPreviews">媒体库</a>
+                </li>
+                <li class="nav-item display-4">
+                    数据
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Settings" asp-action="Cache">命名规则</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Settings" asp-action="Cache">刮削</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Settings" asp-action="Cache">缓存</a>
+                </li>
+            </ul>
+        </div>
+
+        @*页面主体*@
+        <div class="col-md-11">
+            @RenderBody()
+        </div>
+
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+</html>
