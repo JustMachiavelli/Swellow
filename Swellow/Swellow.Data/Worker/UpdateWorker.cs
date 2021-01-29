@@ -22,12 +22,12 @@ namespace Swellow.Data.Worker
                 string pathFanartAbsolute = Environment.LocalPath.PathRoot + pathFanartRelative;
                 bool isFanartExist = System.IO.File.Exists(pathFanartAbsolute);
                 // 目前数据库内不是默认svg
-                if (video.PathFanart != "/images/default/novideofanart.svg")
+                if (video.PathFanart != "/images/default/fanart.svg")
                 {
                     // 数据库记录的图片不存在
                     if (!isFanartExist)
                     {
-                        video.PathFanart = "/images/default/novideofanart.svg";
+                        video.PathFanart = "/images/default/fanart.svg";
                     }
                     // 如果存在，保持原样
                 }
@@ -44,12 +44,12 @@ namespace Swellow.Data.Worker
                 string pathPosterAbsolute = Environment.LocalPath.PathRoot + pathPosterRelative;
                 bool isPosterExist = System.IO.File.Exists(pathPosterAbsolute);
                 // 目前数据库内不是默认svg
-                if (video.PathPoster != "/images/default/novideoposter.svg")
+                if (video.PathPoster != "/images/default/poster.svg")
                 {
                     // 数据库记录的图片不存在
                     if (!isPosterExist)
                     {
-                        video.PathPoster = "/images/default/novideoposter.svg";
+                        video.PathPoster = "/images/default/poster.svg";
                     }
                     // 如果存在，保持原样
                 }

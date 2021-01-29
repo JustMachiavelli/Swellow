@@ -26,7 +26,7 @@ namespace Swellow.Web.Controllers
         }
 
         // 呈现设置的展示所有媒体库
-        public IActionResult LibraryPreviews()
+        public IActionResult Library()
         {
             List<LibraryPreview> libraryPreviews = new List<LibraryPreview>();
             foreach (Library library in _viewModelWorker.GetAllLibrarys())
@@ -58,7 +58,7 @@ namespace Swellow.Web.Controllers
         public IActionResult LibraryEdit(LibraryCreateViewModel model)
         {
             //_iLibrary.SaveNewLibrary(model);
-            return RedirectToAction("LibraryPreviews");
+            return RedirectToAction("Library");
         }
     }
 }

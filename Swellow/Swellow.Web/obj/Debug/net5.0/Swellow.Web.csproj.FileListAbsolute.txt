@@ -373,7 +373,6 @@ D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Media\Movie.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Media\_ViewStart.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\Dashboard.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\LibraryEdit.cshtml.g.cs
-D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\LibraryPreviews.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\_ViewStart.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
@@ -387,3 +386,5 @@ D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.pdb
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Swellow.Web.genruntimeconfig.cache
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Media\_Layout.cshtml.g.cs
 D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\_Layout.cshtml.g.cs
+D:\MyGit\Swellow\Swellow\Swellow.Web\obj\Debug\net5.0\Razor\Views\Settings\Library.cshtml.g.cs
+D:\MyGit\Swellow\Swellow\Swellow.Web\bin\Debug\net5.0\libman.json

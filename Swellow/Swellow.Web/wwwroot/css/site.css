@@ -17,14 +17,6 @@ html, body {
     height: 100%;
 }
 
-
-.col-md-eight {
-    -ms-flex: 0 0 12.5%;
-    flex: 0 0 12.5%;
-    max-width: 12.5%;
-}
-
-
 .home-body {
     color: white;
     background-image: url(/images/layout/background-blueradiance.jpg);
@@ -36,3 +28,6 @@ html, body {
 .poster-overspread {
     width:80%;
 }
+
+/*row-cols-md-8*/
+/*.h-80*/

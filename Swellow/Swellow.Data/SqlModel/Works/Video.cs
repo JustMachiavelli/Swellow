@@ -56,7 +56,7 @@ namespace Swellow.Data.SqlModel.Works
                 }
                 else
                 {
-                    return "/images/default/novideofanart.svg";
+                    return "/images/default/poster.svg";
                 }
             }
             set { }
@@ -74,7 +74,7 @@ namespace Swellow.Data.SqlModel.Works
                 }
                 else
                 {
-                    return "/images/default/novideoposter.svg";
+                    return "/images/default/poster.svg";
                 }
             }
             set { }
