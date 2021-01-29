@@ -5,10 +5,10 @@
 
 <div class="mt-5 mx-5">
     <h2>我的媒体库</h2>
-    <div class="row mt-md-4">
+    <div class="row row-cols-md-6 mt-md-4">
         @foreach (var libraryPreview in Model.LibraryPreviews)
         {
-            <div class="col-md-2 col-6 card bg-transparent border-0">
+            <div class="col card bg-transparent border-0">
                 <a asp-controller="Media" asp-action="Library" asp-route-id="@libraryPreview.Id">
                     <img src="@libraryPreview.PathPicture" class="card-img-top" alt="媒体库预览图" asp-append-version="true">
                     <div class="card-body">

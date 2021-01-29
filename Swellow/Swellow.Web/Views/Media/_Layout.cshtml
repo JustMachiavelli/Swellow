@@ -3,7 +3,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -13,22 +13,21 @@
         @*导航栏左侧的logo*@
         <img src="~/images/layout/logoName.svg" height="70">
 
-       @if (ViewData["Title"].ToString() != "我的媒体库")
+        @if (ViewData["Title"].ToString() != "我的媒体库")
         {
-        <div class="navbar-nav">
-            <a href='javascript:history.go(-1)' class="mx-2" >
-                <img src="~/images/layout/back.svg" height="45" />
-            </a>
-            <a asp-controller="Media" asp-action="Home" class="mx-2" >
-                <img src="~/images/layout/home.svg" height="45" />
-            </a>
-        </div>
-        }
+<div class="navbar-nav">
+    <a href='javascript:history.go(-1)' class="mx-2">
+        <img src="~/images/layout/back.svg" height="45" />
+    </a>
+    <a asp-controller="Media" asp-action="Home" class="mx-2">
+        <img src="~/images/layout/home.svg" height="45" />
+    </a>
+</div>}
         <div class="navbar-nav ml-auto">
-            <a asp-controller="Media" asp-action="Search" class="mx-2" >
+            <a asp-controller="Media" asp-action="Search" class="mx-2">
                 <img src="~/images/layout/search.svg" height="45" />
             </a>
-            <a asp-controller="Settings" asp-action="Dashboard" class="mx-2" >
+            <a asp-controller="Settings" asp-action="Dashboard" class="mx-2">
                 <img src="~/images/layout/settings.svg" height="45" />
             </a>
         </div>
@@ -43,7 +42,7 @@
         @RenderBody()
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
 </body>
 </html>
