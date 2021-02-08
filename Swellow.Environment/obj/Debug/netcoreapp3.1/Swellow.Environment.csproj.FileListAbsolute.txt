@@ -24,3 +24,16 @@ D:\MyGit\Swellow\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Env
 D:\MyGit\Swellow\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.dll
 D:\MyGit\Swellow\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.pdb
 D:\MyGit\Swellow\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.genruntimeconfig.cache
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.exe
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.deps.json
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.runtimeconfig.json
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.runtimeconfig.dev.json
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.dll
+D:\MyGit\Swellow\Swellow.Environment\bin\Debug\netcoreapp3.1\Swellow.Environment.pdb
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.csprojAssemblyReference.cache
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.AssemblyInfoInputs.cache
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.AssemblyInfo.cs
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.csproj.CoreCompileInputs.cache
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.dll
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.pdb
+D:\MyGit\Swellow\Swellow.Environment\obj\Debug\netcoreapp3.1\Swellow.Environment.genruntimeconfig.cache
