@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swellow.Data", "Swellow.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swellow.Web", "Swellow.Web\Swellow.Web.csproj", "{5DC6033C-84AF-4086-8FDB-428B32B8B3AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swellow.Environment", "Swellow.Environment\Swellow.Environment.csproj", "{8F0CDA1B-39EC-4C82-8E99-27FE579EC3B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swellow.Environment", "Swellow.Environment\Swellow.Environment.csproj", "{8F0CDA1B-39EC-4C82-8E99-27FE579EC3B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C239793-2579-4214-A7C2-3514D01515C7}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
