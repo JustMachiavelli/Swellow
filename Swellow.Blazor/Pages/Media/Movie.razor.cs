@@ -1,4 +1,4 @@
-﻿using BootstrapBlazor.Components;
+﻿
 using Microsoft.AspNetCore.Components;
 using Swellow.Blazor.Services;
 using Swellow.Model.ViewModel;
@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 
 namespace Swellow.Blazor.Pages.Media
 {
-    public partial class Home
+    public partial class Movie
     {
-        [Inject]
-        public IServer Server { get; set; }
+        [Inject] public IServer Server { get; set; }
 
-        private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
+        [Parameter] public string MovieId { get; set; }
+
+        public MovieDetail MovieDetail { get; set; } = new MovieDetail();
 
         protected override async Task OnInitializedAsync()
         {
-            LibraryPreviews = await Server.GetLibraryPreviewsAsync();
+            MovieDetail = await Server.GetMovieDetailByMovieIdAsync(MovieId);
             await base.OnInitializedAsync();
         }
     }

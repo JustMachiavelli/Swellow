@@ -1,10 +1,14 @@
-﻿@page "/"
+﻿@page "/Library/{LibraryId}"
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     @*导航栏左侧的logo*@
     <a class="navbar-brand" href="/">
         <img src="/images/layout/logoName.svg" height="70">
     </a>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">@LibraryName</li>
+    </ol>
 
     @*导航栏右侧的搜索和设置*@
     <div class="navbar-nav ml-auto">
@@ -23,16 +27,21 @@
     <img height="70">
 </nav>
 
-
 <div class="mt-5 mx-5">
-    <h2>我的媒体库</h2>
-    <div class="row row-cols-md-6 mt-md-4">
-        @foreach (var libraryPreview in LibraryPreviews)
+    <div class="row row-cols-md-6">
+        @foreach (var videoPreview in VideoPreviews)
         {
             <div class="col card bg-transparent border-0">
-                <img src="@libraryPreview.PathPicture" class="card-img-top" alt="媒体库预览图" asp-append-version="true">
+                <img src="@videoPreview.PathPoster" class="card-img-top" alt="影视海报" asp-append-version="true">
                 <div class="card-body text-center">
-                    <a href="Library/@libraryPreview.Id" class="card-title stretched-link">@libraryPreview.Name</a>
+                    @if (videoPreview.Type == "movie")
+                    {
+                        <a href="Movie/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
+                    }
+                    else if (videoPreview.Type == "tv")
+                    {
+                        <a href="Tv/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
+                    }
                 </div>
             </div>
         }
