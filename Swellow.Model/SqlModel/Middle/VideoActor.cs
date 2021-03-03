@@ -1,7 +1,7 @@
-﻿using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Works;
 
-namespace Swellow.Model.SqlModel.Middle
+namespace Swellow.Shared.SqlModel.Middle
 {
     // <影视，演职人员>
     public class VideoActor

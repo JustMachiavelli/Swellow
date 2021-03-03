@@ -1,0 +1,43 @@
+﻿
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    @*导航栏左侧的logo*@
+    <a class="navbar-brand" href="/">
+        <img src="/images/layout/logoName.svg" height="70">
+    </a>
+
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">主页</a></li>
+        <li class="breadcrumb-item"><a href="Library/{@LibraryId}">@LibraryName</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@VideoTitle</li>
+    </ol>
+
+    @*导航栏右侧的搜索和设置*@
+    <div class="navbar-nav ml-auto">
+        <a href="Search" class="mx-2">
+            <img src="/images/layout/search.svg" height="45" />
+        </a>
+        <a href="Settings/Dashboard" class="mx-2">
+            <img src="/images/layout/settings.svg" height="45" />
+        </a>
+    </div>
+
+</nav>
+
+@*占位用的导航栏*@
+<nav class="navbar">
+    <img height="70">
+</nav>
+
+@code {
+
+    [Parameter]
+    public int LibraryId { get; set; }
+
+    [Parameter]
+    public string LibraryName { get; set; }
+
+    [Parameter]
+    public string VideoTitle { get; set; }
+
+
+}

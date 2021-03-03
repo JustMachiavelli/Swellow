@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.Middle;
+﻿using Swellow.Shared.SqlModel.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Property
+namespace Swellow.Shared.SqlModel.Property
 {
     // 发行商，【多对多】多发行商对多影片
     public class Publisher

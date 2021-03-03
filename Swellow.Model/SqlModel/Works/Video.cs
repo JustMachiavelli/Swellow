@@ -1,10 +1,10 @@
-﻿using Swellow.Model.SqlModel.Middle;
-using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.View;
+﻿using Swellow.Shared.SqlModel.Middle;
+using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.View;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Works
+namespace Swellow.Shared.SqlModel.Works
 {
     public class Video
     {

@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.Middle;
+﻿using Swellow.Shared.SqlModel.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Property
+namespace Swellow.Shared.SqlModel.Property
 {
     // 【多对多】标签
     public class Tag

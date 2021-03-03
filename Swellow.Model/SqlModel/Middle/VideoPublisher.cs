@@ -1,7 +1,7 @@
-﻿using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.Works;
 
-namespace Swellow.Model.SqlModel.Middle
+namespace Swellow.Shared.SqlModel.Middle
 {
     // <影视作品，发行商>
     public class VideoPublisher

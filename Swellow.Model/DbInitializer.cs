@@ -1,15 +1,15 @@
-﻿using Swellow.Model.SqlModel.LocalFile;
-using Swellow.Model.SqlModel.Middle;
-using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.View;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.LocalFile;
+using Swellow.Shared.SqlModel.Middle;
+using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.View;
+using Swellow.Shared.SqlModel.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Swellow.Model
+namespace Swellow.Shared
 {
     public class DbInitializer
     {

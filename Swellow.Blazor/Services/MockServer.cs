@@ -1,5 +1,5 @@
-﻿using Swellow.Model.SqlModel.Property;
-using Swellow.Model.ViewModel;
+﻿using Swellow.Model.ViewModel;
+using Swellow.Shared.SqlModel.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;

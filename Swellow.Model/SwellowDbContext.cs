@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Swellow.Model.SqlModel.Episode;
-using Swellow.Model.SqlModel.LocalFile;
-using Swellow.Model.SqlModel.Middle;
-using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.View;
-using Swellow.Model.SqlModel.Works;
+using Swellow.Shared.SqlModel.Episode;
+using Swellow.Shared.SqlModel.LocalFile;
+using Swellow.Shared.SqlModel.Middle;
+using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.View;
+using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 
-namespace Swellow.Model
+namespace Swellow.Shared
 {
     public class SwellowDbContext : DbContext
     {
@@ -37,7 +37,7 @@ namespace Swellow.Model
             modelBuilder.Entity<Tv>().Property(Video => Video.IdImdb).HasColumnName("IdImdb");
             modelBuilder.Entity<Tv>().Property(Video => Video.IdTmdb).HasColumnName("IdTmdb");
 
-            // ========设置联合组键========
+            // ========设置联合主键========
             // <影视作品，演员>
             modelBuilder.Entity<VideoActor>().HasKey(VideoActor => new { VideoActor.IdVideo, VideoActor.IdCast });
             modelBuilder.Entity<VideoActor>()

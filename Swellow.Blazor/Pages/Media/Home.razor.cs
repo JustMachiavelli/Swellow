@@ -14,8 +14,11 @@ namespace Swellow.Blazor.Pages.Media
         [Inject]
         public IServer Server { get; set; }
 
+        //1 所有媒体库预览【后传】
         private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
 
+
+        //【生命】
         protected override async Task OnInitializedAsync()
         {
             LibraryPreviews = await Server.GetLibraryPreviewsAsync();

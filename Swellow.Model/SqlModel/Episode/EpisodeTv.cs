@@ -1,7 +1,7 @@
-﻿using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.Works;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Episode
+namespace Swellow.Shared.SqlModel.Episode
 {
     public class EpisodeTv
     {

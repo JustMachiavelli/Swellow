@@ -1,9 +1,9 @@
-﻿using Swellow.Model.SqlModel.LocalFile;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.LocalFile;
+using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.View
+namespace Swellow.Shared.SqlModel.View
 {
     // Swellow中的媒体库
     public class Library

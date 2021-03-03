@@ -1,32 +1,5 @@
-﻿@page "/Movie/{MovieId}"
+﻿@page "Library/{LibraryId}/Movie/{MovieId}"
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    @*导航栏左侧的logo*@
-    <a class="navbar-brand" href="/">
-        <img src="/images/layout/logoName.svg" height="70">
-    </a>
-
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="Library/1">动漫Movie</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@MovieDetail.Title</li>
-    </ol>
-
-    @*导航栏右侧的搜索和设置*@
-    <div class="navbar-nav ml-auto">
-        <a asp-controller="Media" asp-action="Search" class="mx-2">
-            <img src="/images/layout/search.svg" height="45" />
-        </a>
-        <a asp-controller="Settings" asp-action="Dashboard" class="mx-2">
-            <img src="/images/layout/settings.svg" height="45" />
-        </a>
-    </div>
-
-</nav>
-
-@*占位用的导航栏*@
-<nav class="navbar">
-    <img height="70">
-</nav>
 
 <div class="row mt-5 mx-5">
 
@@ -53,27 +26,27 @@
             <div class="col-md-6 col-12">
                 <div class="row">
 
-                    <a class="col-md-2 col-2" asp-controller="Player" asp-action="VideoPlayer" asp-route-videoPath="@MovieDetail.PathFanart">
+                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
                         <img src="/images/video/play.svg" />
                         <p>播放</p>
                     </a>
 
-                    <a class="col-md-2 col-2" asp-controller="Player" asp-action="VideoPlayer">
+                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
                         <img src="/images/video/randomPlay.svg" />
                         <p>随机播放</p>
                     </a>
 
-                    <a class="col-md-2 col-2" asp-controller="Player" asp-action="VideoPlayer">
+                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
                         <img src="/images/video/trailer.svg" />
                         <p>预告片</p>
                     </a>
 
-                    <a class="col-md-2 col-2" asp-controller="Settings" asp-action="UserSettings">
+                    <a class="col-md-2 col-2" >
                         <img src="/images/video/rating.svg" />
                         <p>评分</p>
                     </a>
 
-                    <a class="col-md-2 col-2" asp-controller="Settings" asp-action="UserSettings">
+                    <a class="col-md-2 col-2" >
                         <img src="/images/video/delete.svg" />
                         <p>删除</p>
                     </a>
@@ -86,7 +59,7 @@
         <div class="mt-md-2" style="font-size:1.5em">
             @foreach (var genre in MovieDetail.Genres)
             {
-                <a asp-controller="Media" asp-action="Property" asp-route-name="@genre.Name">@genre.Name</a>
+                <a href="Property/{@genre.Name}" >@genre.Name</a>
             }
         </div>
 
@@ -110,7 +83,7 @@
             @foreach (var cast in MovieDetail.Directors)
             {
                 <div class="col-md-2 col-6 card bg-transparent border-0">
-                    <a asp-controller="Media" asp-action="Cast" asp-route-id="@cast.Id">
+                    <a href="Cast/{@cast.Id}" >
                         <img src="@cast.PathHeadPicture" class="card-img-top" alt="演员海报">
                         <h5 class="card-title text-center mt-md-1">@cast.Name</h5>
                     </a>
@@ -124,7 +97,7 @@
             @foreach (var cast in MovieDetail.Actors)
             {
                 <div class="col-md-2 col-6 card bg-transparent border-0">
-                    <a asp-controller="Media" asp-action="Cast" asp-route-id="@cast.Id">
+                    <a href="Cast/{@cast.Id}" >
                         <img src="@cast.PathHeadPicture" class="card-img-top" alt="演员海报">
                         <h5 class="card-title text-center mt-md-1">@cast.Name</h5>
                     </a>

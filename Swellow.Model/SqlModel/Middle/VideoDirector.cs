@@ -1,10 +1,10 @@
-﻿using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Works;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.SqlModel.Middle
+namespace Swellow.Shared.SqlModel.Middle
 {
     // <影视，导演>
     public class VideoDirector

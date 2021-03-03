@@ -1,7 +1,7 @@
-﻿using Swellow.Model.SqlModel.View;
+﻿using Swellow.Shared.SqlModel.View;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.LocalFile
+namespace Swellow.Shared.SqlModel.LocalFile
 {
     // 媒体库所包含的文件夹
     public class PathDirectory

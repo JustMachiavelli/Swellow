@@ -1,7 +1,7 @@
-﻿using Swellow.Model.SqlModel.Episode;
+﻿using Swellow.Shared.SqlModel.Episode;
 using System.Collections.Generic;
 
-namespace Swellow.Model.SqlModel.Works
+namespace Swellow.Shared.SqlModel.Works
 {
     // 电视剧
     public class Tv : Video

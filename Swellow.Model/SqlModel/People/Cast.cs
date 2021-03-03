@@ -1,11 +1,11 @@
-﻿using Swellow.Model.SqlModel.Middle;
+﻿using Swellow.Shared.SqlModel.Middle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 
-namespace Swellow.Model.SqlModel.People
+namespace Swellow.Shared.SqlModel.People
 {
     // 演职人员
     public class Cast

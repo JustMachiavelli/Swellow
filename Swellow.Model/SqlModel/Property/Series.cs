@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Property
+namespace Swellow.Shared.SqlModel.Property
 {
     public class Series
     {
