@@ -8,12 +8,23 @@ namespace Swellow.Blazor.Services
 {
     public interface IServer
     {
-        //1 得到所有媒体库的预览，用于“主页”的展示
+        //1 得到所有Library预览
         Task<IEnumerable<LibraryPreview>> GetLibraryPreviewsAsync();
-        Task<IEnumerable<VideoPreview>> GetVideoPreviewsByLibraryIdAsync(string libraryId);
-        Task<string> GetLibraryNameByLibraryIdAsync(string libraryId);
-        Task<MovieDetail> GetMovieDetailByMovieIdAsync(string movieId);
+
+
+        //2 依据libraryId得到所有Video预览
+        Task<IEnumerable<VideoPreview>> GetVideoPreviewsByLibraryIdAsync(int libraryId);
+
+
+        //3 依据libraryId得到LibraryName
         Task<string> GetLibraryNameByLibraryIdAsync(int libraryId);
+
+
+        //4 依据movieId得到Media.Video.page包含的Move.cpt需要的Movie详情
+        Task<MovieDetail> GetMovieDetailByMovieIdAsync(int movieId);
+
+
+        //5 依据videoId得到VideoName
         Task<string> GetVideoNameByVideoIdAsync(int videoId);
     }
 }

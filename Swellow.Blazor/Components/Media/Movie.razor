@@ -1,7 +1,4 @@
-﻿@page "/Library/{LibraryId}/Movie/{MovieId}"
-
-
-<div class="row mt-5 mx-5">
+﻿<div class="row mt-5 mx-5">
 
     @*海报*@
     <div class="col-md-4 col-12 text-center">
@@ -26,27 +23,27 @@
             <div class="col-md-6 col-12">
                 <div class="row">
 
-                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
+                    <a href="Player/VideoPlayer/@MovieDetail.PathFanart" class="col-md-2 col-2">
                         <img src="/images/video/play.svg" />
                         <p>播放</p>
                     </a>
 
-                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
+                    <a href="Player/VideoPlayer/@MovieDetail.PathFanart" class="col-md-2 col-2">
                         <img src="/images/video/randomPlay.svg" />
                         <p>随机播放</p>
                     </a>
 
-                    <a href="Player/VideoPlayer/{@MovieDetail.PathFanart}" class="col-md-2 col-2" >
+                    <a href="Player/VideoPlayer/@MovieDetail.PathFanart" class="col-md-2 col-2">
                         <img src="/images/video/trailer.svg" />
                         <p>预告片</p>
                     </a>
 
-                    <a class="col-md-2 col-2" >
+                    <a class="col-md-2 col-2">
                         <img src="/images/video/rating.svg" />
                         <p>评分</p>
                     </a>
 
-                    <a class="col-md-2 col-2" >
+                    <a class="col-md-2 col-2">
                         <img src="/images/video/delete.svg" />
                         <p>删除</p>
                     </a>
@@ -59,7 +56,7 @@
         <div class="mt-md-2" style="font-size:1.5em">
             @foreach (var genre in MovieDetail.Genres)
             {
-                <a href="Property/{@genre.Name}" >@genre.Name</a>
+                <a href="Property/@genre.Name">@genre.Name</a>
             }
         </div>
 
@@ -83,7 +80,7 @@
             @foreach (var cast in MovieDetail.Directors)
             {
                 <div class="col-md-2 col-6 card bg-transparent border-0">
-                    <a href="Cast/{@cast.Id}" >
+                    <a href="Cast/@cast.Id">
                         <img src="@cast.PathHeadPicture" class="card-img-top" alt="演员海报">
                         <h5 class="card-title text-center mt-md-1">@cast.Name</h5>
                     </a>
@@ -97,7 +94,7 @@
             @foreach (var cast in MovieDetail.Actors)
             {
                 <div class="col-md-2 col-6 card bg-transparent border-0">
-                    <a href="Cast/{@cast.Id}" >
+                    <a href="Cast/@cast.Id">
                         <img src="@cast.PathHeadPicture" class="card-img-top" alt="演员海报">
                         <h5 class="card-title text-center mt-md-1">@cast.Name</h5>
                     </a>

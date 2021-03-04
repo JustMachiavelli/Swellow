@@ -1,4 +1,10 @@
-﻿@page "/Library/{LibraryId}"
+﻿@page "/Library/{LibraryId:int}"
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Components;
+@using Swellow.Blazor.Services;
+@using Swellow.Model.ViewModel;
+
 
 <div class="mt-5 mx-5">
     <div class="row row-cols-md-6">
@@ -7,16 +13,26 @@
             <div class="col card bg-transparent border-0">
                 <img src="@videoPreview.PathPoster" class="card-img-top" alt="影视海报" asp-append-version="true">
                 <div class="card-body text-center">
-                    @if (videoPreview.Type == "movie")
-                    {
-                        <a href="Movie/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
-                    }
-                    else if (videoPreview.Type == "tv")
-                    {
-                        <a href="Tv/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
-                    }
+                    <a href="Library/@LibraryId/Video/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
                 </div>
             </div>
         }
     </div>
 </div>
+
+@code
+{
+    [Inject] public IServer Server { get; set; }
+
+    //1 媒体库ID【跳传】
+    [Parameter] public int LibraryId { get; set; }
+
+    //2 所含Video预览【后传】
+    private IEnumerable<VideoPreview> VideoPreviews { get; set; } = new List<VideoPreview>();
+
+    //【OnInitializedAsync】
+    protected override async Task OnInitializedAsync()
+    {
+        VideoPreviews = await Server.GetVideoPreviewsByLibraryIdAsync(LibraryId);
+    }
+}

@@ -1,12 +1,10 @@
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
-        <CascadingValue Value="@routeData">
-            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        </CascadingValue>
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
     <NotFound>
         <LayoutView Layout="@typeof(MainLayout)">
-            <p class="h1">¬∑”…≈‰¥Ì¿≤£°£°£°</p>
+            <p class="h1">Check Your Code !</p>
         </LayoutView>
     </NotFound>
 </Router>

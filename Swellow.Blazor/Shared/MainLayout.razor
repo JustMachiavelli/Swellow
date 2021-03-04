@@ -5,7 +5,31 @@
     @*导航栏左侧的logo*@
     <img src="/images/layout/logoName.svg" height="70">
 
-    <Breadcrumb Value="@BreadcrumbUrl" />
+    <ol class="breadcrumb border-0 bg-transparent h2 my-auto">
+        @{
+            // 有媒体库
+            if (!string.IsNullOrEmpty(LibraryName))
+            {
+                <li class="breadcrumb-item"><a href="/">主页</a></li>
+                // 有影视剧，URL在Video
+                if (!string.IsNullOrEmpty(VideoName))
+                {
+                    <li class="breadcrumb-item"><a href="/Library/@LibraryId">@LibraryName</a></li>
+                    <li class="breadcrumb-item">@VideoName</li>
+                }
+                // 没影视剧，URL在Library
+                else
+                {
+                    <li class="breadcrumb-item">@LibraryName</li>
+                }
+            }
+            // 没媒体库，URL在Home
+            else
+            {
+                <li class="breadcrumb-item">主页</li>
+            }
+        }
+    </ol>
 
     @*导航栏右侧的搜索和设置*@
     <div class="navbar-nav ml-auto">

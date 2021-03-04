@@ -1,17 +1,20 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Swellow.Blazor.Services;
 using Swellow.Model.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace Swellow.Blazor.Pages.Media
+namespace Swellow.Blazor.Components.Media
 {
     public partial class Movie
     {
         [Inject] public IServer Server { get; set; }
 
 
-        //1 电影ID【跳传】
-        [Parameter] public string MovieId { get; set; }
+        //1 电影ID【父传】
+        [Parameter] public int MovieId { get; set; }
 
 
         //2 电影详情【后传】

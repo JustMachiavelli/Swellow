@@ -28,10 +28,9 @@ namespace Swellow.Blazor.Services
                     }
                 };
             });
-
         }
 
-        public async Task<IEnumerable<VideoPreview>> GetVideoPreviewsByLibraryIdAsync(string libraryId)
+        public async Task<IEnumerable<VideoPreview>> GetVideoPreviewsByLibraryIdAsync(int libraryId)
         {
             return await Task.Run(() => {
                 return new List<VideoPreview>
@@ -49,14 +48,14 @@ namespace Swellow.Blazor.Services
             });
         }
 
-        public async Task<string> GetLibraryNameByLibraryIdAsync(string libraryId)
+        public async Task<string> GetLibraryNameByLibraryIdAsync(int libraryId)
         {
             return await Task.Run(() =>{
                 return "动漫Movie";
             });
         }
 
-        public async Task<MovieDetail> GetMovieDetailByMovieIdAsync(string movieId)
+        public async Task<MovieDetail> GetMovieDetailByMovieIdAsync(int movieId)
         {
             return await Task.Run(() => {
                 return new MovieDetail
@@ -106,13 +105,6 @@ namespace Swellow.Blazor.Services
                         },
                     }
                 };
-            });
-        }
-
-        public async Task<string> GetLibraryNameByLibraryIdAsync(int libraryId)
-        {
-            return await Task.Run(() => {
-                return "动漫Tv";
             });
         }
 

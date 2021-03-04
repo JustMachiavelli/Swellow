@@ -1,0 +1,13 @@
+﻿@page "/Library/{LibraryId:int}/Video/{VideoId:int}"
+
+
+<Swellow.Blazor.Components.Media.Movie MovieId="VideoId"/>
+
+@code
+{
+    //1 电影ID【跳传】
+    [Parameter] public int LibraryId { get; set; }
+
+    //2 电影ID【跳传】
+    [Parameter] public int VideoId { get; set; }
+}
