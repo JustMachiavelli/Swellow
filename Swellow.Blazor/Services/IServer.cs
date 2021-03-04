@@ -13,5 +13,7 @@ namespace Swellow.Blazor.Services
         Task<IEnumerable<VideoPreview>> GetVideoPreviewsByLibraryIdAsync(string libraryId);
         Task<string> GetLibraryNameByLibraryIdAsync(string libraryId);
         Task<MovieDetail> GetMovieDetailByMovieIdAsync(string movieId);
+        Task<string> GetLibraryNameByLibraryIdAsync(int libraryId);
+        Task<string> GetVideoNameByVideoIdAsync(int videoId);
     }
 }

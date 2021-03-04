@@ -108,5 +108,19 @@ namespace Swellow.Blazor.Services
                 };
             });
         }
+
+        public async Task<string> GetLibraryNameByLibraryIdAsync(int libraryId)
+        {
+            return await Task.Run(() => {
+                return "动漫Tv";
+            });
+        }
+
+        public async Task<string> GetVideoNameByVideoIdAsync(int videoId)
+        {
+            return await Task.Run(() => {
+                return "流浪地球";
+            });
+        }
     }
 }
