@@ -10,7 +10,7 @@ namespace Swellow.Model.ViewModel
 
         public string Name { get; set; }
 
-        public string PathHeadPicture { get; set; }
+        public string PathPoster { get; set; }
 
     }
 }

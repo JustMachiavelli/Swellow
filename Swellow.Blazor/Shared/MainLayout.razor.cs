@@ -25,7 +25,7 @@ namespace Swellow.Blazor.Shared
                 LibraryId = Convert.ToInt32(id);
                 LibraryName = await Server.GetLibraryNameByLibraryIdAsync(LibraryId);
                 // URL在Video
-                if ((Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("VideoId", out id) == true)
+                if ((Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("MovieId", out id) == true | (Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("TvId", out id) == true)
                 {
                     VideoId = Convert.ToInt32(id);
                     VideoName = await Server.GetVideoNameByVideoIdAsync(VideoId);

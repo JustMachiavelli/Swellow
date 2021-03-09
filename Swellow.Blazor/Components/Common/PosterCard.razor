@@ -1,0 +1,16 @@
+﻿
+<div class="card bg-transparent border-0">
+    <img src="@ImgSrc" class="card-img-top">
+    <div class="card-body text-center h4">
+        <a href="@Href" class="card-title stretched-link">@Title</a>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string ImgSrc { get; set; }
+
+    [Parameter] public string Href { get; set; }
+
+    [Parameter] public string Title { get; set; }
+
+}

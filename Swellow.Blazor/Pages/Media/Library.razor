@@ -4,27 +4,24 @@
 @using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Services;
 @using Swellow.Model.ViewModel;
+@using Swellow.Blazor.Components.Common
 
-
-<div class="mt-5 mx-5">
-    <div class="row row-cols-md-6">
-        @foreach (var videoPreview in VideoPreviews)
-        {
-            <div class="col card bg-transparent border-0">
-                <img src="@videoPreview.PathPoster" class="card-img-top" alt="影视海报" asp-append-version="true">
-                <div class="card-body text-center">
-                    <a href="Library/@LibraryId/Video/@videoPreview.Id" class="card-title stretched-link">@videoPreview.Title</a>
-                </div>
-            </div>
-        }
-    </div>
+<div class="row row-cols-md-6">
+    @foreach (var vp in VideoPreviews)
+    {
+        <div class="col">
+            <PosterCard Href=@($"Library/{LibraryId}/{vp.Type}/{vp.Id}")
+                        Title=@vp.Title
+                        ImgSrc=@vp.PathPoster />
+        </div>
+    }
 </div>
 
 @code
 {
     [Inject] public IServer Server { get; set; }
 
-    //1 媒体库ID【跳传】
+    //1 媒体库ID【url传】
     [Parameter] public int LibraryId { get; set; }
 
     //2 所含Video预览【后传】

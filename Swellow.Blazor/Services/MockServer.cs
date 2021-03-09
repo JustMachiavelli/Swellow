@@ -74,13 +74,13 @@ namespace Swellow.Blazor.Services
                         {
                             Id = 1,
                             Name = "吴京",
-                            PathHeadPicture = "/images/default/nobody.svg",
+                            PathPoster = "/images/default/nobody.svg",
                         },
                         new CastPreview
                         {
                             Id = 2,
                             Name = "屈楚萧",
-                            PathHeadPicture = "/images/default/nobody.svg",
+                            PathPoster = "/images/default/nobody.svg",
                         },
                     },
                     Directors = new List<CastPreview>{
@@ -88,7 +88,7 @@ namespace Swellow.Blazor.Services
                         {
                             Id = 3,
                             Name = "郭帆",
-                            PathHeadPicture = "/images/default/nobody.svg",
+                            PathPoster = "/images/default/nobody.svg",
                         },
                     },
                     Genres = new List<Genre>

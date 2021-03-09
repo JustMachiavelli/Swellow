@@ -1,0 +1,102 @@
+﻿@page "/Library/{LibraryId:int}/Movie/{MovieId:int}"
+@using Microsoft.AspNetCore.Components;
+@using System.Threading.Tasks;
+@using Swellow.Blazor.Services;
+@using Swellow.Model.ViewModel;
+@using Swellow.Blazor.Components.Media
+@using Swellow.Blazor.Components.Common
+
+<div class="row">
+
+    @*海报*@
+    <div class="col-md-4 text-center">
+        <img class="w-75" src="@MovieDetail.PathPoster" />
+    </div>
+
+    @*详细信息*@
+    <div class="col-md-7">
+        
+        @*标题、评分、播放组件*@
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <h1 class="display-3">@MovieDetail.Title</h1>
+                </div>
+                <div>
+                    <span class="h3">@MovieDetail.Year</span>
+                    <img class="mb-md-2" src="/images/video/star.svg" />
+                    <span class="h3">@((float)MovieDetail.Score / 10)</span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <PlayerButtons PathFanart="@MovieDetail.PathFanart" />
+            </div>
+        </div>
+
+
+        <div class="h4 mt-md-2">
+            @foreach (var genre in MovieDetail.Genres)
+            {
+                <a href="Property/@genre.Name" class="ml-md-1">@genre.Name</a>
+            }
+        </div>
+
+        <div class="h5 mt-md-2">
+            <p>@MovieDetail.Plot</p>
+        </div>
+
+        <div class="h5 mt-md-2">
+            链接：
+            <a href="https://movie.douban.com/subject/@MovieDetail.IdDouban" class="ml-md-1">豆瓣</a>
+            <a href="https://www.themoviedb.org/movie/@MovieDetail.IdTmdb" class="ml-md-1">TMDB</a>
+            <a href="https://www.imdb.com/title/@MovieDetail.IdImdb" class="ml-md-1">IMDB</a>
+        </div>
+
+
+        <div class="h3 mt-md-5">导演</div>
+        <div class="row">
+            @foreach (var cast in MovieDetail.Directors)
+            {
+                <div class="col-md-2">
+                    <PosterCard Href=@($"Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
+                </div>
+            }
+        </div>
+
+        <div class="h3 mt-md-5">演员表</div>
+        <div class="row">
+            @foreach (var cast in MovieDetail.Actors)
+            {
+                <div class="col-md-2">
+                    <PosterCard Href=@($"Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+
+@code {
+    [Inject] public IServer Server { get; set; }
+
+
+    //1 媒体库ID【url传】
+    [Parameter] public int LibraryId { get; set; }
+
+
+    //2 电影ID【url传】
+    [Parameter] public int MovieId { get; set; }
+
+
+    //3 电影详情【后传】
+    public MovieDetail MovieDetail { get; set; } = new MovieDetail();
+
+
+    //【生命】
+    protected override async Task OnInitializedAsync()
+    {
+        MovieDetail = await Server.GetMovieDetailByMovieIdAsync(MovieId);
+    }
+}

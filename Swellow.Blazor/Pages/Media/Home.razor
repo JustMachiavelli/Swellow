@@ -1,33 +1,34 @@
 ﻿@page "/"
 @using Microsoft.AspNetCore.Components;
-@using Swellow.Blazor.Services;
-@using Swellow.Model.ViewModel;
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
+@using Swellow.Blazor.Services;
+@using Swellow.Model.ViewModel;
+@using Swellow.Blazor.Components.Common
 
-<div class="mt-5 mx-5">
-    <h2>我的媒体库</h2>
-    <div class="row row-cols-md-6 mt-md-4">
-        @foreach (var libraryPreview in LibraryPreviews)
-        {
-            <div class="col card bg-transparent border-0">
-                <img src="@libraryPreview.PathPicture" class="card-img-top" alt="媒体库预览图" asp-append-version="true">
-                <div class="card-body text-center">
-                    <a href="Library/@libraryPreview.Id" class="card-title stretched-link">@libraryPreview.Name</a>
-                </div>
-            </div>
-        }
-    </div>
+
+<h2>我的媒体库</h2>
+<div class="row row-cols-md-6 mt-md-4">
+    @foreach (var lp in LibraryPreviews)
+    {
+        <div class="col">
+            <PosterCard Href=@($"Library/{lp.Id}")
+                        Title=@lp.Name
+                        ImgSrc=@lp.PathPicture />
+        </div>
+    }
 </div>
 
 @code
 {
     [Inject] public IServer Server { get; set; }
 
-    //1 所有媒体库预览【后传】
+
+    //1 所有Library预览【后传】
     private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
 
-    //【OnInitializedAsync】
+
+    //【OnInitialized】
     protected override async Task OnInitializedAsync()
     {
         LibraryPreviews = await Server.GetLibraryPreviewsAsync();
