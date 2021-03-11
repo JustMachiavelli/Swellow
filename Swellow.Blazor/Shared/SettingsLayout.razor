@@ -1,36 +1,54 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="row m-0">
 
-    <div class="col-md-2 p-0">
 
-        <nav class="navbar navbar-light bg-light flex-column m-0" style="height:100vh">
-            <ul class="navbar-nav flex-column w-75">
-                <li class="nav-item">
-                    <a class="nav-link" href="/"><span class="h3">主页</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Settings/Dashboard"><span class="h3">控制台</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Settings/User"><span class="h3">用户</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Settings/Library"><span class="h3">媒体库</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Settings/Naming"><span class="h3">命名规则</span></a>
-                </li>
-            </ul>
-        </nav>
+<Layout ShowFooter="false" SideWidth="12%" IsPage="true">
 
-    </div>
+    @*<Header>
+        <div class="d-flex justify-content-center align-items-center" style="height: 50px; color: #fff; margin: 0 -1px;">Header</div>
+    </Header>*@
+    <Side>
+        <div style="position: absolute; top: 0; left:0; right: 0; bottom: 0; overflow: auto; border-right: 1px solid rgba(0,0,0,.125); padding: 6px 0;">
+            <Menu Items="@GetIconSideMenuItems()" IsVertical="true"></Menu>
+        </div>
+    </Side>
 
-    <div class="col-md-10 mt-5">
-        @Body
-    </div>
-</div>
+    <Main>
+        <div class="col">
+            @Body
+        </div>
+    </Main>
+
+    @*<Footer>
+        <div class="d-flex justify-content-center align-items-center" style="height: 30px; color: #fff; background-color: #5b6e84; margin: 0 -1px;">Footer</div>
+    </Footer>*@
+
+</Layout>
 
 
 @code {
+    private IEnumerable<MenuItem> GetIconSideMenuItems()
+    {
+        var ret = new List<MenuItem>
+        {
+            new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-home", Url = "/", Match = NavLinkMatch.All },
+            new MenuItem() { Text = "个人用户", Icon = "fa fa-fw fa-user" },
+            new MenuItem() { Text = "管理员", Icon = "fa fa-fw fa-cog" },
+            new MenuItem() { Text = "高级", Icon = "fa fa-fw fa-tasks" }
+        };
+
+        ret[1].AddItem(new MenuItem() { Text = "外观显示", Icon = "fa fa-fw fa-desktop", Url = "/Settings/Skin" });
+        ret[1].AddItem(new MenuItem() { Text = "主页布局", Icon = "fa fa-fw fa-home", Url = "/Settings/Layout" });
+        ret[1].AddItem(new MenuItem() { Text = "播放偏好", Icon = "fa fa-fw fa-play-circle", Url = "/Settings/Play" });
+
+        ret[2].AddItem(new MenuItem() { Text = "用户群", Icon = "fa fa-fw fa-users", Url = "/Settings/Users" });
+        ret[2].AddItem(new MenuItem() { Text = "媒体库", Icon = "fa fa-fw fa-folder", Url = "/Settings/Library" });
+        ret[2].AddItem(new MenuItem() { Text = "数据维护", Icon = "fa fa-fw fa-database", Url = "/Settings/Naming" });
+
+        ret[3].AddItem(new MenuItem() { Text = "控制台", Icon = "fa fa-fw fa-dashboard", Url = "/Settings/Dashboard" });
+        ret[3].AddItem(new MenuItem() { Text = "网络", Icon = "fa fa-fw fa-wifi", Url = "/Settings/Network" });
+        ret[3].AddItem(new MenuItem() { Text = "转码", Icon = "fa fa-fw fa-retweet", Url = "/Settings/Transcode" });
+
+        return ret;
+    }
 }

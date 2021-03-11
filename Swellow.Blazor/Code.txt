@@ -1,38 +1,114 @@
-﻿                    <EditForm Model="@NewLibrary"
-                              OnValidSubmit="@HandleValidSubmit"
-                              OnInvalidSubmit="@HandleInvalidSubmit">
-                        <DataAnnotationsValidator />
-                        <ValidationSummary></ValidationSummary>
+﻿    <div class="col-md-2 p-0">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">名称</label>
-                            <div class="col-sm-10">
-                                <InputText class="form-control" id="name" @bind-Value="@NewLibrary.Name" />
-                                <ValidationMessage For="@(() => NewLibrary.Name)" />
-                            </div>
-                        </div>
+        <nav class="navbar navbar-light bg-light flex-column m-0" style="height:100vh">
+            <ul class="navbar-nav flex-column w-75">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><span class="h3">主页</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Dashboard"><span class="h3">控制台</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/User"><span class="h3">用户</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Library"><span class="h3">媒体库</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Naming"><span class="h3">命名规则</span></a>
+                </li>
+            </ul>
+        </nav>
 
-                        <div class="form-group row">
-                            <label for="gender" class="col-sm-2 col-form-label">类型</label>
-                            <div class="col-sm-10">
-                                <InputSelect class="form-control" id="gender" @bind-Value="@NewLibrary.Type">
-                                    @foreach (var value in Enum.GetValues(typeof(LibraryType)))
-                                    {
-                                        <option value="@value">@value</option>
-                                    }
-                                </InputSelect>
-                            </div>
-                        </div>
-                        
-                        <!--<div class="form-group row">
-                            <label class="col-sm-2 col-form-label">封面图</label>
-                            <div class="col-sm-10">
-                                <div class="custom-file">
-                                    <input asp-for="PicturePath" class="form-control custom-file-input" />-->-->
-                                    @*<input type="file" />*@
-                                    <!--<label class="custom-file-label">请选择媒体库图片...</label>
-                                </div>
-                            </div>
-                        </div>-->
+    </div>
 
-                    </EditForm>
+
+element.style {
+}
+@media (min-width: 768px)
+.layout.is-page :not(.layout-right) .layout-main, .layout.is-page .layout-right {
+    width: calc(100% - 214px);
+}
+.layout.is-page .layout-right, .layout.is-page .has-sidebar .layout-main {
+    width: 100%;
+}
+.layout.is-page .layout-main {
+    padding: 1rem;
+    position: relative;
+    min-height: calc(100vh - 90px);
+}
+.layout .layout-main {
+    flex: 1;
+}
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+main {
+    display: block;
+}
+html, body {
+    font-size: 12px;
+    /* height: 100%; */
+}
+body, .form-control, .dropdown-menu, .btn:not(.btn-xs):not(.btn-sm):not(.btn-md):not(.btn-lg):not(.btn-xl), .alert .close .fa-times, .toast .close, .input-group-text {
+    font-size: .875rem;
+}
+html, body, button, .popover {
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+}
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}

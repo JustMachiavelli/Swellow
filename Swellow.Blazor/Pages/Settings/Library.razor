@@ -1,54 +1,59 @@
 ﻿@page "/Settings/Library"
 @using Swellow.Blazor.Components.Common;
 @using Swellow.Model.Enum;
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@using Microsoft.AspNetCore.Components;
+@using Swellow.Blazor.Services;
+@using Swellow.Model.ViewModel.Media;
+@using Swellow.Model.ViewModel.Settings;
 
+<div class="text-center">
 
-<div>
-    <div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LibraryModal">
-            Launch demo modal
-        </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#LibraryModal">
+        新建媒体库
+    </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="LibraryModal" tabindex="-1" aria-labelledby="LibraryModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+    <!-- Modal -->
+    <div class="modal fade" id="LibraryModal" tabindex="-1" aria-labelledby="LibraryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-                    @*头部*@
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="LibraryModalLabel">新媒体库</h5>
-                    </div>
+                @*头部*@
+                <div class="modal-header">
+                    <h5 class="modal-title" id="LibraryModalLabel">新媒体库</h5>
+                </div>
 
-                    <EditForm Model="@NewLibrary"
-                              OnValidSubmit="@HandleValidSubmit"
-                              OnInvalidSubmit="@HandleInvalidSubmit">
-                        <DataAnnotationsValidator />
-                        <ValidationSummary></ValidationSummary>
+                <EditForm Model="@NewLibrary"
+                          OnValidSubmit="@HandleValidSubmit"
+                          OnInvalidSubmit="@HandleInvalidSubmit">
+                    <DataAnnotationsValidator />
+                    @*<ValidationSummary></ValidationSummary>*@
 
-                        @*身体*@
-                        <div class="modal-body">
-                            <div class="form-group row">
-                                <label for="name" class="col-sm-2 col-form-label">名称</label>
-                                <div class="col-sm-10">
-                                    <InputText class="form-control" id="name" @bind-Value="@NewLibrary.Name" />
-                                    <ValidationMessage For="@(() => NewLibrary.Name)" />
-                                </div>
+                    @*身体*@
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">名称</label>
+                            <div class="col-sm-10">
+                                <InputText class="form-control" id="name" @bind-Value="@NewLibrary.Name" />
+                                <ValidationMessage For="@(() => NewLibrary.Name)" />
                             </div>
+                        </div>
 
-                            <div class="form-group row">
-                                <label for="gender" class="col-sm-2 col-form-label">类型</label>
-                                <div class="col-sm-10">
-                                    <InputSelect class="form-control" id="gender" @bind-Value="@NewLibrary.Type">
-                                        @foreach (var value in Enum.GetValues(typeof(LibraryType)))
-                                        {
-                                            <option value="@value">@value</option>
-                                        }
-                                    </InputSelect>
-                                </div>
+                        <div class="form-group row">
+                            <label for="gender" class="col-sm-2 col-form-label">类型</label>
+                            <div class="col-sm-10">
+                                <InputSelect class="form-control" id="type" @bind-Value="@NewLibrary.Type">
+                                    @foreach (var value in Enum.GetValues(typeof(LibraryType)))
+                                    {
+                                        <option value="@value">@value</option>
+                                    }
+                                </InputSelect>
                             </div>
+                        </div>
 
-                            <div class="form-group row">
+                        @*<div class="form-group row">
                                 <label class="col-sm-2 col-form-label">封面图</label>
                                 <div class="col-sm-10">
                                     <div class="custom-file">
@@ -57,23 +62,24 @@
                                         <label class="custom-file-label">请选择媒体库图片...</label>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>*@
+                    </div>
 
-                        @*尾部*@
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">创建</button>
-                        </div>
+                    @*尾部*@
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">创建</button>
+                        @*<button type="submit" class="btn btn-primary" disabled="@FormInvalid">创建</button>*@
+                        @*<button type="submit" class="btn btn-primary" data-dismiss="@DataDismiss">创建</button>*@
+                    </div>
 
-                    </EditForm>
+                </EditForm>
 
-                </div>
             </div>
         </div>
-
-        <a class="btn btn-success">扫描所有媒体库</a>
-
     </div>
+
+    <a class="btn btn-success">扫描媒体库</a>
+
 </div>
 
 
@@ -87,3 +93,47 @@
         </div>
     }
 </div>
+
+@code
+{
+
+    [Inject] public IServer Server { get; set; }
+
+
+    //1 所有Library预览【后传】
+    private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
+
+
+    public LibraryCreateEdit NewLibrary { get; set; }
+
+    public string DataDismiss { get; set; } = "";
+
+    private string FormOK = "modal";
+
+    //【OnInitialized】
+    protected override async Task OnInitializedAsync()
+    {
+        NewLibrary = new LibraryCreateEdit
+        {
+            Name = "",
+            Type = LibraryType.Movie,
+        };
+        LibraryPreviews = await Server.GetLibraryPreviewsAsync();
+        await base.OnInitializedAsync();
+    }
+
+    private Task HandleValidSubmit()
+    {
+        FormOK = "modal";
+        StateHasChanged();
+        System.Console.WriteLine($"正在Valid的FormOK: {FormOK}");
+        return Task.CompletedTask;
+    }
+
+    private void HandleInvalidSubmit()
+    {
+        FormOK = "";
+        StateHasChanged();
+        System.Console.WriteLine($"正在Invalid的FormOK: {FormOK}");
+    }
+}
