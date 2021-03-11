@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.ViewModel
+namespace Swellow.Model.ViewModel.Media
 {
     public class LibraryPreview
     {
@@ -13,6 +13,6 @@ namespace Swellow.Model.ViewModel
         public string Name { get; set; }
 
         // 媒体库的预览图路径
-        public string PathPicture { get; set; }
+        public string PathImage { get; set; }
     }
 }

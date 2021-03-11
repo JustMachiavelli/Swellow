@@ -33,7 +33,7 @@ namespace Swellow.Shared.SqlModel.People
         public string NameOld { get; set; }
 
         // 5 照片路径
-        public string PathHeadPicture
+        public string PathPoster
         {
             get
             {

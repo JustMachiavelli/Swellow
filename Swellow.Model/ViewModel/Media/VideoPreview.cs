@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.ViewModel
+namespace Swellow.Model.ViewModel.Media
 {
     public class VideoPreview
     {

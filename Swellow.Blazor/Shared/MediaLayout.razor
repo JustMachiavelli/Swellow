@@ -14,7 +14,7 @@
                 // 有影视剧，URL在Video
                 if (!string.IsNullOrEmpty(VideoName))
                 {
-                    <li class="breadcrumb-item"><a href="/Library/@LibraryId">@LibraryName</a></li>
+                    <li class="breadcrumb-item"><a href="Media/Library/@LibraryId">@LibraryName</a></li>
                     <li class="breadcrumb-item">@VideoName</li>
                 }
                 // 没影视剧，URL在Library
@@ -33,10 +33,10 @@
 
     @*导航栏右侧的搜索和设置*@
     <div class="navbar-nav ml-auto">
-        <a href="Search" class="mx-2">
+        <a href="Test" class="mx-2">
             <img src="/images/layout/search.svg" height="45" />
         </a>
-        <a href="Settings/Dashboard" class="mx-2">
+        <a href="Settings/Library" class="mx-2">
             <img src="/images/layout/settings.svg" height="45" />
         </a>
     </div>
@@ -48,6 +48,6 @@
     <img height="70">
 </nav>
 
-<div class="mt-5 mx-5">
+<div class="mt-5 mx-5 text-white">
     @Body
 </div>

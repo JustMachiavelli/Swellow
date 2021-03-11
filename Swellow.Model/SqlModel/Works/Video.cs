@@ -1,4 +1,5 @@
-﻿using Swellow.Shared.SqlModel.Middle;
+﻿using Swellow.Model.Enum;
+using Swellow.Shared.SqlModel.Middle;
 using Swellow.Shared.SqlModel.Property;
 using Swellow.Shared.SqlModel.View;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace Swellow.Shared.SqlModel.Works
         [Key]
         public int Id { get; set; }
         // 1 视频类型，电影、电视剧
-        public string Type { get; set; }
+        public VideoType Type { get; set; }
         // 2 标题
         public string Title { get; set; }
         // 3 原标题

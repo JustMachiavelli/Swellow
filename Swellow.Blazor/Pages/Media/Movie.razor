@@ -1,8 +1,8 @@
-﻿@page "/Library/{LibraryId:int}/Movie/{MovieId:int}"
+﻿@page "/Media/Library/{LibraryId:int}/Movie/{MovieId:int}"
 @using Microsoft.AspNetCore.Components;
 @using System.Threading.Tasks;
 @using Swellow.Blazor.Services;
-@using Swellow.Model.ViewModel;
+@using Swellow.Model.ViewModel.Media;
 @using Swellow.Blazor.Components.Media
 @using Swellow.Blazor.Components.Common
 
@@ -38,7 +38,7 @@
         <div class="h4 mt-md-2">
             @foreach (var genre in MovieDetail.Genres)
             {
-                <a href="Property/@genre.Name" class="ml-md-1">@genre.Name</a>
+                <a href="Media/Property/@genre.Name" class="ml-md-1">@genre.Name</a>
             }
         </div>
 
@@ -59,7 +59,7 @@
             @foreach (var cast in MovieDetail.Directors)
             {
                 <div class="col-md-2">
-                    <PosterCard Href=@($"Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
+                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
                 </div>
             }
         </div>
@@ -69,7 +69,7 @@
             @foreach (var cast in MovieDetail.Actors)
             {
                 <div class="col-md-2">
-                    <PosterCard Href=@($"Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
+                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
                 </div>
             }
         </div>

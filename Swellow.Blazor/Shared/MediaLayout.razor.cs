@@ -5,7 +5,7 @@ using System;
 
 namespace Swellow.Blazor.Shared
 {
-    public partial class MainLayout
+    public partial class MediaLayout
     {
         [Inject] public IServer Server { get; set; }
 

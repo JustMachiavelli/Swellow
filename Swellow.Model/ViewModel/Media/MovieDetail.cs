@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.SqlModel.Property;
 using System.Collections.Generic;
 
-namespace Swellow.Model.ViewModel
+namespace Swellow.Model.ViewModel.Media
 {
     public class MovieDetail
     {

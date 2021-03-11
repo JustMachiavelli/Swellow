@@ -3,7 +3,7 @@
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
 @using Swellow.Blazor.Services;
-@using Swellow.Model.ViewModel;
+@using Swellow.Model.ViewModel.Media;
 @using Swellow.Blazor.Components.Common
 
 
@@ -12,9 +12,9 @@
     @foreach (var lp in LibraryPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Library/{lp.Id}")
+            <PosterCard Href=@($"Media/Library/{lp.Id}")
                         Title=@lp.Name
-                        ImgSrc=@lp.PathPicture />
+                        ImgSrc=@lp.PathImage />
         </div>
     }
 </div>

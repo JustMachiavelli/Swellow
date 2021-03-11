@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Swellow.Model.Enum;
 using Swellow.Shared.SqlModel.Episode;
 using Swellow.Shared.SqlModel.LocalFile;
 using Swellow.Shared.SqlModel.Middle;
@@ -28,8 +29,8 @@ namespace Swellow.Shared
         {
             // Video、Movie、Tv仍然只采用一个Video，以Type属性区分；他们继承的豆瓣等Id共用列。
             modelBuilder.Entity<Video>().HasDiscriminator(Video => Video.Type)
-                                        .HasValue<Movie>("movie")
-                                        .HasValue<Tv>("tv"); ;
+                                        .HasValue<Movie>(VideoType.Movie)
+                                        .HasValue<Tv>(VideoType.Tv); ;
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdDouban).HasColumnName("IdDouban");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdImdb).HasColumnName("IdImdb");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdTmdb).HasColumnName("IdTmdb");

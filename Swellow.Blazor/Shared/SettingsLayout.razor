@@ -1,0 +1,36 @@
+﻿@inherits LayoutComponentBase
+
+<div class="row m-0">
+
+    <div class="col-md-2 p-0">
+
+        <nav class="navbar navbar-light bg-light flex-column m-0" style="height:100vh">
+            <ul class="navbar-nav flex-column w-75">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"><span class="h3">主页</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Dashboard"><span class="h3">控制台</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/User"><span class="h3">用户</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Library"><span class="h3">媒体库</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Settings/Naming"><span class="h3">命名规则</span></a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="col-md-10 mt-5">
+        @Body
+    </div>
+</div>
+
+
+@code {
+}

@@ -1,16 +1,16 @@
-﻿@page "/Library/{LibraryId:int}"
+﻿@page "/Media/Library/{LibraryId:int}"
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
 @using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Services;
-@using Swellow.Model.ViewModel;
+@using Swellow.Model.ViewModel.Media;
 @using Swellow.Blazor.Components.Common
 
 <div class="row row-cols-md-6">
     @foreach (var vp in VideoPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Library/{LibraryId}/{vp.Type}/{vp.Id}")
+            <PosterCard Href=@($"Media/Library/{LibraryId}/{vp.Type}/{vp.Id}")
                         Title=@vp.Title
                         ImgSrc=@vp.PathPoster />
         </div>

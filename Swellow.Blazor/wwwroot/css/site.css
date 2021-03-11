@@ -18,7 +18,7 @@ html, body {
 }
 
 .home-body {
-    color: white;
+    /*color: white;*/
     background-image: url(/images/layout/background-blueradiance.jpg);
     background-repeat: no-repeat;
     background-size: cover;

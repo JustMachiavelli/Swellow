@@ -1,4 +1,5 @@
-﻿using Swellow.Shared.SqlModel.LocalFile;
+﻿using Swellow.Model.Enum;
+using Swellow.Shared.SqlModel.LocalFile;
 using Swellow.Shared.SqlModel.Middle;
 using Swellow.Shared.SqlModel.People;
 using Swellow.Shared.SqlModel.Property;
@@ -30,7 +31,7 @@ namespace Swellow.Shared
 
             Movie movielldq = new Movie
             {
-                Type = "movie",
+                Type = VideoType.Movie,
                 Title = "流浪地球(2019)",
                 TitleOrigin = "流浪地球",
                 TitleOriginZh = "流浪地球",
@@ -56,7 +57,7 @@ namespace Swellow.Shared
 
             Movie moviexc = new Movie
             {
-                Type = "movie",
+                Type = VideoType.Movie,
                 Title = "小丑(2019)",
                 TitleOrigin = "Joker",
                 TitleOriginZh = "小丑",
@@ -82,7 +83,7 @@ namespace Swellow.Shared
 
             Movie moviejsc = new Movie
             {
-                Type = "movie",
+                Type = VideoType.Movie,
                 Title = "寄生虫(2019)",
                 TitleOrigin = "기생충",
                 TitleOriginZh = "寄生虫",
@@ -108,7 +109,7 @@ namespace Swellow.Shared
 
             Movie moviegqzq = new Movie
             {
-                Type = "movie",
+                Type = VideoType.Movie,
                 Title = "名侦探柯南剧场版20：绀青之拳(2019)",
                 TitleOrigin = "名探偵コナン 紺青の拳",
                 TitleOriginZh = "名侦探柯南剧场版20：绀青之拳",
@@ -146,8 +147,8 @@ namespace Swellow.Shared
                 new Library
                 {
                     Name = "科幻",
-                    Type = "电影",
-                    PathPicture = "/swellowdata/images/library/preview/1.jpg",
+                    Type = LibraryType.Movie,
+                    PathImage = "/swellowdata/images/library/preview/1.jpg",
                     PathDirectorys = new List<PathDirectory>
                     {
                         new PathDirectory{ Path = "/testmovies/科幻1", },
@@ -158,8 +159,8 @@ namespace Swellow.Shared
                 new Library
                 {
                     Name = "动漫",
-                    Type = "电影",
-                    PathPicture = "/swellowdata/images/library/preview/2.jpg",
+                    Type = LibraryType.Movie,
+                    PathImage = "/swellowdata/images/library/preview/2.jpg",
                     PathDirectorys = new List<PathDirectory>
                     {
                         new PathDirectory{ Path = "/testmovies/喜剧1", },
