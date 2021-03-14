@@ -16,67 +16,42 @@
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="LibraryModal" tabindex="-1" aria-labelledby="LibraryModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+    @if (isShowModal)
+    {
+        <div class="modal fade" id="LibraryModal" tabindex="-1" aria-labelledby="LibraryModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
 
-                @*头部*@
-                <div class="modal-header">
-                    <h5 class="modal-title" id="LibraryModalLabel">新媒体库</h5>
-                </div>
-
-                <EditForm Model="@NewLibrary"
-                          OnValidSubmit="@HandleValidSubmit"
-                          OnInvalidSubmit="@HandleInvalidSubmit">
-                    <DataAnnotationsValidator />
-                    @*<ValidationSummary></ValidationSummary>*@
+                    @*头部*@
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="LibraryModalLabel">新媒体库</h5>
+                    </div>
 
                     @*身体*@
                     <div class="modal-body">
-                        <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">名称</label>
-                            <div class="col-sm-10">
-                                <InputText class="form-control" id="name" @bind-Value="@NewLibrary.Name" />
-                                <ValidationMessage For="@(() => NewLibrary.Name)" />
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="gender" class="col-sm-2 col-form-label">类型</label>
-                            <div class="col-sm-10">
-                                <InputSelect class="form-control" id="type" @bind-Value="@NewLibrary.Type">
-                                    @foreach (var value in Enum.GetValues(typeof(LibraryType)))
-                                    {
-                                        <option value="@value">@value</option>
-                                    }
-                                </InputSelect>
-                            </div>
-                        </div>
-
-                        @*<div class="form-group row">
-                                <label class="col-sm-2 col-form-label">封面图</label>
-                                <div class="col-sm-10">
-                                    <div class="custom-file">
-                                        <input class="form-control custom-file-input" />
-                                        <input type="file" />
-                                        <label class="custom-file-label">请选择媒体库图片...</label>
-                                    </div>
+                        <ValidateForm class="form-inline" Model="@NewLibrary" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <BootstrapInput @bind-Value="@NewLibrary.Name" />
                                 </div>
-                            </div>*@
+                                <div class="form-group col-12">
+                                    <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
+                                </div>
+                                <div class="form-group col-12">
+                                    <InputUpload @bind-Value="@Picture" />
+                                </div>
+                                <div class="form-group col-12">
+                                    <Button ButtonType="@ButtonType.Submit" Text="创建" />
+                                </div>
+                            </div>
+                        </ValidateForm>
                     </div>
 
-                    @*尾部*@
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">创建</button>
-                        @*<button type="submit" class="btn btn-primary" disabled="@FormInvalid">创建</button>*@
-                        @*<button type="submit" class="btn btn-primary" data-dismiss="@DataDismiss">创建</button>*@
-                    </div>
-
-                </EditForm>
-
+                </div>
             </div>
         </div>
-    </div>
+    }
+
 
     <a class="btn btn-success">扫描媒体库</a>
 
@@ -103,12 +78,21 @@
     //1 所有Library预览【后传】
     private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
 
+    private readonly IEnumerable<SelectedItem> Items = new SelectedItem[]
+        {
+            //new SelectedItem ("", "请选择..."),
+            new SelectedItem ("Movie", "电影"),
+            new SelectedItem ("Tv", "电视剧"),
+        };
 
     public LibraryCreateEdit NewLibrary { get; set; }
 
     public string DataDismiss { get; set; } = "";
 
-    private string FormOK = "modal";
+
+    public IBrowserFile Picture { get; set; }
+
+    public bool isShowModal { get; set; } = false;
 
     //【OnInitialized】
     protected override async Task OnInitializedAsync()
@@ -122,18 +106,15 @@
         await base.OnInitializedAsync();
     }
 
-    private Task HandleValidSubmit()
+    private Task OnValidSubmit(EditContext context)
     {
-        FormOK = "modal";
-        StateHasChanged();
-        System.Console.WriteLine($"正在Valid的FormOK: {FormOK}");
+        //Trace2.Log("OnValidSubmit 回调委托");
         return Task.CompletedTask;
     }
 
-    private void HandleInvalidSubmit()
+    private Task OnInvalidSubmit(EditContext context)
     {
-        FormOK = "";
-        StateHasChanged();
-        System.Console.WriteLine($"正在Invalid的FormOK: {FormOK}");
+        //Trace2.Log("OnInvalidSubmit 回调委托");
+        return Task.CompletedTask;
     }
 }

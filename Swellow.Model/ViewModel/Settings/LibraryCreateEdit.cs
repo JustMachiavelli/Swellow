@@ -21,7 +21,7 @@ namespace Swellow.Model.ViewModel.Settings
         public LibraryType Type { get; set; }
 
         // 3 预览图路径
-        public string PathImage { get; set; }
+        //public IBrowserFile? Picture { get; set; }
 
         // 4【集合导航】包含的文件夹的路径们
         public List<PathDirectory> PathDirectorys { get; set; }
