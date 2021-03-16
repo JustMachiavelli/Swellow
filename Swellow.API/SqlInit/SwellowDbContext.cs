@@ -9,7 +9,7 @@ using Swellow.Shared.SqlModel.View;
 using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 
-namespace Swellow.Shared
+namespace Swellow.SqlInit.API
 {
     public class SwellowDbContext : DbContext
     {
@@ -28,9 +28,10 @@ namespace Swellow.Shared
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Video、Movie、Tv仍然只采用一个Video，以Type属性区分；他们继承的豆瓣等Id共用列。
-            modelBuilder.Entity<Video>().HasDiscriminator(Video => Video.Type)
+            modelBuilder.Entity<Video>().HasDiscriminator<VideoType>("Type")
+                                        .HasValue<Video>(VideoType.Video)
                                         .HasValue<Movie>(VideoType.Movie)
-                                        .HasValue<Tv>(VideoType.Tv); ;
+                                        .HasValue<Tv>(VideoType.Tv);
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdDouban).HasColumnName("IdDouban");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdImdb).HasColumnName("IdImdb");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.IdTmdb).HasColumnName("IdTmdb");

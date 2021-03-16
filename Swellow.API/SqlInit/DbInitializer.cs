@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Swellow.Shared
+namespace Swellow.SqlInit.API
 {
     public class DbInitializer
     {
