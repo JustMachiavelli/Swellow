@@ -35,29 +35,27 @@ namespace Swellow.API
 
         private static void CreateDbIfNotExists(IHost host)
         {
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var context = services.GetRequiredService<SwellowDbContext>();
+            using var scope = host.Services.CreateScope();
+            var services = scope.ServiceProvider;
+            var context = services.GetRequiredService<SwellowDbContext>();
 
-                //将 EnsureCreated 调用替换为 DbInitializer.Initialize 调用
-                //context.Database.EnsureCreated();
-                DbInitializer.Initialize(context);
-                //try
-                //{
-                //    var context = services.GetRequiredService<SwellowDbContext>();
+            //将 EnsureCreated 调用替换为 DbInitializer.Initialize 调用
+            //context.Database.EnsureCreated();
+            DbInitializer.Initialize(context);
+            //try
+            //{
+            //    var context = services.GetRequiredService<SwellowDbContext>();
 
-                //    //将 EnsureCreated 调用替换为 DbInitializer.Initialize 调用
-                //    //context.Database.EnsureCreated();
-                //    DbInitializer.Initialize(context);
+            //    //将 EnsureCreated 调用替换为 DbInitializer.Initialize 调用
+            //    //context.Database.EnsureCreated();
+            //    DbInitializer.Initialize(context);
 
-                //}
-                //catch (Exception ex)
-                //{
-                //    var logger = services.GetRequiredService<ILogger<Program>>();
-                //    logger.LogError(ex, "An error occurred creating the DB.");
-                //}
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    var logger = services.GetRequiredService<ILogger<Program>>();
+            //    logger.LogError(ex, "An error occurred creating the DB.");
+            //}
         }
     }
 }
