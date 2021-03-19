@@ -1,4 +1,5 @@
-﻿using Swellow.Model.ViewModel.Media;
+﻿using Swellow.Model.ViewModel.Components;
+using Swellow.Model.ViewModel.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Swellow.Blazor.Services
 
 
         //4 依据movieId得到Media.Video.page包含的Move.cpt需要的Movie详情
-        Task<MovieDetail> GetMovieDetailByMovieIdAsync(int movieId);
+        Task<MovieViewModel> GetMovieDetailByMovieIdAsync(int movieId);
 
 
         //5 依据videoId得到VideoName

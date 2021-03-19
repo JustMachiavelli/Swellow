@@ -1,9 +1,10 @@
-﻿using Swellow.Shared.SqlModel.Property;
+﻿using Swellow.Model.ViewModel.Components;
+using Swellow.Shared.SqlModel.Property;
 using System.Collections.Generic;
 
 namespace Swellow.Model.ViewModel.Media
 {
-    public class MovieDetail
+    public class MovieViewModel
     {
         public string Title { get; set; }
         public string Year { get; set; }

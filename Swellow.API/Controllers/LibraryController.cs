@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swellow.API.Services;
+using Swellow.Model.ViewModel.Components;
+using Swellow.Model.ViewModel.Media;
+using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +14,7 @@ namespace Swellow.API.Controllers
 
     [ApiController]
     [Route("api/librarys")]
-    public class LibraryController : Controller
+    public class LibraryController : ControllerBase
     {
         private readonly DbManager _dbManager;
 
@@ -20,80 +23,26 @@ namespace Swellow.API.Controllers
             _dbManager = dbManager;
         }
 
-
-        // GET: LibraryController
-        public ActionResult Index()
+        public Task<IActionResult> GetLibrarys()
         {
-            return View();
-        }
-
-        // GET: LibraryController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: LibraryController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: LibraryController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            List<LibraryPreview> libraryPreviews = new();
+            foreach (Library library in _dbManager.GetAllLibrarys())
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
+                LibraryPreview libraryPreview = new()
+                {
+                    Id = library.Id,
+                    Name = library.Name,
+                    PathImage = library.PathImage,
+                };
+                libraryPreviews.Add(libraryPreview);
+            };
+
+            HomeViewModel homeViewModel = new()
             {
-                return View();
-            }
+                LibraryPreviews = libraryPreviews,
+            };
+            return new JsonResult(homeViewModel);
         }
 
-        // GET: LibraryController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: LibraryController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: LibraryController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: LibraryController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }
