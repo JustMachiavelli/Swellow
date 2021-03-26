@@ -9,11 +9,13 @@ namespace Swellow.Environment
         //public static string PathRoot = new System.IO.DirectoryInfo("../../").FullName.Replace("\\", "/");
         public static string PathRoot = "D:/MyGit/MyProjects";
 
-        // 缓存文件【绝对路径】
-        public static string PathSwellowData = PathRoot + "/swellowdata";
+        // 本地文件目录【绝对路径】
+        public static string PathSwellowData = PathRoot + "/SwellowData";
 
         // 测试用电影【绝对路径】
-        public static string PathTestMovies = PathRoot + "/testmovies";
+        public static string PathTestMovies = PathRoot + "/TestMovies";
 
+        // 本地文件目录中的图片【绝对路径】
+        public static string PathSwellowDataImage = PathSwellowData + "/Images";
     }
 }

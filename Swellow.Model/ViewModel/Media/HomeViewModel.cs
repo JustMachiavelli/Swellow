@@ -1,4 +1,4 @@
-﻿using Swellow.Model.ViewModel.Components;
+﻿using Swellow.Model.ViewModel.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;

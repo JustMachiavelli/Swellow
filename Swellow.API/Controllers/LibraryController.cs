@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Swellow.API.Services;
-using Swellow.Model.ViewModel.Components;
+using Swellow.API.Sql;
+using Swellow.Model.ViewModel.Dto;
 using Swellow.Model.ViewModel.Media;
 using Swellow.Shared.SqlModel.View;
 using System;
@@ -13,35 +14,23 @@ namespace Swellow.API.Controllers
 {
 
     [ApiController]
-    [Route("api/librarys")]
     public class LibraryController : ControllerBase
     {
-        private readonly DbManager _dbManager;
+        private readonly IDbManager _dbManager;
+        private readonly IMapper _mapper;
 
-        public LibraryController(DbManager dbManager)
+        public LibraryController(IDbManager dbManager, IMapper mapper)
         {
-            _dbManager = dbManager;
+            _dbManager = dbManager ?? throw new ArgumentNullException(nameof(dbManager));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public Task<IActionResult> GetLibrarys()
+        [HttpGet("api/librarys")]
+        public async Task<ActionResult<IEnumerable<LibraryPreview>>> GetLibrarys()
         {
-            List<LibraryPreview> libraryPreviews = new();
-            foreach (Library library in _dbManager.GetAllLibrarys())
-            {
-                LibraryPreview libraryPreview = new()
-                {
-                    Id = library.Id,
-                    Name = library.Name,
-                    PathImage = library.PathImage,
-                };
-                libraryPreviews.Add(libraryPreview);
-            };
-
-            HomeViewModel homeViewModel = new()
-            {
-                LibraryPreviews = libraryPreviews,
-            };
-            return new JsonResult(homeViewModel);
+            IEnumerable<Library> librarys = await _dbManager.GetAllLibrarysAsync();
+            IEnumerable<LibraryPreview> libraryPreviews = _mapper.Map<IEnumerable<LibraryPreview>>(librarys);
+            return Ok(libraryPreviews);
         }
 
     }

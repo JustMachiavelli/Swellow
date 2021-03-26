@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Swellow.SqlInit.API
+namespace Swellow.API.Sql.Init
 {
     public class DbInitializer
     {
@@ -148,23 +148,23 @@ namespace Swellow.SqlInit.API
                 {
                     Name = "科幻",
                     Type = LibraryType.Movie,
-                    PathImage = "/swellowdata/images/library/preview/1.jpg",
+                    PathImage = "/SwellowData/Images/Library/Preview/1.jpg",
                     PathDirectorys = new List<PathDirectory>
                     {
-                        new PathDirectory{ Path = "/testmovies/科幻1", },
-                        new PathDirectory{ Path = "/testmovies/科幻2", },
-                        new PathDirectory{ Path = "/testmovies/科幻3", },
+                        new PathDirectory{ Path = "/TestMovies/科幻1", },
+                        new PathDirectory{ Path = "/TestMovies/科幻2", },
+                        new PathDirectory{ Path = "/TestMovies/科幻3", },
                     }
                 },
                 new Library
                 {
                     Name = "动漫",
                     Type = LibraryType.Movie,
-                    PathImage = "/swellowdata/images/library/preview/2.jpg",
+                    PathImage = "/SwellowData/Images/Library/Preview/2.jpg",
                     PathDirectorys = new List<PathDirectory>
                     {
-                        new PathDirectory{ Path = "/testmovies/喜剧1", },
-                        new PathDirectory{ Path = "/testmovies/喜剧2", },
+                        new PathDirectory{ Path = "/TestMovies/喜剧1", },
+                        new PathDirectory{ Path = "/TestMovies/喜剧2", },
                     }
                 },
             };

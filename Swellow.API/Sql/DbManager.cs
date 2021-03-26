@@ -1,16 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Swellow.API.Sql.Init;
 using Swellow.Shared.SqlModel.People;
 using Swellow.Shared.SqlModel.View;
 using Swellow.Shared.SqlModel.Works;
-using Swellow.SqlInit.API;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Swellow.API.Services
+namespace Swellow.API.Sql
 {
-    public class DbManager
+    public class DbManager : IDbManager
     {
         private readonly SwellowDbContext _context;
 
@@ -21,54 +21,56 @@ namespace Swellow.API.Services
 
 
         // 【Library】1得到所有Library
-        public IEnumerable<Library> GetAllLibrarys()
+        public async Task<IEnumerable<Library>> GetAllLibrarysAsync()
         {
-            return _context.Librarys.ToArray();
+            return await _context.Librarys.ToListAsync();
         }
 
         // 【Library】2得到一个Library的Name
-        public string GetLibraryNameById(int id)
+        public async Task<string> GetLibraryNameByIdAsync(int id)
         {
-            return _context.Librarys.Where(Library => Library.Id == id)
-                                    .Select(Library => Library.Name)
-                                    .FirstOrDefault();
+            return await _context.Librarys.Where(Library => Library.Id == id)
+                                        .Select(Library => Library.Name)
+                                        .FirstOrDefaultAsync();
         }
 
 
         // 【Video】1得到Videos，通过LibraryId
-        public IEnumerable<Video> GetVideosByLibraryId(int id)
+        public async Task<IEnumerable<Video>> GetVideosByLibraryIdAsync(int id)
         {
-            return _context.Videos.Where(Video => Video.IdLibrary == id).ToArray();
+            return await _context.Videos.Where(Video => Video.IdLibrary == id)
+                                        .ToListAsync();
         }
 
         // 【Video】2得到一个Video，通过VideoId
-        public Movie GetMovieById(int id)
+        public async Task<Movie> GetMovieByIdAsync(int id)
         {
-            Movie movie = _context.Movies.Where(Movie => Movie.Id == id)
+            Movie movie = await _context.Movies.Where(Movie => Movie.Id == id)
                                     .Include(Movie => Movie.VideoActors)
                                         .ThenInclude(VideoActor => VideoActor.Cast)
                                     .Include(Movie => Movie.VideoDirectors)
                                         .ThenInclude(VideoDirector => VideoDirector.Cast)
                                     .Include(Movie => Movie.VideoGenres)
                                         .ThenInclude(VideoGenre => VideoGenre.Genre)
-                                    .FirstOrDefault();
+                                    .FirstOrDefaultAsync();
             return movie;
         }
 
         // 【Video】2得到一个Video，通过VideoId
-        public Tv GetTvById(int id)
+        public async Task<Tv> GetTvByIdAsync(int id)
         {
-            return _context.Tvs.FirstOrDefault(Tv => Tv.Id == id);
+            return await _context.Tvs.Where(Tv => Tv.Id == id)
+                                    .FirstOrDefaultAsync();
         }
 
-        public Cast GetCastById(int id)
+        public async Task<Cast> GetCastByIdAsync(int id)
         {
-            Cast cast = _context.Casts.Where(Cast => Cast.Id == id)
+            Cast cast = await _context.Casts.Where(Cast => Cast.Id == id)
                                     .Include(Cast => Cast.VideoActors)
                                         .ThenInclude(VideoActor => VideoActor.Video)
                                     .Include(Cast => Cast.VideoDirectors)
                                         .ThenInclude(VideoDirector => VideoDirector.Video)
-                                    .FirstOrDefault();
+                                    .FirstOrDefaultAsync();
             return cast;
         }
     }

@@ -37,17 +37,9 @@ namespace Swellow.Shared.SqlModel.People
         {
             get
             {
-                string pathRelative = "/images/cast/" + Name[0] + "/" + Name[^1] + "/" + Name + ".jpg";
-                string pathAbsolute = Environment.LocalPath.PathRoot + pathRelative;
-                if (File.Exists(pathAbsolute))
-                {
-                    return "/swellowdata" + pathRelative; ;
-                }
-                else
-                {
-                    return "/images/default/nobody.svg";
-                }
+                return $@"/Images/Cast/{Name[0]}/{Name[^1]}/{Name}.jpg";
             }
+            set { }
         }
 
         // 6【集合导航】【中间件】<影视作品，演员>

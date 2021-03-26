@@ -49,16 +49,7 @@ namespace Swellow.Shared.SqlModel.Works
         {
             get
             {
-                string pathRelative = "/swellowdata/images/movie/" + TitleOriginZh[0] + "/" + TitleOriginZh[^1] + "/" + TitleOriginZh + "(" + Year + ")/fanart.jpg";
-                string pathAbsolute = Environment.LocalPath.PathRoot + pathRelative;
-                if (System.IO.File.Exists(pathAbsolute))
-                {
-                    return pathRelative;
-                }
-                else
-                {
-                    return "/images/default/poster.svg";
-                }
+                return $@"/SwellowData/Images/Video/{TitleOriginZh[0]}/{TitleOriginZh[^1]}/{TitleOriginZh}/({Year}/fanart.jpg";
             }
             set { }
         }
@@ -67,16 +58,7 @@ namespace Swellow.Shared.SqlModel.Works
         {
             get
             {
-                string pathRelative = "/swellowdata/images/movie/" + TitleOriginZh[0] + "/" + TitleOriginZh[^1] + "/" + TitleOriginZh + "(" + Year + ")/poster.jpg";
-                string pathAbsolute = Environment.LocalPath.PathRoot + pathRelative;
-                if (System.IO.File.Exists(pathAbsolute))
-                {
-                    return pathRelative;
-                }
-                else
-                {
-                    return "/images/default/poster.svg";
-                }
+                return $@"/SwellowData/Images/Video/{TitleOriginZh[0]}/{TitleOriginZh[^1]}/{TitleOriginZh}/({Year}/poster.jpg";
             }
             set { }
         }

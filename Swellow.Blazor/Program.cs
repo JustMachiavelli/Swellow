@@ -18,12 +18,15 @@ namespace Swellow.Blazor
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddSingleton<IServer, MockServer>();
-
-            // 添加本行代码
+            // BootstrapBlazor
             builder.Services.AddBootstrapBlazor();
+
+            // 后端服务
+            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            //builder.Services.AddSingleton<IServer, MockServer>();
+            builder.Services.AddHttpClient<IServer, ApiServer>(
+                client => client.BaseAddress = new Uri("http://localhost:10086"));
 
             await builder.Build().RunAsync();
         }

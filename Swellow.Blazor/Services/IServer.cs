@@ -1,4 +1,4 @@
-﻿using Swellow.Model.ViewModel.Components;
+﻿using Swellow.Model.ViewModel.Dto;
 using Swellow.Model.ViewModel.Media;
 using System;
 using System.Collections.Generic;

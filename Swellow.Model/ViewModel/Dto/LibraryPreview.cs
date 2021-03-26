@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.ViewModel.Components
+namespace Swellow.Model.ViewModel.Dto
 {
     public class LibraryPreview
     {

@@ -9,7 +9,7 @@ using Swellow.Shared.SqlModel.View;
 using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 
-namespace Swellow.SqlInit.API
+namespace Swellow.API.Sql.Init
 {
     public class SwellowDbContext : DbContext
     {
