@@ -18,7 +18,7 @@ namespace Swellow.API.Sql.Init
         {
             context.Database.EnsureCreated();
 
-            // 如果LibraryPreviews有数据了，就不初始化数据库。
+            // 如果有数据了，就不初始化数据库种子
             if (context.Librarys.Any())
             {
                 return;   // DB has been seeded
