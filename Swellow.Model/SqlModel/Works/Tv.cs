@@ -12,11 +12,11 @@ namespace Swellow.Shared.SqlModel.Works
         }
 
         // 23 豆瓣编号
-        public string IdDouban { get; set; }
+        public string DoubanId { get; set; }
         // 24 TMDB编号
-        public string IdTmdb { get; set; }
+        public string TmdbId { get; set; }
         // 25 IMDB编号
-        public string IdImdb { get; set; }
+        public string ImdbId { get; set; }
 
         // 26【集合导航】视频文件的路径
         public List<EpisodeTv> EpisodeTvs { get; set; }

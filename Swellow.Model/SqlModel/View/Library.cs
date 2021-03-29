@@ -11,7 +11,7 @@ namespace Swellow.Shared.SqlModel.View
     {
         public Library()
         {
-            PathDirectorys = new List<PathDirectory>();
+            Directorys = new List<MeidaDirectory>();
         }
 
         // 0 主键 ID
@@ -25,10 +25,10 @@ namespace Swellow.Shared.SqlModel.View
         public LibraryType Type { get; set; }
 
         // 3 预览图路径
-        public string PathImage { get; set; }
+        public string Fanart { get; set; }
 
         // 4【集合导航】包含的文件夹的路径们
-        public List<PathDirectory> PathDirectorys { get; set; }
+        public List<MeidaDirectory> Directorys { get; set; }
 
         // 5【集合导航】包含的影视剧
         public List<Video> Videos { get; set; }

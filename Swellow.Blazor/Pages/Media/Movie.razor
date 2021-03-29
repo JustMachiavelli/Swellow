@@ -10,7 +10,7 @@
 
     @*海报*@
     <div class="col-md-4 text-center">
-        <img class="w-75" src="@MovieDetail.PathPoster" />
+        <img class="w-75" src="@MovieDetail.Poster" />
     </div>
 
     @*详细信息*@
@@ -48,9 +48,9 @@
 
         <div class="h5 mt-md-2">
             链接：
-            <a href="https://movie.douban.com/subject/@MovieDetail.IdDouban" class="ml-md-1">豆瓣</a>
-            <a href="https://www.themoviedb.org/movie/@MovieDetail.IdTmdb" class="ml-md-1">TMDB</a>
-            <a href="https://www.imdb.com/title/@MovieDetail.IdImdb" class="ml-md-1">IMDB</a>
+            <a href="https://movie.douban.com/subject/@MovieDetail.DoubanId" class="ml-md-1">豆瓣</a>
+            <a href="https://www.themoviedb.org/movie/@MovieDetail.TmdbId" class="ml-md-1">TMDB</a>
+            <a href="https://www.imdb.com/title/@MovieDetail.ImdbId" class="ml-md-1">IMDB</a>
         </div>
 
 
@@ -66,10 +66,10 @@
 
         <div class="h3 mt-md-5">演员表</div>
         <div class="row">
-            @foreach (var cast in MovieDetail.Actors)
+            @foreach (var cast in MovieDetail.Casts)
             {
                 <div class="col-md-2">
-                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
+                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.Poster />
                 </div>
             }
         </div>
@@ -79,7 +79,7 @@
 
 
 @code {
-    [Inject] public IServer Server { get; set; }
+    [Inject] public IVideoService VideoService { get; set; }
 
 
     //1 媒体库ID【url传】
@@ -91,12 +91,12 @@
 
 
     //3 电影详情【后传】
-    public MovieViewModel MovieDetail { get; set; } = new MovieViewModel();
+    public MovieDetail MovieDetail { get; set; } = new MovieDetail();
 
 
     //【生命】
     protected override async Task OnInitializedAsync()
     {
-        MovieDetail = await Server.GetMovieDetailByMovieIdAsync(MovieId);
+        MovieDetail = await VideoService.GetMovieDetailAsync(MovieId);
     }
 }

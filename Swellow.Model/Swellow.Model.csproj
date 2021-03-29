@@ -13,4 +13,8 @@
     <ProjectReference Include="..\Swellow.Environment\Swellow.Environment.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModel\Media\" />
+  </ItemGroup>
+
 </Project>

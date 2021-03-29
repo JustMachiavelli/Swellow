@@ -10,14 +10,14 @@ namespace Swellow.Shared.SqlModel.Episode
         public int Id { get; set; }
 
         // 1 【引用导航】所属影视作品
-        public int IdTv { get; set; }
+        public int TvId { get; set; }
         public Tv Tv { get; set; }
 
         // 2 第几季，比如“S1”
-        public string NoSeason { get; set; }
+        public int NoSeason { get; set; }
 
         // 3 第几集，比如“E2”
-        public string NoEpisode { get; set; }
+        public int NoEpisode { get; set; }
 
         // 4 其他属性，比如“.720p.修复版”
         public string Propertys { get; set; }

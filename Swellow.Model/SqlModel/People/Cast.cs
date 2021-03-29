@@ -1,4 +1,5 @@
-﻿using Swellow.Shared.SqlModel.Middle;
+﻿using Swellow.Model.SqlModel.Middle;
+using Swellow.Shared.SqlModel.Middle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,40 +13,25 @@ namespace Swellow.Shared.SqlModel.People
     {
         public Cast()
         {
-            VideoActors = new List<VideoActor>();
-            VideoDirectors = new List<VideoDirector>();
+            VideoCasts = new List<VideoCast>();
         }
 
         // 0 主键 ID
         [Key]
         public int Id { get; set; }
 
-        // 1 演职人员类别
-        public string Type { get; set; }
-
-        // 2 名字
+        // 2 名字原始
         public string Name { get; set; }
 
-        // 3 名字原始
-        public string NameOriginal { get; set; }
+        // 3 名字
+        public string NameOrigin { get; set; }
 
-        // 4 曾用名字
-        public string NameOld { get; set; }
+        // 4 照片路径
+        public string Poster { get; set; }
 
-        // 5 照片路径
-        public string PathPoster
-        {
-            get
-            {
-                return $@"/Images/Cast/{Name[0]}/{Name[^1]}/{Name}.jpg";
-            }
-            set { }
-        }
 
-        // 6【集合导航】【中间件】<影视作品，演员>
-        public List<VideoActor> VideoActors { get; set; }
+        // 6【集合导航】【中间件】<影视作品，演职人员>
+        public List<VideoCast> VideoCasts { get; set; }
 
-        // 7【集合导航】【中间件】<影视作品，导演>
-        public List<VideoDirector> VideoDirectors { get; set; }
     }
 }

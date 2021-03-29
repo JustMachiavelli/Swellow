@@ -24,6 +24,6 @@ namespace Swellow.Model.ViewModel.Settings
         //public IBrowserFile? Picture { get; set; }
 
         // 4【集合导航】包含的文件夹的路径们
-        public List<PathDirectory> PathDirectorys { get; set; }
+        public List<MeidaDirectory> Directorys { get; set; }
     }
 }

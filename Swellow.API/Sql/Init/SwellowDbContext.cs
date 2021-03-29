@@ -32,107 +32,107 @@ namespace Swellow.API.Sql.Init
                                         .HasValue<Video>(VideoType.Video)
                                         .HasValue<Movie>(VideoType.Movie)
                                         .HasValue<Tv>(VideoType.Tv);
-            modelBuilder.Entity<Movie>().Property(Movie => Movie.IdDouban).HasColumnName("IdDouban");
-            modelBuilder.Entity<Movie>().Property(Movie => Movie.IdImdb).HasColumnName("IdImdb");
-            modelBuilder.Entity<Movie>().Property(Movie => Movie.IdTmdb).HasColumnName("IdTmdb");
-            modelBuilder.Entity<Tv>().Property(Video => Video.IdDouban).HasColumnName("IdDouban");
-            modelBuilder.Entity<Tv>().Property(Video => Video.IdImdb).HasColumnName("IdImdb");
-            modelBuilder.Entity<Tv>().Property(Video => Video.IdTmdb).HasColumnName("IdTmdb");
+            modelBuilder.Entity<Movie>().Property(Movie => Movie.DoubanId).HasColumnName("IdDouban");
+            modelBuilder.Entity<Movie>().Property(Movie => Movie.ImdbId).HasColumnName("IdImdb");
+            modelBuilder.Entity<Movie>().Property(Movie => Movie.TmdbId).HasColumnName("IdTmdb");
+            modelBuilder.Entity<Tv>().Property(Video => Video.DoubanId).HasColumnName("IdDouban");
+            modelBuilder.Entity<Tv>().Property(Video => Video.ImdbId).HasColumnName("IdImdb");
+            modelBuilder.Entity<Tv>().Property(Video => Video.TmdbId).HasColumnName("IdTmdb");
 
             // ========设置联合主键========
             // <影视作品，演员>
-            modelBuilder.Entity<VideoActor>().HasKey(VideoActor => new { VideoActor.IdVideo, VideoActor.IdCast });
+            modelBuilder.Entity<VideoActor>().HasKey(VideoActor => new { VideoActor.VideoId, VideoActor.CastId });
             modelBuilder.Entity<VideoActor>()
                         .HasOne(VideoActor => VideoActor.Video)
                         .WithMany(Video => Video.VideoActors)
-                        .HasForeignKey(VideoActor => VideoActor.IdVideo);
+                        .HasForeignKey(VideoActor => VideoActor.VideoId);
             modelBuilder.Entity<VideoActor>()
                         .HasOne(VideoActor => VideoActor.Cast)
                         .WithMany(Actor => Actor.VideoActors)
-                        .HasForeignKey(VideoActor => VideoActor.IdCast);
+                        .HasForeignKey(VideoActor => VideoActor.CastId);
 
             // <影视作品，导演>
-            modelBuilder.Entity<VideoDirector>().HasKey(vd => new { vd.IdVideo, vd.IdCast });
+            modelBuilder.Entity<VideoDirector>().HasKey(vd => new { vd.VideoId, vd.CastId });
             modelBuilder.Entity<VideoDirector>()
                         .HasOne(VideoDirector => VideoDirector.Video)
                         .WithMany(Video => Video.VideoDirectors)
-                        .HasForeignKey(VideoDirector => VideoDirector.IdVideo);
+                        .HasForeignKey(VideoDirector => VideoDirector.VideoId);
             modelBuilder.Entity<VideoDirector>()
                         .HasOne(VideoDirector => VideoDirector.Cast)
                         .WithMany(Cast => Cast.VideoDirectors)
-                        .HasForeignKey(VideoDirector => VideoDirector.IdCast);
+                        .HasForeignKey(VideoDirector => VideoDirector.CastId);
 
             // <影视作品，特征>
-            modelBuilder.Entity<VideoGenre>().HasKey(VideoGenre => new { VideoGenre.IdVideo, VideoGenre.IdGenre });
+            modelBuilder.Entity<VideoGenre>().HasKey(VideoGenre => new { VideoGenre.VideoId, VideoGenre.GenreId });
             modelBuilder.Entity<VideoGenre>()
                         .HasOne(VideoGenre => VideoGenre.Video)
                         .WithMany(Video => Video.VideoGenres)
-                        .HasForeignKey(VideoGenre => VideoGenre.IdVideo);
+                        .HasForeignKey(VideoGenre => VideoGenre.VideoId);
             modelBuilder.Entity<VideoGenre>()
                         .HasOne(VideoGenre => VideoGenre.Genre)
                         .WithMany(Genre => Genre.VideoGenres)
-                        .HasForeignKey(VideoGenre => VideoGenre.IdGenre);
+                        .HasForeignKey(VideoGenre => VideoGenre.GenreId);
 
             // <影视作品，发行商>
-            modelBuilder.Entity<VideoPublisher>().HasKey(VideoPublisher => new { VideoPublisher.IdVideo, VideoPublisher.IdPublisher });
+            modelBuilder.Entity<VideoPublisher>().HasKey(VideoPublisher => new { VideoPublisher.VideoId, VideoPublisher.PublisherId });
             modelBuilder.Entity<VideoPublisher>()
                         .HasOne(VideoPublisher => VideoPublisher.Video)
                         .WithMany(Video => Video.VideoPublishers)
-                        .HasForeignKey(VideoPublisher => VideoPublisher.IdVideo);
+                        .HasForeignKey(VideoPublisher => VideoPublisher.VideoId);
             modelBuilder.Entity<VideoPublisher>()
                         .HasOne(VideoPublisher => VideoPublisher.Publisher)
                         .WithMany(Publisher => Publisher.VideoPublishers)
-                        .HasForeignKey(VideoPublisher => VideoPublisher.IdPublisher);
+                        .HasForeignKey(VideoPublisher => VideoPublisher.PublisherId);
 
             // <影视作品，制作商>
-            modelBuilder.Entity<VideoStudio>().HasKey(vs => new { vs.IdVideo, vs.IdStudio });
-            modelBuilder.Entity<VideoStudio>()
+            modelBuilder.Entity<VideoCompany>().HasKey(vs => new { vs.VideoId, vs.StudioId });
+            modelBuilder.Entity<VideoCompany>()
                         .HasOne(VideoStudio => VideoStudio.Video)
                         .WithMany(Video => Video.VideoStudios)
-                        .HasForeignKey(VideoStudio => VideoStudio.IdVideo);
-            modelBuilder.Entity<VideoStudio>()
+                        .HasForeignKey(VideoStudio => VideoStudio.VideoId);
+            modelBuilder.Entity<VideoCompany>()
                         .HasOne(VideoStudio => VideoStudio.Studio)
-                        .WithMany(Studio => Studio.VideoStudios)
-                        .HasForeignKey(VideoStudio => VideoStudio.IdStudio);
+                        .WithMany(Studio => Studio.VideoCompanys)
+                        .HasForeignKey(VideoStudio => VideoStudio.StudioId);
 
             // <影视作品，标签>
-            modelBuilder.Entity<VideoTag>().HasKey(vt => new { vt.IdVideo, vt.IdTag });
+            modelBuilder.Entity<VideoTag>().HasKey(vt => new { vt.VideoId, vt.TagId });
             modelBuilder.Entity<VideoTag>()
                         .HasOne(VideoTag => VideoTag.Video)
                         .WithMany(Video => Video.VideoTags)
-                        .HasForeignKey(VideoTag => VideoTag.IdVideo);
+                        .HasForeignKey(VideoTag => VideoTag.VideoId);
             modelBuilder.Entity<VideoTag>()
                         .HasOne(VideoTag => VideoTag.Tag)
                         .WithMany(Tag => Tag.VideoTags)
-                        .HasForeignKey(VideoTag => VideoTag.IdTag);
+                        .HasForeignKey(VideoTag => VideoTag.TagId);
 
             // <电影CD, 电影>
             modelBuilder.Entity<EpisodeMovie>()
                         .HasOne(EpisodeMovie => EpisodeMovie.Movie)
                         .WithMany(Movie => Movie.EpisodeMovies)
-                        .HasForeignKey(EpisodeMovie => EpisodeMovie.IdMovie);
+                        .HasForeignKey(EpisodeMovie => EpisodeMovie.MovieId);
 
             // <电视剧单集，电视剧>
             modelBuilder.Entity<EpisodeTv>()
                         .HasOne(EpisodeTv => EpisodeTv.Tv)
                         .WithMany(Tv => Tv.EpisodeTvs)
-                        .HasForeignKey(EpisodeTv => EpisodeTv.IdTv);
+                        .HasForeignKey(EpisodeTv => EpisodeTv.TvId);
 
             // 文件夹路径
-            modelBuilder.Entity<PathDirectory>()
+            modelBuilder.Entity<MeidaDirectory>()
                         .HasOne(PathDirectory => PathDirectory.Library)
-                        .WithMany(Library => Library.PathDirectorys)
-                        .HasForeignKey(PathDirectory => PathDirectory.IdLibrary);
+                        .WithMany(Library => Library.Directorys)
+                        .HasForeignKey(PathDirectory => PathDirectory.LibraryId);
 
             // 视频 的 外键 IdSeries、IdLibrary
             modelBuilder.Entity<Video>()
                         .HasOne(Video => Video.Library)
                         .WithMany(Library => Library.Videos)
-                        .HasForeignKey(Video => Video.IdLibrary);
+                        .HasForeignKey(Video => Video.LibraryId);
             modelBuilder.Entity<Video>()
                         .HasOne(Video => Video.Series)
                         .WithMany(Series => Series.Videos)
-                        .HasForeignKey(Video => Video.IdSeries);
+                        .HasForeignKey(Video => Video.SeriesId);
         }
 
 
@@ -165,9 +165,9 @@ namespace Swellow.API.Sql.Init
         public DbSet<VideoTag> VideoTags { get; set; }
 
         // 10 制作公司
-        public DbSet<Studio> Studios { get; set; }
+        public DbSet<Company> Studios { get; set; }
         // 11 <影视作品，制作公司>
-        public DbSet<VideoStudio> VideoStudios { get; set; }
+        public DbSet<VideoCompany> VideoStudios { get; set; }
 
         // 12 发行公司
         public DbSet<Publisher> Publishers { get; set; }

@@ -15,11 +15,12 @@ namespace Swellow.Shared.SqlModel.Property
         [Key]
         public int Id { get; set; }
 
-        // 1 名称
+        // 1 原始名称，如英语
         public string Name { get; set; }
 
-        // 2 原始名称，如英语
-        public string NameOriginal { get; set; }
+        // 2 名称
+        public string NameOrigin { get; set; }
+
 
         // 3【集合导航】影片
         public List<Video> Videos { get; set; }

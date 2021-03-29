@@ -38,7 +38,7 @@ namespace Swellow.API.Sql
         // 【Video】1得到Videos，通过LibraryId
         public async Task<IEnumerable<Video>> GetVideosByLibraryIdAsync(int id)
         {
-            return await _context.Videos.Where(Video => Video.IdLibrary == id)
+            return await _context.Videos.Where(Video => Video.LibraryId == id)
                                         .ToListAsync();
         }
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Swellow.Shared.SqlModel.LocalFile
 {
     // 媒体库所包含的文件夹
-    public class PathDirectory
+    public class MeidaDirectory
     {
         // 0 主键 ID
         [Key]
@@ -14,7 +14,7 @@ namespace Swellow.Shared.SqlModel.LocalFile
         public string Path { get; set; }
 
         // 2 【引用导航】所属媒体库
-        public int IdLibrary { get; set; }
+        public int LibraryId { get; set; }
         public Library Library { get; set; }
     }
 }

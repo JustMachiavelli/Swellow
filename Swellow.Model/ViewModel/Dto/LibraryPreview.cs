@@ -13,6 +13,6 @@ namespace Swellow.Model.ViewModel.Dto
         public string Name { get; set; }
 
         // 媒体库的预览图路径
-        public string PathImage { get; set; }
+        public string Fanart { get; set; }
     }
 }

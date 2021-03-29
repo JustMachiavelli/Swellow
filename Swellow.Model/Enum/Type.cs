@@ -12,4 +12,17 @@ namespace Swellow.Model.Enum
         Movie,
         Tv,
     }
+    public enum CastType
+    {
+        Actor,
+        Director,
+        Voice,
+
+    }
+    public enum CompanyType
+    {
+        Producer,
+        Publisher,
+        Investor,
+    }
 }

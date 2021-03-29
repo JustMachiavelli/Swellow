@@ -26,11 +26,11 @@ namespace Swellow.API.Controllers
         }
 
         [HttpGet("api/librarys")]
-        public async Task<ActionResult<IEnumerable<LibraryPreview>>> GetLibrarys()
+        public async Task<IEnumerable<LibraryPreview>> GetLibrarys()
         {
             IEnumerable<Library> librarys = await _dbManager.GetAllLibrarysAsync();
             IEnumerable<LibraryPreview> libraryPreviews = _mapper.Map<IEnumerable<LibraryPreview>>(librarys);
-            return Ok(libraryPreviews);
+            return libraryPreviews;
         }
 
     }

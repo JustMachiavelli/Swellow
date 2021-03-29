@@ -24,9 +24,10 @@ namespace Swellow.Blazor
 
             // ºó¶Ë·þÎñ
             //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            //builder.Services.AddSingleton<IServer, MockServer>();
-            builder.Services.AddHttpClient<IServer, ApiServer>(
-                client => client.BaseAddress = new Uri("http://localhost:10086"));
+            builder.Services.AddSingleton<ILibraryService, MockLibraryService>();
+            builder.Services.AddSingleton<IVideoService, MockVideoService>();
+            //builder.Services.AddHttpClient<ILibraryService, MockLibraryService>(
+            //    client => client.BaseAddress = new Uri("http://localhost:10086"));
 
             await builder.Build().RunAsync();
         }

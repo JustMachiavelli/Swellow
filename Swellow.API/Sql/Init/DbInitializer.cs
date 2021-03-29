@@ -32,20 +32,20 @@ namespace Swellow.API.Sql.Init
             Movie movielldq = new Movie
             {
                 Type = VideoType.Movie,
-                Title = "流浪地球(2019)",
+                Display = "流浪地球(2019)",
+                Title = "流浪地球",
                 TitleOrigin = "流浪地球",
-                TitleOriginZh = "流浪地球",
-                Plot = "近未来，科学家们发现太阳急速衰老膨胀，短时间内包括地球在内的整个太阳系都将被太阳所吞没。为了自救，人类提出一个名为“流浪地球IdDouban”的大胆计划，即倾全球之力在地球表面建造上万座发动机和转向发动机，推动地球离开太阳系，用2500年的时间奔往另外一个栖息之地。中国航天员刘培强（吴京 饰）在儿子刘启四岁那年前往国际空间站，和国际同侪肩负起领航者的重任。转眼刘启（屈楚萧 饰）长大，他带着妹妹朵朵（赵今麦 饰）偷偷跑到地表，偷开外公韩子昂（吴孟达 饰）的运输车，结果不仅遭到逮捕，还遭遇了全球发动机停摆的事件。为了修好发动机，阻止地球坠入木星，全球开始展开饱和式营救，连刘启他们的车也被强征加入。在与时间赛跑的过程中，无数的人前仆后继，奋不顾身，只为延续百代子孙生存的希望……",
-                PlotOrigin = "",
+                PlotOrigin = "近未来，科学家们发现太阳急速衰老膨胀，短时间内包括地球在内的整个太阳系都将被太阳所吞没。为了自救，人类提出一个名为“流浪地球IdDouban”的大胆计划，即倾全球之力在地球表面建造上万座发动机和转向发动机，推动地球离开太阳系，用2500年的时间奔往另外一个栖息之地。中国航天员刘培强（吴京 饰）在儿子刘启四岁那年前往国际空间站，和国际同侪肩负起领航者的重任。转眼刘启（屈楚萧 饰）长大，他带着妹妹朵朵（赵今麦 饰）偷偷跑到地表，偷开外公韩子昂（吴孟达 饰）的运输车，结果不仅遭到逮捕，还遭遇了全球发动机停摆的事件。为了修好发动机，阻止地球坠入木星，全球开始展开饱和式营救，连刘启他们的车也被强征加入。在与时间赛跑的过程中，无数的人前仆后继，奋不顾身，只为延续百代子孙生存的希望……",
+                Plot = "",
                 Runtime = 150,
                 Year = "2019",
                 Date = "2019-01-01",
                 Score = 79,
                 Region = "中国大陆",
-                IdImdb = "tt7605074",
-                IdTmdb = "535167",
-                IdDouban = "26266893",
-                Series = new Series { Name = "刘慈欣作品" },
+                ImdbId = "tt7605074",
+                TmdbId = "535167",
+                DoubanId = "26266893",
+                Series = new Series { NameZh = "刘慈欣作品" },
                 Library = librarySF,
             };
             movielldq.VideoDirectors = GetVideoDirectors(context, new string[] { "郭帆" });
@@ -58,20 +58,20 @@ namespace Swellow.API.Sql.Init
             Movie moviexc = new Movie
             {
                 Type = VideoType.Movie,
-                Title = "小丑(2019)",
-                TitleOrigin = "Joker",
-                TitleOriginZh = "小丑",
-                Plot = "湿冷无望的哥谭市，卑微的亚瑟·弗兰克（华金·菲尼克斯 Joaquin Phoenix 饰）依靠扮演小丑赚取营生。与之相依为命的母亲患有精神疾病，而亚瑟深记母亲的教诲，无论遭受怎样的挫折都笑对人生，却因此让自己背负着莫大的压力，濒临崩溃。他梦想成为一名脱口秀演员，怎奈生活一次次将失望狠狠地砸在他的头上。不仅如此，他因意外丢掉了工作，偶然瞥见母亲的秘密，又使他心中燃起对那个与之地位悬殊却从未谋面的父亲的殷切渴望。命运习惯了事与愿违，空荡荡的地铁内，悲伤的小丑在无法自已的癫狂笑声中大开杀戒……",
-                PlotOrigin = "",
+                Display = "小丑(2019)",
+                Title = "Joker",
+                TitleOrigin = "小丑",
+                PlotOrigin = "湿冷无望的哥谭市，卑微的亚瑟·弗兰克（华金·菲尼克斯 Joaquin Phoenix 饰）依靠扮演小丑赚取营生。与之相依为命的母亲患有精神疾病，而亚瑟深记母亲的教诲，无论遭受怎样的挫折都笑对人生，却因此让自己背负着莫大的压力，濒临崩溃。他梦想成为一名脱口秀演员，怎奈生活一次次将失望狠狠地砸在他的头上。不仅如此，他因意外丢掉了工作，偶然瞥见母亲的秘密，又使他心中燃起对那个与之地位悬殊却从未谋面的父亲的殷切渴望。命运习惯了事与愿违，空荡荡的地铁内，悲伤的小丑在无法自已的癫狂笑声中大开杀戒……",
+                Plot = "",
                 Runtime = 150,
                 Year = "2019",
                 Date = "2019-08-31",
                 Score = 79,
                 Region = "美国",
-                IdImdb = "tt7605074",
-                IdTmdb = "535167",
-                IdDouban = "26266893",
-                Series = new Series { Name = "漫威宇宙" },
+                ImdbId = "tt7605074",
+                TmdbId = "535167",
+                DoubanId = "26266893",
+                Series = new Series { NameZh = "漫威宇宙" },
                 Library = librarySF,
             };
             moviexc.VideoDirectors = GetVideoDirectors(context, new string[] { "托德·菲利普斯" });
@@ -84,20 +84,20 @@ namespace Swellow.API.Sql.Init
             Movie moviejsc = new Movie
             {
                 Type = VideoType.Movie,
-                Title = "寄生虫(2019)",
-                TitleOrigin = "기생충",
-                TitleOriginZh = "寄生虫",
-                Plot = "基宇（崔宇植 饰）出生在一个贫穷的家庭之中，和妹妹基婷（朴素丹 饰）以及父母在狭窄的地下室里过着相依为命的日子。一天，基宇的同学上门拜访，他告诉基宇，自己在一个有钱人家里给他们的女儿做家教，太太是一个头脑简单出手又阔绰的女人，因为自己要出国留学，所以将家教的职位暂时转交给基宇。就这样，基宇来到了朴社长（李善均 饰）家中，并且见到了他的太太（赵汝贞 饰），没过多久，基宇的妹妹和父母也如同寄生虫一般的进入了朴社长家里工作。然而，他们的野心并没有止步于此，基宇更是和大小姐坠入了爱河。随着时间的推移，朴社长家里隐藏的秘密渐渐浮出了水面。",
-                PlotOrigin = "",
+                Display = "寄生虫(2019)",
+                Title = "기생충",
+                TitleOrigin = "寄生虫",
+                PlotOrigin = "基宇（崔宇植 饰）出生在一个贫穷的家庭之中，和妹妹基婷（朴素丹 饰）以及父母在狭窄的地下室里过着相依为命的日子。一天，基宇的同学上门拜访，他告诉基宇，自己在一个有钱人家里给他们的女儿做家教，太太是一个头脑简单出手又阔绰的女人，因为自己要出国留学，所以将家教的职位暂时转交给基宇。就这样，基宇来到了朴社长（李善均 饰）家中，并且见到了他的太太（赵汝贞 饰），没过多久，基宇的妹妹和父母也如同寄生虫一般的进入了朴社长家里工作。然而，他们的野心并没有止步于此，基宇更是和大小姐坠入了爱河。随着时间的推移，朴社长家里隐藏的秘密渐渐浮出了水面。",
+                Plot = "",
                 Runtime = 150,
                 Year = "2019",
                 Date = "2019-05-21",
                 Score = 87,
                 Region = "韩国",
-                IdImdb = "tt6751668",
-                IdTmdb = "535167",
-                IdDouban = "27010768",
-                Series = new Series { Name = "未知系列" },
+                ImdbId = "tt6751668",
+                TmdbId = "535167",
+                DoubanId = "27010768",
+                Series = new Series { NameZh = "未知系列" },
                 Library = librarySF,
             };
             moviejsc.VideoDirectors = GetVideoDirectors(context, new string[] { "奉俊昊" });
@@ -110,20 +110,20 @@ namespace Swellow.API.Sql.Init
             Movie moviegqzq = new Movie
             {
                 Type = VideoType.Movie,
-                Title = "名侦探柯南剧场版20：绀青之拳(2019)",
-                TitleOrigin = "名探偵コナン 紺青の拳",
-                TitleOriginZh = "名侦探柯南剧场版20：绀青之拳",
-                Plot = "“名侦探柯南系列”第23部动画剧场版，票房和口碑也屡破纪录。作为平成年代最后一部柯南电影，首次将案件发生地设立在海外，基德时隔四年后再度回归，与柯南合体展开行动。故事围绕着19世纪末与海盗船一同沉入海底、世界上最大的蓝宝石“绀青之拳”展开。",
-                PlotOrigin = "",
+                Display = "名侦探柯南剧场版20：绀青之拳(2019)",
+                Title = "名探偵コナン 紺青の拳",
+                TitleOrigin = "名侦探柯南剧场版20：绀青之拳",
+                PlotOrigin = "“名侦探柯南系列”第23部动画剧场版，票房和口碑也屡破纪录。作为平成年代最后一部柯南电影，首次将案件发生地设立在海外，基德时隔四年后再度回归，与柯南合体展开行动。故事围绕着19世纪末与海盗船一同沉入海底、世界上最大的蓝宝石“绀青之拳”展开。",
+                Plot = "",
                 Runtime = 110,
                 Year = "2019",
                 Date = "2019-04-12",
                 Score = 59,
                 Region = "日本",
-                IdImdb = "tt9501310",
-                IdTmdb = "535167",
-                IdDouban = "30208010",
-                Series = new Series { Name = "未知系列" },
+                ImdbId = "tt9501310",
+                TmdbId = "535167",
+                DoubanId = "30208010",
+                Series = new Series { NameZh = "未知系列" },
                 Library = libraryComic,
             };
             moviegqzq.VideoDirectors = GetVideoDirectors(context, new string[] { "永冈智佳" });
@@ -149,11 +149,11 @@ namespace Swellow.API.Sql.Init
                     Name = "科幻",
                     Type = LibraryType.Movie,
                     PathImage = "/SwellowData/Images/Library/Preview/1.jpg",
-                    PathDirectorys = new List<PathDirectory>
+                    Directorys = new List<MeidaDirectory>
                     {
-                        new PathDirectory{ Path = "/TestMovies/科幻1", },
-                        new PathDirectory{ Path = "/TestMovies/科幻2", },
-                        new PathDirectory{ Path = "/TestMovies/科幻3", },
+                        new MeidaDirectory{ Path = "/TestMovies/科幻1", },
+                        new MeidaDirectory{ Path = "/TestMovies/科幻2", },
+                        new MeidaDirectory{ Path = "/TestMovies/科幻3", },
                     }
                 },
                 new Library
@@ -161,10 +161,10 @@ namespace Swellow.API.Sql.Init
                     Name = "动漫",
                     Type = LibraryType.Movie,
                     PathImage = "/SwellowData/Images/Library/Preview/2.jpg",
-                    PathDirectorys = new List<PathDirectory>
+                    Directorys = new List<MeidaDirectory>
                     {
-                        new PathDirectory{ Path = "/TestMovies/喜剧1", },
-                        new PathDirectory{ Path = "/TestMovies/喜剧2", },
+                        new MeidaDirectory{ Path = "/TestMovies/喜剧1", },
+                        new MeidaDirectory{ Path = "/TestMovies/喜剧2", },
                     }
                 },
             };
@@ -233,25 +233,25 @@ namespace Swellow.API.Sql.Init
         }
 
 
-        public static List<VideoStudio> GetVideoStudios(SwellowDbContext context, Array array)
+        public static List<VideoCompany> GetVideoStudios(SwellowDbContext context, Array array)
         {
-            List<VideoStudio> videoStudios = new List<VideoStudio>();
+            List<VideoCompany> videoStudios = new List<VideoCompany>();
             // ==== 制作公司 ====
             foreach (string studioSearch in array)
             {
-                Studio studioAlready = context.Studios.FirstOrDefault(g => g.Name == studioSearch);
-                Studio studio = new Studio();
+                Company studioAlready = context.Studios.FirstOrDefault(g => g.NameZh == studioSearch);
+                Company studio = new Company();
                 // 数据库还不存在该【特征】，添加它
                 if (studioAlready == null)
                 {
-                    studio.Name = studioSearch;
+                    studio.NameZh = studioSearch;
                 }
                 else
                 {
                     studio = studioAlready;
                 }
                 // 一个新的导航属性<影片，特征>
-                VideoStudio videoStudio = new VideoStudio()
+                VideoCompany videoStudio = new VideoCompany()
                 {
                     Studio = studio,
                 };

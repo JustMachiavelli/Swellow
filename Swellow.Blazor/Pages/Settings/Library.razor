@@ -5,7 +5,7 @@
 @using System.Threading.Tasks;
 @using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Services;
-@using Swellow.Model.ViewModel.Media;
+@using Swellow.Model.ViewModel.Dto;
 @using Swellow.Model.ViewModel.Settings;
 
 <div class="text-center">
@@ -66,7 +66,7 @@
         <div class="col">
             <PosterCard Href=@($"Media/Library/{lp.Id}")
                         Title=@lp.Name
-                        ImgSrc=@lp.PathImage />
+                        ImgSrc=@lp.Fanart />
         </div>
     }
 </div>
@@ -74,7 +74,7 @@
 @code
 {
 
-    [Inject] public IServer Server { get; set; }
+    [Inject] public ILibraryService LibraryService { get; set; }
 
 
     //1 是否显示“添加新媒体库”的模态框【自身】
@@ -109,7 +109,7 @@
             Name = "",
             Type = LibraryType.Movie,
         };
-        LibraryPreviews = await Server.GetLibraryPreviewsAsync();
+        LibraryPreviews = await LibraryService.GetLibraryPreviewsAsync();
         await base.OnInitializedAsync();
     }
 
