@@ -1,19 +1,19 @@
 ﻿using Swellow.Model.SqlModel.Middle;
-using Swellow.Shared.SqlModel.Middle;
+using Swellow.Model.SqlModel.Middle;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Text;
 
-namespace Swellow.Shared.SqlModel.People
+namespace Swellow.Model.SqlModel.People
 {
     // 演职人员
     public class Cast
     {
         public Cast()
         {
-            VideoCasts = new List<VideoCast>();
+            VideoCasts = new List<WorkCast>();
         }
 
         // 0 主键 ID
@@ -31,7 +31,7 @@ namespace Swellow.Shared.SqlModel.People
 
 
         // 6【集合导航】【中间件】<影视作品，演职人员>
-        public List<VideoCast> VideoCasts { get; set; }
+        public List<WorkCast> VideoCasts { get; set; }
 
     }
 }

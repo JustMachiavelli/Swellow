@@ -1,5 +1,5 @@
 ﻿using Swellow.Model.Enum;
-using Swellow.Shared.SqlModel.LocalFile;
+using Swellow.Model.SqlModel.LocalFile;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

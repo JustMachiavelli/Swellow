@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.Model.Enum;
-using Swellow.Shared.SqlModel.Episode;
-using Swellow.Shared.SqlModel.LocalFile;
-using Swellow.Shared.SqlModel.Middle;
-using Swellow.Shared.SqlModel.People;
-using Swellow.Shared.SqlModel.Property;
-using Swellow.Shared.SqlModel.View;
-using Swellow.Shared.SqlModel.Works;
+using Swellow.Model.SqlModel.Episode;
+using Swellow.Model.SqlModel.LocalFile;
+using Swellow.Model.SqlModel.Middle;
+using Swellow.Model.SqlModel.People;
+using Swellow.Model.SqlModel.Property;
+using Swellow.Model.SqlModel.View;
+using Swellow.Model.SqlModel.Works;
 using System.Collections.Generic;
 
 namespace Swellow.API.Sql.Init
@@ -28,10 +28,10 @@ namespace Swellow.API.Sql.Init
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Video、Movie、Tv仍然只采用一个Video，以Type属性区分；他们继承的豆瓣等Id共用列。
-            modelBuilder.Entity<Video>().HasDiscriminator<VideoType>("Type")
-                                        .HasValue<Video>(VideoType.Video)
-                                        .HasValue<Movie>(VideoType.Movie)
-                                        .HasValue<Tv>(VideoType.Tv);
+            modelBuilder.Entity<Work>().HasDiscriminator<WorkType>("Type")
+                                        .HasValue<Work>(WorkType.Video)
+                                        .HasValue<Movie>(WorkType.Movie)
+                                        .HasValue<Tv>(WorkType.Tv);
             modelBuilder.Entity<Movie>().Property(Movie => Movie.DoubanId).HasColumnName("IdDouban");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.ImdbId).HasColumnName("IdImdb");
             modelBuilder.Entity<Movie>().Property(Movie => Movie.TmdbId).HasColumnName("IdTmdb");
@@ -63,12 +63,12 @@ namespace Swellow.API.Sql.Init
                         .HasForeignKey(VideoDirector => VideoDirector.CastId);
 
             // <影视作品，特征>
-            modelBuilder.Entity<VideoGenre>().HasKey(VideoGenre => new { VideoGenre.VideoId, VideoGenre.GenreId });
-            modelBuilder.Entity<VideoGenre>()
+            modelBuilder.Entity<WorkGenre>().HasKey(VideoGenre => new { VideoGenre.VideoId, VideoGenre.GenreId });
+            modelBuilder.Entity<WorkGenre>()
                         .HasOne(VideoGenre => VideoGenre.Video)
-                        .WithMany(Video => Video.VideoGenres)
+                        .WithMany(Video => Video.WorkGenres)
                         .HasForeignKey(VideoGenre => VideoGenre.VideoId);
-            modelBuilder.Entity<VideoGenre>()
+            modelBuilder.Entity<WorkGenre>()
                         .HasOne(VideoGenre => VideoGenre.Genre)
                         .WithMany(Genre => Genre.VideoGenres)
                         .HasForeignKey(VideoGenre => VideoGenre.GenreId);
@@ -85,35 +85,35 @@ namespace Swellow.API.Sql.Init
                         .HasForeignKey(VideoPublisher => VideoPublisher.PublisherId);
 
             // <影视作品，制作商>
-            modelBuilder.Entity<VideoCompany>().HasKey(vs => new { vs.VideoId, vs.StudioId });
-            modelBuilder.Entity<VideoCompany>()
+            modelBuilder.Entity<WorkCompany>().HasKey(vs => new { vs.VideoId, vs.StudioId });
+            modelBuilder.Entity<WorkCompany>()
                         .HasOne(VideoStudio => VideoStudio.Video)
                         .WithMany(Video => Video.VideoStudios)
                         .HasForeignKey(VideoStudio => VideoStudio.VideoId);
-            modelBuilder.Entity<VideoCompany>()
+            modelBuilder.Entity<WorkCompany>()
                         .HasOne(VideoStudio => VideoStudio.Studio)
                         .WithMany(Studio => Studio.VideoCompanys)
                         .HasForeignKey(VideoStudio => VideoStudio.StudioId);
 
             // <影视作品，标签>
-            modelBuilder.Entity<VideoTag>().HasKey(vt => new { vt.VideoId, vt.TagId });
-            modelBuilder.Entity<VideoTag>()
+            modelBuilder.Entity<WorkTag>().HasKey(vt => new { vt.VideoId, vt.TagId });
+            modelBuilder.Entity<WorkTag>()
                         .HasOne(VideoTag => VideoTag.Video)
-                        .WithMany(Video => Video.VideoTags)
+                        .WithMany(Video => Video.WorkTags)
                         .HasForeignKey(VideoTag => VideoTag.VideoId);
-            modelBuilder.Entity<VideoTag>()
+            modelBuilder.Entity<WorkTag>()
                         .HasOne(VideoTag => VideoTag.Tag)
                         .WithMany(Tag => Tag.VideoTags)
                         .HasForeignKey(VideoTag => VideoTag.TagId);
 
             // <电影CD, 电影>
-            modelBuilder.Entity<EpisodeMovie>()
+            modelBuilder.Entity<CD>()
                         .HasOne(EpisodeMovie => EpisodeMovie.Movie)
                         .WithMany(Movie => Movie.EpisodeMovies)
                         .HasForeignKey(EpisodeMovie => EpisodeMovie.MovieId);
 
             // <电视剧单集，电视剧>
-            modelBuilder.Entity<EpisodeTv>()
+            modelBuilder.Entity<Episode>()
                         .HasOne(EpisodeTv => EpisodeTv.Tv)
                         .WithMany(Tv => Tv.EpisodeTvs)
                         .HasForeignKey(EpisodeTv => EpisodeTv.TvId);
@@ -125,11 +125,11 @@ namespace Swellow.API.Sql.Init
                         .HasForeignKey(PathDirectory => PathDirectory.LibraryId);
 
             // 视频 的 外键 IdSeries、IdLibrary
-            modelBuilder.Entity<Video>()
+            modelBuilder.Entity<Work>()
                         .HasOne(Video => Video.Library)
                         .WithMany(Library => Library.Videos)
                         .HasForeignKey(Video => Video.LibraryId);
-            modelBuilder.Entity<Video>()
+            modelBuilder.Entity<Work>()
                         .HasOne(Video => Video.Series)
                         .WithMany(Series => Series.Videos)
                         .HasForeignKey(Video => Video.SeriesId);
@@ -140,7 +140,7 @@ namespace Swellow.API.Sql.Init
         public DbSet<Library> Librarys { get; set; }
 
         // 2 影视作品
-        public DbSet<Video> Videos { get; set; }
+        public DbSet<Work> Videos { get; set; }
         // 电影【虚表】
         public DbSet<Movie> Movies { get; set; }
         // 电视剧【虚表】
@@ -157,17 +157,17 @@ namespace Swellow.API.Sql.Init
         // 6 特征
         public DbSet<Genre> Genres { get; set; }
         // 7 <影视作品，特征>
-        public DbSet<VideoGenre> VideoGenres { get; set; }
+        public DbSet<WorkGenre> VideoGenres { get; set; }
 
         // 8 标签
         public DbSet<Tag> Tags { get; set; }
         // 9 <影视作品，标签>
-        public DbSet<VideoTag> VideoTags { get; set; }
+        public DbSet<WorkTag> VideoTags { get; set; }
 
         // 10 制作公司
         public DbSet<Company> Studios { get; set; }
         // 11 <影视作品，制作公司>
-        public DbSet<VideoCompany> VideoStudios { get; set; }
+        public DbSet<WorkCompany> VideoStudios { get; set; }
 
         // 12 发行公司
         public DbSet<Publisher> Publishers { get; set; }

@@ -1,16 +1,27 @@
 ﻿
 namespace Swellow.Model.Enum
 {
-    public enum VideoType
+    public enum WorkType
     {
-        Video,
-        Movie,
         Tv,
+        Movie,
+        Mix,
+        Mv,
     }
+    public enum MovieType
+    {
+        Common,
+        SP,
+        OVA,
+        OAD,
+    }
+
     public enum LibraryType
     {
-        Movie,
         Tv,
+        TvWithFilm,
+        Movie,
+
     }
     public enum CastType
     {
@@ -24,5 +35,12 @@ namespace Swellow.Model.Enum
         Producer,
         Publisher,
         Investor,
+    }
+
+    public enum SubtitleType
+    {
+        简中 = 1,
+        繁重 = 2,
+
     }
 }

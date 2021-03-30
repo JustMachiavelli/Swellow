@@ -1,14 +1,14 @@
-﻿using Swellow.Shared.SqlModel.Works;
+﻿using Swellow.Model.SqlModel.Works;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Shared.SqlModel.Property
+namespace Swellow.Model.SqlModel.Property
 {
     public class Series
     {
         public Series()
         {
-            Videos = new List<Video>();
+            Videos = new List<Work>();
         }
 
         // 0 主键 ID
@@ -23,6 +23,6 @@ namespace Swellow.Shared.SqlModel.Property
 
 
         // 3【集合导航】影片
-        public List<Video> Videos { get; set; }
+        public List<Work> Videos { get; set; }
     }
 }

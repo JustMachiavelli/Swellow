@@ -1,14 +1,14 @@
 ﻿using Swellow.Model.Enum;
-using Swellow.Shared.SqlModel.People;
-using Swellow.Shared.SqlModel.Works;
+using Swellow.Model.SqlModel.People;
+using Swellow.Model.SqlModel.Works;
 
 namespace Swellow.Model.SqlModel.Middle
 {
-    public class VideoCast
+    public class WorkCast
     {
         public int VideoId { get; set; }
 
-        public Video Video { get; set; }
+        public Work Video { get; set; }
 
 
         public int CastId { get; set; }

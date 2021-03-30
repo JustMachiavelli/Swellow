@@ -1,10 +1,10 @@
 ﻿using Swellow.Model.Enum;
-using Swellow.Shared.SqlModel.LocalFile;
-using Swellow.Shared.SqlModel.Middle;
-using Swellow.Shared.SqlModel.People;
-using Swellow.Shared.SqlModel.Property;
-using Swellow.Shared.SqlModel.View;
-using Swellow.Shared.SqlModel.Works;
+using Swellow.Model.SqlModel.LocalFile;
+using Swellow.Model.SqlModel.Middle;
+using Swellow.Model.SqlModel.People;
+using Swellow.Model.SqlModel.Property;
+using Swellow.Model.SqlModel.View;
+using Swellow.Model.SqlModel.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +31,7 @@ namespace Swellow.API.Sql.Init
 
             Movie movielldq = new Movie
             {
-                Type = VideoType.Movie,
+                Type = WorkType.Movie,
                 Display = "流浪地球(2019)",
                 Title = "流浪地球",
                 TitleOrigin = "流浪地球",
@@ -52,12 +52,12 @@ namespace Swellow.API.Sql.Init
             movielldq.VideoActors = GetVideoActors(context, new string[] { "吴京", "屈楚萧", "赵今麦", "吴孟达" });
             movielldq.VideoStudios = GetVideoStudios(context, new string[] { "郭帆文化传媒（北京）有限公司", "北京京西文化旅游股份有限公司" });
             movielldq.VideoPublishers = GetVideoPublishers(context, new string[] { "中国电影股份有限公司", "北京京西文化旅游股份有限公司", });
-            movielldq.VideoGenres = GetVideoGenres(context, new string[] { "犯罪", "惊悚", "剧情" });
-            movielldq.VideoTags = GetVideoTags(context, new string[] { "城市", "地铁", "癫狂" });
+            movielldq.WorkGenres = GetVideoGenres(context, new string[] { "犯罪", "惊悚", "剧情" });
+            movielldq.WorkTags = GetVideoTags(context, new string[] { "城市", "地铁", "癫狂" });
 
             Movie moviexc = new Movie
             {
-                Type = VideoType.Movie,
+                Type = WorkType.Movie,
                 Display = "小丑(2019)",
                 Title = "Joker",
                 TitleOrigin = "小丑",
@@ -78,12 +78,12 @@ namespace Swellow.API.Sql.Init
             moviexc.VideoActors = GetVideoActors(context, new string[] { "华金·菲尼克斯", "罗伯特·德尼罗", "马克·马龙", "莎姬·贝兹", "谢伊·惠格姆" });
             moviexc.VideoStudios = GetVideoStudios(context, new string[] { "华纳兄弟公司", "DC Comics", "美国威秀影片公司", "Bron Studios", "DC Comics", "22 & Indiana Pictures" });
             moviexc.VideoPublishers = GetVideoPublishers(context, new string[] { "华纳兄弟公司", "Karo Premiere", "Tanweer Alliances", "Bron Studios", "NOS Audiovisuais", });
-            moviexc.VideoGenres = GetVideoGenres(context, new string[] { "犯罪", "惊悚", "剧情" });
-            moviexc.VideoTags = GetVideoTags(context, new string[] { "城市", "地铁", "癫狂" });
+            moviexc.WorkGenres = GetVideoGenres(context, new string[] { "犯罪", "惊悚", "剧情" });
+            moviexc.WorkTags = GetVideoTags(context, new string[] { "城市", "地铁", "癫狂" });
 
             Movie moviejsc = new Movie
             {
-                Type = VideoType.Movie,
+                Type = WorkType.Movie,
                 Display = "寄生虫(2019)",
                 Title = "기생충",
                 TitleOrigin = "寄生虫",
@@ -104,12 +104,12 @@ namespace Swellow.API.Sql.Init
             moviejsc.VideoActors = GetVideoActors(context, new string[] { "宋康昊", "李善均", "赵茹珍", "崔宇植", "朴素丹" });
             moviejsc.VideoStudios = GetVideoStudios(context, new string[] { "CJ Entertainment", "Barunson E&A", });
             moviejsc.VideoPublishers = GetVideoPublishers(context, new string[] { "CJ Entertainment", });
-            moviejsc.VideoGenres = GetVideoGenres(context, new string[] { "剧情", "喜剧",});
-            moviejsc.VideoTags = GetVideoTags(context, new string[] { "上班族", "家庭", "城市" });
+            moviejsc.WorkGenres = GetVideoGenres(context, new string[] { "剧情", "喜剧",});
+            moviejsc.WorkTags = GetVideoTags(context, new string[] { "上班族", "家庭", "城市" });
 
             Movie moviegqzq = new Movie
             {
-                Type = VideoType.Movie,
+                Type = WorkType.Movie,
                 Display = "名侦探柯南剧场版20：绀青之拳(2019)",
                 Title = "名探偵コナン 紺青の拳",
                 TitleOrigin = "名侦探柯南剧场版20：绀青之拳",
@@ -130,8 +130,8 @@ namespace Swellow.API.Sql.Init
             moviegqzq.VideoActors = GetVideoActors(context, new string[] { "高山南", "山口胜平", "山崎和佳奈", "小山力也", "绪方贤一" });
             moviegqzq.VideoStudios = GetVideoStudios(context, new string[] { "名侦探柯南制作委员会", });
             moviegqzq.VideoPublishers = GetVideoPublishers(context, new string[] { "东宝株式会社", "小学馆", });
-            moviegqzq.VideoGenres = GetVideoGenres(context, new string[] { "动画 ", "悬疑", });
-            moviegqzq.VideoTags = GetVideoTags(context, new string[] { "飞机", "度假", "友情" });
+            moviegqzq.WorkGenres = GetVideoGenres(context, new string[] { "动画 ", "悬疑", });
+            moviegqzq.WorkTags = GetVideoTags(context, new string[] { "飞机", "度假", "友情" });
 
 
             context.Movies.AddRange(movielldq, moviexc, moviejsc, moviegqzq);
@@ -233,9 +233,9 @@ namespace Swellow.API.Sql.Init
         }
 
 
-        public static List<VideoCompany> GetVideoStudios(SwellowDbContext context, Array array)
+        public static List<WorkCompany> GetVideoStudios(SwellowDbContext context, Array array)
         {
-            List<VideoCompany> videoStudios = new List<VideoCompany>();
+            List<WorkCompany> videoStudios = new List<WorkCompany>();
             // ==== 制作公司 ====
             foreach (string studioSearch in array)
             {
@@ -251,7 +251,7 @@ namespace Swellow.API.Sql.Init
                     studio = studioAlready;
                 }
                 // 一个新的导航属性<影片，特征>
-                VideoCompany videoStudio = new VideoCompany()
+                WorkCompany videoStudio = new WorkCompany()
                 {
                     Studio = studio,
                 };
@@ -289,9 +289,9 @@ namespace Swellow.API.Sql.Init
         }
 
 
-        public static List<VideoGenre> GetVideoGenres(SwellowDbContext context, Array array)
+        public static List<WorkGenre> GetVideoGenres(SwellowDbContext context, Array array)
         {
-            List<VideoGenre> videoGenres = new List<VideoGenre>();
+            List<WorkGenre> videoGenres = new List<WorkGenre>();
             // ==== 特征 ====
             foreach (string genreSearch in array)
             {
@@ -307,7 +307,7 @@ namespace Swellow.API.Sql.Init
                     genre = genreAlready;
                 }
                 // 一个新的导航属性<影片，特征>
-                VideoGenre videoGenre = new VideoGenre()
+                WorkGenre videoGenre = new WorkGenre()
                 {
                     Genre = genre,
                 };
@@ -317,9 +317,9 @@ namespace Swellow.API.Sql.Init
         }
 
 
-        public static List<VideoTag> GetVideoTags(SwellowDbContext context, Array array)
+        public static List<WorkTag> GetVideoTags(SwellowDbContext context, Array array)
         {
-            List<VideoTag> videoTags = new List<VideoTag>();
+            List<WorkTag> videoTags = new List<WorkTag>();
             // ==== 标签 ====
             foreach (string tagSearch in array)
             {
@@ -335,7 +335,7 @@ namespace Swellow.API.Sql.Init
                     tag = tagAlready;
                 }
                 // 一个新的导航属性<影片，特征>
-                VideoTag videoTag = new VideoTag()
+                WorkTag videoTag = new WorkTag()
                 {
                     Tag = tag,
                 };

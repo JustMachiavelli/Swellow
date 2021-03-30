@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Swellow.API.Sql;
 using Swellow.Model.ViewModel.Dto;
 using Swellow.Model.ViewModel.Media;
-using Swellow.Shared.SqlModel.View;
+using Swellow.Model.SqlModel.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;

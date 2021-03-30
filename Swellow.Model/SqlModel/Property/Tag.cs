@@ -1,15 +1,15 @@
-﻿using Swellow.Shared.SqlModel.Middle;
+﻿using Swellow.Model.SqlModel.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Shared.SqlModel.Property
+namespace Swellow.Model.SqlModel.Property
 {
     // 【多对多】标签
     public class Tag
     {
         public Tag()
         {
-            VideoTags = new List<VideoTag>();
+            VideoTags = new List<WorkTag>();
         }
 
         // 0 主键 ID
@@ -20,6 +20,6 @@ namespace Swellow.Shared.SqlModel.Property
         public string Name { get; set; }
 
         // 1 【集合导航】【中间件】<影视作品，标签>
-        public List<VideoTag> VideoTags { get; set; }
+        public List<WorkTag> VideoTags { get; set; }
     }
 }

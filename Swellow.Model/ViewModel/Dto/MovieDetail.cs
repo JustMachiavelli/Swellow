@@ -1,5 +1,5 @@
 ﻿using Swellow.Model.ViewModel.Dto;
-using Swellow.Shared.SqlModel.Property;
+using Swellow.Model.SqlModel.Property;
 using System.Collections.Generic;
 
 namespace Swellow.Model.ViewModel.Media

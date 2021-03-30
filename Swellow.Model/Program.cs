@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Swellow.Shared
+namespace Swellow.Model
 {
     class Program
     {

@@ -1,6 +1,6 @@
 ﻿using Swellow.Model.ViewModel.Dto;
 using Swellow.Model.ViewModel.Media;
-using Swellow.Shared.SqlModel.Property;
+using Swellow.Model.SqlModel.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.API.Sql.Init;
-using Swellow.Shared.SqlModel.People;
-using Swellow.Shared.SqlModel.View;
-using Swellow.Shared.SqlModel.Works;
+using Swellow.Model.SqlModel.People;
+using Swellow.Model.SqlModel.View;
+using Swellow.Model.SqlModel.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace Swellow.API.Sql
 
 
         // 【Video】1得到Videos，通过LibraryId
-        public async Task<IEnumerable<Video>> GetVideosByLibraryIdAsync(int id)
+        public async Task<IEnumerable<Work>> GetVideosByLibraryIdAsync(int id)
         {
             return await _context.Videos.Where(Video => Video.LibraryId == id)
                                         .ToListAsync();

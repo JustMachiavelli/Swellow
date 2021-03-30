@@ -1,13 +1,13 @@
-﻿using Swellow.Shared.SqlModel.Property;
-using Swellow.Shared.SqlModel.Works;
+﻿using Swellow.Model.SqlModel.Property;
+using Swellow.Model.SqlModel.Works;
 
-namespace Swellow.Shared.SqlModel.Middle
+namespace Swellow.Model.SqlModel.Middle
 {
     // <影视，标签>
-    public class VideoTag
+    public class WorkTag
     {
         public int VideoId { get; set; }
-        public Video Video { get; set; }
+        public Work Video { get; set; }
 
         public int TagId { get; set; }
         public Tag Tag { get; set; }
