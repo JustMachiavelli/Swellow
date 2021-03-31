@@ -15,13 +15,14 @@ namespace Swellow.Model.SqlModel.Works.Mix
         // 1 类型  Tv，一般电影、OVA、SP
         public WorkType Type { get; set; } = WorkType.Mix;
 
-        // 2【引用导航】所属library
-        public int LibraryId { get; set; }
-        public Library Library { get; set; }
-
         public IEnumerable<Season> Seasons { get; set; } = new List<Season>();
 
         public IEnumerable<Movie> Movies { get; set; } = new List<Movie>();
+
+
+        // 2【引用导航】所属library
+        public int LibraryId { get; set; }
+        public Library Library { get; set; }
 
 
     }
