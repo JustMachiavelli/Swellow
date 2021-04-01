@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Swellow.Model.ViewModel.Dto
 {
-    public class VideoPreview
+    public class WorkPreview
     {
         // 0 影视ID
         public int Id { set; get; }

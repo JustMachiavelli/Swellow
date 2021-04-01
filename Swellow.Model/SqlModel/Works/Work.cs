@@ -40,12 +40,12 @@ namespace Swellow.Model.SqlModel.Works
 
 
         // 15【集合导航】演职人员
-        public List<WorkCast> WorkCasts { get; set; } = new List<WorkCast>();
+        public IEnumerable<WorkCast> WorkCasts { get; set; } = new List<WorkCast>();
         // 16【集合导航】制作公司
-        public List<WorkCompany> WorkCompanys { get; set; } = new List<WorkCompany>();
+        public IEnumerable<WorkCompany> WorkCompanys { get; set; } = new List<WorkCompany>();
         // 18【集合导航】类型
-        public List<WorkGenre> WorkGenres { get; set; } = new List<WorkGenre>();
+        public IEnumerable<WorkGenre> WorkGenres { get; set; } = new List<WorkGenre>();
         // 19【集合导航】标签
-        public List<WorkTag> WorkTags { get; set; } = new List<WorkTag>();
+        public IEnumerable<WorkTag> WorkTags { get; set; } = new List<WorkTag>();
     }
 }

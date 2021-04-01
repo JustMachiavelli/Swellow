@@ -18,5 +18,10 @@ namespace Swellow.Model.SqlModel.Works.Film
 
         // 2 其他属性，比如“.720p.修复版”
         public string Property { get; set; }
+
+
+        // 3【引用导航】所属Movie
+        public int MovieId { get; set; }
+        public Movie Movie { get; set; }
     }
 }

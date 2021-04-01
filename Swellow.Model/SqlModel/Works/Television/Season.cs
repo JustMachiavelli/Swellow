@@ -9,21 +9,28 @@ namespace Swellow.Model.SqlModel.Works.Television
         [Key]
         public int Id { get; set; }
 
+        // 1 第几季？
         public int No { get; set; }
 
 
-        // 1 季 剧情
+        // 2 剧情简介
         public string Plot { get; set; }
 
 
-        // 2【集合导航】视频文件的路径
-        public List<Episode> Episodes { get; set; } = new List<Episode>();
+        // 3【集合导航】视频文件的路径
+        public IEnumerable<Episode> Episodes { get; set; } = new List<Episode>();
 
 
-        // 2【引用导航】所属TV
+        // 4【引用导航】所属TV
         public int TvId { get; set; }
 
         public Tv Tv { get; set; }
+
+
+        // 5【引用导航】所属Mix
+        public int MixId { get; set; }
+
+        public Mix Mix { get; set; }
 
     }
 }

@@ -8,20 +8,24 @@ namespace Swellow.Model.SqlModel.Works.Television
         [Key]
         public int Id { get; set; }
 
-        // 2 第几集，比如“E2”
+
+        // 1 第几集，比如“E2”
         public int No { get; set; }
 
-        // 1 视频文件的路径
+
+        // 2 集标题
         public string Title { get; set; }
 
-        // 1 集 剧情
+
+        // 3 集剧情
         public string Plot { get; set; }
 
 
-        // 3 其他属性，比如“.720p.修复版”
-        public string Propertys { get; set; }
+        // 4 其他属性，比如“.720p.修复版”
+        public string Property { get; set; }
 
-        // 4 【引用导航】所属影视作品
+
+        // 5 【引用导航】所属影视作品
         public int SeasonId { get; set; }
         public Season Season { get; set; }
     }

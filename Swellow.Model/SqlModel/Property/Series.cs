@@ -6,23 +6,16 @@ namespace Swellow.Model.SqlModel.Property
 {
     public class Series
     {
-        public Series()
-        {
-            Videos = new List<Work>();
-        }
-
         // 0 主键 ID
         [Key]
         public int Id { get; set; }
 
-        // 1 原始名称，如英语
+
+        // 1 名称
         public string Name { get; set; }
 
-        // 2 名称
-        public string NameOrigin { get; set; }
 
-
-        // 3【集合导航】影片
-        public List<Work> Videos { get; set; }
+        // 2【集合导航】影片
+        public IEnumerable<Work> Works { get; set; } = new List<Work>();
     }
 }
