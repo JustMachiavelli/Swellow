@@ -1,10 +1,10 @@
 ﻿using Swellow.Model.SqlModel.View;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.LocalFile
+namespace Swellow.Model.SqlModel.LocalData
 {
     // 媒体库所包含的文件夹
-    public class MeidaDirectory
+    public class VideoFolder
     {
         // 0 主键 ID
         [Key]

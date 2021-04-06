@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Works.Television
+namespace Swellow.Model.SqlModel.MetaData.Media.Television
 {
     // 电视剧
     public class Season
@@ -22,15 +22,9 @@ namespace Swellow.Model.SqlModel.Works.Television
 
 
         // 4【引用导航】所属TV
-        public int TvId { get; set; }
+        public int WorkId { get; set; }
 
-        public Tv Tv { get; set; }
-
-
-        // 5【引用导航】所属Mix
-        public int MixId { get; set; }
-
-        public Mix Mix { get; set; }
+        public Work Work { get; set; }
 
     }
 }

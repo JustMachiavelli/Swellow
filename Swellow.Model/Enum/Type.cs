@@ -1,6 +1,13 @@
 ﻿
 namespace Swellow.Model.Enum
 {
+    public enum WorkType
+    {
+        Mix,
+        Tv,
+        Movie,
+        Mv,
+    }
     public enum MovieType
     {
         Common,

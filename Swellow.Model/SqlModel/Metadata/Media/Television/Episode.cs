@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Works.Television
+namespace Swellow.Model.SqlModel.MetaData.Media.Television
 {
     public class Episode
     {
@@ -23,6 +23,10 @@ namespace Swellow.Model.SqlModel.Works.Television
 
         // 4 其他属性，比如“.720p.修复版”
         public string Property { get; set; }
+
+
+        // 5 可以播放的
+        public bool HasResourse { get; set; } = false;
 
 
         // 5 【引用导航】所属影视作品

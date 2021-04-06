@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.SqlModel.Organization
+namespace Swellow.Model.SqlModel.MetaData.Organization
 {
     public class Fansub
     {

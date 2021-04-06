@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.Middle;
+﻿using Swellow.Model.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.Property
+namespace Swellow.Model.SqlModel.MetaData.Property
 {
     // 【多对多】标签
     public class Tag
@@ -11,12 +11,12 @@ namespace Swellow.Model.SqlModel.Property
         [Key]
         public int Id { get; set; }
 
-
+        [Required]
         // 1 名称
-        public string Name { get; set; }
+        public string Name { get; set; } = "未知tag";
 
 
         // 2 【集合导航】【中间件】<影视作品，标签>
-        public IEnumerable<WorkTag> WorkTags { get; set; } = new List<WorkTag>();
+        public IEnumerable<WorkTag>? WorkTags { get; set; } = new List<WorkTag>();
     }
 }

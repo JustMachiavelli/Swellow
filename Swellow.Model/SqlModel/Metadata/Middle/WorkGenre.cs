@@ -1,7 +1,6 @@
 ﻿using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.Works;
 
-namespace Swellow.Model.SqlModel.Middle
+namespace Swellow.Model.SqlModel.MetaData.Middle
 {
     // <影视，特征>
     public class WorkGenre

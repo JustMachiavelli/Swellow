@@ -1,8 +1,7 @@
 ﻿using Swellow.Model.Enum;
 using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Works;
 
-namespace Swellow.Model.SqlModel.Middle
+namespace Swellow.Model.SqlModel.MetaData.Middle
 {
     public class WorkCast
     {

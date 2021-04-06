@@ -1,5 +1,5 @@
 ﻿using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.LocalFile;
+using Swellow.Model.SqlModel.LocalData;
 using Swellow.Model.SqlModel.Works;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -27,7 +27,7 @@ namespace Swellow.Model.SqlModel.View
 
 
         // 4【集合导航】包含的文件夹的路径们
-        public IEnumerable<MeidaDirectory> Directorys { get; set; } = new List<MeidaDirectory>();
+        public IEnumerable<VideoFolder> Directorys { get; set; } = new List<VideoFolder>();
 
 
         // 5【集合导航】包含的影视剧
