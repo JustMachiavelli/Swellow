@@ -1,3 +1,4 @@
+# 还未到达可以给各位git clone本地测试的地步。每天写一点点，任重道远……  
 # Swellow
 ![Swellow logo](https://github.com/junerain123/wwwroot/blob/master/README%E7%94%A8%E5%9B%BE/Swellow/logoName.png?raw=true)
 ## 1 是什么
