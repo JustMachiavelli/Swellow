@@ -10,6 +10,7 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         [Key]
         public int Id { get; set; }
 
+
         [Required]
         // 1 第几季？
         public int No { get; set; } = 1;
@@ -19,8 +20,12 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public string? Plot { get; set; }
 
 
+        // 3 经历年份 = "1996";
+        public string? Year { get; set; }
+
+
         // 单集剧照
-        public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
+        //public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
 
 
         // 3【集合导航】视频文件的路径

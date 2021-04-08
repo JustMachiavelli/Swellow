@@ -9,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swellow.API.Sql;
 using Swellow.API.Sql.Init;
-using Swellow.Environment;
 using System;
 using System.Collections.Generic;
 using System.Linq;

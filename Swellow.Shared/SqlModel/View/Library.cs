@@ -24,11 +24,11 @@ namespace Swellow.Shared.SqlModel.View
 
 
         // 3 预览图路径
-        public string Fanart { get; set; } = "/default/library-fanart.svg";
+        public string Fanart { get; set; } = Environment.StaticFiles.LibraryDefaultFanartPath;
 
 
         // 4【集合导航】包含的文件夹的路径们
-        public IEnumerable<VideoFolder>? Folders { get; set; } = new List<VideoFolder>();
+        public IEnumerable<VideoFolder>? VideoFolders { get; set; } = new List<VideoFolder>();
 
 
         // 5【集合导航】包含的影视剧

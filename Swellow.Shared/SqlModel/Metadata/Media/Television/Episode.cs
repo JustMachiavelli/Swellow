@@ -13,11 +13,14 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
         [Required]
         // 1 第几集，比如“E2”
-        public int No { get; set; } = 1;
+        public int No { get; set; } = 0;
 
 
         // 2 集标题
         public string? Title { get; set; }
+
+
+        public string Display { get; set; } = "未知影视作品 - S00E00 - 未知剧集标题";
 
 
         // 3 集剧情
@@ -25,13 +28,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
 
         // 单集剧照
-        public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
-        
-
-        // 4 其他属性，比如“.720p.修复版”
-        public string? Property { get; set; }
+        //public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
 
 
+        // 【集合导航】包含CDs
         public IEnumerable<CD>? CDs { get; set; } = new List<CD>();
 
 

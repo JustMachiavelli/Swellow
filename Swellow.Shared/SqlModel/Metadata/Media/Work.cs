@@ -27,20 +27,24 @@ namespace Swellow.Shared.SqlModel.MetaData.Media
         // 10 评分 = 0;
         public byte? Score { get; set; }
 
+
+        public string? WorkDirectory { get; set; }
+
+
         // 15【集合导航】演职人员
         public IEnumerable<WorkCast>? WorkCasts { get; set; } = new List<WorkCast>();
-        // 16【集合导航】制作公司
+        // 16【集合导航】公司
         public IEnumerable<WorkCompany>? WorkCompanys { get; set; } = new List<WorkCompany>();
         // 18【集合导航】类型
         public IEnumerable<WorkGenre>? WorkGenres { get; set; } = new List<WorkGenre>();
         // 19【集合导航】标签
         public IEnumerable<WorkTag>? WorkTags { get; set; } = new List<WorkTag>();
 
-
+        
         // 1【集合导航】所含剧季
         public IEnumerable<Season>? Seasons { get; set; } = new List<Season>();
 
-        // 2【集合导航】所属library
+        // 2【集合导航】所含Movies
         public IEnumerable<Movie>? Movies { get; set; } = new List<Movie>();
 
 

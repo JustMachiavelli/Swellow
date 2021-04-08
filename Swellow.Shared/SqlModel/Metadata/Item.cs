@@ -22,9 +22,9 @@ namespace Swellow.Shared.SqlModel.MetaData
         // 11 国家地区
         public string? Region { get; set; }
         // 12 封面
-        public string? Fanart { get; set; }
+        //public string? Fanart { get; set; }
         // 14 海报
-        public string? Poster { get; set; }
+        //public string? Poster { get; set; }
         // 23 豆瓣编号 = "26266893";
         public string? DoubanId { get; set; }
         // 24 TMDB编号 = "535167";

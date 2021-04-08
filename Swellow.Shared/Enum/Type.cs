@@ -11,31 +11,31 @@ namespace Swellow.Shared.Enum
     }
     public enum MovieType
     {
-        Common,
-        SP,
-        OVA,
-        OAD,
+        Common = 1,
+        SP = 2,
+        OVA = 3,
+        OAD = 4,
     }
 
     public enum LibraryType
     {
-        Movie,
-        Tv,
-        Mix,
+        Mix = 1,
+        //Movie = 2,
+        //Tv = 3,
 
     }
     public enum CastType
     {
-        Actor,
-        Director,
-        Voice,
+        Actor = 1,
+        Director = 2,
+        Voice = 3,
 
     }
     public enum CompanyType
     {
-        Producer,
-        Publisher,
-        Investor,
+        Producer = 1,
+        Publisher = 2,
+        Investor = 3,
     }
 
     public enum SubtitleType
