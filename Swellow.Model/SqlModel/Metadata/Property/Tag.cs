@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.MetaData.Middle;
+﻿using Swellow.Shared.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.MetaData.Property
+namespace Swellow.Shared.SqlModel.MetaData.Property
 {
     // 【多对多】标签
     public class Tag
@@ -10,6 +10,7 @@ namespace Swellow.Model.SqlModel.MetaData.Property
         // 0 主键 ID
         [Key]
         public int Id { get; set; }
+
 
         [Required]
         // 1 名称

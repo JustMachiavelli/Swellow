@@ -1,10 +1,10 @@
-﻿using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.LocalData;
-using Swellow.Model.SqlModel.Middle;
-using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.View;
-using Swellow.Model.SqlModel.Works.Film;
+﻿using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.LocalData;
+using Swellow.Shared.SqlModel.Middle;
+using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.View;
+using Swellow.Shared.SqlModel.Works.Film;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,7 +167,7 @@ namespace Swellow.API.Sql.Init
                     Name = "科幻",
                     Type = LibraryType.Movie,
                     Fanart = "/SwellowData/Images/Library/Preview/1.jpg",
-                    Directorys = new List<VideoFolder>
+                    Folders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/科幻1", },
                         new VideoFolder{ Path = "/TestMovies/科幻2", },
@@ -179,7 +179,7 @@ namespace Swellow.API.Sql.Init
                     Name = "动漫",
                     Type = LibraryType.Movie,
                     Fanart = "/SwellowData/Images/Library/Preview/2.jpg",
-                    Directorys = new List<VideoFolder>
+                    Folders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/喜剧1", },
                         new VideoFolder{ Path = "/TestMovies/喜剧2", },

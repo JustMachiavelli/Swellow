@@ -1,11 +1,11 @@
-﻿using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.LocalData;
+﻿using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.LocalData;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Swellow.Model.ViewModel.Settings
+namespace Swellow.Shared.ViewModel.Settings
 {
     public class LibraryCreateEdit
     {

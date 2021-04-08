@@ -1,10 +1,10 @@
-﻿using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.LocalData;
-using Swellow.Model.SqlModel.Works;
+﻿using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.LocalData;
+using Swellow.Shared.SqlModel.MetaData.Media;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.View
+namespace Swellow.Shared.SqlModel.View
 {
     // Swellow中的媒体库
     public class Library
@@ -14,23 +14,24 @@ namespace Swellow.Model.SqlModel.View
         public int Id { get; set; }
 
 
+        [Required]
         // 1 名称
-        public string Name { get; set; }
+        public string Name { get; set; } = "新媒体库";
 
 
         // 2 类型
-        public LibraryType Type { get; set; }
+        public LibraryType Type { get; set; } = LibraryType.Mix;
 
 
         // 3 预览图路径
-        public string Fanart { get; set; }
+        public string Fanart { get; set; } = "/default/library-fanart.svg";
 
 
         // 4【集合导航】包含的文件夹的路径们
-        public IEnumerable<VideoFolder> Directorys { get; set; } = new List<VideoFolder>();
+        public IEnumerable<VideoFolder>? Folders { get; set; } = new List<VideoFolder>();
 
 
         // 5【集合导航】包含的影视剧
-        public IEnumerable<Work> Works { get; set; } = new List<Work>();
+        public IEnumerable<Work>? Works { get; set; } = new List<Work>();
     }
 }

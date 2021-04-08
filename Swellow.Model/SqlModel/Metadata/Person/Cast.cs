@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.MetaData.Middle;
+﻿using Swellow.Shared.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.MetaData.People
+namespace Swellow.Shared.SqlModel.MetaData.Person
 {
     // 演职人员
     public class Cast

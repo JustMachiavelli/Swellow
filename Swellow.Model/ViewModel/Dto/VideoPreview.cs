@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Model.ViewModel.Dto
+namespace Swellow.Shared.ViewModel.Dto
 {
     public class WorkPreview
     {

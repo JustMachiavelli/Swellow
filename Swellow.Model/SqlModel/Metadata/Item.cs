@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Swellow.Model.SqlModel.MetaData
+namespace Swellow.Shared.SqlModel.MetaData
 {
     public class Item
     {
@@ -12,8 +12,11 @@ namespace Swellow.Model.SqlModel.MetaData
         public int Id { get; set; }
         // 2 展示的标题
         public string? Display { get; set; }
+
+        [Required]
         // 3 原标题
-        public string? Name { get; set; }
+        public string Name { get; set; } = "未知对象";
+
         // 5 简介
         public string? Outline { get; set; }
         // 11 国家地区
@@ -28,7 +31,6 @@ namespace Swellow.Model.SqlModel.MetaData
         public string? TmdbId { get; set; }
         // 25 IMDB编号 = "tt7605074";
         public string? ImdbId { get; set; }
-
 
     }
 }

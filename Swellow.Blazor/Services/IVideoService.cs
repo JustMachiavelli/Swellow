@@ -1,5 +1,5 @@
-﻿using Swellow.Model.ViewModel.Dto;
-using Swellow.Model.ViewModel.Media;
+﻿using Swellow.Shared.ViewModel.Dto;
+using Swellow.Shared.ViewModel.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;

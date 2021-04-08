@@ -60,11 +60,13 @@ namespace Swellow.API
             }
 
             // 允许访问静态文件，静态文件添加本地磁盘的目录路径
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(LocalPath.PathSwellowDataImage),
-                RequestPath = "/SwellowData/Images"
-            });
+            app.UseStaticFiles(
+                new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(""),
+                    RequestPath = "/SwellowData/Images"
+                }
+            );
 
             app.UseRouting();
 

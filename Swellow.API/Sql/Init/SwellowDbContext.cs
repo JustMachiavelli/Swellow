@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.Episode;
-using Swellow.Model.SqlModel.LocalData;
-using Swellow.Model.SqlModel.Middle;
-using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.Property;
-using Swellow.Model.SqlModel.View;
-using Swellow.Model.SqlModel.Works;
-using Swellow.Model.SqlModel.Works.Film;
-using Swellow.Model.SqlModel.Works.Television;
+using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.Episode;
+using Swellow.Shared.SqlModel.LocalData;
+using Swellow.Shared.SqlModel.Middle;
+using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.Property;
+using Swellow.Shared.SqlModel.View;
+using Swellow.Shared.SqlModel.Works;
+using Swellow.Shared.SqlModel.Works.Film;
+using Swellow.Shared.SqlModel.Works.Television;
 using System.Collections.Generic;
 
 namespace Swellow.API.Sql.Init
@@ -78,7 +78,7 @@ namespace Swellow.API.Sql.Init
             // 文件夹路径
             modelBuilder.Entity<VideoFolder>()
                         .HasOne(MeidaDirectory => MeidaDirectory.Library)
-                        .WithMany(Library => Library.Directorys)
+                        .WithMany(Library => Library.Folders)
                         .HasForeignKey(MeidaDirectory => MeidaDirectory.LibraryId);
 
             // 视频 的 外键 IdSeries、IdLibrary

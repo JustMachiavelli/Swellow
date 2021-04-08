@@ -1,8 +1,8 @@
-﻿using Swellow.Model.SqlModel.MetaData.Middle;
+﻿using Swellow.Shared.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.MetaData.Organization
+namespace Swellow.Shared.SqlModel.MetaData.Organization
 {
     // 【多对多】制作商
     public class Company

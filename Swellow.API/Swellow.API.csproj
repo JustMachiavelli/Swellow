@@ -18,8 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Swellow.Environment\Swellow.Environment.csproj" />
-    <ProjectReference Include="..\Swellow.Model\Swellow.Model.csproj" />
+    <ProjectReference Include="..\Swellow.Shared\Swellow.Shared.csproj" />
   </ItemGroup>
 
 </Project>

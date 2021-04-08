@@ -1,24 +1,29 @@
-﻿using Swellow.Model.Enum;
-using Swellow.Model.SqlModel.MetaData.Media.Film;
-using Swellow.Model.SqlModel.MetaData.Media.Television;
-using Swellow.Model.SqlModel.MetaData.Middle;
-using Swellow.Model.SqlModel.MetaData.Property;
-using Swellow.Model.SqlModel.View;
+﻿using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.MetaData.Media.Film;
+using Swellow.Shared.SqlModel.MetaData.Media.Television;
+using Swellow.Shared.SqlModel.MetaData.Middle;
+using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.View;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.MetaData.Media
+namespace Swellow.Shared.SqlModel.MetaData.Media
 {
     public class Work : Item
     {
+        [Required]
         // 1 类型
-        public WorkType Type { get; set; } = WorkType.Mix;
+        public WorkType Type { get; set; }
+
         // 7 时长 = 0;
         public int? Runtime { get; set; }
+
         // 8 发行年份 = "1900";
         public string? Year { get; set; }
+
         // 9 发行日期 = "1900-01-01";
         public string? Date { get; set; }
+
         // 10 评分 = 0;
         public byte? Score { get; set; }
 

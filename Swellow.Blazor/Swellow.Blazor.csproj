@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Swellow.Model\Swellow.Model.csproj" />
+    <ProjectReference Include="..\Swellow.Shared\Swellow.Shared.csproj" />
   </ItemGroup>
 
 </Project>

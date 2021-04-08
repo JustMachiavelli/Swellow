@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swellow.API.Sql;
-using Swellow.Model.ViewModel.Dto;
-using Swellow.Model.ViewModel.Media;
-using Swellow.Model.SqlModel.View;
+using Swellow.Shared.ViewModel.Dto;
+using Swellow.Shared.ViewModel.Media;
+using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;

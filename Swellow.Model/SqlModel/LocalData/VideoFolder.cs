@@ -1,7 +1,8 @@
-﻿using Swellow.Model.SqlModel.View;
+﻿using Swellow.Shared.Environment;
+using Swellow.Shared.SqlModel.View;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.LocalData
+namespace Swellow.Shared.SqlModel.LocalData
 {
     // 媒体库所包含的文件夹
     public class VideoFolder
@@ -10,11 +11,12 @@ namespace Swellow.Model.SqlModel.LocalData
         [Key]
         public int Id { get; set; }
 
+        [Required]
         // 1 绝对路径
-        public string Path { get; set; }
+        public string Path { get; set; } = StaticFiles.DefaultDirectory;
 
         // 2 【引用导航】所属媒体库
-        public int LibraryId { get; set; }
-        public Library Library { get; set; }
+        public int? LibraryId { get; set; }
+        public Library? Library { get; set; }
     }
 }

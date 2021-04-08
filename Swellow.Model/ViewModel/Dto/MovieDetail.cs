@@ -1,8 +1,8 @@
-﻿using Swellow.Model.ViewModel.Dto;
-using Swellow.Model.SqlModel.Property;
+﻿using Swellow.Shared.ViewModel.Dto;
+using Swellow.Shared.SqlModel.Property;
 using System.Collections.Generic;
 
-namespace Swellow.Model.ViewModel.Media
+namespace Swellow.Shared.ViewModel.Media
 {
     public class MovieDetail
     {

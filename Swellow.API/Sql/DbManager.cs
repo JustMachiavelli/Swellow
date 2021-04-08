@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.API.Sql.Init;
-using Swellow.Model.SqlModel.People;
-using Swellow.Model.SqlModel.View;
-using Swellow.Model.SqlModel.Works;
+using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.SqlModel.View;
+using Swellow.Shared.SqlModel.Works;
 using System;
 using System.Collections.Generic;
 using System.Linq;

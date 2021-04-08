@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using Swellow.Model.ViewModel.Dto;
-using Swellow.Model.SqlModel.View;
+using Swellow.Shared.ViewModel.Dto;
+using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;

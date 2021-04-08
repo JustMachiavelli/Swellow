@@ -1,12 +1,13 @@
 ﻿
-namespace Swellow.Model.Enum
+namespace Swellow.Shared.Enum
 {
     public enum WorkType
     {
-        Mix,
-        Tv,
-        Movie,
-        Mv,
+        Mix = 1,
+        SingleMovie = 2,
+        SingleTv = 3,
+        Mv = 4,
+        Variety = 5,
     }
     public enum MovieType
     {
@@ -40,7 +41,7 @@ namespace Swellow.Model.Enum
     public enum SubtitleType
     {
         简中 = 1,
-        繁重 = 2,
+        繁中 = 2,
 
     }
 }

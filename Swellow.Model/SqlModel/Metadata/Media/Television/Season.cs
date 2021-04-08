@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Swellow.Shared.Environment;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Model.SqlModel.MetaData.Media.Television
+namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 {
     // 电视剧
     public class Season
@@ -9,22 +10,26 @@ namespace Swellow.Model.SqlModel.MetaData.Media.Television
         [Key]
         public int Id { get; set; }
 
+        [Required]
         // 1 第几季？
-        public int No { get; set; }
+        public int No { get; set; } = 1;
 
 
         // 2 剧情简介
-        public string Plot { get; set; }
+        public string? Plot { get; set; }
+
+
+        // 单集剧照
+        public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
 
 
         // 3【集合导航】视频文件的路径
-        public IEnumerable<Episode> Episodes { get; set; } = new List<Episode>();
+        public IEnumerable<Episode>? Episodes { get; set; } = new List<Episode>();
 
 
         // 4【引用导航】所属TV
-        public int WorkId { get; set; }
-
-        public Work Work { get; set; }
+        public int? WorkId { get; set; }
+        public Work? Work { get; set; }
 
     }
 }

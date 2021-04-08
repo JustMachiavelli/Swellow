@@ -17,3 +17,45 @@
     right: 0.75rem;
     top: 0.5rem;
 }
+
+
+
+html, body {
+    font-size: 12px;
+    /*height: 100%;*/
+}
+
+
+/*1 通用页面布局组件
+2 布局页导航栏
+3 Home媒体库主页
+4 单个媒体库
+5 电影详情
+6 演员详情
+7 视频播放页
+8 settings：library
+
+*/
+
+.home-body {
+    /*color: white;*/
+    background-image: url(/images/layout/background-blueradiance.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*.poster-overspread {
+    width: 80%;
+}*/
+
+/*row-cols-md-8*/
+/*.h-80*/
+
+/*@media (min-width: 768px) {
+    .row-cols-md-8 > * {
+        -ms-flex: 0 0 12.5%;
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+}*/
