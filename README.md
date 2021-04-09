@@ -4,7 +4,8 @@
 ![Swellow logo](https://github.com/junerain123/wwwroot/blob/master/README%E7%94%A8%E5%9B%BE/Swellow/logoName.png?raw=true)
 ## 1 是什么
 作者以自己的理解摸索实现一个`模仿emby`核心功能的、BS模式的本地影视管理工具。  
-Swellow的名称来自《精灵宝可梦》中的“傲骨燕/大王燕”。
+技术栈涉及[Asp.Net Core5.0(Web Api后端)](https://docs.microsoft.com/zh-cn/aspnet/core/web-api/?view=aspnetcore-5.0)、[Blazor WASM(前端Web)](https://docs.microsoft.com/zh-cn/aspnet/core/blazor/?view=aspnetcore-5.0)、[EF Core(数据库访问)](https://docs.microsoft.com/zh-cn/ef/core/)，前端UI设计使用[Bootstrap](https://v4.bootcss.com/)和[BootstrapBlazor](http://blazor.sdgxgz.com/)。  
+Swellow的名称来自《精灵宝可梦》中的“傲骨燕/大王燕”。  
 ## 2 实现功能
 ### 2.1 影视信息收集存储
 #### 2.1.1 元数据来源
@@ -88,13 +89,13 @@ Swellow的名称来自《精灵宝可梦》中的“傲骨燕/大王燕”。
 
 #### 2.2.5 设置
 * 控制台。
-    *  - [ ]显示Swellow当前的状态。
+    *  - [ ] 显示Swellow当前的状态。
 * 添加媒体库
-    *  - [ ]在这里添加新的媒体库。
-    *  - [ ]重新扫描本地文件。
+    *  - [ ] 在这里添加新的媒体库。
+    *  - [ ] 重新扫描本地文件。
 * 设置规范本地
-    *  - [ ]各种重命名本地文件的公式。
-    *  - [ ]代理等其他设置
+    *  - [ ] 各种重命名本地文件的公式。
+    *  - [ ] 代理等其他设置
 
 ### 2.3 后端支持
 
