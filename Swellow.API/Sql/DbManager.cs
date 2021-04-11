@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.API.Sql.Init;
-using Swellow.Shared.SqlModel.People;
+using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.Metadata.Media;
 using Swellow.Shared.SqlModel.View;
-using Swellow.Shared.SqlModel.Works;
+using Swellow.Shared.ViewModel.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,25 +36,32 @@ namespace Swellow.API.Sql
         }
 
 
-        // 【Video】1得到Videos，通过LibraryId
-        public async Task<IEnumerable<Work>> GetVideosByLibraryIdAsync(int id)
+        // 【Work】1得到Works，通过LibraryId
+        public async Task<IEnumerable<WorkPreview>> GetShallowWorksByLibraryIdAsync(int id)
         {
-            return await _context.Videos.Where(Video => Video.LibraryId == id)
-                                        .ToListAsync();
+            List<WorkPreview> workPreviews = new ();
+            foreach (var work in await _context.Works.Select(Work => new { Work.Id, Work.Display, Work.Year, Work.Type }).ToListAsync())
+            {
+                WorkPreview workPreview = new()
+                {
+                    Id = work.Id,
+                    Display = work.Display,
+                    Year = work.Year,
+                    Type = work.Type,
+                };
+                workPreviews.Add(workPreview);
+            }
+            return workPreviews;
         }
 
-        // 【Video】2得到一个Video，通过VideoId
-        public async Task<Movie> GetMovieByIdAsync(int id)
+
+        // 【Work】2得到一个Work，通过WorkId
+        public async Task<Work> GetWorkByIdAsync(int id, WorkType type)
         {
-            Movie movie = await _context.Movies.Where(Movie => Movie.Id == id)
+            Work work = await _context.Movies.Where(Work => Work.Id == id)
                                     .Include(Movie => Movie.VideoActors)
-                                        .ThenInclude(VideoActor => VideoActor.Cast)
-                                    .Include(Movie => Movie.VideoDirectors)
-                                        .ThenInclude(VideoDirector => VideoDirector.Cast)
-                                    .Include(Movie => Movie.VideoGenres)
-                                        .ThenInclude(VideoGenre => VideoGenre.Genre)
-                                    .FirstOrDefaultAsync();
-            return movie;
+                                        .ThenInclude(VideoActor => VideoActor.Cast) 
+            return work;
         }
 
         // 【Video】2得到一个Video，通过VideoId

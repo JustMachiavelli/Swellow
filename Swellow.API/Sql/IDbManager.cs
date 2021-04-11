@@ -1,6 +1,6 @@
-﻿using Swellow.Shared.SqlModel.People;
+﻿using Swellow.Shared.SqlModel.Metadata.Media;
+using Swellow.Shared.SqlModel.MetaData.Person;
 using Swellow.Shared.SqlModel.View;
-using Swellow.Shared.SqlModel.Works;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,14 +15,11 @@ namespace Swellow.API.Sql
         Task<string> GetLibraryNameByIdAsync(int id);
 
 
-        // 2.1【Video】得到Videos，通过LibraryId
-        Task<IEnumerable<Work>> GetVideosByLibraryIdAsync(int id);
+        // 2.1【Work】得到Works，通过LibraryId
+        Task<IEnumerable<Work>> GetWorksByLibraryIdAsync(int id);
 
-        // 3.1【Movie】得到一个Video，通过VideoId
-        Task<Movie> GetMovieByIdAsync(int id);
-
-        // 4.1【Tv】得到一个Video，通过VideoId
-        Task<Tv> GetTvByIdAsync(int id);
+        // 3.1【Movie】得到一个Work，通过WorkId
+        Task<Work> GetWorkByIdAsync(int id);
 
 
         // 5.1【Cast】得到一个Cast，通过CastId

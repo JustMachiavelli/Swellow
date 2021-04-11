@@ -1,4 +1,5 @@
 ﻿using Swellow.Shared.Environment;
+using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -17,7 +18,7 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
 
         // 2 剧情简介
-        public string? Plot { get; set; }
+        public string? Outline { get; set; }
 
 
         // 3 经历年份 = "1996";
@@ -32,7 +33,7 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public IEnumerable<Episode>? Episodes { get; set; } = new List<Episode>();
 
 
-        // 4【引用导航】所属TV
+        // 4【引用导航】所属Work
         public int? WorkId { get; set; }
         public Work? Work { get; set; }
 

@@ -27,6 +27,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public string? Plot { get; set; }
 
 
+        // 上映日期
+        public string? Date { get; set; }
+
+
         // 单集剧照
         //public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
 

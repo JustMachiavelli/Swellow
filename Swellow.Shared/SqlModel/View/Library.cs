@@ -1,6 +1,6 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.SqlModel.LocalData;
-using Swellow.Shared.SqlModel.MetaData.Media;
+using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -20,7 +20,7 @@ namespace Swellow.Shared.SqlModel.View
 
 
         // 2 类型
-        public LibraryType Type { get; set; } = LibraryType.Mix;
+        //public LibraryType Type { get; set; } = LibraryType.Mix;
 
 
         // 3 预览图路径
@@ -28,10 +28,12 @@ namespace Swellow.Shared.SqlModel.View
 
 
         // 4【集合导航】包含的文件夹的路径们
-        public IEnumerable<VideoFolder>? VideoFolders { get; set; } = new List<VideoFolder>();
+        public IEnumerable<VideoFolder>? VideoFolders { get; set; }
 
 
         // 5【集合导航】包含的影视剧
-        public IEnumerable<Work>? Works { get; set; } = new List<Work>();
+        public IEnumerable<Work>? Works { get; set; }
+
+
     }
 }

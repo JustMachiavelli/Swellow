@@ -1,18 +1,18 @@
 ﻿using Swellow.Shared.Enum;
+using Swellow.Shared.SqlModel.MetaData;
 using Swellow.Shared.SqlModel.MetaData.Media.Film;
 using Swellow.Shared.SqlModel.MetaData.Media.Television;
 using Swellow.Shared.SqlModel.MetaData.Middle;
 using Swellow.Shared.SqlModel.MetaData.Property;
 using Swellow.Shared.SqlModel.View;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Text;
 
-namespace Swellow.Shared.SqlModel.MetaData.Media
+namespace Swellow.Shared.SqlModel.Metadata.Media
 {
     public class Work : Item
     {
-        [Required]
-        // 1 类型
         public WorkType Type { get; set; }
 
         // 7 时长 = 0;
@@ -28,9 +28,6 @@ namespace Swellow.Shared.SqlModel.MetaData.Media
         public byte? Score { get; set; }
 
 
-        public string? WorkDirectory { get; set; }
-
-
         // 15【集合导航】演职人员
         public IEnumerable<WorkCast>? WorkCasts { get; set; } = new List<WorkCast>();
         // 16【集合导航】公司
@@ -40,21 +37,23 @@ namespace Swellow.Shared.SqlModel.MetaData.Media
         // 19【集合导航】标签
         public IEnumerable<WorkTag>? WorkTags { get; set; } = new List<WorkTag>();
 
-        
-        // 1【集合导航】所含剧季
+
+        // 3【集合导航】所含剧季
         public IEnumerable<Season>? Seasons { get; set; } = new List<Season>();
 
-        // 2【集合导航】所含Movies
+
+        // 4【集合导航】所含Movies
         public IEnumerable<Movie>? Movies { get; set; } = new List<Movie>();
 
 
-        // 【引用导航】所属系列
+        // 2【引用导航】所属系列
         public int? SeriesId { get; set; }
         public Series? Series { get; set; }
 
 
-        // 3【引用导航】所属library
+        // 5【引用导航】所属library
         public int? LibraryId { get; set; }
         public Library? Library { get; set; }
+
     }
 }

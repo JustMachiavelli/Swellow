@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.Shared.SqlModel.LocalData;
-using Swellow.Shared.SqlModel.MetaData.Media;
+using Swellow.Shared.SqlModel.Metadata.Media;
 using Swellow.Shared.SqlModel.MetaData.Media.Film;
 using Swellow.Shared.SqlModel.MetaData.Media.Television;
 using Swellow.Shared.SqlModel.MetaData.Middle;
@@ -27,20 +27,20 @@ namespace Swellow.API.Sql.Init
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // =============Library相关===============
+            #region=============Library相关===============
             // 所含 文件夹路径
             modelBuilder.Entity<Library>()
                         .HasMany(Library => Library.VideoFolders)
                         .WithOne(VideoFolder => VideoFolder.Library)
                         .HasForeignKey(VideoFolder => VideoFolder.LibraryId);
-            // 所含 作品
+            // 所含 Work
             modelBuilder.Entity<Library>()
                         .HasMany(Library => Library.Works)
                         .WithOne(Work => Work.Library)
                         .HasForeignKey(Work => Work.LibraryId);
+            #endregion
 
-
-            // =============Work相关===============
+            #region=============Work相关===============
             // 所含 <影视作品，演职人员>
             modelBuilder.Entity<Work>()
                         .HasMany(Work => Work.WorkCasts)
@@ -79,38 +79,33 @@ namespace Swellow.API.Sql.Init
                         .HasOne(Work => Work.Series)
                         .WithMany(Series => Series.Works)
                         .HasForeignKey(Work => Work.SeriesId);
-            // 所属library
-            //modelBuilder.Entity<Work>()
-            //            .HasOne(Work => Work.Library)
-            //            .WithMany(Library => Library.Works)
-            //            .HasForeignKey(Work => Work.LibraryId);
 
-            // ################Work相关################
+            #endregion################Work相关################
 
 
-            // =============Season相关===============
+            #region=============Season相关===============
             // 所含 剧集
             modelBuilder.Entity<Season>()
                         .HasMany(Season => Season.Episodes)
                         .WithOne(Episode => Episode.Season)
                         .HasForeignKey(Episode => Episode.SeasonId);
+            #endregion
 
-
-            // =============Episode相关===============
+            #region=============Episode相关===============
             // 所含 CDs
             modelBuilder.Entity<Episode>()
                         .HasMany(Episode => Episode.CDs)
                         .WithOne(CD => CD.Episode)
                         .HasForeignKey(CD => CD.EpisodeId);
+            #endregion
 
-
-            // =============Movie相关===============
+            #region=============Movie相关===============
             // 所含 CDs
             modelBuilder.Entity<Movie>()
                         .HasMany(Movie => Movie.CDs)
                         .WithOne(CD => CD.Movie)
                         .HasForeignKey(CD => CD.MovieId);
-
+            #endregion
 
         }
 

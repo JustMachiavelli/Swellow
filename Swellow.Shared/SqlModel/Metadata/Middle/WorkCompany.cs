@@ -1,5 +1,5 @@
 ﻿using Swellow.Shared.Enum;
-using Swellow.Shared.SqlModel.MetaData.Media;
+using Swellow.Shared.SqlModel.Metadata.Media;
 using Swellow.Shared.SqlModel.MetaData.Organization;
 using System.ComponentModel.DataAnnotations;
 
@@ -18,5 +18,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Middle
 
 
         public CompanyType Type { get; set; } = CompanyType.Producer;
+
+
+
+        // 加权值，出现在该作品中的次数
+        public int Weighting { get; set; } = 0;
     }
 }

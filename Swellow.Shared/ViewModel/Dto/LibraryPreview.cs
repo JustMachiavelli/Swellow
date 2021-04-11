@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swellow.Shared.Environment;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,9 +11,9 @@ namespace Swellow.Shared.ViewModel.Dto
         public int Id { get; set; }
 
         // 媒体库的名称
-        public string Name { get; set; }
+        public string Name { get; set; } = "未知媒体库";
 
         // 媒体库的预览图路径
-        public string Fanart { get; set; }
+        public string Fanart { get; set; } = StaticFiles.LibraryDefaultFanartPath;
     }
 }

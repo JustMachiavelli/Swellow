@@ -1,5 +1,4 @@
 ﻿using Swellow.Shared.SqlModel.MetaData.Middle;
-using Swellow.Shared.SqlModel.Middle;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 

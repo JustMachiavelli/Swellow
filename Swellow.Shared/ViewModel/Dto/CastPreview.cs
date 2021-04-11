@@ -12,9 +12,9 @@ namespace Swellow.Shared.ViewModel.Dto
 
         public string Name { get; set; } = "未知演员";
 
-        public string Poster { get; set; } = "";
+        public string? Poster { get; set; }
 
-        public CastType Type { get; set; }
+        public CastType Type { get; set; } = CastType.Unknown;
 
     }
 }

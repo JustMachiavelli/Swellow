@@ -1,4 +1,4 @@
-﻿using Swellow.Shared.SqlModel.MetaData.Media;
+﻿using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
