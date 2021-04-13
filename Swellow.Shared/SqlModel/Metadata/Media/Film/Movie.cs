@@ -2,14 +2,12 @@
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Media.Film
 {
     // 电影
     public class Movie : Item
     {
-        [Required]
         // 1 类型 Movie，一般电影
         public MovieType Type { get; set; } = MovieType.Common;
 

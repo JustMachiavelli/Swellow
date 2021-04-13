@@ -1,16 +1,17 @@
 ﻿using Swellow.Shared.SqlModel.MetaData.Media.Film;
 using Swellow.Shared.SqlModel.MetaData.Media.Television;
-using System.ComponentModel.DataAnnotations;
+//using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.LocalData
 {
     public class CD
     {
         // 0 主键
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
-        [Required]
+
+        //[Required]
         // 1【集合导航】第几CD？
         public int No { get; set; } = 0;
 

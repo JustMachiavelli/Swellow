@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿
 
 namespace Swellow.Shared.SqlModel.MetaData
 {
     public class Item
     {
         // 0 本地编号
-        [Key]
         public int Id { get; set; }
         // 2 展示的标题
         public string? Display { get; set; }
 
-        [Required]
         // 3 原标题
         public string Name { get; set; } = "未知对象";
 

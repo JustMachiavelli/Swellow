@@ -1,17 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="SqlModel.zip" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ViewModel\Media\" />
-  </ItemGroup>
 
 </Project>

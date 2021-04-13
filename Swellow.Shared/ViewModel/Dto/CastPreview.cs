@@ -1,8 +1,4 @@
 ﻿using Swellow.Shared.Enum;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Swellow.Shared.ViewModel.Dto
 {
