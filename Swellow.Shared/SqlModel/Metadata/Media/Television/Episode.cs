@@ -8,10 +8,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
     public class Episode
     {
         // 0 主键 ID
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         // 1 第几集，比如“E2”
         public int No { get; set; } = 0;
 
@@ -28,7 +28,9 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
 
         // 上映日期
-        public string? Date { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public System.DateTime Date { get; set; }
 
 
         // 单集剧照

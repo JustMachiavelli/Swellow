@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swellow.API.Sql;
 using Swellow.API.Sql.Init;
+using Swellow.Shared.Environment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace Swellow.API
             app.UseStaticFiles(
                 new StaticFileOptions
                 {
-                    FileProvider = new PhysicalFileProvider(""),
+                    FileProvider = new PhysicalFileProvider(LocalResources.DataImageDirectory),
                     RequestPath = "/SwellowData/Images"
                 }
             );

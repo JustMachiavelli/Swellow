@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>b018cbf3-3478-4d9b-bd0d-d0ac1e5da0a6</ProjectGuid>
+    <ProjectGuid>{B018CBF3-3478-4D9B-BD0D-D0AC1E5DA0A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Swellow.ADO</RootNamespace>
@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,24 +46,136 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Swellow.Blazor\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\Swellow.Blazor\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Casts.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CDs.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Companys.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Episodes.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Genres.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Librarys.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Movies.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Seasons.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Serieses.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SwellowModelShow.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwellowModelShow.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SwellowModelShow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SwellowModelShow.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Tags.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VideoFolder.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkCasts.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkCompanys.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkGenres.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Works.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkTags.cs">
+      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SwellowDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SwellowDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>SwellowDb.mdf</DependentUpon>
+    </Content>
+    <Content Include="SwellowModelShow.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SwellowModelShow.Context.cs</LastGenOutput>
+      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+    </Content>
+    <Content Include="SwellowModelShow.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+      <LastGenOutput>SwellowModelShow.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="SwellowModelShow.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SwellowModelShow.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="SwellowModelShow.edmx.diagram">
+      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

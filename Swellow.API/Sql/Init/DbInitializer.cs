@@ -44,8 +44,8 @@ namespace Swellow.API.Sql.Init
 
                 Type = WorkType.SingleMovie,
                 Runtime = 150,
-                Year = "2019",
-                Date = "2019-01-01",
+                Year = 2019,
+                Date = new DateTime(2019, 1, 1),
                 Score = 79,
                 WorkCasts = GetAllWorkCast(context, new string[] { "郭帆" }, new string[] { "吴京", "屈楚萧", "赵今麦", "吴孟达" }, Array.Empty<string>()),
                 WorkCompanys = GetAllWorkCompanys(context, new string[] { "郭帆文化传媒（北京）有限公司", "北京京西文化旅游股份有限公司" },
@@ -57,10 +57,17 @@ namespace Swellow.API.Sql.Init
                 {
                     new Movie()
                     {
+                        Display = "流浪地球(2019)",
+                        Name = "流浪地球",
+                        Outline = "近未来，科学家们发现太阳急速衰老膨胀，短时间内包括地球在内的整个太阳系都将被太阳所吞没。为了自救，人类提出一个名为“流浪地球IdDouban”的大胆计划，即倾全球之力在地球表面建造上万座发动机和转向发动机，推动地球离开太阳系，用2500年的时间奔往另外一个栖息之地。中国航天员刘培强（吴京 饰）在儿子刘启四岁那年前往国际空间站，和国际同侪肩负起领航者的重任。转眼刘启（屈楚萧 饰）长大，他带着妹妹朵朵（赵今麦 饰）偷偷跑到地表，偷开外公韩子昂（吴孟达 饰）的运输车，结果不仅遭到逮捕，还遭遇了全球发动机停摆的事件。为了修好发动机，阻止地球坠入木星，全球开始展开饱和式营救，连刘启他们的车也被强征加入。在与时间赛跑的过程中，无数的人前仆后继，奋不顾身，只为延续百代子孙生存的希望……",
+                        Region = "中国大陆",
+                        DoubanId = "26266893",
+                        ImdbId = "tt7605074",
+                        TmdbId = "535167",
                         //Type = MovieType.Common,
                         Runtime = 150,
-                        Year = "2019",
-                        Date = "2019-01-01",
+                        Year = 2019,
+                        Date = new DateTime(2019, 1, 1),
                         Score = 79,
                         CDs = new List<CD>()
                         {
@@ -91,8 +98,8 @@ namespace Swellow.API.Sql.Init
 
                 Type = WorkType.SingleMovie,
                 Runtime = 103,
-                Year = "2019",
-                Date = "2019-11-20",
+                Year = 2019,
+                Date = new DateTime(2019, 11, 20),
                 Score = 73,
                 WorkCasts = GetAllWorkCast(context, new string[] { "托德·菲利普斯" }, new string[] { "华金·菲尼克斯", "罗伯特·德尼罗", "马克·马龙", "莎姬·贝兹", "谢伊·惠格姆" }, Array.Empty<string>()),
                 WorkCompanys = GetAllWorkCompanys(context, new string[] { "华纳兄弟公司", "DC Comics", "美国威秀影片公司", "Bron Studios", "DC Comics", "22 & Indiana Pictures" },
@@ -104,9 +111,17 @@ namespace Swellow.API.Sql.Init
                 {
                     new Movie()
                     {
+                        Display = "冰雪奇缘2(2019)",
+                        Name = "冰雪奇缘2",
+                        Outline = "在前作中，阿伦黛尔王国的公主艾莎因为拥有难以控制的强大魔力而选择封闭心扉，远离家园。在妹妹安娜等的帮助鼓舞下，艾莎终于鼓起勇气拥抱真我获得真正的力量。正当艾莎与安娜终于获得了曾经梦寐以求的生活，艾莎却听到了一个神秘声音的呼唤——这声音许诺将揭示她为何拥有冰雪魔法的真相，而这个神秘的真相也威胁着她的王国。艾莎与安娜不得不再次踏上非凡的旅程，前往未知的魔法森林和暗海。在艰险加倍的旅程中，艾莎和安娜的姐妹深情，也更加熠熠生辉，令人动容。",
+                        Region = "美国",
+                        DoubanId = "26266893",
+                        ImdbId = "tt7605074",
+                        TmdbId = "535167",
+
                         Runtime = 103,
-                        Year = "2019",
-                        Date = "2019-11-20",
+                        Year = 2019,
+                        Date = new DateTime(2019, 11, 20),
                         Score = 73,
                         CDs = new List<CD>() { new CD() { Property = "1080P" } },
                     }
@@ -128,8 +143,8 @@ namespace Swellow.API.Sql.Init
 
                 Type = WorkType.SingleMovie,
                 Runtime = 107,
-                Year = "2005",
-                Date = "2005-05-12",
+                Year = 2005,
+                Date = new DateTime(2005, 5, 12),
                 Score = 87,
                 WorkCasts = GetAllWorkCast(context, new string[] { "刘伟强", "麦兆辉" },
                                                     new string[] { "周杰伦", "陈冠希", "铃木杏", "余文乐", "钟镇涛" }, 
@@ -152,8 +167,8 @@ namespace Swellow.API.Sql.Init
                         TmdbId = "535167",
 
                         Runtime = 107,
-                        Year = "2005",
-                        Date = "2005-05-12",
+                        Year = 2005,
+                        Date = new DateTime(2005, 5, 12),
                         Score = 87,
                         CDs = new List<CD>(){ new CD() { Property = ".重制版" } }
                     }
@@ -175,8 +190,9 @@ namespace Swellow.API.Sql.Init
 
                 Type = WorkType.Mix,
                 Runtime = 25,
-                Year = "1996-",
-                Date = "1996-01-08",
+                Year = 1996,
+                EndYear = 0,
+                Date = new DateTime(1996, 1, 8),
                 Score = 92,
                 WorkCasts = GetAllWorkCast(context, new string[] { "山本泰一郎" },
                                                     Array.Empty<string>(),
@@ -192,7 +208,7 @@ namespace Swellow.API.Sql.Init
                     {
                         No = 1,
                         Outline = "名侦探柯南的第一季在1996年，永不完结的第一季",
-                        Year = "1996",
+                        Year = 1996,
                         Episodes = new List<Episode>()
                         {
                             // 第一集
@@ -202,6 +218,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "云霄飞车杀人事件",
                                 Display = "名侦探柯南 - Y1996S01E01 - 云霄飞车杀人事件",
                                 Plot = "【主线剧情】高中生侦探工藤新一被称为“日本警察界的救世主”而响誉全国，他帮助警方解决了很多棘手案件。某日，他和青梅竹马小兰一起去坐云霄飞车时遇到了一起因情生恨凶杀事件，其中，有两名黑衣人引起了工藤的注意，工藤暗中跟踪却被发现，黑衣给他灌下毒药后离开，当被警察发现时，工藤已变成了小孩儿的模样。",
+                                Date = new DateTime(1996, 1, 8),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".720p.修复版", },
@@ -214,6 +231,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "董事长千金绑架事件",
                                 Display = "名侦探柯南 - Y1996S01E02 - 董事长千金绑架事件",
                                 Plot = "【主线剧情】趁警察不注意工藤逃到阿笠博士那里寻求帮助，这时担心工藤的小兰找也找到这里，为保护小兰安全，工藤隐瞒身份并在情急之下取名江户川柯南，阿笠博士将柯南托付给小兰照顾，回家后他们碰到了急匆匆出门办案的毛利小五郎，听说有黑衣人，柯南也跟着一起去。原来是董事长女儿谷晶子被绑架，在管家承认了自己是犯人且没有同伙后，却再次有人打来威胁电话……",
+                                Date = new DateTime(1996, 1, 15),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".1080p BD", },
@@ -225,6 +243,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "偶像密室杀人事件",
                                 Display = "名侦探柯南 - Y1996S01E03 - 偶像密室杀人事件",
                                 Plot = "【含主线信息】身体变小后柯南转入帝丹小学，并结识了步美、光彦和元太。某日，明星洋子来到毛利侦探事务所，说总感觉有人暗中监视她，为了更进一步了解真相，毛利一行人来到洋子住处，可开门后居然有具死尸横在门口，期间柯南发现了另一名演员优子的耳环并且还注意到洋子的经纪人山岸神态怪异，洋子、山岸、优子到底谁才是真正的凶手。",
+                                Date = new DateTime(1996, 1, 22),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".1080p BD", },
@@ -236,7 +255,7 @@ namespace Swellow.API.Sql.Init
                     {
                         No = 2,
                         Outline = "名侦探柯南的第一季在1997年，永不完结的第一季",
-                        Year = "1997",
+                        Year = 1997,
                         Episodes = new List<Episode>()
                         {
                             // 第一集
@@ -246,6 +265,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "江户川柯南诱拐事件",
                                 Display = "名侦探柯南 - Y1996S01E01 - 江户川柯南诱拐事件",
                                 Plot = "【主线剧情】高中生侦探工藤新一被称为“日本警察界的救世主”而响誉全国，他帮助警方解决了很多棘手案件。某日，他和青梅竹马小兰一起去坐云霄飞车时遇到了一起因情生恨凶杀事件，其中，有两名黑衣人引起了工藤的注意，工藤暗中跟踪却被发现，黑衣给他灌下毒药后离开，当被警察发现时，工藤已变成了小孩儿的模样。",
+                                Date = new DateTime(1997, 1, 13),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".720p.修复版", },
@@ -257,6 +277,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "董事长千金绑架事件",
                                 Display = "名侦探柯南 - Y1996S01E44 - 董事长千金绑架事件",
                                 Plot = "动画原创。小五郎开车的时候帮助了车子出故障的堀田耕作，为表谢意，耕作留小五郎三人参加他的庆生聚会，期间耕作因儿女们的争吵以及女儿文子的到来大发雷霆而离席，之后，他的房间发生大爆炸，柯南在现场发现了儿子良二送给耕作的威士忌盒子，本以为良二是凶手，没想到他莫名失踪，大家又将矛头指向文子，可文子却说自己虽恨父亲，可凶手不是她，这时，柯南看到了室外的化肥……",
+                                Date = new DateTime(1997, 1, 20),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".双语内嵌", },
@@ -269,6 +290,7 @@ namespace Swellow.API.Sql.Init
                                 Title = "敷面膜杀人事件",
                                 Display = "名侦探柯南 - Y1996S01E45 - 敷面膜杀人事件",
                                 Plot = "动画原创。女性实业家儿岛郁子在家中被杀，死的时候她身着睡衣脸敷面膜，在这个案件中有三名嫌疑人，TM证券营业所的警卫泉、死者的女儿千寻以及尸体发现者吉冈，他们都曾在死者生前与她见面，泉可以暂时排除嫌疑，因为案发时他正好碰见小五郎，可千寻却说他有杀人动机，三名嫌疑人陷入了互相揭露动机之中，「凶手的指针」在他们三人徘徊，可真相只有一个。",
+                                Date = new DateTime(1997, 1, 27),
                                 CDs = new List<CD>()
                                 {
                                     new CD () { Property = ".1080p BD", },
@@ -285,8 +307,8 @@ namespace Swellow.API.Sql.Init
                         Name = "名侦探柯南剧场版20：绀青之拳",
                         Outline = "“名侦探柯南系列”第23部动画剧场版，票房和口碑也屡破纪录。作为平成年代最后一部柯南电影，首次将案件发生地设立在海外，基德时隔四年后再度回归，与柯南合体展开行动。故事围绕着19世纪末与海盗船一同沉入海底、世界上最大的蓝宝石“绀青之拳”展开。",
                         Runtime = 110,
-                        Year = "2019",
-                        Date = "2019-04-12",
+                        Year = 2019,
+                        Date = new DateTime(2019, 4, 12),
                         Score = 59,
 
                         Region = "日本",
@@ -317,7 +339,7 @@ namespace Swellow.API.Sql.Init
                 new Library
                 {
                     Name = "科幻",
-                    Fanart = "/SwellowData/Images/Library/Preview/1.jpg",
+                    //Fanart = "/SwellowData/Images/Library/Preview/1.jpg",
                     VideoFolders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/科幻", },
@@ -327,7 +349,7 @@ namespace Swellow.API.Sql.Init
                 new Library
                 {
                     Name = "动漫",
-                    Fanart = "/SwellowData/Images/Library/Preview/2.jpg",
+                    //Fanart = "/SwellowData/Images/Library/Preview/2.jpg",
                     VideoFolders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/动漫", },

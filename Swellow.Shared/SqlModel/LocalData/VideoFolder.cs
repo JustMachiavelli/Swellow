@@ -1,6 +1,5 @@
 ﻿using Swellow.Shared.Environment;
 using Swellow.Shared.SqlModel.View;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.LocalData
 {
@@ -8,10 +7,10 @@ namespace Swellow.Shared.SqlModel.LocalData
     public class VideoFolder
     {
         // 0 主键 ID
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         // 1 绝对路径
         public string Path { get; set; } = StaticFiles.DefaultDirectory;
 

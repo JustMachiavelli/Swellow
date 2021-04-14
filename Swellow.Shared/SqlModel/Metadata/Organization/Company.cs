@@ -1,6 +1,5 @@
 ﻿using Swellow.Shared.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Organization
 {
@@ -8,10 +7,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Organization
     public class Company
     {
         // 0 主键 ID
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
-        [Required]
+        //[Required]
         // 1 原始名称
         public string Name { get; set; } = "未知公司";
 

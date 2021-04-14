@@ -2,7 +2,6 @@
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.View
 {
@@ -10,11 +9,11 @@ namespace Swellow.Shared.SqlModel.View
     public class Library
     {
         // 0 主键 ID
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
 
-        [Required]
+        //[Required]
         // 1 名称
         public string Name { get; set; } = "新媒体库";
 
@@ -24,7 +23,7 @@ namespace Swellow.Shared.SqlModel.View
 
 
         // 3 预览图路径
-        public string Fanart { get; set; } = Environment.StaticFiles.LibraryDefaultFanartPath;
+        //public string Fanart { get; set; } = Environment.StaticFiles.LibraryDefaultFanartPath;
 
 
         // 4【集合导航】包含的文件夹的路径们

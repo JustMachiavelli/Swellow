@@ -1,19 +1,17 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Media;
 using Swellow.Shared.SqlModel.MetaData.Person;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Middle
 {
     public class WorkCast
     {
-        [Required]
+        //[Required]
         public int WorkId { get; set; }
         public Work? Work { get; set; }
 
 
-        [Required]
+        //[Required]
         public int CastId { get; set; }
         public Cast? Cast { get; set; }
 

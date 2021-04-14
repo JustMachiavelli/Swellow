@@ -1,18 +1,17 @@
 ﻿using Swellow.Shared.SqlModel.Metadata.Media;
 using Swellow.Shared.SqlModel.MetaData.Property;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Middle
 {
     // <影视，特征>
     public class WorkGenre
     {
-        [Required]
+        //[Required]
         public int WorkId { get; set; }
         public Work? Work { get; set; }
 
 
-        [Required]
+        //[Required]
         public int GenreId { get; set; }
         public Genre? Genre { get; set; }
 

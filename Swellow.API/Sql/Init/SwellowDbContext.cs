@@ -42,22 +42,26 @@ namespace Swellow.API.Sql.Init
 
             #region=============Work相关===============
             // 所含 <影视作品，演职人员>
+            modelBuilder.Entity<WorkCast>().HasKey(WorkCast => new { WorkCast.WorkId, WorkCast.CastId });
             modelBuilder.Entity<Work>()
                         .HasMany(Work => Work.WorkCasts)
                         .WithOne(WorkCast => WorkCast.Work)
                         .HasForeignKey(WorkCast => WorkCast.WorkId);
             // 所含<影视作品，公司>
+            modelBuilder.Entity<WorkCompany>().HasKey(WorkCompany => new { WorkCompany.WorkId, WorkCompany.CompanyId });
             modelBuilder.Entity<Work>()
                         .HasMany(Work => Work.WorkCompanys)
                         .WithOne(WorkCompany => WorkCompany.Work)
                         .HasForeignKey(WorkCompany => WorkCompany.WorkId);
 
             // 所含 <影视作品，类型>
+            modelBuilder.Entity<WorkGenre>().HasKey(WorkGenre => new { WorkGenre.WorkId, WorkGenre.GenreId });
             modelBuilder.Entity<Work>()
                         .HasMany(Work => Work.WorkGenres)
                         .WithOne(WorkGenre => WorkGenre.Work)
                         .HasForeignKey(WorkGenre => WorkGenre.WorkId);
             // 所含<影视作品，标签>
+            modelBuilder.Entity<WorkTag>().HasKey(WorkTag => new { WorkTag.WorkId, WorkTag.TagId });
             modelBuilder.Entity<Work>()
                         .HasMany(Work => Work.WorkTags)
                         .WithOne(WorkTag => WorkTag.Work)

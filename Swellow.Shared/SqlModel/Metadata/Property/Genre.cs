@@ -1,6 +1,5 @@
 ﻿using Swellow.Shared.SqlModel.MetaData.Middle;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Property
 {
@@ -8,11 +7,11 @@ namespace Swellow.Shared.SqlModel.MetaData.Property
     public class Genre
     {
         // 0 主键 ID
-        [Key]
+        //[Key]
         public int Id { get; set; }
 
 
-        [Required]
+        //[Required]
         // 1 名称
         public string Name { get; set; } = "未知Genre";
 

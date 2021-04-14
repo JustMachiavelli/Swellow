@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SwellowDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Casts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CDs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Property" Type="nvarchar(max)" />
+          <Property Name="MovieId" Type="int" />
+          <Property Name="EpisodeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Companys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Episodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Display" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Plot" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="HasResourse" Type="bit" Nullable="false" />
+          <Property Name="SeasonId" Type="int" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Librarys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Runtime" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Score" Type="tinyint" />
+          <Property Name="WorkId" Type="int" />
+          <Property Name="Display" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Outline" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="DoubanId" Type="nvarchar(max)" />
+          <Property Name="TmdbId" Type="nvarchar(max)" />
+          <Property Name="ImdbId" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Seasons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Outline" Type="nvarchar(max)" />
+          <Property Name="Year" Type="int" />
+          <Property Name="EndYear" Type="int" />
+          <Property Name="WorkId" Type="int" />
+        </EntityType>
+        <EntityType Name="Serieses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VideoFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LibraryId" Type="int" />
+        </EntityType>
+        <EntityType Name="WorkCasts">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="CastId" />
+          </Key>
+          <Property Name="WorkId" Type="int" Nullable="false" />
+          <Property Name="CastId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Weighting" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkCompanys">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="WorkId" Type="int" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Weighting" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WorkGenres">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="GenreId" />
+          </Key>
+          <Property Name="WorkId" Type="int" Nullable="false" />
+          <Property Name="GenreId" Type="int" Nullable="false" />
+          <Property Name="Weighting" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Runtime" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="EndYear" Type="int" />
+          <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Score" Type="tinyint" />
+          <Property Name="SeriesId" Type="int" />
+          <Property Name="LibraryId" Type="int" />
+          <Property Name="Display" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Outline" Type="nvarchar(max)" />
+          <Property Name="Region" Type="nvarchar(max)" />
+          <Property Name="DoubanId" Type="nvarchar(max)" />
+          <Property Name="TmdbId" Type="nvarchar(max)" />
+          <Property Name="ImdbId" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="WorkTags">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="WorkId" Type="int" Nullable="false" />
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="Weighting" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CDs_Episodes_EpisodeId">
+          <End Role="Episodes" Type="Self.Episodes" Multiplicity="0..1" />
+          <End Role="CDs" Type="Self.CDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Episodes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CDs">
+              <PropertyRef Name="EpisodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CDs_Movies_MovieId">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="CDs" Type="Self.CDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CDs">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Episodes_Seasons_SeasonId">
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="0..1" />
+          <End Role="Episodes" Type="Self.Episodes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seasons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episodes">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movies_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movies">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seasons_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Seasons">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoFolder_Librarys_LibraryId">
+          <End Role="Librarys" Type="Self.Librarys" Multiplicity="0..1" />
+          <End Role="VideoFolder" Type="Self.VideoFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Librarys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoFolder">
+              <PropertyRef Name="LibraryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCasts_Casts_CastId">
+          <End Role="Casts" Type="Self.Casts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCasts" Type="Self.WorkCasts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCasts">
+              <PropertyRef Name="CastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCasts_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCasts" Type="Self.WorkCasts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCasts">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCompanys_Companys_CompanyId">
+          <End Role="Companys" Type="Self.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCompanys" Type="Self.WorkCompanys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCompanys">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCompanys_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCompanys" Type="Self.WorkCompanys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCompanys">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkGenres_Genres_GenreId">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkGenres">
+              <PropertyRef Name="GenreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkGenres_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkGenres">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Librarys_LibraryId">
+          <End Role="Librarys" Type="Self.Librarys" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Librarys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="LibraryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Serieses_SeriesId">
+          <End Role="Serieses" Type="Self.Serieses" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serieses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="SeriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTags_Tags_TagId">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTags">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTags_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTags">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SwellowDbModelStoreContainer">
+          <EntitySet Name="Casts" EntityType="Self.Casts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CDs" EntityType="Self.CDs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companys" EntityType="Self.Companys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Episodes" EntityType="Self.Episodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Librarys" EntityType="Self.Librarys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seasons" EntityType="Self.Seasons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Serieses" EntityType="Self.Serieses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VideoFolder" EntityType="Self.VideoFolder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkCasts" EntityType="Self.WorkCasts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkCompanys" EntityType="Self.WorkCompanys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkGenres" EntityType="Self.WorkGenres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Works" EntityType="Self.Works" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorkTags" EntityType="Self.WorkTags" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CDs_Episodes_EpisodeId" Association="Self.FK_CDs_Episodes_EpisodeId">
+            <End Role="Episodes" EntitySet="Episodes" />
+            <End Role="CDs" EntitySet="CDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CDs_Movies_MovieId" Association="Self.FK_CDs_Movies_MovieId">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="CDs" EntitySet="CDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Episodes_Seasons_SeasonId" Association="Self.FK_Episodes_Seasons_SeasonId">
+            <End Role="Seasons" EntitySet="Seasons" />
+            <End Role="Episodes" EntitySet="Episodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movies_Works_WorkId" Association="Self.FK_Movies_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="Movies" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seasons_Works_WorkId" Association="Self.FK_Seasons_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="Seasons" EntitySet="Seasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoFolder_Librarys_LibraryId" Association="Self.FK_VideoFolder_Librarys_LibraryId">
+            <End Role="Librarys" EntitySet="Librarys" />
+            <End Role="VideoFolder" EntitySet="VideoFolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCasts_Casts_CastId" Association="Self.FK_WorkCasts_Casts_CastId">
+            <End Role="Casts" EntitySet="Casts" />
+            <End Role="WorkCasts" EntitySet="WorkCasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCasts_Works_WorkId" Association="Self.FK_WorkCasts_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkCasts" EntitySet="WorkCasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCompanys_Companys_CompanyId" Association="Self.FK_WorkCompanys_Companys_CompanyId">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="WorkCompanys" EntitySet="WorkCompanys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCompanys_Works_WorkId" Association="Self.FK_WorkCompanys_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkCompanys" EntitySet="WorkCompanys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkGenres_Genres_GenreId" Association="Self.FK_WorkGenres_Genres_GenreId">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="WorkGenres" EntitySet="WorkGenres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkGenres_Works_WorkId" Association="Self.FK_WorkGenres_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkGenres" EntitySet="WorkGenres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Librarys_LibraryId" Association="Self.FK_Works_Librarys_LibraryId">
+            <End Role="Librarys" EntitySet="Librarys" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Serieses_SeriesId" Association="Self.FK_Works_Serieses_SeriesId">
+            <End Role="Serieses" EntitySet="Serieses" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTags_Tags_TagId" Association="Self.FK_WorkTags_Tags_TagId">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="WorkTags" EntitySet="WorkTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTags_Works_WorkId" Association="Self.FK_WorkTags_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkTags" EntitySet="WorkTags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SwellowDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Casts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkCasts" Relationship="Self.FK_WorkCasts_Casts_CastId" FromRole="Casts" ToRole="WorkCasts" />
+        </EntityType>
+        <EntityType Name="CDs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Property" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MovieId" Type="Int32" />
+          <Property Name="EpisodeId" Type="Int32" />
+          <NavigationProperty Name="Episodes" Relationship="Self.FK_CDs_Episodes_EpisodeId" FromRole="CDs" ToRole="Episodes" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_CDs_Movies_MovieId" FromRole="CDs" ToRole="Movies" />
+        </EntityType>
+        <EntityType Name="Companys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkCompanys" Relationship="Self.FK_WorkCompanys_Companys_CompanyId" FromRole="Companys" ToRole="WorkCompanys" />
+        </EntityType>
+        <EntityType Name="Episodes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Plot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="HasResourse" Type="Boolean" Nullable="false" />
+          <Property Name="SeasonId" Type="Int32" />
+          <NavigationProperty Name="CDs" Relationship="Self.FK_CDs_Episodes_EpisodeId" FromRole="Episodes" ToRole="CDs" />
+          <NavigationProperty Name="Seasons" Relationship="Self.FK_Episodes_Seasons_SeasonId" FromRole="Episodes" ToRole="Seasons" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkGenres" Relationship="Self.FK_WorkGenres_Genres_GenreId" FromRole="Genres" ToRole="WorkGenres" />
+        </EntityType>
+        <EntityType Name="Librarys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VideoFolder" Relationship="Self.FK_VideoFolder_Librarys_LibraryId" FromRole="Librarys" ToRole="VideoFolder" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Librarys_LibraryId" FromRole="Librarys" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Runtime" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Score" Type="Byte" />
+          <Property Name="WorkId" Type="Int32" />
+          <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Outline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DoubanId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TmdbId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImdbId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CDs" Relationship="Self.FK_CDs_Movies_MovieId" FromRole="Movies" ToRole="CDs" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Movies_Works_WorkId" FromRole="Movies" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Seasons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Outline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="EndYear" Type="Int32" />
+          <Property Name="WorkId" Type="Int32" />
+          <NavigationProperty Name="Episodes" Relationship="Self.FK_Episodes_Seasons_SeasonId" FromRole="Seasons" ToRole="Episodes" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Seasons_Works_WorkId" FromRole="Seasons" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Serieses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_Works_Serieses_SeriesId" FromRole="Serieses" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WorkTags" Relationship="Self.FK_WorkTags_Tags_TagId" FromRole="Tags" ToRole="WorkTags" />
+        </EntityType>
+        <EntityType Name="VideoFolder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LibraryId" Type="Int32" />
+          <NavigationProperty Name="Librarys" Relationship="Self.FK_VideoFolder_Librarys_LibraryId" FromRole="VideoFolder" ToRole="Librarys" />
+        </EntityType>
+        <EntityType Name="WorkCasts">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="CastId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" />
+          <Property Name="CastId" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Weighting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Casts" Relationship="Self.FK_WorkCasts_Casts_CastId" FromRole="WorkCasts" ToRole="Casts" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorkCasts_Works_WorkId" FromRole="WorkCasts" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="WorkCompanys">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="CompanyId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Weighting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Companys" Relationship="Self.FK_WorkCompanys_Companys_CompanyId" FromRole="WorkCompanys" ToRole="Companys" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorkCompanys_Works_WorkId" FromRole="WorkCompanys" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="WorkGenres">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="GenreId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" />
+          <Property Name="GenreId" Type="Int32" Nullable="false" />
+          <Property Name="Weighting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Genres" Relationship="Self.FK_WorkGenres_Genres_GenreId" FromRole="WorkGenres" ToRole="Genres" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorkGenres_Works_WorkId" FromRole="WorkGenres" ToRole="Works" />
+        </EntityType>
+        <EntityType Name="Works">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="Runtime" Type="Int32" />
+          <Property Name="Year" Type="Int32" />
+          <Property Name="EndYear" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Score" Type="Byte" />
+          <Property Name="SeriesId" Type="Int32" />
+          <Property Name="LibraryId" Type="Int32" />
+          <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Outline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DoubanId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TmdbId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImdbId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Librarys" Relationship="Self.FK_Works_Librarys_LibraryId" FromRole="Works" ToRole="Librarys" />
+          <NavigationProperty Name="Movies" Relationship="Self.FK_Movies_Works_WorkId" FromRole="Works" ToRole="Movies" />
+          <NavigationProperty Name="Seasons" Relationship="Self.FK_Seasons_Works_WorkId" FromRole="Works" ToRole="Seasons" />
+          <NavigationProperty Name="Serieses" Relationship="Self.FK_Works_Serieses_SeriesId" FromRole="Works" ToRole="Serieses" />
+          <NavigationProperty Name="WorkCasts" Relationship="Self.FK_WorkCasts_Works_WorkId" FromRole="Works" ToRole="WorkCasts" />
+          <NavigationProperty Name="WorkCompanys" Relationship="Self.FK_WorkCompanys_Works_WorkId" FromRole="Works" ToRole="WorkCompanys" />
+          <NavigationProperty Name="WorkGenres" Relationship="Self.FK_WorkGenres_Works_WorkId" FromRole="Works" ToRole="WorkGenres" />
+          <NavigationProperty Name="WorkTags" Relationship="Self.FK_WorkTags_Works_WorkId" FromRole="Works" ToRole="WorkTags" />
+        </EntityType>
+        <EntityType Name="WorkTags">
+          <Key>
+            <PropertyRef Name="WorkId" />
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="WorkId" Type="Int32" Nullable="false" />
+          <Property Name="TagId" Type="Int32" Nullable="false" />
+          <Property Name="Weighting" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Tags" Relationship="Self.FK_WorkTags_Tags_TagId" FromRole="WorkTags" ToRole="Tags" />
+          <NavigationProperty Name="Works" Relationship="Self.FK_WorkTags_Works_WorkId" FromRole="WorkTags" ToRole="Works" />
+        </EntityType>
+        <Association Name="FK_WorkCasts_Casts_CastId">
+          <End Role="Casts" Type="Self.Casts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCasts" Type="Self.WorkCasts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Casts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCasts">
+              <PropertyRef Name="CastId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CDs_Episodes_EpisodeId">
+          <End Role="Episodes" Type="Self.Episodes" Multiplicity="0..1" />
+          <End Role="CDs" Type="Self.CDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Episodes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CDs">
+              <PropertyRef Name="EpisodeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CDs_Movies_MovieId">
+          <End Role="Movies" Type="Self.Movies" Multiplicity="0..1" />
+          <End Role="CDs" Type="Self.CDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movies">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CDs">
+              <PropertyRef Name="MovieId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCompanys_Companys_CompanyId">
+          <End Role="Companys" Type="Self.Companys" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCompanys" Type="Self.WorkCompanys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCompanys">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Episodes_Seasons_SeasonId">
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="0..1" />
+          <End Role="Episodes" Type="Self.Episodes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seasons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Episodes">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkGenres_Genres_GenreId">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkGenres">
+              <PropertyRef Name="GenreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VideoFolder_Librarys_LibraryId">
+          <End Role="Librarys" Type="Self.Librarys" Multiplicity="0..1" />
+          <End Role="VideoFolder" Type="Self.VideoFolder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Librarys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VideoFolder">
+              <PropertyRef Name="LibraryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Librarys_LibraryId">
+          <End Role="Librarys" Type="Self.Librarys" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Librarys">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="LibraryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movies_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="Movies" Type="Self.Movies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Movies">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seasons_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="0..1" />
+          <End Role="Seasons" Type="Self.Seasons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Seasons">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Works_Serieses_SeriesId">
+          <End Role="Serieses" Type="Self.Serieses" Multiplicity="0..1" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Serieses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Works">
+              <PropertyRef Name="SeriesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTags_Tags_TagId">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTags">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCasts_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCasts" Type="Self.WorkCasts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCasts">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkCompanys_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkCompanys" Type="Self.WorkCompanys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkCompanys">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkGenres_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkGenres">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WorkTags_Works_WorkId">
+          <End Role="Works" Type="Self.Works" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Works">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WorkTags">
+              <PropertyRef Name="WorkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SwellowDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Casts" EntityType="Self.Casts" />
+          <EntitySet Name="CDs" EntityType="Self.CDs" />
+          <EntitySet Name="Companys" EntityType="Self.Companys" />
+          <EntitySet Name="Episodes" EntityType="Self.Episodes" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" />
+          <EntitySet Name="Librarys" EntityType="Self.Librarys" />
+          <EntitySet Name="Movies" EntityType="Self.Movies" />
+          <EntitySet Name="Seasons" EntityType="Self.Seasons" />
+          <EntitySet Name="Serieses" EntityType="Self.Serieses" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" />
+          <EntitySet Name="VideoFolder" EntityType="Self.VideoFolder" />
+          <EntitySet Name="WorkCasts" EntityType="Self.WorkCasts" />
+          <EntitySet Name="WorkCompanys" EntityType="Self.WorkCompanys" />
+          <EntitySet Name="WorkGenres" EntityType="Self.WorkGenres" />
+          <EntitySet Name="Works" EntityType="Self.Works" />
+          <EntitySet Name="WorkTags" EntityType="Self.WorkTags" />
+          <AssociationSet Name="FK_WorkCasts_Casts_CastId" Association="Self.FK_WorkCasts_Casts_CastId">
+            <End Role="Casts" EntitySet="Casts" />
+            <End Role="WorkCasts" EntitySet="WorkCasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CDs_Episodes_EpisodeId" Association="Self.FK_CDs_Episodes_EpisodeId">
+            <End Role="Episodes" EntitySet="Episodes" />
+            <End Role="CDs" EntitySet="CDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CDs_Movies_MovieId" Association="Self.FK_CDs_Movies_MovieId">
+            <End Role="Movies" EntitySet="Movies" />
+            <End Role="CDs" EntitySet="CDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCompanys_Companys_CompanyId" Association="Self.FK_WorkCompanys_Companys_CompanyId">
+            <End Role="Companys" EntitySet="Companys" />
+            <End Role="WorkCompanys" EntitySet="WorkCompanys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Episodes_Seasons_SeasonId" Association="Self.FK_Episodes_Seasons_SeasonId">
+            <End Role="Seasons" EntitySet="Seasons" />
+            <End Role="Episodes" EntitySet="Episodes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkGenres_Genres_GenreId" Association="Self.FK_WorkGenres_Genres_GenreId">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="WorkGenres" EntitySet="WorkGenres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VideoFolder_Librarys_LibraryId" Association="Self.FK_VideoFolder_Librarys_LibraryId">
+            <End Role="Librarys" EntitySet="Librarys" />
+            <End Role="VideoFolder" EntitySet="VideoFolder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Librarys_LibraryId" Association="Self.FK_Works_Librarys_LibraryId">
+            <End Role="Librarys" EntitySet="Librarys" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movies_Works_WorkId" Association="Self.FK_Movies_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="Movies" EntitySet="Movies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seasons_Works_WorkId" Association="Self.FK_Seasons_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="Seasons" EntitySet="Seasons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Works_Serieses_SeriesId" Association="Self.FK_Works_Serieses_SeriesId">
+            <End Role="Serieses" EntitySet="Serieses" />
+            <End Role="Works" EntitySet="Works" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTags_Tags_TagId" Association="Self.FK_WorkTags_Tags_TagId">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="WorkTags" EntitySet="WorkTags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCasts_Works_WorkId" Association="Self.FK_WorkCasts_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkCasts" EntitySet="WorkCasts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkCompanys_Works_WorkId" Association="Self.FK_WorkCompanys_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkCompanys" EntitySet="WorkCompanys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkGenres_Works_WorkId" Association="Self.FK_WorkGenres_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkGenres" EntitySet="WorkGenres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WorkTags_Works_WorkId" Association="Self.FK_WorkTags_Works_WorkId">
+            <End Role="Works" EntitySet="Works" />
+            <End Role="WorkTags" EntitySet="WorkTags" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SwellowDbModelStoreContainer" CdmEntityContainer="SwellowDbEntities">
+          <EntitySetMapping Name="Casts">
+            <EntityTypeMapping TypeName="SwellowDbModel.Casts">
+              <MappingFragment StoreEntitySet="Casts">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CDs">
+            <EntityTypeMapping TypeName="SwellowDbModel.CDs">
+              <MappingFragment StoreEntitySet="CDs">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Property" ColumnName="Property" />
+                <ScalarProperty Name="MovieId" ColumnName="MovieId" />
+                <ScalarProperty Name="EpisodeId" ColumnName="EpisodeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companys">
+            <EntityTypeMapping TypeName="SwellowDbModel.Companys">
+              <MappingFragment StoreEntitySet="Companys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Episodes">
+            <EntityTypeMapping TypeName="SwellowDbModel.Episodes">
+              <MappingFragment StoreEntitySet="Episodes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Display" ColumnName="Display" />
+                <ScalarProperty Name="Plot" ColumnName="Plot" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="HasResourse" ColumnName="HasResourse" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="SwellowDbModel.Genres">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Librarys">
+            <EntityTypeMapping TypeName="SwellowDbModel.Librarys">
+              <MappingFragment StoreEntitySet="Librarys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="SwellowDbModel.Movies">
+              <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Runtime" ColumnName="Runtime" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="Display" ColumnName="Display" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Outline" ColumnName="Outline" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="DoubanId" ColumnName="DoubanId" />
+                <ScalarProperty Name="TmdbId" ColumnName="TmdbId" />
+                <ScalarProperty Name="ImdbId" ColumnName="ImdbId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seasons">
+            <EntityTypeMapping TypeName="SwellowDbModel.Seasons">
+              <MappingFragment StoreEntitySet="Seasons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="Outline" ColumnName="Outline" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Serieses">
+            <EntityTypeMapping TypeName="SwellowDbModel.Serieses">
+              <MappingFragment StoreEntitySet="Serieses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="SwellowDbModel.Tags">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoFolder">
+            <EntityTypeMapping TypeName="SwellowDbModel.VideoFolder">
+              <MappingFragment StoreEntitySet="VideoFolder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkCasts">
+            <EntityTypeMapping TypeName="SwellowDbModel.WorkCasts">
+              <MappingFragment StoreEntitySet="WorkCasts">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="CastId" ColumnName="CastId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkCompanys">
+            <EntityTypeMapping TypeName="SwellowDbModel.WorkCompanys">
+              <MappingFragment StoreEntitySet="WorkCompanys">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkGenres">
+            <EntityTypeMapping TypeName="SwellowDbModel.WorkGenres">
+              <MappingFragment StoreEntitySet="WorkGenres">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Works">
+            <EntityTypeMapping TypeName="SwellowDbModel.Works">
+              <MappingFragment StoreEntitySet="Works">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Runtime" ColumnName="Runtime" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="SeriesId" ColumnName="SeriesId" />
+                <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
+                <ScalarProperty Name="Display" ColumnName="Display" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Outline" ColumnName="Outline" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="DoubanId" ColumnName="DoubanId" />
+                <ScalarProperty Name="TmdbId" ColumnName="TmdbId" />
+                <ScalarProperty Name="ImdbId" ColumnName="ImdbId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkTags">
+            <EntityTypeMapping TypeName="SwellowDbModel.WorkTags">
+              <MappingFragment StoreEntitySet="WorkTags">
+                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

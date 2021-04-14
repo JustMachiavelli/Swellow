@@ -1,21 +1,20 @@
 ﻿using Swellow.Shared.SqlModel.Metadata.Media;
 using Swellow.Shared.SqlModel.MetaData.Property;
-using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Middle
 {
     // <影视，标签>
     public class WorkTag
     {
-        [Required]
+        //[Required]
         public int WorkId { get; set; }
-        [Required]
+        //[Required]
         public Work? Work { get; set; }
 
 
-        [Required]
+        //[Required]
         public int TagId { get; set; }
-        [Required]
+        //[Required]
         public Tag? Tag { get; set; }
 
 

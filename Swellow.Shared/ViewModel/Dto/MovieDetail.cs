@@ -7,7 +7,7 @@ namespace Swellow.Shared.ViewModel.Media
     public class MovieDetail
     {
         public string Display { get; set; } = "未知影视作品";
-        public string? Year { get; set; }
+        public int? Year { get; set; }
         public byte Score { get; set; }
         public string? Fanart { get; set; }
         public string? Poster { get; set; }

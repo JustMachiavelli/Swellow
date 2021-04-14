@@ -2,6 +2,7 @@
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.MetaData.Media.Film
 {
@@ -16,10 +17,14 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
         public int? Runtime { get; set; }
 
         // 8 发行年份 = "1900";
-        public string? Year { get; set; }
+        public int? Year { get; set; }
+
 
         // 9 发行日期 = "1900-01-01";
-        public string? Date { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public System.DateTime Date { get; set; }
+
 
         // 10 评分 = 0;
         public byte? Score { get; set; }

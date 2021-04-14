@@ -14,7 +14,8 @@ namespace Swellow.Shared.ViewModel.Dto
         // 2 海报路径 静态文件相对路径
         //public string? Directory { set; get; }
         // 3 发行年份
-        public string? Year { set; get; }
+        public int? Year { set; get; }
+        public int? EndYear { get; set; }
         // 4 影视类别
         public WorkType Type { set; get; } = WorkType.Mix;
     }
