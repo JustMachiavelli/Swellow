@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<episodedetails>
+  <plot><![CDATA[【主线剧情】高中生侦探工藤新一被称为“日本警察界的救世主”而响誉全国，他帮助警方解决了很多棘手案件。某日，他和青梅竹马小兰一起去坐云霄飞车时遇到了一起因情生恨凶杀事件，其中，有两名黑衣人引起了工藤的注意，工藤暗中跟踪却被发现，黑衣给他灌下毒药后离开，当被警察发现时，工藤已变成了小孩儿的模样。]]></plot>
+  <outline />
+  <lockdata>false</lockdata>
+  <dateadded>2020-07-24 23:46:58</dateadded>
+  <title>云霄飞车杀人事件</title>
+  <rating>7.8</rating>
+  <year>1996</year>
+  <tvdbid>86047</tvdbid>
+  <tmdbid>749670</tmdbid>
+  <runtime>25</runtime>
+  <studio>TMS Entertainment</studio>
+  <actor>
+    <name>Minami Takayama</name>
+    <role>Conan Edogawa</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Kappei Yamaguchi</name>
+    <role>Shinichi Kudo</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Wakana Yamazaki</name>
+    <role>Ran Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Akira Kamiya</name>
+    <role>Kogoro Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Rikiya Koyama</name>
+    <role>Kogoro Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Megumi Hayashibara</name>
+    <role>Ai Haibara</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Kenichi Ogata</name>
+    <role>Hiroshi Agasa</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Wataru Takagi</name>
+    <role>Genta Kojima</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Chafurin</name>
+    <role>Juzo Megure</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Yukiko Iwai</name>
+    <role>Ayumi Yoshida</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Ikue Otani</name>
+    <role>Mitsuhiko Tsuburaya</role>
+    <type>Actor</type>
+  </actor>
+  <episode>1</episode>
+  <season>1</season>
+  <aired>1996-01-08</aired>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>h264</codec>
+        <micodec>h264</micodec>
+        <bitrate>1050009</bitrate>
+        <width>960</width>
+        <height>720</height>
+        <aspect>4:3</aspect>
+        <aspectratio>4:3</aspectratio>
+        <framerate>23.976025</framerate>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+        <duration>24</duration>
+        <durationinseconds>1479</durationinseconds>
+      </video>
+      <audio>
+        <codec>aac</codec>
+        <micodec>aac</micodec>
+        <bitrate>192000</bitrate>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <channels>2</channels>
+        <samplingrate>48000</samplingrate>
+        <default>True</default>
+        <forced>False</forced>
+      </audio>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>chi</language>
+        <scantype>progressive</scantype>
+        <default>True</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>chi</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+      <subtitle>
+        <codec>ass</codec>
+        <micodec>ass</micodec>
+        <language>jpn</language>
+        <scantype>progressive</scantype>
+        <default>False</default>
+        <forced>False</forced>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <showtitle>名侦探柯南</showtitle>
+  <uniqueid default="true" type="tmdb">749670</uniqueid>
+  <votes>3</votes>
+  <thumb>http://image.tmdb.org/t/p/original/t3H5fHAD1E2iHjkj0gXjEAVtDA5.jpg</thumb>
+  <source>UNKNOWN</source>
+  <original_filename>名侦探柯南 - S01E01 - 云霄飞车杀人事件.mkv</original_filename>
+  <user_note />
+</episodedetails>

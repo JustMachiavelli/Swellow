@@ -7,6 +7,12 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
     // 电视剧
     public class Season
     {
+        public Season(string dierctory)
+        {
+            Directory = dierctory;
+            Poster = $"{Directory}/poster.jpg";
+        }
+
         //[Key]
         public int Id { get; set; }
 
@@ -25,8 +31,12 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public int? EndYear { get; set; }
 
 
-        // 单集剧照
-        //public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
+        // 11 所在文件夹【相对路径】
+        public string Directory { get; set; }
+
+
+        // 12 Poster
+        public string Poster { get; set; }
 
 
         // 3【集合导航】视频文件的路径

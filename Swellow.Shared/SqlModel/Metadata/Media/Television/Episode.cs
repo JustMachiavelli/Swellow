@@ -7,6 +7,13 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 {
     public class Episode
     {
+        public Episode(string dierctory)
+        {
+            Directory = dierctory;
+            Fanart = $"{Directory}/fanart.jpg";
+        }
+
+
         // 0 主键 ID
         //[Key]
         public int Id { get; set; }
@@ -20,9 +27,6 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public string? Title { get; set; }
 
 
-        public string Display { get; set; } = "未知影视作品 - S00E00 - 未知剧集标题";
-
-
         // 3 集剧情
         public string? Plot { get; set; }
 
@@ -33,8 +37,12 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         public System.DateTime Date { get; set; }
 
 
-        // 单集剧照
-        //public string Fanart { get; set; } = StaticFiles.EpisodeDefaultPosterPath;
+        // 11 所在文件夹【相对路径】
+        public string Directory { get; set; }
+
+
+        // 12 Fanart
+        public string Fanart { get; set; }
 
 
         // 【集合导航】包含CDs

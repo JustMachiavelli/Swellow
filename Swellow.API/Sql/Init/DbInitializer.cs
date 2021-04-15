@@ -32,7 +32,7 @@ namespace Swellow.API.Sql.Init
             Library library2 = context.Librarys.FirstOrDefault(library => library.Name == "动漫");
 
             // =================电影1：流浪地球=====================
-            Work liuldq = new()
+            Work liuldq = new("/TestVideos/动漫/流浪地球(2019)")
             {
                 Display = "流浪地球(2019)",
                 Name = "流浪地球",
@@ -55,7 +55,7 @@ namespace Swellow.API.Sql.Init
                 WorkTags = GetWorkTags(context, new string[] { "冰原", "宇宙", "亲情" }),
                 Movies = new List<Movie>()
                 {
-                    new Movie()
+                    new Movie("/TestVideos/动漫/流浪地球(2019)")
                     {
                         Display = "流浪地球(2019)",
                         Name = "流浪地球",
@@ -86,7 +86,7 @@ namespace Swellow.API.Sql.Init
             
 
             // =================电影2：冰雪奇缘2=====================
-            Work bingxqy = new ()
+            Work bingxqy = new ("/TestVideos/动漫/冰雪奇缘2(2019)")
             {
                 Display = "冰雪奇缘2(2019)",
                 Name = "冰雪奇缘2",
@@ -109,7 +109,7 @@ namespace Swellow.API.Sql.Init
                 WorkTags = GetWorkTags(context, new string[] { "冰原", "歌舞", }),
                 Movies = new List<Movie>()
                 {
-                    new Movie()
+                    new Movie("/TestVideos/动漫/冰雪奇缘2(2019)")
                     {
                         Display = "冰雪奇缘2(2019)",
                         Name = "冰雪奇缘2",
@@ -131,7 +131,7 @@ namespace Swellow.API.Sql.Init
 
 
             // =================电影3：头文字D=====================
-            Work touwzd = new ()
+            Work touwzd = new ("/TestVideos/动漫/头文字D(2005)")
             {
                 Display = "头文字D(2005)",
                 Name = "头文字D",
@@ -156,7 +156,7 @@ namespace Swellow.API.Sql.Init
                 WorkTags = GetWorkTags(context, new string[] { "赛车", "日本", "情爱" }),
                 Movies = new List<Movie>()
                 {
-                    new Movie()
+                    new Movie("/TestVideos/动漫/头文字D(2005)")
                     {
                         Display = "头文字D(2005)",
                         Name = "头文字D",
@@ -178,7 +178,7 @@ namespace Swellow.API.Sql.Init
 
 
             // =================混合：名侦探柯南=====================
-            Work mingztkn = new()
+            Work mingztkn = new("/TestVideos/动漫/名侦探柯南(1996-)")
             {
                 Display = "名侦探柯南(1996-)",
                 Name = "名侦探柯南",
@@ -204,7 +204,7 @@ namespace Swellow.API.Sql.Init
                 WorkTags = GetWorkTags(context, new string[] { "少年", "单元剧", "超长篇" }),
                 Seasons = new List<Season>()
                 {
-                    new Season()
+                    new Season("/TestVideos/动漫/名侦探柯南(1996-)/S01 - Y1996")
                     {
                         No = 1,
                         Outline = "名侦探柯南的第一季在1996年，永不完结的第一季",

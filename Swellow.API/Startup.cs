@@ -63,8 +63,19 @@ namespace Swellow.API
             app.UseStaticFiles(
                 new StaticFileOptions
                 {
-                    FileProvider = new PhysicalFileProvider(LocalResources.DataImageDirectory),
-                    RequestPath = "/SwellowData/Images"
+                    // D:\MyGit\MyProjects\SwellowData\Images
+                    FileProvider = new PhysicalFileProvider(LocalResources.DataImagesDirectory),
+                    // /SwellowData/Images
+                    RequestPath = StaticFiles.DataImagesDirectory
+                }
+            );
+            app.UseStaticFiles(
+                new StaticFileOptions
+                {
+                    // D:\MyGit\MyProjects\TestVideos
+                    FileProvider = new PhysicalFileProvider(LocalResources.TestMoviesDirectory),
+                    // /TestVideos
+                    RequestPath = StaticFiles.TestVideosDirectory
                 }
             );
 

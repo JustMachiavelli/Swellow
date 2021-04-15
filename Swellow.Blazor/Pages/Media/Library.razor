@@ -21,15 +21,21 @@
 {
     [Inject] public IVideoService VideoService { get; set; }
 
+
     //1 媒体库ID【url传】
     [Parameter] public int LibraryId { get; set; }
 
+
     //2 所含Video预览【后传】
-    private IEnumerable<VideoPreview> VideoPreviews { get; set; } = new List<VideoPreview>();
+    private IEnumerable<WorkPreview> VideoPreviews { get; set; } = new List<WorkPreview>();
+
 
     //【OnInitializedAsync】
     protected override async Task OnInitializedAsync()
     {
         VideoPreviews = await VideoService.GetVideoPreviewsAsync(LibraryId);
     }
+
+
+
 }

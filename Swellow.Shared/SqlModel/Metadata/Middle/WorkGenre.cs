@@ -16,10 +16,5 @@ namespace Swellow.Shared.SqlModel.MetaData.Middle
         public Genre? Genre { get; set; }
 
 
-
-        // 加权值，出现在该作品中的次数
-        public int Weighting { get; set; } = 0;
-
-
     }
 }

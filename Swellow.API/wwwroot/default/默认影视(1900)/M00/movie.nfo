@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--created on 2021-03-23 08:58:19 - tinyMediaManager 4.1.1-->
+<movie>
+  <title>名侦探柯南剧场版23：绀青之拳</title>
+  <originaltitle>名探偵コナン 紺青の拳（フィスト）</originaltitle>
+  <sorttitle/>
+  <epbookmark/>
+  <year>2019</year>
+  <ratings>
+    <rating default="false" max="10" name="themoviedb">
+      <value>5.5</value>
+      <votes>63</votes>
+    </rating>
+    <rating default="false" max="10" name="NFO">
+      <value>5.5</value>
+      <votes>0</votes>
+    </rating>
+  </ratings>
+  <userrating>0.0</userrating>
+  <top250>0</top250>
+  <set>
+    <name>名侦探柯南剧场版（系列）</name>
+    <overview/>
+  </set>
+  <plot>故事围绕着19世纪末与海盗船一同沉入海底、世界上最大的蓝宝石“绀青之拳”展开。</plot>
+  <outline>故事围绕着19世纪末与海盗船一同沉入海底、世界上最大的蓝宝石“绀青之拳”展开。</outline>
+  <tagline/>
+  <runtime>109</runtime>
+  <thumb aspect="poster">http://image.tmdb.org/t/p/original/jUfCBwhSTE02jTN9REJbHm2lRL8.jpg</thumb>
+  <fanart>
+    <thumb>http://image.tmdb.org/t/p/original/7ZRvoYwQdQS1XBbLmVR7levTFN6.jpg</thumb>
+  </fanart>
+  <mpaa>US:PG-13 / US:Rated PG-13</mpaa>
+  <certification>US:PG-13 / US:Rated PG-13</certification>
+  <id>tt9501310</id>
+  <tmdbid>566555</tmdbid>
+  <tmdbCollectionId>39199</tmdbCollectionId>
+  <uniqueid default="false" type="tmdb">566555</uniqueid>
+  <uniqueid default="false" type="tmdbSet">39199</uniqueid>
+  <uniqueid default="true" type="imdb">tt9501310</uniqueid>
+  <country>日本</country>
+  <status/>
+  <code/>
+  <premiered>2019-04-12</premiered>
+  <watched>false</watched>
+  <playcount/>
+  <lastplayed/>
+  <genre>Animation</genre>
+  <genre>Action</genre>
+  <genre>Drama</genre>
+  <genre>Mystery</genre>
+  <genre>Comedy</genre>
+  <studio>TMS Entertainment</studio>
+  <credits>Gosho Aoyama</credits>
+  <credits>Takahiro Ohkura</credits>
+  <director>Tomoka Nagaoka</director>
+  <tag>shounen</tag>
+  <tag>anime</tag>
+  <actor>
+    <name>Minami Takayama</name>
+    <role>Conan Edogawa (voice)</role>
+    <thumb/>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Wakana Yamazaki</name>
+    <role>Ran Mouri (voice)</role>
+    <thumb/>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Rikiya Koyama</name>
+    <role>Kogorou Mouri (voice)</role>
+    <thumb>D:\MyVideoSoft\programdata\metadata\library\fc\fc780836cfdc4216978d51cc4b93735f\folder.jpg</thumb>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Kappei Yamaguchi</name>
+    <role>Kaito Kuroba (voice)</role>
+    <thumb>D:\MyVideoSoft\programdata\metadata\library\d0\d0e8bb1b09c046e3b3589eb926d3b425\folder.jpg</thumb>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Megumi Hayashibara</name>
+    <role>Ai Haibara (voice)</role>
+    <thumb>D:\MyVideoSoft\programdata\metadata\library\81\8136e63193fb4935b94176a3ae3c6f5a\folder.jpg</thumb>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Yukiko Iwai</name>
+    <role>Ayumi Yoshida (voice)</role>
+    <thumb/>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Ikue Otani</name>
+    <role>Mitsuhiko Tsuburaya (voice)</role>
+    <thumb>D:\MyVideoSoft\programdata\metadata\library\f5\f50be19320dd4e2589b31d7abb2a2977\folder.jpg</thumb>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Wataru Takagi</name>
+    <role>Genta Kojima (voice)</role>
+    <thumb>D:\MyVideoSoft\programdata\metadata\library\7c\7c8c50bf2bbf4e539ec2c6aee7e467b7\folder.jpg</thumb>
+    <profile/>
+  </actor>
+  <actor>
+    <name>Kenichi Ogata</name>
+    <role>Hiroshi Agasa (voice)</role>
+    <thumb/>
+    <profile/>
+  </actor>
+  <trailer/>
+  <languages>日文</languages>
+  <dateadded>2020-03-27 00:11:05</dateadded>
+  <fileinfo>
+    <streamdetails>
+      <video>
+        <codec>h264</codec>
+        <aspect>1.78</aspect>
+        <width>1920</width>
+        <height>1080</height>
+        <durationinseconds>6567</durationinseconds>
+        <stereomode/>
+      </video>
+      <audio>
+        <codec>AC3</codec>
+        <language>jpn</language>
+        <channels>6</channels>
+      </audio>
+      <audio>
+        <codec>AC3</codec>
+        <language>zho</language>
+        <channels>6</channels>
+      </audio>
+      <subtitle>
+        <language>eng</language>
+      </subtitle>
+      <subtitle>
+        <language>zho</language>
+      </subtitle>
+    </streamdetails>
+  </fileinfo>
+  <lockdata>false</lockdata>
+  <writer>Gosho Aoyama</writer>
+  <writer>Takahiro Ohkura</writer>
+  <collectionnumber>39199</collectionnumber>
+  <imdbid>tt9501310</imdbid>
+  <releasedate>2019-04-12</releasedate>
+  <tmdbsetid>39199</tmdbsetid>
+  <art>
+    <poster>Z:\名侦探柯南\名侦探柯南剧场版23：绀青之拳 (2019)\poster.jpg</poster>
+    <fanart>Z:\名侦探柯南\名侦探柯南剧场版23：绀青之拳 (2019)\fanart.jpg</fanart>
+  </art>
+  <doubanid>30208010</doubanid>
+  <!--tinyMediaManager meta data-->
+  <source>BLURAY</source>
+  <edition>NONE</edition>
+  <original_filename>名侦探柯南剧场版23：绀青之拳 (2019) - 1080p AC3.mkv</original_filename>
+  <user_note/>
+</movie>

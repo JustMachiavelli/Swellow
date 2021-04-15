@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<tvshow>
+  <plot><![CDATA[　　高中生侦探工藤新一与毛利兰在游乐园游玩时发现两个行动诡异的黑衣男子，便跟踪他们，不料被灌下一种叫「APTX4869」的神秘毒药，然而因为药物副作用，新一的身体竟回到孩童状态。为不使周围的人受到牵连，他化名为「江户川柯南」，寄住在毛利兰家中，用阿笠博士发明的手表型麻醉枪让毛利小五郎睡着，接着用蝴蝶结变声器模仿他的声音来进行推理，解决了许多案件，并一直寻找着黑衣组织的人的下落，希望有朝一日将其绳之以法，并变回原来的样子。]]></plot>
+  <outline><![CDATA[　　高中生侦探工藤新一与毛利兰在游乐园游玩时发现两个行动诡异的黑衣男子，便跟踪他们，不料被灌下一种叫「APTX4869」的神秘毒药，然而因为药物副作用，新一的身体竟回到孩童状态。为不使周围的人受到牵连，他化名为「江户川柯南」，寄住在毛利兰家中，用阿笠博士发明的手表型麻醉枪让毛利小五郎睡着，接着用蝴蝶结变声器模仿他的声音来进行推理，解决了许多案件，并一直寻找着黑衣组织的人的下落，希望有朝一日将其绳之以法，并变回原来的样子。]]></outline>
+  <lockdata>false</lockdata>
+  <dateadded>2020-07-24 23:12:28</dateadded>
+  <title>名侦探柯南</title>
+  <originaltitle>名探偵コナン</originaltitle>
+  <trailer>http://www.youtube.com/watch?v=P16S9WzELp0</trailer>
+  <rating>8.4</rating>
+  <year>1994</year>
+  <mpaa>TV-14</mpaa>
+  <imdb_id>tt0131179</imdb_id>
+  <tmdbid>30983</tmdbid>
+  <premiered>1996-01-08</premiered>
+  <releasedate>1996-01-08</releasedate>
+  <runtime>25</runtime>
+  <genre>动画</genre>
+  <genre>喜剧</genre>
+  <genre>悬疑</genre>
+  <studio>YTV</studio>
+  <tvdbid>72454</tvdbid>
+  <actor>
+    <name>Minami Takayama</name>
+    <role>Conan Edogawa</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Kappei Yamaguchi</name>
+    <role>Shinichi Kudo</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Wakana Yamazaki</name>
+    <role>Ran Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Akira Kamiya</name>
+    <role>Kogoro Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Rikiya Koyama</name>
+    <role>Kogoro Mori</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Megumi Hayashibara</name>
+    <role>Ai Haibara</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Kenichi Ogata</name>
+    <role>Hiroshi Agasa</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Yukiko Iwai</name>
+    <role>Ayumi Yoshida</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Wataru Takagi</name>
+    <role>Genta Kojima</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Ikue Otani</name>
+    <role>Mitsuhiko Tsuburaya</role>
+    <type>Actor</type>
+  </actor>
+  <actor>
+    <name>Chafurin</name>
+    <role>Juzo Megure</role>
+    <type>Actor</type>
+  </actor>
+  <id>72454</id>
+  <episodeguide>
+    <url cache="72454.xml">https://www.thetvdb.com/api/1D62F2F90030C444/series/72454/all/zh-CN.zip</url>
+  </episodeguide>
+  <season>-1</season>
+  <episode>-1</episode>
+  <displayorder>aired</displayorder>
+  <status>Continuing</status>
+  <showtitle>名侦探柯南</showtitle>
+  <votes>246</votes>
+  <thumb aspect="poster">https://assets.fanart.tv/fanart/tv/72454/tvposter/detective-conan-5c682836abb0b.jpg</thumb>
+  <namedseason number="0">特别篇</namedseason>
+  <namedseason number="1">第1季</namedseason>
+  <thumb aspect="poster" season="0" type="season">https://artworks.thetvdb.com/banners/seasons/72454-0.jpg</thumb>
+  <thumb aspect="poster" season="1" type="season">https://artworks.thetvdb.com/banners/seasons/72454-1-4.jpg</thumb>
+  <thumb aspect="poster" season="2" type="season">https://artworks.thetvdb.com/banners/seasons/72454-2-4.jpg</thumb>
+  <thumb aspect="poster" season="3" type="season">https://artworks.thetvdb.com/banners/seasons/72454-3-4.jpg</thumb>
+  <thumb aspect="poster" season="4" type="season">https://artworks.thetvdb.com/banners/seasons/72454-4-4.jpg</thumb>
+  <thumb aspect="poster" season="5" type="season">https://artworks.thetvdb.com/banners/seasons/72454-5-4.jpg</thumb>
+  <thumb aspect="poster" season="6" type="season">https://artworks.thetvdb.com/banners/seasons/72454-6.jpg</thumb>
+  <thumb aspect="poster" season="7" type="season">https://artworks.thetvdb.com/banners/seasons/72454-7.jpg</thumb>
+  <thumb aspect="poster" season="8" type="season">https://artworks.thetvdb.com/banners/seasons/72454-8.jpg</thumb>
+  <thumb aspect="poster" season="9" type="season">https://artworks.thetvdb.com/banners/seasons/72454-9.jpg</thumb>
+  <thumb aspect="poster" season="10" type="season">https://artworks.thetvdb.com/banners/seasons/72454-10.jpg</thumb>
+  <thumb aspect="poster" season="11" type="season">https://artworks.thetvdb.com/banners/seasons/72454-11.jpg</thumb>
+  <thumb aspect="poster" season="12" type="season">https://artworks.thetvdb.com/banners/seasons/72454-12.jpg</thumb>
+  <thumb aspect="poster" season="14" type="season">https://artworks.thetvdb.com/banners/seasons/72454-14.jpg</thumb>
+  <thumb aspect="poster" season="15" type="season">https://artworks.thetvdb.com/banners/seasons/72454-15.jpg</thumb>
+  <thumb aspect="poster" season="16" type="season">https://artworks.thetvdb.com/banners/seasons/72454-16.jpg</thumb>
+  <thumb aspect="poster" season="18" type="season">https://artworks.thetvdb.com/banners/seasons/72454-18.jpg</thumb>
+  <thumb aspect="poster" season="19" type="season">https://artworks.thetvdb.com/banners/seasons/72454-19.jpg</thumb>
+  <thumb aspect="poster" season="22" type="season">https://artworks.thetvdb.com/banners/seasons/72454-22-2.jpg</thumb>
+  <thumb aspect="poster" season="23" type="season">https://artworks.thetvdb.com/banners/seasons/72454-23.jpg</thumb>
+  <thumb aspect="poster" season="24" type="season">https://artworks.thetvdb.com/banners/seasons/72454-20-2.jpg</thumb>
+  <thumb aspect="poster" season="25" type="season">https://artworks.thetvdb.com/banners/seasons/72454-21-2.jpg</thumb>
+  <thumb aspect="poster" season="27" type="season">https://artworks.thetvdb.com/banners/seasons/72454-24.jpg</thumb>
+  <thumb aspect="poster" season="28" type="season">https://artworks.thetvdb.com/banners/seasons/72454-25-2.jpg</thumb>
+  <thumb aspect="banner" season="0" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c8187b6bae89.jpg</thumb>
+  <thumb aspect="banner" season="1" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f1767d57f4.jpg</thumb>
+  <thumb aspect="banner" season="2" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f179116b08.jpg</thumb>
+  <thumb aspect="banner" season="3" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f179aa2efb.jpg</thumb>
+  <thumb aspect="banner" season="4" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17a2d7db3.jpg</thumb>
+  <thumb aspect="banner" season="5" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17ab27bad.jpg</thumb>
+  <thumb aspect="banner" season="6" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17b564e8a.jpg</thumb>
+  <thumb aspect="banner" season="7" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17be61c84.jpg</thumb>
+  <thumb aspect="banner" season="8" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17c7e7191.jpg</thumb>
+  <thumb aspect="banner" season="9" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17d32679f.jpg</thumb>
+  <thumb aspect="banner" season="10" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c7f17dc77e56.jpg</thumb>
+  <thumb aspect="banner" season="11" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c471c44b.jpg</thumb>
+  <thumb aspect="banner" season="12" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c517ddd9.jpg</thumb>
+  <thumb aspect="banner" season="13" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c5fb02be.jpg</thumb>
+  <thumb aspect="banner" season="14" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c6ae2d57.jpg</thumb>
+  <thumb aspect="banner" season="15" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c74330c9.jpg</thumb>
+  <thumb aspect="banner" season="16" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c7db4501.jpg</thumb>
+  <thumb aspect="banner" season="17" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c883d9b3.jpg</thumb>
+  <thumb aspect="banner" season="18" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c91627a5.jpg</thumb>
+  <thumb aspect="banner" season="19" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803c9cf1338.jpg</thumb>
+  <thumb aspect="banner" season="20" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c803ca6f0362.jpg</thumb>
+  <thumb aspect="banner" season="21" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c81876f2c412.jpg</thumb>
+  <thumb aspect="banner" season="22" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c81877a2b941.jpg</thumb>
+  <thumb aspect="banner" season="23" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c81878676a26.jpg</thumb>
+  <thumb aspect="banner" season="24" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c81879155cc3.jpg</thumb>
+  <thumb aspect="banner" season="25" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c81879a15d61.jpg</thumb>
+  <thumb aspect="banner" season="26" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c8187a39f747.jpg</thumb>
+  <thumb aspect="banner" season="27" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5c8187abe79bd.jpg</thumb>
+  <thumb aspect="banner" season="28" type="season">https://assets.fanart.tv/fanart/tv/72454/seasonbanner/detective-conan-5e95294dbb163.jpg</thumb>
+  <fanart>
+    <thumb>https://assets.fanart.tv/fanart/tv/72454/showbackground/detective-conan-5c6ecdc1d0f39.jpg</thumb>
+  </fanart>
+  <certification>US:TV-14</certification>
+  <uniqueid default="false" type="tmdb">30983</uniqueid>
+  <uniqueid default="false" type="imdb">tt0131179</uniqueid>
+  <uniqueid default="true" type="tvdb">72454</uniqueid>
+  <user_note />
+</tvshow>

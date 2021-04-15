@@ -22,12 +22,16 @@ namespace Swellow.Blazor
             // BootstrapBlazor
             builder.Services.AddBootstrapBlazor();
 
+            // 添加HttpClient 服务
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
             // 后端服务
-            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddSingleton<ILibraryService, MockLibraryService>();
-            builder.Services.AddSingleton<IVideoService, MockVideoService>();
-            //builder.Services.AddHttpClient<ILibraryService, MockLibraryService>(
-            //    client => client.BaseAddress = new Uri("http://localhost:10086"));
+            //builder.Services.AddScoped<LibraryService>();
+            builder.Services.AddHttpClient<MediaService>( client => 
+            {
+                client.BaseAddress = new Uri("http://localhost:10086");
+            });
+            //builder.Services.AddScoped<WorkService>();
 
             await builder.Build().RunAsync();
         }

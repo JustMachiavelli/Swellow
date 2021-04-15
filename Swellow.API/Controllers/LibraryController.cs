@@ -19,11 +19,13 @@ namespace Swellow.API.Controllers
         private readonly IDbManager _dbManager;
         private readonly IMapper _mapper;
 
+
         public LibraryController(IDbManager dbManager, IMapper mapper)
         {
             _dbManager = dbManager ?? throw new ArgumentNullException(nameof(dbManager));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
+
 
         [HttpGet("api/librarys")]
         public async Task<IEnumerable<LibraryPreview>> GetLibrarys()
@@ -32,6 +34,7 @@ namespace Swellow.API.Controllers
             IEnumerable<LibraryPreview> libraryPreviews = _mapper.Map<IEnumerable<LibraryPreview>>(librarys);
             return libraryPreviews;
         }
+
 
     }
 }

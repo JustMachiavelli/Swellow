@@ -1,4 +1,5 @@
 ﻿using Swellow.Shared.Enum;
+using Swellow.Shared.Environment;
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
@@ -9,12 +10,20 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
     // 电影
     public class Movie : Item
     {
+        public Movie(string dierctory)
+        {
+            Directory = dierctory;
+            Poster = $"{Directory}/poster.jpg";
+        }
+
+
         // 1 类型 Movie，一般电影
         public MovieType Type { get; set; } = MovieType.Common;
 
 
         // 7 时长 = 0;
         public int? Runtime { get; set; }
+
 
         // 8 发行年份 = "1900";
         public int? Year { get; set; }
@@ -28,6 +37,14 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
 
         // 10 评分 = 0;
         public byte? Score { get; set; }
+
+
+        // 11 所在文件夹【相对路径】
+        public string Directory { get; set; }
+
+
+        // 12 Poster
+        public string Poster { get; set; }
 
 
         // 3【集合导航】包含CDs

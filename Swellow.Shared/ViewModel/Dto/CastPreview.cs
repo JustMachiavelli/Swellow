@@ -1,4 +1,5 @@
 ﻿using Swellow.Shared.Enum;
+using Swellow.Shared.Environment;
 
 namespace Swellow.Shared.ViewModel.Dto
 {
@@ -6,7 +7,7 @@ namespace Swellow.Shared.ViewModel.Dto
     {
         public int Id { get; set; }
 
-        public string Name { get; set; } = "未知演员";
+        public string? Name { get; set; }
 
         public string? Poster { get; set; }
 
