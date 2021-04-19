@@ -15,10 +15,10 @@ namespace Swellow.API.Mapper
         {
             CreateMap<Library, LibraryPreview>();
 
-            CreateMap<Work, WorkPreview>()
-                .ForMember(
-                    dest => dest.Fanart,
-                    opt => opt.MapFrom(Work => DateTime.Now.Year - src.DateOfBirth.Year));
+            CreateMap<Work, WorkPreview>();
+                //.ForMember(
+                //    dest => dest.Fanart,
+                //    opt => opt.MapFrom(Work => DateTime.Now.Year - src.DateOfBirth.Year));
         }
     }
 }

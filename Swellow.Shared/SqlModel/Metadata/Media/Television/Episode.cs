@@ -7,10 +7,16 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 {
     public class Episode
     {
+        public Episode()
+        {
+
+        }
+
+
         public Episode(string dierctory)
         {
             Directory = dierctory;
-            Fanart = $"{Directory}/fanart.jpg";
+            Fanart = $"{dierctory}/fanart.jpg";
         }
 
 
@@ -21,6 +27,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         //[Required]
         // 1 第几集，比如“E2”
         public int No { get; set; } = 0;
+
+
+        // 2 本地视频文件的显示名称
+        public string? Display { get; set; }
 
 
         // 2 集标题
@@ -38,11 +48,11 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
 
         // 11 所在文件夹【相对路径】
-        public string Directory { get; set; }
+        public string? Directory { get; set; }
 
 
         // 12 Fanart
-        public string Fanart { get; set; }
+        public string? Fanart { get; set; }
 
 
         // 【集合导航】包含CDs
@@ -60,5 +70,6 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
         // 5 【引用导航】所属影视作品
         public int? SeasonId { get; set; }
         public Season? Season { get; set; }
+
     }
 }

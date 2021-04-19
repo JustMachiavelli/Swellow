@@ -204,7 +204,7 @@ namespace Swellow.API.Sql.Init
                 WorkTags = GetWorkTags(context, new string[] { "少年", "单元剧", "超长篇" }),
                 Seasons = new List<Season>()
                 {
-                    new Season("/TestVideos/动漫/名侦探柯南(1996-)/S01 - Y1996")
+                    new Season("/TestVideos/动漫/名侦探柯南(1996-)/Y1996S01")
                     {
                         No = 1,
                         Outline = "名侦探柯南的第一季在1996年，永不完结的第一季",
@@ -212,7 +212,7 @@ namespace Swellow.API.Sql.Init
                         Episodes = new List<Episode>()
                         {
                             // 第一集
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1996S01/E01 - 云霄飞车杀人事件")
                              {
                                 No = 1,
                                 Title = "云霄飞车杀人事件",
@@ -225,7 +225,7 @@ namespace Swellow.API.Sql.Init
                                     new CD () { Property = ".1080p BD", },
                                 }
                              },
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1996S01/E02 - 董事长千金绑架事件")
                              {
                                 No = 2,
                                 Title = "董事长千金绑架事件",
@@ -237,7 +237,7 @@ namespace Swellow.API.Sql.Init
                                     new CD () { Property = ".1080p BD", },
                                 }
                              },
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1996S01/E03 - 偶像密室杀人事件")
                              {
                                 No = 3,
                                 Title = "偶像密室杀人事件",
@@ -251,7 +251,7 @@ namespace Swellow.API.Sql.Init
                              },
                         },
                     },
-                    new Season()
+                    new Season("/TestVideos/动漫/名侦探柯南(1996-)/Y1997S01")
                     {
                         No = 2,
                         Outline = "名侦探柯南的第一季在1997年，永不完结的第一季",
@@ -259,7 +259,7 @@ namespace Swellow.API.Sql.Init
                         Episodes = new List<Episode>()
                         {
                             // 第一集
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1997S01/E43 - 江户川柯南诱拐事件")
                              {
                                 No = 43,
                                 Title = "江户川柯南诱拐事件",
@@ -271,11 +271,11 @@ namespace Swellow.API.Sql.Init
                                     new CD () { Property = ".720p.修复版", },
                                 }
                              },
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1997S01/E44 - 堀田三兄弟杀人事件")
                              {
                                 No = 44,
-                                Title = "董事长千金绑架事件",
-                                Display = "名侦探柯南 - Y1996S01E44 - 董事长千金绑架事件",
+                                Title = "堀田三兄弟杀人事件",
+                                Display = "名侦探柯南 - Y1996S01E44 - 堀田三兄弟杀人事件",
                                 Plot = "动画原创。小五郎开车的时候帮助了车子出故障的堀田耕作，为表谢意，耕作留小五郎三人参加他的庆生聚会，期间耕作因儿女们的争吵以及女儿文子的到来大发雷霆而离席，之后，他的房间发生大爆炸，柯南在现场发现了儿子良二送给耕作的威士忌盒子，本以为良二是凶手，没想到他莫名失踪，大家又将矛头指向文子，可文子却说自己虽恨父亲，可凶手不是她，这时，柯南看到了室外的化肥……",
                                 Date = new DateTime(1997, 1, 20),
                                 CDs = new List<CD>()
@@ -284,7 +284,7 @@ namespace Swellow.API.Sql.Init
                                     new CD () { Property = ".1080p BD", },
                                 }
                              },
-                             new Episode()
+                             new Episode("/TestVideos/动漫/名侦探柯南(1996-)/Y1997S01/E45 - 敷面膜杀人事件")
                              {
                                 No = 45,
                                 Title = "敷面膜杀人事件",
@@ -301,7 +301,7 @@ namespace Swellow.API.Sql.Init
                 },
                 Movies  = new List<Movie>()
                 {
-                    new Movie()
+                    new Movie("/TestVideos/动漫/名侦探柯南(1996-)/Y2019M23 - 名侦探柯南剧场版23：绀青之拳 (2019)")
                     {
                         Display = "名侦探柯南剧场版20：绀青之拳(2019)",
                         Name = "名侦探柯南剧场版20：绀青之拳",
@@ -339,7 +339,7 @@ namespace Swellow.API.Sql.Init
                 new Library
                 {
                     Name = "科幻",
-                    //Fanart = "/SwellowData/Images/Library/Preview/1.jpg",
+                    Fanart = "/SwellowData/Images/Library/1.jpg",
                     VideoFolders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/科幻", },
@@ -349,7 +349,7 @@ namespace Swellow.API.Sql.Init
                 new Library
                 {
                     Name = "动漫",
-                    //Fanart = "/SwellowData/Images/Library/Preview/2.jpg",
+                    Fanart = "/SwellowData/Images/Library/2.jpg",
                     VideoFolders = new List<VideoFolder>
                     {
                         new VideoFolder{ Path = "/TestMovies/动漫", },
@@ -374,12 +374,8 @@ namespace Swellow.API.Sql.Init
             foreach (string castName in casts)
             {
                 Cast castAlready = context.Casts.FirstOrDefault(cast => cast.Name == castName);
-                Cast cast = new ();
-                if (castAlready == null)
-                {
-                    cast.Name = castName;
-                }
-                else
+                Cast cast = new (castName);
+                if (castAlready != null)
                 {
                     cast = castAlready;
                 }

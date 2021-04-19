@@ -22,6 +22,7 @@ namespace Swellow.ADO
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Poster { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkCasts> WorkCasts { get; set; }

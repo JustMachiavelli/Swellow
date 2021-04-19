@@ -25,6 +25,8 @@ namespace Swellow.ADO
         public string Outline { get; set; }
         public Nullable<int> Year { get; set; }
         public Nullable<int> EndYear { get; set; }
+        public string Directory { get; set; }
+        public string Poster { get; set; }
         public Nullable<int> WorkId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

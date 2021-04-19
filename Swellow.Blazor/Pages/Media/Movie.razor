@@ -79,7 +79,7 @@
 
 
 @code {
-    [Inject] public IVideoService VideoService { get; set; }
+    [Inject] public MediaService MediaService { get; set; }
 
 
     //1 媒体库ID【url传】
@@ -97,6 +97,6 @@
     //【生命】
     protected override async Task OnInitializedAsync()
     {
-        MovieDetail = await VideoService.GetMovieDetailAsync(MovieId);
+        MovieDetail = await MediaService.GetMovieDetailAsync(MovieId);
     }
 }

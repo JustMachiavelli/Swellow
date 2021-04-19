@@ -17,7 +17,6 @@ namespace Swellow.ADO
         public int WorkId { get; set; }
         public int CastId { get; set; }
         public int Type { get; set; }
-        public int Weighting { get; set; }
     
         public virtual Casts Casts { get; set; }
         public virtual Works Works { get; set; }

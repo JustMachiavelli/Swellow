@@ -9,7 +9,7 @@
 
 <h2>我的媒体库</h2>
 <div class="row row-cols-md-6 mt-md-4">
-    @foreach (var lp in LibraryPreviews)
+    @foreach (LibraryPreview lp in LibraryPreviews)
     {
         <div class="col">
             <PosterCard Href=@($"Media/Library/{lp.Id}")
@@ -21,7 +21,7 @@
 
 @code
 {
-    [Inject] public ILibraryService LibraryService { get; set; }
+    [Inject] public MediaService mediaService { get; set; }
 
 
     //1 所有Library预览【后传】
@@ -31,7 +31,7 @@
     //【OnInitialized】
     protected override async Task OnInitializedAsync()
     {
-        LibraryPreviews = await LibraryService.GetLibraryPreviewsAsync();
+        LibraryPreviews = await mediaService.GetLibraryPreviewsAsync();
         await base.OnInitializedAsync();
     }
 

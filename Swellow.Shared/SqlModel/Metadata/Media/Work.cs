@@ -15,6 +15,12 @@ namespace Swellow.Shared.SqlModel.Metadata.Media
 {
     public class Work : Item
     {
+        public Work()
+        {
+
+        }
+
+
         public Work(string dierctory)
         {
             Directory = dierctory;
@@ -22,41 +28,43 @@ namespace Swellow.Shared.SqlModel.Metadata.Media
         }
 
 
-        public WorkType Type { get; set; }
+        // 8 影视作品类型
+        public WorkType Type { get; set; } = WorkType.Mix;
 
 
-        // 7 时长 = 0;
+        // 9 时长 = 0;
         public int? Runtime { get; set; }
 
 
-        // 8 发行年份 = "1900";
+        // 10 发行年份 = "1900";
         public int? Year { get; set; }
 
-        // 9 剧终年份
+
+        // 11 剧终年份
         public int? EndYear { get; set; }
 
 
-        // 9 发行日期 = "1900-01-01";
+        // 12 发行日期 = "1900-01-01";
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public System.DateTime Date { get; set; }
 
 
-        // 10 评分 = 0;
+        // 13 评分 = 0;
         public byte? Score { get; set; }
 
 
-        // 11 所在文件夹【相对路径】
-        public string Directory { get; set; }
+        // 14 所在文件夹【相对路径】
+        public string? Directory { get; set; }
 
 
-        // 12 Poster
-        public string Poster { get; set; }
+        // 15 Poster
+        public string? Poster { get; set; }
 
 
-        // 15【集合导航】演职人员
+        // 16【集合导航】演职人员
         public IEnumerable<WorkCast>? WorkCasts { get; set; } = new List<WorkCast>();
-        // 16【集合导航】公司
+        // 17【集合导航】公司
         public IEnumerable<WorkCompany>? WorkCompanys { get; set; } = new List<WorkCompany>();
         // 18【集合导航】类型
         public IEnumerable<WorkGenre>? WorkGenres { get; set; } = new List<WorkGenre>();
@@ -64,20 +72,20 @@ namespace Swellow.Shared.SqlModel.Metadata.Media
         public IEnumerable<WorkTag>? WorkTags { get; set; } = new List<WorkTag>();
 
 
-        // 3【集合导航】所含剧季
+        // 20【集合导航】所含剧季
         public IEnumerable<Season>? Seasons { get; set; } = new List<Season>();
 
 
-        // 4【集合导航】所含Movies
+        // 21【集合导航】所含Movies
         public IEnumerable<Movie>? Movies { get; set; } = new List<Movie>();
 
 
-        // 2【引用导航】所属系列
+        // 22【引用导航】所属系列
         public int? SeriesId { get; set; }
         public Series? Series { get; set; }
 
 
-        // 5【引用导航】所属library
+        // 23【引用导航】所属library
         public int? LibraryId { get; set; }
         public Library? Library { get; set; }
 

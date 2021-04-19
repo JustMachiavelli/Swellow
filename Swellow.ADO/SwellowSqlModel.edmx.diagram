@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5cb7df5fbdac4529a00546736669f4df" Name="Diagram1">
+        <EntityTypeShape EntityType="SwellowDbModel.Casts" Width="1.5" PointX="9" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.CDs" Width="1.5" PointX="12.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Companys" Width="1.5" PointX="11" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Episodes" Width="1.5" PointX="10.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Genres" Width="1.5" PointX="3.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Librarys" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Movies" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Seasons" Width="1.5" PointX="8.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Serieses" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Tags" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.VideoFolder" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.WorkCasts" Width="1.5" PointX="11.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.WorkCompanys" Width="1.5" PointX="13.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SwellowDbModel.Works" Width="1.5" PointX="6" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="SwellowDbModel.FK_WorkCasts_Casts_CastId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_CDs_Episodes_EpisodeId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_CDs_Movies_MovieId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_WorkCompanys_Companys_CompanyId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_Episodes_Seasons_SeasonId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_VideoFolder_Librarys_LibraryId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_Works_Librarys_LibraryId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_Movies_Works_WorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_Seasons_Works_WorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_Works_Serieses_SeriesId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_WorkCasts_Works_WorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.FK_WorkCompanys_Works_WorkId" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.WorkGenres" ManuallyRouted="false" />
+        <AssociationConnector Association="SwellowDbModel.WorkTags" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -17,13 +17,13 @@ namespace Swellow.ADO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genres()
         {
-            this.WorkGenres = new HashSet<WorkGenres>();
+            this.Works = new HashSet<Works>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkGenres> WorkGenres { get; set; }
+        public virtual ICollection<Works> Works { get; set; }
     }
 }

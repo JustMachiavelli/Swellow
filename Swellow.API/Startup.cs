@@ -34,7 +34,7 @@ namespace Swellow.API
             // 数据库连接
             services.AddDbContext<SwellowDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SwellowDbConnection")));
             // 数据库EF服务
-            services.AddScoped<IDbManager, DbManager>();
+            services.AddScoped<DbManager>();
             // Dto自动映射
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

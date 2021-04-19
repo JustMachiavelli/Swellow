@@ -26,6 +26,8 @@ namespace Swellow.ADO
         public Nullable<int> Year { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<byte> Score { get; set; }
+        public string Directory { get; set; }
+        public string Poster { get; set; }
         public Nullable<int> WorkId { get; set; }
         public string Display { get; set; }
         public string Name { get; set; }

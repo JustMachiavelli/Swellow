@@ -10,7 +10,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Poster" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="CDs">
           <Key>
@@ -35,10 +36,12 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="Display" Type="nvarchar(max)" />
           <Property Name="Title" Type="nvarchar(max)" />
-          <Property Name="Display" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Plot" Type="nvarchar(max)" />
           <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Directory" Type="nvarchar(max)" />
+          <Property Name="Fanart" Type="nvarchar(max)" />
           <Property Name="HasResourse" Type="bit" Nullable="false" />
           <Property Name="SeasonId" Type="int" />
         </EntityType>
@@ -55,6 +58,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Fanart" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Movies">
           <Key>
@@ -66,6 +70,8 @@
           <Property Name="Year" Type="int" />
           <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Score" Type="tinyint" />
+          <Property Name="Directory" Type="nvarchar(max)" />
+          <Property Name="Poster" Type="nvarchar(max)" />
           <Property Name="WorkId" Type="int" />
           <Property Name="Display" Type="nvarchar(max)" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
@@ -84,6 +90,8 @@
           <Property Name="Outline" Type="nvarchar(max)" />
           <Property Name="Year" Type="int" />
           <Property Name="EndYear" Type="int" />
+          <Property Name="Directory" Type="nvarchar(max)" />
+          <Property Name="Poster" Type="nvarchar(max)" />
           <Property Name="WorkId" Type="int" />
         </EntityType>
         <EntityType Name="Serieses">
@@ -116,7 +124,6 @@
           <Property Name="WorkId" Type="int" Nullable="false" />
           <Property Name="CastId" Type="int" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
-          <Property Name="Weighting" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkCompanys">
           <Key>
@@ -126,7 +133,6 @@
           <Property Name="WorkId" Type="int" Nullable="false" />
           <Property Name="CompanyId" Type="int" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
-          <Property Name="Weighting" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="WorkGenres">
           <Key>
@@ -135,7 +141,6 @@
           </Key>
           <Property Name="WorkId" Type="int" Nullable="false" />
           <Property Name="GenreId" Type="int" Nullable="false" />
-          <Property Name="Weighting" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Works">
           <Key>
@@ -148,6 +153,8 @@
           <Property Name="EndYear" Type="int" />
           <Property Name="Date" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="Score" Type="tinyint" />
+          <Property Name="Directory" Type="nvarchar(max)" />
+          <Property Name="Poster" Type="nvarchar(max)" />
           <Property Name="SeriesId" Type="int" />
           <Property Name="LibraryId" Type="int" />
           <Property Name="Display" Type="nvarchar(max)" />
@@ -165,7 +172,6 @@
           </Key>
           <Property Name="WorkId" Type="int" Nullable="false" />
           <Property Name="TagId" Type="int" Nullable="false" />
-          <Property Name="Weighting" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_CDs_Episodes_EpisodeId">
           <End Role="Episodes" Type="Self.Episodes" Multiplicity="0..1" />
@@ -467,7 +473,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="WorkCasts" Relationship="Self.FK_WorkCasts_Casts_CastId" FromRole="Casts" ToRole="WorkCasts" />
         </EntityType>
         <EntityType Name="CDs">
@@ -496,10 +503,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Plot" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Directory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fanart" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="HasResourse" Type="Boolean" Nullable="false" />
           <Property Name="SeasonId" Type="Int32" />
           <NavigationProperty Name="CDs" Relationship="Self.FK_CDs_Episodes_EpisodeId" FromRole="Episodes" ToRole="CDs" />
@@ -511,7 +520,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="WorkGenres" Relationship="Self.FK_WorkGenres_Genres_GenreId" FromRole="Genres" ToRole="WorkGenres" />
+          <NavigationProperty Name="Works" Relationship="Self.WorkGenres" FromRole="Genres" ToRole="Works" />
         </EntityType>
         <EntityType Name="Librarys">
           <Key>
@@ -519,6 +528,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fanart" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="VideoFolder" Relationship="Self.FK_VideoFolder_Librarys_LibraryId" FromRole="Librarys" ToRole="VideoFolder" />
           <NavigationProperty Name="Works" Relationship="Self.FK_Works_Librarys_LibraryId" FromRole="Librarys" ToRole="Works" />
         </EntityType>
@@ -532,6 +542,8 @@
           <Property Name="Year" Type="Int32" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Score" Type="Byte" />
+          <Property Name="Directory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="WorkId" Type="Int32" />
           <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -552,6 +564,8 @@
           <Property Name="Outline" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Year" Type="Int32" />
           <Property Name="EndYear" Type="Int32" />
+          <Property Name="Directory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="WorkId" Type="Int32" />
           <NavigationProperty Name="Episodes" Relationship="Self.FK_Episodes_Seasons_SeasonId" FromRole="Seasons" ToRole="Episodes" />
           <NavigationProperty Name="Works" Relationship="Self.FK_Seasons_Works_WorkId" FromRole="Seasons" ToRole="Works" />
@@ -570,7 +584,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="WorkTags" Relationship="Self.FK_WorkTags_Tags_TagId" FromRole="Tags" ToRole="WorkTags" />
+          <NavigationProperty Name="Works" Relationship="Self.WorkTags" FromRole="Tags" ToRole="Works" />
         </EntityType>
         <EntityType Name="VideoFolder">
           <Key>
@@ -589,7 +603,6 @@
           <Property Name="WorkId" Type="Int32" Nullable="false" />
           <Property Name="CastId" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="Weighting" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Casts" Relationship="Self.FK_WorkCasts_Casts_CastId" FromRole="WorkCasts" ToRole="Casts" />
           <NavigationProperty Name="Works" Relationship="Self.FK_WorkCasts_Works_WorkId" FromRole="WorkCasts" ToRole="Works" />
         </EntityType>
@@ -601,20 +614,8 @@
           <Property Name="WorkId" Type="Int32" Nullable="false" />
           <Property Name="CompanyId" Type="Int32" Nullable="false" />
           <Property Name="Type" Type="Int32" Nullable="false" />
-          <Property Name="Weighting" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Companys" Relationship="Self.FK_WorkCompanys_Companys_CompanyId" FromRole="WorkCompanys" ToRole="Companys" />
           <NavigationProperty Name="Works" Relationship="Self.FK_WorkCompanys_Works_WorkId" FromRole="WorkCompanys" ToRole="Works" />
-        </EntityType>
-        <EntityType Name="WorkGenres">
-          <Key>
-            <PropertyRef Name="WorkId" />
-            <PropertyRef Name="GenreId" />
-          </Key>
-          <Property Name="WorkId" Type="Int32" Nullable="false" />
-          <Property Name="GenreId" Type="Int32" Nullable="false" />
-          <Property Name="Weighting" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Genres" Relationship="Self.FK_WorkGenres_Genres_GenreId" FromRole="WorkGenres" ToRole="Genres" />
-          <NavigationProperty Name="Works" Relationship="Self.FK_WorkGenres_Works_WorkId" FromRole="WorkGenres" ToRole="Works" />
         </EntityType>
         <EntityType Name="Works">
           <Key>
@@ -627,6 +628,8 @@
           <Property Name="EndYear" Type="Int32" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="Score" Type="Byte" />
+          <Property Name="Directory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Poster" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SeriesId" Type="Int32" />
           <Property Name="LibraryId" Type="Int32" />
           <Property Name="Display" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -642,19 +645,8 @@
           <NavigationProperty Name="Serieses" Relationship="Self.FK_Works_Serieses_SeriesId" FromRole="Works" ToRole="Serieses" />
           <NavigationProperty Name="WorkCasts" Relationship="Self.FK_WorkCasts_Works_WorkId" FromRole="Works" ToRole="WorkCasts" />
           <NavigationProperty Name="WorkCompanys" Relationship="Self.FK_WorkCompanys_Works_WorkId" FromRole="Works" ToRole="WorkCompanys" />
-          <NavigationProperty Name="WorkGenres" Relationship="Self.FK_WorkGenres_Works_WorkId" FromRole="Works" ToRole="WorkGenres" />
-          <NavigationProperty Name="WorkTags" Relationship="Self.FK_WorkTags_Works_WorkId" FromRole="Works" ToRole="WorkTags" />
-        </EntityType>
-        <EntityType Name="WorkTags">
-          <Key>
-            <PropertyRef Name="WorkId" />
-            <PropertyRef Name="TagId" />
-          </Key>
-          <Property Name="WorkId" Type="Int32" Nullable="false" />
-          <Property Name="TagId" Type="Int32" Nullable="false" />
-          <Property Name="Weighting" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Tags" Relationship="Self.FK_WorkTags_Tags_TagId" FromRole="WorkTags" ToRole="Tags" />
-          <NavigationProperty Name="Works" Relationship="Self.FK_WorkTags_Works_WorkId" FromRole="WorkTags" ToRole="Works" />
+          <NavigationProperty Name="Genres" Relationship="Self.WorkGenres" FromRole="Works" ToRole="Genres" />
+          <NavigationProperty Name="Tags" Relationship="Self.WorkTags" FromRole="Works" ToRole="Tags" />
         </EntityType>
         <Association Name="FK_WorkCasts_Casts_CastId">
           <End Role="Casts" Type="Self.Casts" Multiplicity="1">
@@ -720,20 +712,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkGenres_Genres_GenreId">
-          <End Role="Genres" Type="Self.Genres" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Genres">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="WorkGenres">
-              <PropertyRef Name="GenreId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_VideoFolder_Librarys_LibraryId">
           <End Role="Librarys" Type="Self.Librarys" Multiplicity="0..1" />
           <End Role="VideoFolder" Type="Self.VideoFolder" Multiplicity="*" />
@@ -794,20 +772,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkTags_Tags_TagId">
-          <End Role="Tags" Type="Self.Tags" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tags">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="WorkTags">
-              <PropertyRef Name="TagId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_WorkCasts_Works_WorkId">
           <End Role="Works" Type="Self.Works" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -836,35 +800,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_WorkGenres_Works_WorkId">
-          <End Role="Works" Type="Self.Works" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="WorkGenres" Type="Self.WorkGenres" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Works">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="WorkGenres">
-              <PropertyRef Name="WorkId" />
-            </Dependent>
-          </ReferentialConstraint>
+        <Association Name="WorkGenres">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="*" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
         </Association>
-        <Association Name="FK_WorkTags_Works_WorkId">
-          <End Role="Works" Type="Self.Works" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="WorkTags" Type="Self.WorkTags" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Works">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="WorkTags">
-              <PropertyRef Name="WorkId" />
-            </Dependent>
-          </ReferentialConstraint>
+        <Association Name="WorkTags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <End Role="Works" Type="Self.Works" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="SwellowDbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Casts" EntityType="Self.Casts" />
           <EntitySet Name="CDs" EntityType="Self.CDs" />
           <EntitySet Name="Companys" EntityType="Self.Companys" />
@@ -878,9 +822,7 @@
           <EntitySet Name="VideoFolder" EntityType="Self.VideoFolder" />
           <EntitySet Name="WorkCasts" EntityType="Self.WorkCasts" />
           <EntitySet Name="WorkCompanys" EntityType="Self.WorkCompanys" />
-          <EntitySet Name="WorkGenres" EntityType="Self.WorkGenres" />
           <EntitySet Name="Works" EntityType="Self.Works" />
-          <EntitySet Name="WorkTags" EntityType="Self.WorkTags" />
           <AssociationSet Name="FK_WorkCasts_Casts_CastId" Association="Self.FK_WorkCasts_Casts_CastId">
             <End Role="Casts" EntitySet="Casts" />
             <End Role="WorkCasts" EntitySet="WorkCasts" />
@@ -900,10 +842,6 @@
           <AssociationSet Name="FK_Episodes_Seasons_SeasonId" Association="Self.FK_Episodes_Seasons_SeasonId">
             <End Role="Seasons" EntitySet="Seasons" />
             <End Role="Episodes" EntitySet="Episodes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_WorkGenres_Genres_GenreId" Association="Self.FK_WorkGenres_Genres_GenreId">
-            <End Role="Genres" EntitySet="Genres" />
-            <End Role="WorkGenres" EntitySet="WorkGenres" />
           </AssociationSet>
           <AssociationSet Name="FK_VideoFolder_Librarys_LibraryId" Association="Self.FK_VideoFolder_Librarys_LibraryId">
             <End Role="Librarys" EntitySet="Librarys" />
@@ -925,10 +863,6 @@
             <End Role="Serieses" EntitySet="Serieses" />
             <End Role="Works" EntitySet="Works" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkTags_Tags_TagId" Association="Self.FK_WorkTags_Tags_TagId">
-            <End Role="Tags" EntitySet="Tags" />
-            <End Role="WorkTags" EntitySet="WorkTags" />
-          </AssociationSet>
           <AssociationSet Name="FK_WorkCasts_Works_WorkId" Association="Self.FK_WorkCasts_Works_WorkId">
             <End Role="Works" EntitySet="Works" />
             <End Role="WorkCasts" EntitySet="WorkCasts" />
@@ -937,13 +871,13 @@
             <End Role="Works" EntitySet="Works" />
             <End Role="WorkCompanys" EntitySet="WorkCompanys" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkGenres_Works_WorkId" Association="Self.FK_WorkGenres_Works_WorkId">
+          <AssociationSet Name="WorkGenres" Association="Self.WorkGenres">
+            <End Role="Genres" EntitySet="Genres" />
             <End Role="Works" EntitySet="Works" />
-            <End Role="WorkGenres" EntitySet="WorkGenres" />
           </AssociationSet>
-          <AssociationSet Name="FK_WorkTags_Works_WorkId" Association="Self.FK_WorkTags_Works_WorkId">
+          <AssociationSet Name="WorkTags" Association="Self.WorkTags">
+            <End Role="Tags" EntitySet="Tags" />
             <End Role="Works" EntitySet="Works" />
-            <End Role="WorkTags" EntitySet="WorkTags" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -951,12 +885,13 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SwellowDbModelStoreContainer" CdmEntityContainer="SwellowDbEntities">
+        <EntityContainerMapping StorageEntityContainer="SwellowDbModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Casts">
             <EntityTypeMapping TypeName="SwellowDbModel.Casts">
               <MappingFragment StoreEntitySet="Casts">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -984,10 +919,12 @@
               <MappingFragment StoreEntitySet="Episodes">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="No" ColumnName="No" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Display" ColumnName="Display" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Plot" ColumnName="Plot" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Directory" ColumnName="Directory" />
+                <ScalarProperty Name="Fanart" ColumnName="Fanart" />
                 <ScalarProperty Name="HasResourse" ColumnName="HasResourse" />
                 <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
               </MappingFragment>
@@ -1006,6 +943,7 @@
               <MappingFragment StoreEntitySet="Librarys">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Fanart" ColumnName="Fanart" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1018,6 +956,8 @@
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Directory" ColumnName="Directory" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="WorkId" ColumnName="WorkId" />
                 <ScalarProperty Name="Display" ColumnName="Display" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1037,6 +977,8 @@
                 <ScalarProperty Name="Outline" ColumnName="Outline" />
                 <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="EndYear" ColumnName="EndYear" />
+                <ScalarProperty Name="Directory" ColumnName="Directory" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="WorkId" ColumnName="WorkId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1072,7 +1014,6 @@
                 <ScalarProperty Name="WorkId" ColumnName="WorkId" />
                 <ScalarProperty Name="CastId" ColumnName="CastId" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1082,16 +1023,6 @@
                 <ScalarProperty Name="WorkId" ColumnName="WorkId" />
                 <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WorkGenres">
-            <EntityTypeMapping TypeName="SwellowDbModel.WorkGenres">
-              <MappingFragment StoreEntitySet="WorkGenres">
-                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
-                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
-                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1105,6 +1036,8 @@
                 <ScalarProperty Name="EndYear" ColumnName="EndYear" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="Directory" ColumnName="Directory" />
+                <ScalarProperty Name="Poster" ColumnName="Poster" />
                 <ScalarProperty Name="SeriesId" ColumnName="SeriesId" />
                 <ScalarProperty Name="LibraryId" ColumnName="LibraryId" />
                 <ScalarProperty Name="Display" ColumnName="Display" />
@@ -1117,15 +1050,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="WorkTags">
-            <EntityTypeMapping TypeName="SwellowDbModel.WorkTags">
-              <MappingFragment StoreEntitySet="WorkTags">
-                <ScalarProperty Name="WorkId" ColumnName="WorkId" />
-                <ScalarProperty Name="TagId" ColumnName="TagId" />
-                <ScalarProperty Name="Weighting" ColumnName="Weighting" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+          <AssociationSetMapping Name="WorkGenres" TypeName="SwellowDbModel.WorkGenres" StoreEntitySet="WorkGenres">
+            <EndProperty Name="Genres">
+              <ScalarProperty Name="Id" ColumnName="GenreId" />
+            </EndProperty>
+            <EndProperty Name="Works">
+              <ScalarProperty Name="Id" ColumnName="WorkId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="WorkTags" TypeName="SwellowDbModel.WorkTags" StoreEntitySet="WorkTags">
+            <EndProperty Name="Tags">
+              <ScalarProperty Name="Id" ColumnName="TagId" />
+            </EndProperty>
+            <EndProperty Name="Works">
+              <ScalarProperty Name="Id" ColumnName="WorkId" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

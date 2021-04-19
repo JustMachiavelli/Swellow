@@ -13,10 +13,10 @@ namespace Swellow.ADO
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SwellowDbEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public SwellowDbEntities()
-            : base("name=SwellowDbEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -38,8 +38,6 @@ namespace Swellow.ADO
         public virtual DbSet<VideoFolder> VideoFolder { get; set; }
         public virtual DbSet<WorkCasts> WorkCasts { get; set; }
         public virtual DbSet<WorkCompanys> WorkCompanys { get; set; }
-        public virtual DbSet<WorkGenres> WorkGenres { get; set; }
         public virtual DbSet<Works> Works { get; set; }
-        public virtual DbSet<WorkTags> WorkTags { get; set; }
     }
 }

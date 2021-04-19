@@ -10,10 +10,16 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
     // 电影
     public class Movie : Item
     {
+        public Movie()
+        {
+
+        }
+
+
         public Movie(string dierctory)
         {
             Directory = dierctory;
-            Poster = $"{Directory}/poster.jpg";
+            Poster = $"{dierctory}/poster.jpg";
         }
 
 
@@ -40,11 +46,11 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
 
 
         // 11 所在文件夹【相对路径】
-        public string Directory { get; set; }
+        public string? Directory { get; set; }
 
 
         // 12 Poster
-        public string Poster { get; set; }
+        public string? Poster { get; set; }
 
 
         // 3【集合导航】包含CDs

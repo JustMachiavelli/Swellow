@@ -7,19 +7,19 @@
 @using Swellow.Blazor.Components.Common
 
 <div class="row row-cols-md-6">
-    @foreach (var vp in VideoPreviews)
+    @foreach (var wp in WorkPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Media/Library/{LibraryId}/{vp.Type}/{vp.Id}")
-                        Title=@vp.Display
-                        ImgSrc=@vp.Poster />
+            <PosterCard Href=@($"Media/Library/{LibraryId}/{wp.Type}/{wp.Id}")
+                        Title=@wp.Display
+                        ImgSrc=@wp.Poster />
         </div>
     }
 </div>
 
 @code
 {
-    [Inject] public IVideoService VideoService { get; set; }
+    [Inject] public MediaService MediaService { get; set; }
 
 
     //1 媒体库ID【url传】
@@ -27,13 +27,13 @@
 
 
     //2 所含Video预览【后传】
-    private IEnumerable<WorkPreview> VideoPreviews { get; set; } = new List<WorkPreview>();
+    private IEnumerable<WorkPreview> WorkPreviews { get; set; } = new List<WorkPreview>();
 
 
     //【OnInitializedAsync】
     protected override async Task OnInitializedAsync()
     {
-        VideoPreviews = await VideoService.GetVideoPreviewsAsync(LibraryId);
+        WorkPreviews = await MediaService.GetWorkPreviewsAsync(LibraryId);
     }
 
 

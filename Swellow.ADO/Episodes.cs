@@ -22,10 +22,12 @@ namespace Swellow.ADO
     
         public int Id { get; set; }
         public int No { get; set; }
-        public string Title { get; set; }
         public string Display { get; set; }
+        public string Title { get; set; }
         public string Plot { get; set; }
         public System.DateTime Date { get; set; }
+        public string Directory { get; set; }
+        public string Fanart { get; set; }
         public bool HasResourse { get; set; }
         public Nullable<int> SeasonId { get; set; }
     

@@ -21,8 +21,8 @@ namespace Swellow.ADO
             this.Seasons = new HashSet<Seasons>();
             this.WorkCasts = new HashSet<WorkCasts>();
             this.WorkCompanys = new HashSet<WorkCompanys>();
-            this.WorkGenres = new HashSet<WorkGenres>();
-            this.WorkTags = new HashSet<WorkTags>();
+            this.Genres = new HashSet<Genres>();
+            this.Tags = new HashSet<Tags>();
         }
     
         public int Id { get; set; }
@@ -32,6 +32,8 @@ namespace Swellow.ADO
         public Nullable<int> EndYear { get; set; }
         public System.DateTime Date { get; set; }
         public Nullable<byte> Score { get; set; }
+        public string Directory { get; set; }
+        public string Poster { get; set; }
         public Nullable<int> SeriesId { get; set; }
         public Nullable<int> LibraryId { get; set; }
         public string Display { get; set; }
@@ -53,8 +55,8 @@ namespace Swellow.ADO
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WorkCompanys> WorkCompanys { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkGenres> WorkGenres { get; set; }
+        public virtual ICollection<Genres> Genres { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WorkTags> WorkTags { get; set; }
+        public virtual ICollection<Tags> Tags { get; set; }
     }
 }

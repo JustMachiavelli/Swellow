@@ -66,100 +66,73 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Casts.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="CDs.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Companys.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Episodes.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Genres.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Librarys.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Movies.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Seasons.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Serieses.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SwellowModelShow.Context.cs">
+    <Compile Include="SwellowSqlModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SwellowModelShow.Context.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SwellowModelShow.cs">
+    <Compile Include="SwellowSqlModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SwellowModelShow.Designer.cs">
+    <Compile Include="SwellowSqlModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+      <DependentUpon>SwellowSqlModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Tags.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VideoFolder.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WorkCasts.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WorkCompanys.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WorkGenres.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Works.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
+      <DependentUpon>SwellowSqlModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="WorkTags.cs">
-      <DependentUpon>SwellowModelShow.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SwellowDb.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SwellowDb_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>SwellowDb.mdf</DependentUpon>
-    </Content>
-    <Content Include="SwellowModelShow.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SwellowModelShow.Context.cs</LastGenOutput>
-      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
-    </Content>
-    <Content Include="SwellowModelShow.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
-      <LastGenOutput>SwellowModelShow.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="SwellowModelShow.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SwellowModelShow.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="SwellowModelShow.edmx.diagram">
-      <DependentUpon>SwellowModelShow.edmx</DependentUpon>
+    <EntityDeploy Include="SwellowSqlModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SwellowSqlModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SwellowSqlModel.edmx.diagram">
+      <DependentUpon>SwellowSqlModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +149,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SwellowSqlModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SwellowSqlModel.edmx</DependentUpon>
+      <LastGenOutput>SwellowSqlModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SwellowSqlModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SwellowSqlModel.edmx</DependentUpon>
+      <LastGenOutput>SwellowSqlModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
