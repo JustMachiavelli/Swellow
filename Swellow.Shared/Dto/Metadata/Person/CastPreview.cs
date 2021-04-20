@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.Environment;
 
-namespace Swellow.Shared.ViewModel.Dto
+namespace Swellow.Shared.Dto.Metadata.Person
 {
     public class CastPreview
     {

@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.Environment;
 
-namespace Swellow.Shared.ViewModel.Dto
+namespace Swellow.Shared.Dto.Metadata.Media
 {
     public class WorkPreview
     {

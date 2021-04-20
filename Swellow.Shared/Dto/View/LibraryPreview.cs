@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Swellow.Shared.ViewModel.Dto
+namespace Swellow.Shared.Dto.View
 {
     public class LibraryPreview
     {

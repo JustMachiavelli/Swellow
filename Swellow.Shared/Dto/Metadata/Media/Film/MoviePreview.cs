@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Shared.Dto.Mediadata.Media.Film
+namespace Swellow.Shared.Dto.Metadata.Media.Film
 {
     public class MoviePreview
     {

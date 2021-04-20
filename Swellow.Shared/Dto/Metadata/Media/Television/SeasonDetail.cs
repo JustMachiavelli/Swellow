@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Swellow.Shared.SqlModel.MetaData.Media.Television;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Swellow.Shared.ViewModel.Dto
+namespace Swellow.Shared.Dto.Metadata.Media.Television
 {
-    public class SeasonPreview
+    public class SeasonDetail
     {
         public int Id { get; set; }
         public int No { get; set; } = 1;
-        //public string? Outline { get; set; }
+        public string? Outline { get; set; }
         public int? Year { get; set; }
         public int? EndYear { get; set; }
         //public string? Directory { get; set; }

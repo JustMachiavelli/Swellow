@@ -16,7 +16,8 @@ namespace Swellow.API.Sql.Init
         // 单数据库用下面
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
-        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=SwellowDb");
+        //    optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=Swellow");
+        //    optionsBuilder.UseSqlite("Data Source=covid.db"));
         //}
 
         // Asp用下面

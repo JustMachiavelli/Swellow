@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.SqlModel.LocalData;
 using System.Collections.Generic;
 
-namespace Swellow.Shared.ViewModel.Settings
+namespace Swellow.Shared.Dto.Settings
 {
     public class LibraryCreateEdit
     {

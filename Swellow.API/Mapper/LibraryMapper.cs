@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using Swellow.Shared.ViewModel.Dto;
 using Swellow.Shared.SqlModel.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Swellow.Shared.SqlModel.Metadata.Media;
+using Swellow.Shared.Dto.View;
+using Swellow.Shared.Dto.Metadata.Media;
 
 namespace Swellow.API.Mapper
 {

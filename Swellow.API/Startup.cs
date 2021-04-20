@@ -32,9 +32,12 @@ namespace Swellow.API
             // WebApi控制器
             services.AddControllers();
             // 数据库连接
-            services.AddDbContext<SwellowDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SwellowDbConnection")));
+            //services.AddDbContext<SwellowDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SwellowDbConnection")));
+            services.AddDbContext<SwellowDbContext>(options => options.UseSqlite("Data Source=Swellow.db"));
             // 数据库EF服务
-            services.AddScoped<DbManager>();
+            services.AddScoped<LibraryRepository>();
+            services.AddScoped<MediaRepository>();
+            services.AddScoped<PersonRepository>();
             // Dto自动映射
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

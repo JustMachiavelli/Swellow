@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swellow.API.Sql;
-using Swellow.Shared.ViewModel.Dto;
-using Swellow.Shared.ViewModel.Media;
+using Swellow.Shared.Dto.View;
 using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;
@@ -16,32 +15,34 @@ namespace Swellow.API.Controllers
     [ApiController]
     public class LibraryController : ControllerBase
     {
-        private readonly DbManager _dbManager;
+        private readonly LibraryRepository _libraryRepository;
         private readonly IMapper _mapper;
 
 
-        public LibraryController(DbManager dbManager, IMapper mapper)
+        public LibraryController(LibraryRepository libraryRepository, IMapper mapper)
         {
-            _dbManager = dbManager ?? throw new ArgumentNullException(nameof(dbManager));
+            _libraryRepository = libraryRepository ?? throw new ArgumentNullException(nameof(LibraryRepository));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
 
-        [HttpGet("api/librarys")]
-        public async Task<IEnumerable<LibraryPreview>> GetAllLibrarys()
+        // 1 获取所有libraryPreview，主要用于Home主页
+        [HttpGet("api/library/previews")]
+        public async Task<IEnumerable<LibraryPreview>> GetAllLibraryPreviewsAsync()
         {
-            IEnumerable<Library> librarys = await _dbManager.GetAllLibrarysAsync();
-            IEnumerable<LibraryPreview> libraryPreviews = _mapper.Map<IEnumerable<LibraryPreview>>(librarys);
+            IEnumerable<LibraryPreview> libraryPreviews = await _libraryRepository.GetAllLibraryPreviewsAsync();
             return libraryPreviews;
         }
 
 
-
+        // 2 依据Id获取某个Library的Name
         [HttpGet("api/library/{id}/name")]
-        public async Task<string> GetLibraryNameAsync(int id)
+        public async Task<string> GetLibraryNameByIdAsync(int id)
         {
-            return await _dbManager.GetLibraryNameByIdAsync(id);
+            return await _libraryRepository.GetLibraryNameByIdAsync(id);
         }
 
     }
 }
+
+//IEnumerable<LibraryPreview> libraryPreviews = _mapper.Map<IEnumerable<LibraryPreview>>(librarys);
