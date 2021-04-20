@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swellow.API.Sql;
+using Swellow.Shared.Dto.Metadata.Media;
 using Swellow.Shared.Dto.View;
 using Swellow.Shared.SqlModel.View;
 using System;
@@ -40,6 +41,15 @@ namespace Swellow.API.Controllers
         public async Task<string> GetLibraryNameByIdAsync(int id)
         {
             return await _libraryRepository.GetLibraryNameByIdAsync(id);
+        }
+
+
+        // 3 查找一个Library下的Work
+        [HttpGet("api/library/{libraryId}/workPreviews")]
+        public async Task<IEnumerable<WorkPreview>> GetWorkPreviewsByLibraryIdAsync(int libraryId)
+        {
+            IEnumerable<WorkPreview> workPreviews = await _libraryRepository.GetWorkPreviewsByLibraryIdAsync(libraryId);
+            return workPreviews;
         }
 
     }

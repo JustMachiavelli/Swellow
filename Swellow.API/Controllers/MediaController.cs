@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Swellow.Shared.Dto.Metadata.Media;
 using Swellow.Shared.Dto.Metadata.Media.Television;
 using Swellow.Shared.Dto.Metadata.Media.Film;
+using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.Dto.Metadata.Property;
+using Swellow.Shared.Dto.Metadata.Person;
 
 namespace Swellow.API.Controllers
 {
@@ -22,16 +25,7 @@ namespace Swellow.API.Controllers
         }
 
 
-        // 1 查找一个Library下的Work
-        [HttpGet("api/library/{libraryId}/workPreviews")]
-        public async Task<IEnumerable<WorkPreview>> GetWorkPreviewsByLibraryIdAsync(int libraryId)
-        {
-            IEnumerable<WorkPreview> workPreviews = await _mediaRepository.GetWorkPreviewsByLibraryIdAsync(libraryId);
-            return workPreviews;
-        }
-
-
-        // 2 依据Work Id获取某个WorkDetail
+        // 1 依据Work Id获取某个WorkDetail
         [HttpGet("api/work/{workId}/workDetail")]
         public async Task<WorkDetail> GetWorkDetailByIdAsync(int workId)
         {
@@ -40,23 +34,40 @@ namespace Swellow.API.Controllers
         }
 
 
-        // 3 依据Work Id获取Seasons
+        // 2 依据Work Id获取Seasons
         [HttpGet("api/work/{workId}/seasonPreviews")]
         public async Task<IEnumerable<SeasonPreview>> GetSeasonPreviewAsync(int workId)
         {
-            List<SeasonPreview> seasonPreviews = await _mediaRepository.GetSeasonPreviewsAsync(workId);
+            IEnumerable<SeasonPreview> seasonPreviews = await _mediaRepository.GetSeasonPreviewsAsync(workId);
             return seasonPreviews;
         }
 
 
-        // 4 依据Work Id获取Movies
+        // 3 依据Work Id获取Movies
         [HttpGet("api/work/{workId}/moviePreviews")]
         public async Task<IEnumerable<MoviePreview>> GetMoviePreviewsAsync(int workId)
         {
-            List<MoviePreview> moviePreviews = await _mediaRepository.GetMoviePreviewsAsync(workId);
+            IEnumerable<MoviePreview> moviePreviews = await _mediaRepository.GetMoviePreviewsAsync(workId);
             return moviePreviews;
         }
 
+
+        //4 依据Work Id获取Genres
+        [HttpGet("api/work/{workId}/genres")]
+        public async Task<IEnumerable<GenrePreview>> GetGenresAsync(int workId)
+        {
+            IEnumerable<GenrePreview> genrePreviews = await _mediaRepository.GetGenrePreviewsAsync(workId);
+            return genrePreviews;
+        }
+
+
+        //5 依据Work Id获取Genres
+        [HttpGet("api/work/{workId}/casts")]
+        public async Task<IEnumerable<CastPreview>> GetCastsAsync(int workId)
+        {
+            IEnumerable<CastPreview> castPreviews = await _mediaRepository.GetCastPreviewsAsync(workId);
+            return castPreviews;
+        }
 
 
 

@@ -3,7 +3,10 @@ using Swellow.API.Sql.Init;
 using Swellow.Shared.Dto.Metadata.Media;
 using Swellow.Shared.Dto.Metadata.Media.Film;
 using Swellow.Shared.Dto.Metadata.Media.Television;
+using Swellow.Shared.Dto.Metadata.Person;
+using Swellow.Shared.Dto.Metadata.Property;
 using Swellow.Shared.SqlModel.Metadata.Media;
+using Swellow.Shared.SqlModel.MetaData.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,25 +24,7 @@ namespace Swellow.API.Sql
         }
 
 
-        // 1 得到Works，通过LibraryId
-        public async Task<IEnumerable<WorkPreview>> GetWorkPreviewsByLibraryIdAsync(int id)
-        {
-            var workPreviews = await _context.Works.Where(Work => Work.LibraryId == id)
-                                      .Select(Work => new WorkPreview
-                                      { 
-                                          Id = Work.Id, 
-                                          Name = Work.Name, 
-                                          Year = Work.Year, 
-                                          Type = Work.Type,
-                                          Poster = Work.Poster,
-                                      })
-                                      .ToListAsync();
-
-            return workPreviews;
-        }
-
-
-        // 2 得到一个Work详情，通过WorkId
+        // 1 得到一个Work详情，通过WorkId
         public async Task<WorkDetail> GetWorkDetailByIdAsync(int id)
         {
             WorkDetail workDetail = await _context.Works.Where(Work => Work.Id == id)
@@ -59,6 +44,7 @@ namespace Swellow.API.Sql
                                                 Score = work.Score,
                                                 Directory = work.Directory,
                                                 Poster = work.Poster,
+                                                Fanart = work.Fanart,
                                                 SeriesId = work.SeriesId,
                                             })
                                         .SingleOrDefaultAsync();
@@ -66,7 +52,7 @@ namespace Swellow.API.Sql
         }
 
 
-        // 3 依据Work Id获取SeasonPreviews
+        // 2 依据Work Id获取SeasonPreviews
         internal async Task<List<SeasonPreview>> GetSeasonPreviewsAsync(int workId)
         {
             List<SeasonPreview> seasonPreviews = await _context.Seasons.Where(season => season.WorkId == workId)
@@ -83,7 +69,7 @@ namespace Swellow.API.Sql
         }
 
 
-        // 4 依据Work Id获取MoviePreviews
+        // 3 依据Work Id获取MoviePreviews
         internal async Task<List<MoviePreview>> GetMoviePreviewsAsync(int workId)
         {
             List<MoviePreview> moviePreviews = await _context.Movies.Where(movie => movie.WorkId == workId)
@@ -101,5 +87,33 @@ namespace Swellow.API.Sql
         }
 
 
+        // 4 依据Work Id获取Genres
+        internal async Task<List<GenrePreview>> GetGenrePreviewsAsync(int workId)
+        {
+            List<GenrePreview> genrePreviews = await _context.WorkGenres.Where(workGenre => workGenre.WorkId == workId)
+                                                            .Select(workGenre => new GenrePreview
+                                                            {
+                                                                Id = workGenre.Genre.Id,
+                                                                Name = workGenre.Genre.Name,
+                                                            })
+                                                            .ToListAsync();
+            return genrePreviews;
+        }
+
+
+        // 5 依据Work Id获取Casts
+        internal async Task<IEnumerable<CastPreview>> GetCastPreviewsAsync(int workId)
+        {
+            List<CastPreview> castPreviews = await _context.WorkCasts.Where(workCast => workCast.WorkId == workId)
+                                                            .Select(workCast => new CastPreview
+                                                            {
+                                                                Id = workCast.Cast.Id,
+                                                                Name = workCast.Cast.Name,
+                                                                Poster = workCast.Cast.Poster,
+                                                                Type = workCast.Type,
+                                                            })
+                                                            .ToListAsync();
+            return castPreviews;
+        }
     }
 }

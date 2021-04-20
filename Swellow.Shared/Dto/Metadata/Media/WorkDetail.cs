@@ -25,6 +25,7 @@ namespace Swellow.Shared.Dto.Metadata.Media
         public byte? Score { get; set; }
         public string? Directory { get; set; }
         public string? Poster { get; set; }
+        public string? Fanart { get; set; }
         public int? SeriesId { get; set; }
         #endregion
     }

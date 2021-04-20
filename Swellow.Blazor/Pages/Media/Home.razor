@@ -3,25 +3,25 @@
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
 @using Swellow.Blazor.Services;
-@using Swellow.Shared.Dto.Dto;
 @using Swellow.Blazor.Components.Common
+@using Swellow.Shared.Dto.View
 
 
 <h2>我的媒体库</h2>
 <div class="row row-cols-md-6 mt-md-4">
-    @foreach (LibraryPreview lp in LibraryPreviews)
+    @foreach (LibraryPreview libraryPreview in LibraryPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Media/Library/{lp.Id}")
-                        Title=@lp.Name
-                        ImgSrc=@lp.Fanart />
+            <PosterCard Href=@($"Media/Library/{libraryPreview.Id}")
+                        Title=@libraryPreview.Name
+                        ImgSrc=@libraryPreview.Fanart />
         </div>
     }
 </div>
 
 @code
 {
-    [Inject] public MediaService mediaService { get; set; }
+    [Inject] public LibraryService LibraryService { get; set; }
 
 
     //1 所有Library预览【后传】
@@ -31,8 +31,7 @@
     //【OnInitialized】
     protected override async Task OnInitializedAsync()
     {
-        LibraryPreviews = await mediaService.GetLibraryPreviewsAsync();
-        await base.OnInitializedAsync();
+        LibraryPreviews = await LibraryService.GetAllLibraryPreviewsAsync();
     }
 
 

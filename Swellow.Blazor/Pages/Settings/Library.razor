@@ -1,31 +1,29 @@
-﻿@page "/Settings/Library"
+﻿<!--@pag "/Settings/Library"
 @using Swellow.Blazor.Components.Common;
 @using Swellow.Shared.Enum;
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
 @using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Services;
-@using Swellow.Shared.ViewModel.Dto;
-@using Swellow.Shared.ViewModel.Settings;
 
 <div class="text-center">
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" @onclick="ToShowModal">
+    <!--<button type="button" class="btn btn-primary" @onclick="ToShowModal">
         新建媒体库
-    </button>
+    </button>-->
 
     <!-- Modal -->
-    @if (isShowModal)
+    <!--@if (isShowModal)
     {
         <div class="modal fade show" tabindex="-1" style="display: block;">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content">-->
 
                     @*头部*@
-                    <div class="modal-header">
+                    <!--<div class="modal-header">
                         <h5 class="modal-title">新媒体库</h5>
-                    </div>
+                    </div>-->
 
                     @*身体*@
                     <ValidateForm class="form-inline" Model="@NewLibrary" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
@@ -74,7 +72,7 @@
 @code
 {
 
-    [Inject] public ILibraryService LibraryService { get; set; }
+    [Inject] public LibraryService LibraryService { get; set; }
 
 
     //1 是否显示“添加新媒体库”的模态框【自身】
@@ -137,4 +135,4 @@
         isShowModal = false;
         System.Console.WriteLine("我要关闭表单");
     }
-}
+}-->

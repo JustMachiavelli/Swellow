@@ -3,23 +3,23 @@
 @using System.Threading.Tasks;
 @using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Services;
-@using Swellow.Shared.Dto.Dto;
+@using Swellow.Shared.Dto.Metadata.Media;
 @using Swellow.Blazor.Components.Common
 
 <div class="row row-cols-md-6">
-    @foreach (var wp in WorkPreviews)
+    @foreach (var workPreview in WorkPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Media/Library/{LibraryId}/{wp.Type}/{wp.Id}")
-                        Title=@wp.Display
-                        ImgSrc=@wp.Poster />
+            <PosterCard Href=@($"Media/Library/{LibraryId}/{workPreview.Type}/{workPreview.Id}")
+                        Title=@workPreview.Name
+                        ImgSrc=@workPreview.Poster />
         </div>
     }
 </div>
 
 @code
 {
-    [Inject] public MediaService MediaService { get; set; }
+    [Inject] public LibraryService LibraryService { get; set; }
 
 
     //1 媒体库ID【url传】
@@ -33,7 +33,7 @@
     //【OnInitializedAsync】
     protected override async Task OnInitializedAsync()
     {
-        WorkPreviews = await MediaService.GetWorkPreviewsAsync(LibraryId);
+        WorkPreviews = await LibraryService.GetWorkPreviewsByLibraryIdAsync(LibraryId);
     }
 
 

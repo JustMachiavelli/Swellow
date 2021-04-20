@@ -2,71 +2,62 @@
 @using Microsoft.AspNetCore.Components;
 @using System.Threading.Tasks;
 @using Swellow.Blazor.Services;
-@using Swellow.Shared.Dto.Media;
 @using Swellow.Blazor.Components.Media
 @using Swellow.Blazor.Components.Common
+@using Swellow.Shared.Dto.Metadata.Media;
+@using Swellow.Shared.Dto.Metadata.Property;
+@using Swellow.Shared.Dto.Metadata.Person;
 
 <div class="row">
 
     @*海报*@
     <div class="col-md-4 text-center">
-        <img class="w-75" src="@MovieDetail.Poster" />
+        <img class="w-75" src="@WorkDetail.Poster" />
     </div>
 
     @*详细信息*@
     <div class="col-md-7">
-        
+
         @*标题、评分、播放组件*@
         <div class="row">
             <div class="col-md-6">
                 <div>
-                    <h1 class="display-3">@MovieDetail.Title</h1>
+                    <h1 class="display-3">@WorkDetail.Name</h1>
                 </div>
                 <div>
-                    <span class="h3">@MovieDetail.Year</span>
+                    <span class="h3">@((WorkDetail.EndYear is null)? WorkDetail.Year : $"{WorkDetail.Year}-{WorkDetail.EndYear}")</span>
                     <img class="mb-md-2" src="/images/video/star.svg" />
-                    <span class="h3">@((float)MovieDetail.Score / 10)</span>
+                    <span class="h3">@((float)WorkDetail.Score / 10)</span>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <PlayerButtons PathFanart="@MovieDetail.PathFanart" />
+                <PlayerButtons PathFanart="@WorkDetail.Fanart" />
             </div>
         </div>
 
 
         <div class="h4 mt-md-2">
-            @foreach (var genre in MovieDetail.Genres)
+            @foreach (var genre in Genres)
             {
                 <a href="Media/Property/@genre.Name" class="ml-md-1">@genre.Name</a>
             }
         </div>
 
         <div class="h5 mt-md-2">
-            <p>@MovieDetail.Plot</p>
+            <p>@WorkDetail.Outline</p>
         </div>
 
         <div class="h5 mt-md-2">
             链接：
-            <a href="https://movie.douban.com/subject/@MovieDetail.DoubanId" class="ml-md-1">豆瓣</a>
-            <a href="https://www.themoviedb.org/movie/@MovieDetail.TmdbId" class="ml-md-1">TMDB</a>
-            <a href="https://www.imdb.com/title/@MovieDetail.ImdbId" class="ml-md-1">IMDB</a>
+            <a href="https://movie.douban.com/subject/@WorkDetail.DoubanId" class="ml-md-1">豆瓣</a>
+            <a href="https://www.themoviedb.org/movie/@WorkDetail.TmdbId" class="ml-md-1">TMDB</a>
+            <a href="https://www.imdb.com/title/@WorkDetail.ImdbId" class="ml-md-1">IMDB</a>
         </div>
 
-
-        <div class="h3 mt-md-5">导演</div>
+        <div class="h3 mt-md-5">演职人员</div>
         <div class="row">
-            @foreach (var cast in MovieDetail.Directors)
-            {
-                <div class="col-md-2">
-                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.PathPoster />
-                </div>
-            }
-        </div>
-
-        <div class="h3 mt-md-5">演员表</div>
-        <div class="row">
-            @foreach (var cast in MovieDetail.Casts)
+            @foreach (var cast in Casts)
             {
                 <div class="col-md-2">
                     <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.Poster />
@@ -91,12 +82,21 @@
 
 
     //3 电影详情【后传】
-    public WorkDetail MovieDetail { get; set; } = new WorkDetail();
+    public WorkDetail WorkDetail { get; set; } = new WorkDetail();
+
+    //4 Genres
+    public IEnumerable<GenrePreview> Genres { get; set; }
+
+    //5 Casts
+    public IEnumerable<CastPreview> Casts { get; set; }
 
 
     //【生命】
     protected override async Task OnInitializedAsync()
     {
-        MovieDetail = await MediaService.GetMovieDetailAsync(MovieId);
+        WorkDetail = await MediaService.GetWorkDetailByIdAsync(MovieId);
+        Genres = await MediaService.GetGenrePreviewsAsync();
+        Casts = await MediaService.GetCastPreviewsAsync();
+
     }
 }

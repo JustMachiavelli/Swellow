@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.API.Sql.Init;
+using Swellow.Shared.Dto.Metadata.Media;
 using Swellow.Shared.Dto.View;
 using Swellow.Shared.SqlModel.View;
 using System;
@@ -41,6 +42,24 @@ namespace Swellow.API.Sql
             return await _context.Librarys.Where(Library => Library.Id == id)
                                         .Select(Library => Library.Name)
                                         .FirstOrDefaultAsync();
+        }
+
+
+        // 3 得到Works，通过LibraryId
+        public async Task<IEnumerable<WorkPreview>> GetWorkPreviewsByLibraryIdAsync(int id)
+        {
+            var workPreviews = await _context.Works.Where(Work => Work.LibraryId == id)
+                                      .Select(Work => new WorkPreview
+                                      {
+                                          Id = Work.Id,
+                                          Name = Work.Name,
+                                          Year = Work.Year,
+                                          Type = Work.Type,
+                                          Poster = Work.Poster,
+                                      })
+                                      .ToListAsync();
+
+            return workPreviews;
         }
 
 

@@ -7,8 +7,8 @@ namespace Swellow.Blazor.Shared
 {
     public partial class MediaLayout
     {
-        [Inject] public ILibraryService LibraryService { get; set; }
-        [Inject] public IVideoService VideoService { get; set; }
+        [Inject] public LibraryService LibraryService { get; set; }
+        [Inject] public MediaService MediaService { get; set; }
 
         public int LibraryId { get; set; }
         public string LibraryName { get; set; }
@@ -29,7 +29,7 @@ namespace Swellow.Blazor.Shared
                 if ((Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("MovieId", out id) == true | (Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("TvId", out id) == true)
                 {
                     VideoId = Convert.ToInt32(id);
-                    VideoName = await VideoService.GetVideoNameAsync(VideoId);
+                    VideoName = await MediaService.GetWorkNameAsync(VideoId);
                 }
                 // URL在Library
                 else

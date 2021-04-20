@@ -37,7 +37,6 @@ namespace Swellow.API
             // 数据库EF服务
             services.AddScoped<LibraryRepository>();
             services.AddScoped<MediaRepository>();
-            services.AddScoped<PersonRepository>();
             // Dto自动映射
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }

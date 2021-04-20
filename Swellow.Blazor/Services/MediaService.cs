@@ -1,7 +1,10 @@
-﻿using Swellow.Shared.Dto.Dto;
+﻿using Swellow.Shared.Dto.Metadata.Media;
+using Swellow.Shared.Dto.Metadata.Media.Film;
+using Swellow.Shared.Dto.Metadata.Media.Television;
+using Swellow.Shared.Dto.Metadata.Person;
+using Swellow.Shared.Dto.Metadata.Property;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -17,47 +20,79 @@ namespace Swellow.Blazor.Services
             _httpClient = httpClient;
         }
 
-        // 得到所有LibraryPreview
-        public async Task<IEnumerable<LibraryPreview>> GetLibraryPreviewsAsync()
+        // 1 依据WorkId得到WorkDetail
+        public async Task<WorkDetail> GetWorkDetailByIdAsync(int workId)
         {
-            return await JsonSerializer.DeserializeAsync<IEnumerable<LibraryPreview>>(
-                await _httpClient.GetStreamAsync("api/library/previews"),
+            WorkDetail workDetail = await JsonSerializer.DeserializeAsync<WorkDetail>(
+                await _httpClient.GetStreamAsync($"api/work/{workId}/workDetail"),
                 new JsonSerializerOptions
                 {
-                    // 是 区分大小写
                     PropertyNameCaseInsensitive = true
                 });
+            return workDetail;
         }
 
 
-        // 得到一个Library的Name依据LibraryId
+        // 2 依据Work Id获取SeasonPreviews
+        public async Task<IEnumerable<SeasonPreview>> GetSeasonPreviewsAsync(int workId)
+        {
+            IEnumerable<SeasonPreview> seasonPreviews = await JsonSerializer.DeserializeAsync<IEnumerable<SeasonPreview>>(
+                await _httpClient.GetStreamAsync($"api/work/{workId}/seasonPreviews"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return seasonPreviews;
+        }
+
+
+        // 3 依据Work Id获取MoviePreviews
+        public async Task<IEnumerable<MoviePreview>> GetMoviePreviewsAsync(int workId)
+        {
+            IEnumerable<MoviePreview> moviePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<MoviePreview>>(
+                await _httpClient.GetStreamAsync($"api/work/{workId}/moviePreviews"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return moviePreviews;
+        }
+
+
+        // 4 依据Work Id获取MoviePreviews
+        public async Task<IEnumerable<GenrePreview>> GetGenrePreviewsAsync(int workId)
+        {
+            IEnumerable<GenrePreview> genrePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<GenrePreview>>(
+                await _httpClient.GetStreamAsync($"api/work/{workId}/genrePreviews"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return genrePreviews;
+        }
+
+
+        // 5 依据Work Id获取MoviePreviews
+        public async Task<IEnumerable<CastPreview>> GetCastPreviewsAsync(int workId)
+        {
+            IEnumerable<CastPreview> genrePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<CastPreview>>(
+                await _httpClient.GetStreamAsync($"api/work/{workId}/castPreviews"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return genrePreviews;
+        }
+
+
+        // 6 
+        internal Task<string> GetWorkNameAsync(int videoId)
+        {
+            throw new NotImplementedException();
+        }
         public async Task<string> GetLibraryNameAsync(int id)
         {
             return await _httpClient.GetStringAsync($"api/library/{id}/name");
-        }
-
-
-        // 得到WorkPreviews依据libraryId
-        public async Task<IEnumerable<WorkPreview>> GetWorkPreviewsAsync(int libraryId)
-        {
-            return await JsonSerializer.DeserializeAsync<IEnumerable<WorkPreview>>(
-                await _httpClient.GetStreamAsync($"api/library/{libraryId}/works"),
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-        }
-
-
-
-        public async Task<Work> GetMovieDetailAsync(int movieId)
-        {
-
-        }
-
-        public async Task<string> GetVideoNameAsync(int videoId)
-        {
-
         }
     }
 }

@@ -62,6 +62,10 @@ namespace Swellow.Shared.SqlModel.Metadata.Media
         public string? Poster { get; set; }
 
 
+        // 16 Fanart
+        public string? Fanart { get; set; }
+
+
         // 16【集合导航】演职人员
         public IEnumerable<WorkCast>? WorkCasts { get; set; } = new List<WorkCast>();
         // 17【集合导航】公司
