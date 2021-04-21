@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Swellow.Shared.SqlModel.MetaData.Property;
 using Swellow.Shared.Environment;
+using Swellow.Shared.Enum;
 
 namespace Swellow.Shared.Dto.Metadata.Media
 {
@@ -18,11 +19,12 @@ namespace Swellow.Shared.Dto.Metadata.Media
 
 
         #region Work扩展
+        public WorkType Type { get; set; } = WorkType.Mix;
         public int? Runtime { get; set; }
         public int? Year { get; set; }
         public int? EndYear { get; set; }
         public System.DateTime? Date { get; set; }
-        public byte? Score { get; set; }
+        public string? Score { get; set; }
         public string? Directory { get; set; }
         public string? Poster { get; set; }
         public string? Fanart { get; set; }

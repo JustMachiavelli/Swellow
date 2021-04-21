@@ -39,6 +39,11 @@ namespace Swellow.API
             services.AddScoped<MediaRepository>();
             // Dto自动映射
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            // 允许所有请求
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,7 +72,7 @@ namespace Swellow.API
                 {
                     // D:\MyGit\MyProjects\SwellowData\Images
                     FileProvider = new PhysicalFileProvider(LocalResources.DataImagesDirectory),
-                    // /SwellowData/Images
+                    // /DiskFile/SwellowData/Images
                     RequestPath = StaticFiles.DataImagesDirectory
                 }
             );
@@ -84,6 +89,8 @@ namespace Swellow.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("Open");
 
             app.UseEndpoints(endpoints =>
             {

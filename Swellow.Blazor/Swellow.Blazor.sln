@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swellow.API", "..\Swellow.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swellow.ADO", "..\Swellow.ADO\Swellow.ADO.csproj", "{B018CBF3-3478-4D9B-BD0D-D0AC1E5DA0A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swellow.Shared", "..\Swellow.Shared\Swellow.Shared.csproj", "{693BEC03-6446-421D-AB4A-2494D281A890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swellow.Shared", "..\Swellow.Shared\Swellow.Shared.csproj", "{693BEC03-6446-421D-AB4A-2494D281A890}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44202ED6-18E5-4025-BE52-2EFB3B60FEC9}"
+	ProjectSection(SolutionItems) = preProject
+		..\tye.yaml = ..\tye.yaml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

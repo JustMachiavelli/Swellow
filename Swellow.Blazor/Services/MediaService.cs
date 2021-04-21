@@ -63,7 +63,7 @@ namespace Swellow.Blazor.Services
         public async Task<IEnumerable<GenrePreview>> GetGenrePreviewsAsync(int workId)
         {
             IEnumerable<GenrePreview> genrePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<GenrePreview>>(
-                await _httpClient.GetStreamAsync($"api/work/{workId}/genrePreviews"),
+                await _httpClient.GetStreamAsync($"api/work/{workId}/genres"),
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -72,11 +72,11 @@ namespace Swellow.Blazor.Services
         }
 
 
-        // 5 依据Work Id获取MoviePreviews
+        // 5 依据Work Id获取CastPreviews
         public async Task<IEnumerable<CastPreview>> GetCastPreviewsAsync(int workId)
         {
             IEnumerable<CastPreview> genrePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<CastPreview>>(
-                await _httpClient.GetStreamAsync($"api/work/{workId}/castPreviews"),
+                await _httpClient.GetStreamAsync($"api/work/{workId}/casts"),
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
@@ -85,14 +85,10 @@ namespace Swellow.Blazor.Services
         }
 
 
-        // 6 
-        internal Task<string> GetWorkNameAsync(int videoId)
+        // 6  依据Work Id获取Work Name
+        internal async Task<string> GetWorkNameAsync(int workId)
         {
-            throw new NotImplementedException();
-        }
-        public async Task<string> GetLibraryNameAsync(int id)
-        {
-            return await _httpClient.GetStringAsync($"api/library/{id}/name");
+            return await _httpClient.GetStringAsync($"api/work/{workId}/name");
         }
     }
 }

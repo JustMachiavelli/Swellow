@@ -38,10 +38,11 @@ namespace Swellow.API.Sql
                                                 TmdbId = work.TmdbId,
                                                 ImdbId = work.ImdbId,
                                                 Runtime = work.Runtime,
+                                                Type = work.Type,
                                                 Year =  work.Year,
                                                 EndYear = work.EndYear,
                                                 Date = work.Date,
-                                                Score = work.Score,
+                                                Score = ((float)work.Score / 10).ToString("0.0"),
                                                 Directory = work.Directory,
                                                 Poster = work.Poster,
                                                 Fanart = work.Fanart,
@@ -69,6 +70,7 @@ namespace Swellow.API.Sql
         }
 
 
+
         // 3 依据Work Id获取MoviePreviews
         internal async Task<List<MoviePreview>> GetMoviePreviewsAsync(int workId)
         {
@@ -76,6 +78,7 @@ namespace Swellow.API.Sql
                                                                     .Select(movie => new MoviePreview
                                                                     {
                                                                         Id = movie.Id,
+                                                                        No = movie.No,
                                                                         Name = movie.Name,
                                                                         Year = movie.Year,
                                                                         Date = movie.Date,
@@ -115,5 +118,16 @@ namespace Swellow.API.Sql
                                                             .ToListAsync();
             return castPreviews;
         }
+
+
+        // 6 依据Work Id获取Work Name
+        internal async Task<string> GetWorkNameAsync(int workId)
+        {
+            string workName = await _context.Works.Where(work => work.Id == workId)
+                                                  .Select(work => work.Name)
+                                                  .SingleOrDefaultAsync();
+            return workName;
+        }
+
     }
 }

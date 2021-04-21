@@ -27,6 +27,10 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Film
         public MovieType Type { get; set; } = MovieType.Common;
 
 
+        // 2 在剧场版系列中No
+        public int No { get; set; }
+
+
         // 7 时长 = 0;
         public int? Runtime { get; set; }
 

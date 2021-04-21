@@ -1,40 +1,35 @@
-﻿<!--@pag "/Settings/Library"
+﻿@page "/Web/Settings/Library"
 @using Swellow.Blazor.Components.Common;
-@using Swellow.Shared.Enum;
-@using System.Collections.Generic;
-@using System.Threading.Tasks;
 @using Microsoft.AspNetCore.Components;
-@using Swellow.Blazor.Services;
 
 <div class="text-center">
 
-    <!-- Button trigger modal -->
-    <!--<button type="button" class="btn btn-primary" @onclick="ToShowModal">
+    <button type="button" class="btn btn-primary" @onclick="ToShowModal">
         新建媒体库
-    </button>-->
+    </button>
 
-    <!-- Modal -->
-    <!--@if (isShowModal)
+     Modal 
+    @if (isShowModal)
     {
         <div class="modal fade show" tabindex="-1" style="display: block;">
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">-->
+                <div class="modal-content">
 
-                    @*头部*@
-                    <!--<div class="modal-header">
+                    头部
+                    <div class="modal-header">
                         <h5 class="modal-title">新媒体库</h5>
-                    </div>-->
+                    </div>
 
-                    @*身体*@
+                    身体
                     <ValidateForm class="form-inline" Model="@NewLibrary" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="form-group col-12">
                                     <BootstrapInput @bind-Value="@NewLibrary.Name" />
                                 </div>
-                                <div class="form-group col-12">
+                                @*<div class="form-group col-12">
                                     <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
-                                </div>
+                                </div>*@
                                 <div class="form-group col-12">
                                     <InputUpload @bind-Value="@Picture" />
                                 </div>
@@ -62,77 +57,9 @@
     @foreach (var lp in LibraryPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Media/Library/{lp.Id}")
+            <PosterCard Href=@($"Web/Media/Library/{lp.Id}")
                         Title=@lp.Name
                         ImgSrc=@lp.Fanart />
         </div>
     }
 </div>
-
-@code
-{
-
-    [Inject] public LibraryService LibraryService { get; set; }
-
-
-    //1 是否显示“添加新媒体库”的模态框【自身】
-    public bool isShowModal { get; set; } = false;
-
-
-    //2 新媒体库的form模型【自身】
-    public LibraryCreateEdit NewLibrary { get; set; }
-
-
-    //3 新媒体库的类型选项【自身】
-    private readonly IEnumerable<SelectedItem> Items = new SelectedItem[]
-{
-        //new SelectedItem ("", "请选择..."),
-        new SelectedItem ("Movie", "电影"),
-        new SelectedItem ("Tv", "电视剧"),
-};
-
-    //3 新媒体库的在线上传图片【自身】
-    public IBrowserFile Picture { get; set; }
-
-
-    //4 所有Library预览【后传】
-    private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
-
-
-    //【OnInitialized】
-    protected override async Task OnInitializedAsync()
-    {
-        NewLibrary = new LibraryCreateEdit
-        {
-            Name = "",
-            Type = LibraryType.Movie,
-        };
-        LibraryPreviews = await LibraryService.GetLibraryPreviewsAsync();
-        await base.OnInitializedAsync();
-    }
-
-    private Task OnValidSubmit(EditContext context)
-    {
-        System.Console.WriteLine("表单合法");
-        isShowModal = false;
-        return Task.CompletedTask;
-    }
-
-    private Task OnInvalidSubmit(EditContext context)
-    {
-        System.Console.WriteLine("表单不合法");
-        return Task.CompletedTask;
-    }
-
-    private void ToShowModal()
-    {
-        isShowModal = true;
-        System.Console.WriteLine("我要显示表单");
-    }
-
-    private void ToCloseModal()
-    {
-        isShowModal = false;
-        System.Console.WriteLine("我要关闭表单");
-    }
-}-->

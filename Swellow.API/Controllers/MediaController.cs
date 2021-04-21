@@ -70,6 +70,12 @@ namespace Swellow.API.Controllers
         }
 
 
+        // 6 依据Id获取某个Work的Name
+        [HttpGet("api/work/{workId}/name")]
+        public async Task<string> GetWorkNameAsync(int workId)
+        {
+            return await _mediaRepository.GetWorkNameAsync(workId);
+        }
 
     }         
 }

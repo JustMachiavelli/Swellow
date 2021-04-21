@@ -12,8 +12,8 @@ namespace Swellow.Blazor.Shared
 
         public int LibraryId { get; set; }
         public string LibraryName { get; set; }
-        public int VideoId { get; set; }
-        public string VideoName { get; set; }
+        public int WorkId { get; set; }
+        public string WorkName { get; set; }
 
 
         protected override async Task OnParametersSetAsync()
@@ -25,23 +25,23 @@ namespace Swellow.Blazor.Shared
             {
                 LibraryId = Convert.ToInt32(id);
                 LibraryName = await LibraryService.GetLibraryNameAsync(LibraryId);
-                // URL在Video
-                if ((Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("MovieId", out id) == true | (Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("TvId", out id) == true)
+                // URL在Work
+                if ((Body.Target as RouteView)?.RouteData.RouteValues?.TryGetValue("WorkId", out id) == true)
                 {
-                    VideoId = Convert.ToInt32(id);
-                    VideoName = await MediaService.GetWorkNameAsync(VideoId);
+                    WorkId = Convert.ToInt32(id);
+                    WorkName = await MediaService.GetWorkNameAsync(WorkId);
                 }
                 // URL在Library
                 else
                 {
-                    VideoName = null;
+                    WorkName = null;
                 }
             }
             // URL在Home
             else
             {
                 LibraryName = null;
-                VideoName = null;
+                WorkName = null;
             }
 
         }

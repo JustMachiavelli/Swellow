@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/Web/Media"
 @using Microsoft.AspNetCore.Components;
 @using System.Collections.Generic;
 @using System.Threading.Tasks;
@@ -12,7 +12,7 @@
     @foreach (LibraryPreview libraryPreview in LibraryPreviews)
     {
         <div class="col">
-            <PosterCard Href=@($"Media/Library/{libraryPreview.Id}")
+            <PosterCard Href=@($"Web/Media/Library/{libraryPreview.Id}")
                         Title=@libraryPreview.Name
                         ImgSrc=@libraryPreview.Fanart />
         </div>

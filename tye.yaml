@@ -1,0 +1,39 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+#
+# when you've given us a try, we'd love to know what you think:
+#    https://aka.ms/AA7q20u
+#
+name: swellow
+services:
+- name: swellow-api
+  project: Swellow.API/Swellow.API.csproj
+  #bindings:
+  #- port: 8097
+  #  protocol: http
+- name: swellow-blazor
+  project: Swellow.Blazor/Swellow.Blazor.csproj
+  bindings:
+  - port: 8098
+    protocol: http
+ingress:
+  - name: ingress
+    bindings:
+      - port: 8099
+        protocol: http
+    rules:
+      - path: /api
+        service: swellow-api
+        preservePath: true
+      - path: /DiskFile
+        service: swellow-api
+        preservePath: true
+
+      - path: /Web
+        service: swellow-blazor
+        preservePath: true
+      #- path: /_
+      #  service: swellow-blazor
+      #  preservePath: true
+
+      - service: swellow-blazor

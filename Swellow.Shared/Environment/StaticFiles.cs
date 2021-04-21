@@ -38,7 +38,7 @@ namespace Swellow.Shared.Environment
 
         #region 本地数据映射成的静态文件相对路径
         // 存放图片的本地数据文件
-        public const string DataImagesDirectory = "/SwellowData/Images";
+        public const string DataImagesDirectory = "/DiskFile/SwellowData/Images";
 
         // Library的依据Id存放的fanart
         public const string DataImagesLibraryDirectory = DataImagesDirectory + "/Library";
@@ -46,7 +46,7 @@ namespace Swellow.Shared.Environment
         public const string DataImagesCastDirectory = DataImagesDirectory + "/Cast";
 
         // TestVideos
-        public const string TestVideosDirectory = "/TestVideos";
+        public const string TestVideosDirectory = "/DiskFile/TestVideos";
 
         #endregion
 

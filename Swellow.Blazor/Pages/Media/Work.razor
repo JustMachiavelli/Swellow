@@ -1,12 +1,7 @@
-﻿@page "/Media/Library/{LibraryId:int}/Movie/{MovieId:int}"
-@using Microsoft.AspNetCore.Components;
-@using System.Threading.Tasks;
-@using Swellow.Blazor.Services;
+﻿@page "/Web/Media/Library/{LibraryId:int}/Work/{WorkId:int}"
 @using Swellow.Blazor.Components.Media
 @using Swellow.Blazor.Components.Common
 @using Swellow.Shared.Dto.Metadata.Media;
-@using Swellow.Shared.Dto.Metadata.Property;
-@using Swellow.Shared.Dto.Metadata.Person;
 
 <div class="row">
 
@@ -25,14 +20,14 @@
                     <h1 class="display-3">@WorkDetail.Name</h1>
                 </div>
                 <div>
-                    <span class="h3">@((WorkDetail.EndYear is null)? WorkDetail.Year : $"{WorkDetail.Year}-{WorkDetail.EndYear}")</span>
+                    <span class="h3">@((WorkDetail.EndYear is null)? WorkDetail.Year : $"{WorkDetail.Year}-{((WorkDetail.EndYear==0)?"至今":WorkDetail.EndYear)}")</span>
                     <img class="mb-md-2" src="/images/video/star.svg" />
-                    <span class="h3">@((float)WorkDetail.Score / 10)</span>
+                    <span class="h3">@WorkDetail.Score</span>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <PlayerButtons PathFanart="@WorkDetail.Fanart" />
+                <PlayerButtons Fanart="@WorkDetail.Fanart" />
             </div>
         </div>
 
@@ -54,49 +49,35 @@
             <a href="https://www.themoviedb.org/movie/@WorkDetail.TmdbId" class="ml-md-1">TMDB</a>
             <a href="https://www.imdb.com/title/@WorkDetail.ImdbId" class="ml-md-1">IMDB</a>
         </div>
+        
+        @if (WorkDetail.Type != Swellow.Shared.Enum.WorkType.SingleMovie)
+        {
+            <div class="h3 mt-md-5">剧季剧场</div>
+            <div class="row">
+                @foreach (var season in Seasons)
+                {
+                    <div class="col-md-2">
+                        <PosterCard Href=@($"Web/Media/Library/{LibraryId}/Work/{WorkId}/Season/{season.Id}") Title=@($"第{season.No}季") ImgSrc=@season.Poster />
+                    </div>
+                }
+                @foreach (var movie in Movies)
+                {
+                    <div class="col-md-2">
+                        <PosterCard Href=@($"Web/Media/Library/{LibraryId}/Work/{WorkId}/Movie/{movie.Id}") Title=@($"M{movie.No}: {movie.Name}") ImgSrc=@movie.Poster />
+                    </div>
+                }
+            </div>
+        }
 
         <div class="h3 mt-md-5">演职人员</div>
         <div class="row">
             @foreach (var cast in Casts)
             {
                 <div class="col-md-2">
-                    <PosterCard Href=@($"Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.Poster />
+                    <PosterCard Href=@($"Web/Media/Cast/{cast.Id}") Title=@cast.Name ImgSrc=@cast.Poster />
                 </div>
             }
         </div>
 
     </div>
 </div>
-
-
-@code {
-    [Inject] public MediaService MediaService { get; set; }
-
-
-    //1 媒体库ID【url传】
-    [Parameter] public int LibraryId { get; set; }
-
-
-    //2 电影ID【url传】
-    [Parameter] public int MovieId { get; set; }
-
-
-    //3 电影详情【后传】
-    public WorkDetail WorkDetail { get; set; } = new WorkDetail();
-
-    //4 Genres
-    public IEnumerable<GenrePreview> Genres { get; set; }
-
-    //5 Casts
-    public IEnumerable<CastPreview> Casts { get; set; }
-
-
-    //【生命】
-    protected override async Task OnInitializedAsync()
-    {
-        WorkDetail = await MediaService.GetWorkDetailByIdAsync(MovieId);
-        Genres = await MediaService.GetGenrePreviewsAsync();
-        Casts = await MediaService.GetCastPreviewsAsync();
-
-    }
-}

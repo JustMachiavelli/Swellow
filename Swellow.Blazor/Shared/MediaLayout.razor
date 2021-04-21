@@ -10,12 +10,12 @@
             // 有媒体库
             if (!string.IsNullOrEmpty(LibraryName))
             {
-                <li class="breadcrumb-item"><a href="/">主页</a></li>
+                <li class="breadcrumb-item"><a href="/Web/Media">主页</a></li>
                 // 有影视剧，URL在Video
-                if (!string.IsNullOrEmpty(VideoName))
+                if (!string.IsNullOrEmpty(WorkName))
                 {
-                    <li class="breadcrumb-item"><a href="Media/Library/@LibraryId">@LibraryName</a></li>
-                    <li class="breadcrumb-item">@VideoName</li>
+                    <li class="breadcrumb-item"><a href="Web/Media/Library/@LibraryId">@LibraryName</a></li>
+                    <li class="breadcrumb-item">@WorkName</li>
                 }
                 // 没影视剧，URL在Library
                 else

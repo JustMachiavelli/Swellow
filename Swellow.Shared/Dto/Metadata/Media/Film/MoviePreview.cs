@@ -17,6 +17,7 @@ namespace Swellow.Shared.Dto.Metadata.Media.Film
 
 
         #region Movie扩展
+        public int No { get; set; }
         //public int? Runtime { get; set; }
         public int? Year { get; set; }
         public System.DateTime? Date { get; set; }
