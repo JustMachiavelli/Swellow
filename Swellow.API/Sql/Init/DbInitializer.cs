@@ -1,12 +1,12 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Media.Film;
-using Swellow.Shared.SqlModel.MetaData.Media.Television;
-using Swellow.Shared.SqlModel.MetaData.Middle;
-using Swellow.Shared.SqlModel.MetaData.Organization;
-using Swellow.Shared.SqlModel.MetaData.Person;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Media.Film;
+using Swellow.Shared.SqlModel.Metadata.Media.Television;
+using Swellow.Shared.SqlModel.Metadata.Middle;
+using Swellow.Shared.SqlModel.Metadata.Organization;
+using Swellow.Shared.SqlModel.Metadata.Person;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;
@@ -202,7 +202,7 @@ namespace Swellow.API.Sql.Init
                         No = 1,
                         Outline = "名侦探柯南的第一季在1996年，永不完结的第一季",
                         Year = 1996,
-                        Episodes = new List<Episode>()
+                        Episodes = new List<EpisodePreview>()
                         {
                             // 第一集
                              new Episode("/DiskFile/TestVideos/动漫/名侦探柯南(1996-)/Y1996S01/E01 - 云霄飞车杀人事件")
@@ -249,7 +249,7 @@ namespace Swellow.API.Sql.Init
                         No = 2,
                         Outline = "名侦探柯南的第一季在1997年，永不完结的第一季",
                         Year = 1997,
-                        Episodes = new List<Episode>()
+                        Episodes = new List<EpisodePreview>()
                         {
                             // 第一集
                              new Episode("/DiskFile/TestVideos/动漫/名侦探柯南(1996-)/Y1997S01/E43 - 江户川柯南诱拐事件")

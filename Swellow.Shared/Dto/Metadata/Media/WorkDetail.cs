@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using Swellow.Shared.Environment;
 using Swellow.Shared.Enum;
 

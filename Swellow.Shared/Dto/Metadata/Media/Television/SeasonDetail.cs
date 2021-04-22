@@ -1,4 +1,4 @@
-﻿using Swellow.Shared.SqlModel.MetaData.Media.Television;
+﻿using Swellow.Shared.SqlModel.Metadata.Media.Television;
 using System;
 using System.Collections.Generic;
 using System.Text;

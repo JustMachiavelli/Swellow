@@ -1,8 +1,8 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Organization;
+using Swellow.Shared.SqlModel.Metadata.Organization;
 
-namespace Swellow.Shared.SqlModel.MetaData.Middle
+namespace Swellow.Shared.SqlModel.Metadata.Middle
 {
     // <影视，制作公司>
     public class WorkCompany

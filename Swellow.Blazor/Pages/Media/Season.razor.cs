@@ -1,17 +1,14 @@
 ﻿using Microsoft.AspNetCore.Components;
-using System.Threading.Tasks;
 using Swellow.Blazor.Services;
-using Swellow.Shared.Dto.Metadata.Media;
-using Swellow.Shared.Dto.Metadata.Property;
-using Swellow.Shared.Dto.Metadata.Person;
+using Swellow.Shared.Dto.Metadata.Media.Television;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Swellow.Shared.Dto.Metadata.Media.Television;
-using Swellow.Shared.Dto.Metadata.Media.Film;
+using System.Threading.Tasks;
 
 namespace Swellow.Blazor.Pages.Media
 {
-    public partial class Work
+    public partial class Season
     {
         #region http服务
         [Inject] public MediaService MediaService { get; set; }
@@ -23,14 +20,16 @@ namespace Swellow.Blazor.Pages.Media
         [Parameter] public int LibraryId { get; set; }
         //2 电影ID
         [Parameter] public int WorkId { get; set; }
+        //1 媒体库ID
+        [Parameter] public int SeasonId { get; set; }
         #endregion
 
 
         #region 后端获取
         //3 电影详情
-        public WorkDetail WorkDetail { get; set; } = new WorkDetail();
+        public SeasonDetail SeasonDetail { get; set; } = new SeasonDetail();
         //4 Genres
-        public IEnumerable<GenrePreview> Genres { get; set; } = Enumerable.Empty<GenrePreview>();
+        public IEnumerable<EpisodePreview> Genres { get; set; } = Enumerable.Empty<GenrePreview>();
         //5 Casts
         public IEnumerable<CastPreview> Casts { get; set; } = Enumerable.Empty<CastPreview>();
         //6 Casts

@@ -1,5 +1,5 @@
-﻿using Swellow.Shared.SqlModel.MetaData.Media.Film;
-using Swellow.Shared.SqlModel.MetaData.Media.Television;
+﻿using Swellow.Shared.SqlModel.Metadata.Media.Film;
+using Swellow.Shared.SqlModel.Metadata.Media.Television;
 //using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.LocalData
@@ -27,6 +27,6 @@ namespace Swellow.Shared.SqlModel.LocalData
 
         // 4【引用导航】所属剧集
         public int? EpisodeId { get; set; }
-        public Episode? Episode { get; set; }
+        public EpisodePreview? Episode { get; set; }
     }
 }

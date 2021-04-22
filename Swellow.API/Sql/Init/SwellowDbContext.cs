@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Swellow.Shared.SqlModel.LocalData;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Media.Film;
-using Swellow.Shared.SqlModel.MetaData.Media.Television;
-using Swellow.Shared.SqlModel.MetaData.Middle;
-using Swellow.Shared.SqlModel.MetaData.Organization;
-using Swellow.Shared.SqlModel.MetaData.Person;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Media.Film;
+using Swellow.Shared.SqlModel.Metadata.Media.Television;
+using Swellow.Shared.SqlModel.Metadata.Middle;
+using Swellow.Shared.SqlModel.Metadata.Organization;
+using Swellow.Shared.SqlModel.Metadata.Person;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using Swellow.Shared.SqlModel.View;
 
 namespace Swellow.API.Sql.Init
@@ -98,7 +98,7 @@ namespace Swellow.API.Sql.Init
 
             #region=============Episode相关===============
             // 所含 CDs
-            modelBuilder.Entity<Episode>()
+            modelBuilder.Entity<EpisodePreview>()
                         .HasMany(Episode => Episode.CDs)
                         .WithOne(CD => CD.Episode)
                         .HasForeignKey(CD => CD.EpisodeId);
@@ -124,7 +124,7 @@ namespace Swellow.API.Sql.Init
         // 3 电视剧
         public DbSet<Season> Seasons { get; set; }
         // 4 剧季
-        public DbSet<Episode> Episodes { get; set; }
+        public DbSet<EpisodePreview> Episodes { get; set; }
 
         // 5 电影
         public DbSet<Movie> Movies { get; set; }

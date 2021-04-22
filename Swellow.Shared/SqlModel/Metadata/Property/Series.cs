@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 
-namespace Swellow.Shared.SqlModel.MetaData.Property
+namespace Swellow.Shared.SqlModel.Metadata.Property
 {
     public class Series
     {

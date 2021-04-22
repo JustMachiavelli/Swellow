@@ -5,7 +5,7 @@ using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Shared.SqlModel.MetaData.Media.Film
+namespace Swellow.Shared.SqlModel.Metadata.Media.Film
 {
     // 电影
     public class Movie : Item

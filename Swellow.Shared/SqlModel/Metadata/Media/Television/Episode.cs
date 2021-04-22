@@ -3,17 +3,17 @@ using Swellow.Shared.SqlModel.LocalData;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Swellow.Shared.SqlModel.MetaData.Media.Television
+namespace Swellow.Shared.SqlModel.Metadata.Media.Television
 {
-    public class Episode
+    public class EpisodePreview
     {
-        public Episode()
+        public EpisodePreview()
         {
 
         }
 
 
-        public Episode(string dierctory)
+        public EpisodePreview(string dierctory)
         {
             Directory = dierctory;
             Fanart = $"{dierctory}/fanart.jpg";

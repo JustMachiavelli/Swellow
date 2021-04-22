@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Swellow.Shared.Dto.Metadata.Media;
 using Swellow.Shared.Dto.Metadata.Media.Television;
 using Swellow.Shared.Dto.Metadata.Media.Film;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using Swellow.Shared.Dto.Metadata.Property;
 using Swellow.Shared.Dto.Metadata.Person;
 

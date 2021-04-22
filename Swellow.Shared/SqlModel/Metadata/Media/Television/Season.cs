@@ -2,7 +2,7 @@
 using Swellow.Shared.SqlModel.Metadata.Media;
 using System.Collections.Generic;
 
-namespace Swellow.Shared.SqlModel.MetaData.Media.Television
+namespace Swellow.Shared.SqlModel.Metadata.Media.Television
 {
     // 电视剧
     public class Season
@@ -46,7 +46,7 @@ namespace Swellow.Shared.SqlModel.MetaData.Media.Television
 
 
         // 3【集合导航】视频文件的路径
-        public IEnumerable<Episode>? Episodes { get; set; } = new List<Episode>();
+        public IEnumerable<EpisodePreview>? Episodes { get; set; } = new List<EpisodePreview>();
 
 
         // 4【引用导航】所属Work

@@ -1,7 +1,7 @@
 ﻿using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Property;
 
-namespace Swellow.Shared.SqlModel.MetaData.Middle
+namespace Swellow.Shared.SqlModel.Metadata.Middle
 {
     // <影视，标签>
     public class WorkTag

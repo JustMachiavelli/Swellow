@@ -1,7 +1,7 @@
-﻿using Swellow.Shared.SqlModel.MetaData.Middle;
+﻿using Swellow.Shared.SqlModel.Metadata.Middle;
 using System.Collections.Generic;
 
-namespace Swellow.Shared.SqlModel.MetaData.Property
+namespace Swellow.Shared.SqlModel.Metadata.Property
 {
     // 【多对多】特征
     public class Genre

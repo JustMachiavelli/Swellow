@@ -1,10 +1,10 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.Environment;
-using Swellow.Shared.SqlModel.MetaData;
-using Swellow.Shared.SqlModel.MetaData.Media.Film;
-using Swellow.Shared.SqlModel.MetaData.Media.Television;
-using Swellow.Shared.SqlModel.MetaData.Middle;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata;
+using Swellow.Shared.SqlModel.Metadata.Media.Film;
+using Swellow.Shared.SqlModel.Metadata.Media.Television;
+using Swellow.Shared.SqlModel.Metadata.Middle;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using Swellow.Shared.SqlModel.View;
 using System;
 using System.Collections.Generic;

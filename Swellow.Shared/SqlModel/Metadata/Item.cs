@@ -1,6 +1,6 @@
 ﻿
 
-namespace Swellow.Shared.SqlModel.MetaData
+namespace Swellow.Shared.SqlModel.Metadata
 {
     public class Item
     {

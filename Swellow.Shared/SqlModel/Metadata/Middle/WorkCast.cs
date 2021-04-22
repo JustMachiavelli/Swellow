@@ -1,8 +1,8 @@
 ﻿using Swellow.Shared.Enum;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Person;
+using Swellow.Shared.SqlModel.Metadata.Person;
 
-namespace Swellow.Shared.SqlModel.MetaData.Middle
+namespace Swellow.Shared.SqlModel.Metadata.Middle
 {
     public class WorkCast
     {

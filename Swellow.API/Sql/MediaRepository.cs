@@ -6,7 +6,7 @@ using Swellow.Shared.Dto.Metadata.Media.Television;
 using Swellow.Shared.Dto.Metadata.Person;
 using Swellow.Shared.Dto.Metadata.Property;
 using Swellow.Shared.SqlModel.Metadata.Media;
-using Swellow.Shared.SqlModel.MetaData.Property;
+using Swellow.Shared.SqlModel.Metadata.Property;
 using System;
 using System.Collections.Generic;
 using System.Linq;
