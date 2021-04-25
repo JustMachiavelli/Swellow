@@ -46,7 +46,7 @@ namespace Swellow.Shared.SqlModel.Metadata.Media.Television
 
 
         // 3【集合导航】视频文件的路径
-        public IEnumerable<EpisodePreview>? Episodes { get; set; } = new List<EpisodePreview>();
+        public IEnumerable<Episode>? Episodes { get; set; } = new List<Episode>();
 
 
         // 4【引用导航】所属Work

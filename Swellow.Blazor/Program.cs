@@ -28,11 +28,11 @@ namespace Swellow.Blazor
             // ºó¶Ë·þÎñ
             builder.Services.AddHttpClient<LibraryService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost:8099");
+                client.BaseAddress = new Uri("http://localhost:8097");
             });
             builder.Services.AddHttpClient<MediaService>( client => 
             {
-                client.BaseAddress = new Uri("http://localhost:8099");
+                client.BaseAddress = new Uri("http://localhost:8097");
             });
 
             await builder.Build().RunAsync();

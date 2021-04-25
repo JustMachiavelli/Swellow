@@ -27,6 +27,6 @@ namespace Swellow.Shared.SqlModel.LocalData
 
         // 4【引用导航】所属剧集
         public int? EpisodeId { get; set; }
-        public EpisodePreview? Episode { get; set; }
+        public Episode? Episode { get; set; }
     }
 }

@@ -98,7 +98,7 @@ namespace Swellow.API.Sql.Init
 
             #region=============Episode相关===============
             // 所含 CDs
-            modelBuilder.Entity<EpisodePreview>()
+            modelBuilder.Entity<Episode>()
                         .HasMany(Episode => Episode.CDs)
                         .WithOne(CD => CD.Episode)
                         .HasForeignKey(CD => CD.EpisodeId);
@@ -124,7 +124,7 @@ namespace Swellow.API.Sql.Init
         // 3 电视剧
         public DbSet<Season> Seasons { get; set; }
         // 4 剧季
-        public DbSet<EpisodePreview> Episodes { get; set; }
+        public DbSet<Episode> Episodes { get; set; }
 
         // 5 电影
         public DbSet<Movie> Movies { get; set; }

@@ -5,15 +5,15 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.SqlModel.Metadata.Media.Television
 {
-    public class EpisodePreview
+    public class Episode
     {
-        public EpisodePreview()
+        public Episode()
         {
 
         }
 
 
-        public EpisodePreview(string dierctory)
+        public Episode(string dierctory)
         {
             Directory = dierctory;
             Fanart = $"{dierctory}/fanart.jpg";

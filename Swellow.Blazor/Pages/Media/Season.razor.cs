@@ -29,30 +29,24 @@ namespace Swellow.Blazor.Pages.Media
         //3 电影详情
         public SeasonDetail SeasonDetail { get; set; } = new SeasonDetail();
         //4 Genres
-        public IEnumerable<EpisodePreview> Genres { get; set; } = Enumerable.Empty<GenrePreview>();
-        //5 Casts
-        public IEnumerable<CastPreview> Casts { get; set; } = Enumerable.Empty<CastPreview>();
-        //6 Casts
-        public IEnumerable<SeasonPreview> Seasons { get; set; } = Enumerable.Empty<SeasonPreview>();
-        //7 Casts
-        public IEnumerable<MoviePreview> Movies { get; set; } = Enumerable.Empty<MoviePreview>();
+        public IEnumerable<EpisodePreview> EpisodePreviews { get; set; } = Enumerable.Empty<EpisodePreview>();
         #endregion
 
 
         #region 生命周期
-        protected override async Task OnInitializedAsync()
-        {
-            WorkDetail = await MediaService.GetWorkDetailByIdAsync(WorkId);
-            Genres = await MediaService.GetGenrePreviewsAsync(WorkId) ?? Enumerable.Empty<GenrePreview>();
-            Casts = await MediaService.GetCastPreviewsAsync(WorkId) ?? Enumerable.Empty<CastPreview>();
-            Seasons = await MediaService.GetSeasonPreviewsAsync(WorkId) ?? Enumerable.Empty<SeasonPreview>();
-            Movies = await MediaService.GetMoviePreviewsAsync(WorkId) ?? Enumerable.Empty<MoviePreview>();
-        }
+        //protected override async Task OnInitializedAsync()
+        //{
+        //    SeasonDetail = await MediaService.GetWorkDetailByIdAsync(WorkId);
+        //    Genres = await MediaService.GetGenrePreviewsAsync(WorkId) ?? Enumerable.Empty<GenrePreview>();
+        //    Casts = await MediaService.GetCastPreviewsAsync(WorkId) ?? Enumerable.Empty<CastPreview>();
+        //    Seasons = await MediaService.GetSeasonPreviewsAsync(WorkId) ?? Enumerable.Empty<SeasonPreview>();
+        //    Movies = await MediaService.GetMoviePreviewsAsync(WorkId) ?? Enumerable.Empty<MoviePreview>();
+        //}
 
-        protected override void OnAfterRender(bool firstRender=false)
-        {
-            System.Console.WriteLine("Render完毕！");
-        }
+        //protected override void OnAfterRender(bool firstRender=false)
+        //{
+        //    System.Console.WriteLine("Render完毕！");
+        //}
         #endregion
     }
 }

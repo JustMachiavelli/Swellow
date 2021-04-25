@@ -8,9 +8,9 @@ name: swellow
 services:
 - name: swellow-api
   project: Swellow.API/Swellow.API.csproj
-  #bindings:
-  #- port: 8097
-  #  protocol: http
+  bindings:
+  - port: 8097
+    protocol: http
 - name: swellow-blazor
   project: Swellow.Blazor/Swellow.Blazor.csproj
   bindings:
