@@ -1,14 +1,17 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System.Threading.Tasks;
 using Swellow.Blazor.Services;
-using Swellow.Shared.Dto.Metadata.Media.Television;
-using System;
+using Swellow.Shared.Dto.Metadata.Media;
+using Swellow.Shared.Dto.Metadata.Property;
+using Swellow.Shared.Dto.Metadata.Person;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Swellow.Shared.Dto.Metadata.Media.Television;
+using Swellow.Shared.Dto.Metadata.Media.Film;
 
 namespace Swellow.Blazor.Pages.Media
 {
-    public partial class Season
+    public partial class Movie
     {
         #region http服务
         [Inject] public MediaService MediaService { get; set; }
@@ -20,24 +23,21 @@ namespace Swellow.Blazor.Pages.Media
         [Parameter] public int LibraryId { get; set; }
         //2 电影ID
         [Parameter] public int WorkId { get; set; }
-        //1 媒体库ID
-        [Parameter] public int SeasonId { get; set; }
+        //3 媒体库ID
+        [Parameter] public int MovieId { get; set; }
         #endregion
 
 
         #region 后端获取
         //3 电影详情
-        public SeasonDetail SeasonDetail { get; set; } = new SeasonDetail();
-        //4 Genres
-        public IEnumerable<EpisodePreview> EpisodePreviews { get; set; } = Enumerable.Empty<EpisodePreview>();
+        public MovieDetail MovieDetail { get; set; } = new MovieDetail();
         #endregion
 
 
         #region 生命周期
         protected override async Task OnInitializedAsync()
         {
-            SeasonDetail = await MediaService.GetSeasonDetailAsync(SeasonId);
-            EpisodePreviews = await MediaService.GetEpisodePreviewsAsync(SeasonId) ?? Enumerable.Empty<EpisodePreview>();
+            MovieDetail = await MediaService.GetMovieDetailByIdAsync(MovieId);
         }
 
         protected override void OnAfterRender(bool firstRender = false)

@@ -23,7 +23,6 @@ namespace Swellow.API.Sql
             _context = swellowDbContext;
         }
 
-
         // 1 得到一个Work详情，通过WorkId
         public async Task<WorkDetail> GetWorkDetailByIdAsync(int id)
         {
@@ -52,7 +51,6 @@ namespace Swellow.API.Sql
             return workDetail;
         }
 
-
         // 2 依据Work Id获取SeasonPreviews
         internal async Task<List<SeasonPreview>> GetSeasonPreviewsAsync(int workId)
         {
@@ -68,8 +66,6 @@ namespace Swellow.API.Sql
                                                                 .ToListAsync();
             return seasonPreviews;
         }
-
-
 
         // 3 依据Work Id获取MoviePreviews
         internal async Task<List<MoviePreview>> GetMoviePreviewsAsync(int workId)
@@ -89,7 +85,6 @@ namespace Swellow.API.Sql
             return moviePreviews;
         }
 
-
         // 4 依据Work Id获取Genres
         internal async Task<List<GenrePreview>> GetGenrePreviewsAsync(int workId)
         {
@@ -102,7 +97,6 @@ namespace Swellow.API.Sql
                                                             .ToListAsync();
             return genrePreviews;
         }
-
 
         // 5 依据Work Id获取Casts
         internal async Task<IEnumerable<CastPreview>> GetCastPreviewsAsync(int workId)
@@ -119,7 +113,6 @@ namespace Swellow.API.Sql
             return castPreviews;
         }
 
-
         // 6 依据Work Id获取Work Name
         internal async Task<string> GetWorkNameAsync(int workId)
         {
@@ -128,6 +121,65 @@ namespace Swellow.API.Sql
                                                   .SingleOrDefaultAsync();
             return workName;
         }
+
+        // 7 依据Work Id Season Id获取IEnumerable<EpisodePreview>
+        internal async Task<SeasonDetail> GetSeasonDetailAsync(int seasonId)
+        {
+            SeasonDetail seasonDetail = await _context.Seasons.Where(season => season.Id == seasonId)
+                                                    .Select(season => new SeasonDetail
+                                                    {
+                                                        Id = season.Id,
+                                                        No = season.No,
+                                                        Outline = season.Outline,
+                                                        Year = season.Year,
+                                                        EndYear = season.EndYear,
+                                                        Poster = season.Poster,
+                                                    })
+                                                  .SingleOrDefaultAsync();
+            return seasonDetail;
+
+        }
+
+        // 8 依据Work Id Season Id获取Work Name
+        internal async Task<IEnumerable<EpisodePreview>> GetEpisodePreviewsAsync(int seasonId)
+        {
+            List<EpisodePreview> episodePreviews = await _context.Episodes.Where(episode => episode.SeasonId == seasonId)
+                                                            .Select(episode => new EpisodePreview
+                                                            {
+                                                                Id = episode.Id,
+                                                                No= episode.No,
+                                                                Title = episode.Title,
+                                                                Plot = episode.Plot,
+                                                                Date = episode.Date,
+                                                                Fanart = episode.Fanart,
+                                                            })
+                                                            .ToListAsync();
+            return episodePreviews;
+        }
+
+        internal async Task<MovieDetail> GetMovieDetailAsync(int movieId)
+        {
+            MovieDetail movieDetail = await _context.Movies.Where(movie => movie.Id == movieId)
+                                                    .Select(movie => new MovieDetail
+                                                    {
+                                                        Id = movie.Id,
+                                                        Name = movie.Name,
+                                                        Outline = movie.Outline,
+                                                        DoubanId = movie.DoubanId,
+                                                        TmdbId = movie.TmdbId,
+                                                        ImdbId = movie.ImdbId,
+
+                                                        Runtime = movie.Runtime,
+                                                        Year = movie.Year,
+                                                        Date = movie.Date,
+                                                        Score = movie.Score,
+                                                        Poster = movie.Poster,
+                                                    })
+                                                  .SingleOrDefaultAsync();
+            return movieDetail;
+        }
+
+
 
     }
 }

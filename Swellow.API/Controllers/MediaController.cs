@@ -24,7 +24,6 @@ namespace Swellow.API.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-
         // 1 依据Work Id获取某个WorkDetail
         [HttpGet("api/work/{workId}/workDetail")]
         public async Task<WorkDetail> GetWorkDetailByIdAsync(int workId)
@@ -32,7 +31,6 @@ namespace Swellow.API.Controllers
             WorkDetail workDetail = await _mediaRepository.GetWorkDetailByIdAsync(workId);
             return workDetail;
         }
-
 
         // 2 依据Work Id获取Seasons
         [HttpGet("api/work/{workId}/seasonPreviews")]
@@ -42,7 +40,6 @@ namespace Swellow.API.Controllers
             return seasonPreviews;
         }
 
-
         // 3 依据Work Id获取Movies
         [HttpGet("api/work/{workId}/moviePreviews")]
         public async Task<IEnumerable<MoviePreview>> GetMoviePreviewsAsync(int workId)
@@ -50,7 +47,6 @@ namespace Swellow.API.Controllers
             IEnumerable<MoviePreview> moviePreviews = await _mediaRepository.GetMoviePreviewsAsync(workId);
             return moviePreviews;
         }
-
 
         //4 依据Work Id获取Genres
         [HttpGet("api/work/{workId}/genres")]
@@ -60,7 +56,6 @@ namespace Swellow.API.Controllers
             return genrePreviews;
         }
 
-
         //5 依据Work Id获取Genres
         [HttpGet("api/work/{workId}/casts")]
         public async Task<IEnumerable<CastPreview>> GetCastsAsync(int workId)
@@ -69,7 +64,6 @@ namespace Swellow.API.Controllers
             return castPreviews;
         }
 
-
         // 6 依据Id获取某个Work的Name
         [HttpGet("api/work/{workId}/name")]
         public async Task<string> GetWorkNameAsync(int workId)
@@ -77,5 +71,29 @@ namespace Swellow.API.Controllers
             return await _mediaRepository.GetWorkNameAsync(workId);
         }
 
-    }         
+        // 7 依据Id获取某个Work的Name
+        [HttpGet("api/season/{seasonId}")]
+        public async Task<SeasonDetail> GetSeasonDetailAsync(int seasonId)
+        {
+            return await _mediaRepository.GetSeasonDetailAsync(seasonId);
+        }
+
+        // 8 依据Id获取某个Work的Name
+        [HttpGet("api/season/{seasonId}/episodePreviews")]
+        public async Task<IEnumerable<EpisodePreview>> GetEpisodePreviewsAsync(int seasonId)
+        {
+            return await _mediaRepository.GetEpisodePreviewsAsync(seasonId);
+        }
+
+        // 9 依据seasonId获取seasonDetail
+        [HttpGet("api/movie/{movieId}")]
+        public async Task<MovieDetail> GetMovieDetailAsync(int movieId)
+        {
+            return await _mediaRepository.GetMovieDetailAsync(movieId);
+        }
+
+
+
+
+    }
 }

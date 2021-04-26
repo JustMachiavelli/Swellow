@@ -32,7 +32,6 @@ namespace Swellow.Blazor.Services
             return workDetail;
         }
 
-
         // 2 依据Work Id获取SeasonPreviews
         public async Task<IEnumerable<SeasonPreview>> GetSeasonPreviewsAsync(int workId)
         {
@@ -44,7 +43,6 @@ namespace Swellow.Blazor.Services
                 });
             return seasonPreviews;
         }
-
 
         // 3 依据Work Id获取MoviePreviews
         public async Task<IEnumerable<MoviePreview>> GetMoviePreviewsAsync(int workId)
@@ -58,7 +56,6 @@ namespace Swellow.Blazor.Services
             return moviePreviews;
         }
 
-
         // 4 依据Work Id获取MoviePreviews
         public async Task<IEnumerable<GenrePreview>> GetGenrePreviewsAsync(int workId)
         {
@@ -70,7 +67,6 @@ namespace Swellow.Blazor.Services
                 });
             return genrePreviews;
         }
-
 
         // 5 依据Work Id获取CastPreviews
         public async Task<IEnumerable<CastPreview>> GetCastPreviewsAsync(int workId)
@@ -84,11 +80,46 @@ namespace Swellow.Blazor.Services
             return genrePreviews;
         }
 
-
-        // 6  依据Work Id获取Work Name
+        // 6 依据Work Id获取Work Name
         internal async Task<string> GetWorkNameAsync(int workId)
         {
             return await _httpClient.GetStringAsync($"api/work/{workId}/name");
+        }
+
+        // 7 依据Work Id Season Id获取Work Name
+        internal async Task<SeasonDetail> GetSeasonDetailAsync(int seasonId)
+        {
+            SeasonDetail seasonDetail = await JsonSerializer.DeserializeAsync<SeasonDetail>(
+                await _httpClient.GetStreamAsync($"api/season/{seasonId}"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return seasonDetail;
+        }
+
+        // 8 依据Work Id Season Id获取IEnumerable<EpisodePreview>
+        internal async Task<IEnumerable<EpisodePreview>> GetEpisodePreviewsAsync(int seasonId)
+        {
+            IEnumerable<EpisodePreview> episodePreviews = await JsonSerializer.DeserializeAsync<IEnumerable<EpisodePreview>>(
+                await _httpClient.GetStreamAsync($"api/season/{seasonId}/episodePreviews"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return episodePreviews;
+        }
+
+        // 9 依据
+        internal async Task<MovieDetail> GetMovieDetailByIdAsync(int movieId)
+        {
+            MovieDetail movieDetail = await JsonSerializer.DeserializeAsync<MovieDetail>(
+                await _httpClient.GetStreamAsync($"api/movie/{movieId}"),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+            return movieDetail;
         }
     }
 }
