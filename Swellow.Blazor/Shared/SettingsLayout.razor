@@ -31,23 +31,23 @@
     {
         var ret = new List<MenuItem>
         {
-            new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-home", Url = "/", Match = NavLinkMatch.All },
+            new MenuItem() { Text = "首页", Icon = "fa fa-fw fa-home", Url = "/Web/Media", Match = NavLinkMatch.All },
             new MenuItem() { Text = "个人用户", Icon = "fa fa-fw fa-user" },
             new MenuItem() { Text = "管理员", Icon = "fa fa-fw fa-cog" },
             new MenuItem() { Text = "高级", Icon = "fa fa-fw fa-tasks" }
         };
 
-        ret[1].AddItem(new MenuItem() { Text = "外观显示", Icon = "fa fa-fw fa-desktop", Url = "/Settings/Skin" });
-        ret[1].AddItem(new MenuItem() { Text = "主页布局", Icon = "fa fa-fw fa-home", Url = "/Settings/Layout" });
-        ret[1].AddItem(new MenuItem() { Text = "播放偏好", Icon = "fa fa-fw fa-play-circle", Url = "/Settings/Play" });
+        ret[1].AddItem(new MenuItem() { Text = "外观显示", Icon = "fa fa-fw fa-desktop", Url = "/Web/Settings/Skin" });
+        ret[1].AddItem(new MenuItem() { Text = "主页布局", Icon = "fa fa-fw fa-home", Url = "/Web/Settings/Layout" });
+        ret[1].AddItem(new MenuItem() { Text = "播放偏好", Icon = "fa fa-fw fa-play-circle", Url = "/Web/Settings/Play" });
 
-        ret[2].AddItem(new MenuItem() { Text = "用户群", Icon = "fa fa-fw fa-users", Url = "/Settings/Users" });
-        ret[2].AddItem(new MenuItem() { Text = "媒体库", Icon = "fa fa-fw fa-folder", Url = "/Settings/Library" });
-        ret[2].AddItem(new MenuItem() { Text = "数据维护", Icon = "fa fa-fw fa-database", Url = "/Settings/Naming" });
+        ret[2].AddItem(new MenuItem() { Text = "用户群", Icon = "fa fa-fw fa-users", Url = "/Web/Settings/Users" });
+        ret[2].AddItem(new MenuItem() { Text = "媒体库", Icon = "fa fa-fw fa-folder", Url = "/Web/Settings/Library" });
+        ret[2].AddItem(new MenuItem() { Text = "数据维护", Icon = "fa fa-fw fa-database", Url = "/Web/Settings/Naming" });
 
-        ret[3].AddItem(new MenuItem() { Text = "控制台", Icon = "fa fa-fw fa-dashboard", Url = "/Settings/Dashboard" });
-        ret[3].AddItem(new MenuItem() { Text = "网络", Icon = "fa fa-fw fa-wifi", Url = "/Settings/Network" });
-        ret[3].AddItem(new MenuItem() { Text = "转码", Icon = "fa fa-fw fa-retweet", Url = "/Settings/Transcode" });
+        ret[3].AddItem(new MenuItem() { Text = "控制台", Icon = "fa fa-fw fa-dashboard", Url = "/Web/Settings/Dashboard" });
+        ret[3].AddItem(new MenuItem() { Text = "网络", Icon = "fa fa-fw fa-wifi", Url = "/Web/Settings/Network" });
+        ret[3].AddItem(new MenuItem() { Text = "转码", Icon = "fa fa-fw fa-retweet", Url = "/Web/Settings/Transcode" });
 
         return ret;
     }

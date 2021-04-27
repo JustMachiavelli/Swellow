@@ -30,8 +30,11 @@
                                 @*<div class="form-group col-12">
                                     <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
                                 </div>*@
-                                <div class="form-group col-12">
+                                @*<div class="form-group col-12">
                                     <InputUpload @bind-Value="@Picture" />
+                                </div>*@
+                                <div class="form-group col-12">
+                                    <ButtonUpload TValue="string" IsDirectory="true" OnChange="@OnUploadFolder" OnDelete="@(fileName => Task.FromResult(true))"></ButtonUpload>
                                 </div>
                             </div>
                         </div>
