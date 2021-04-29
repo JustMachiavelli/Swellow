@@ -1,14 +1,15 @@
 ﻿using Swellow.Shared.SqlModel.LocalData;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Swellow.Shared.Dto.Settings
 {
     public class LibraryCreateEdit
     {
         // 1 名称
-        //[Display(Name = "名称")]
-        //[Required(ErrorMessage = "{0}是必填项")]
-        //[MaxLength(50, ErrorMessage = "{0}的长度不能超过{1}")]
+        [Display(Name = "名称")]
+        [Required(ErrorMessage = "{0}是必填项")]
+        [MaxLength(50, ErrorMessage = "{0}的长度不能超过{10}")]
         public string Name { get; set; } = "新媒体库";
 
         // 2 类型

@@ -1,6 +1,7 @@
 ﻿@page "/Web/Settings/Library"
 @using Swellow.Blazor.Components.Common;
 @using Microsoft.AspNetCore.Components;
+@using Swellow.Blazor.Components.Settings;
 
 <div class="text-center">
 
@@ -8,19 +9,19 @@
         新建媒体库
     </button>
 
-     Modal 
+    Modal
     @if (isShowModal)
     {
         <div class="modal fade show" tabindex="-1" style="display: block;">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
-                    头部
+                    @*头部*@
                     <div class="modal-header">
                         <h5 class="modal-title">新媒体库</h5>
                     </div>
 
-                    身体
+                    @*身体*@
                     <ValidateForm class="form-inline" Model="@NewLibrary" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
                         <div class="modal-body">
                             <div class="row">
@@ -28,13 +29,13 @@
                                     <BootstrapInput @bind-Value="@NewLibrary.Name" />
                                 </div>
                                 @*<div class="form-group col-12">
-                                    <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
-                                </div>*@
+                                        <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
+                                    </div>*@
                                 @*<div class="form-group col-12">
-                                    <InputUpload @bind-Value="@Picture" />
-                                </div>*@
+                                        <InputUpload @bind-Value="@Picture" />
+                                    </div>*@
                                 <div class="form-group col-12">
-                                    <ButtonUpload TValue="string" IsDirectory="true" OnChange="@OnUploadFolder" OnDelete="@(fileName => Task.FromResult(true))"></ButtonUpload>
+                                    <FolderPicker></FolderPicker>
                                 </div>
                             </div>
                         </div>
