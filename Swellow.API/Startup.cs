@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swellow.API.Sql;
 using Swellow.API.Sql.Init;
+using Swellow.LocalHost;
 using Swellow.Shared.Environment;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,8 @@ namespace Swellow.API
             // 数据库EF服务
             services.AddScoped<LibraryRepository>();
             services.AddScoped<MediaRepository>();
+            // 本地磁盘内容服务
+            services.AddScoped<FileExplorer>();
             // Dto自动映射
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             // 允许所有请求

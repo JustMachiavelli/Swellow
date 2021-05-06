@@ -37,10 +37,10 @@ namespace Swellow.API.Controllers
 
 
         // 2 依据Id获取某个Library的Name
-        [HttpGet("api/library/{id}/name")]
-        public async Task<string> GetLibraryNameByIdAsync(int id)
+        [HttpGet("api/library/{libraryId}/name")]
+        public async Task<string> GetLibraryNameByIdAsync(int libraryId)
         {
-            return await _libraryRepository.GetLibraryNameByIdAsync(id);
+            return await _libraryRepository.GetLibraryNameByIdAsync(libraryId);
         }
 
 

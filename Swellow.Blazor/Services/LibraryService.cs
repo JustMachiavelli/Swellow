@@ -33,9 +33,9 @@ namespace Swellow.Blazor.Services
 
 
         // 2 得到一个Library的Name依据LibraryId
-        public async Task<string> GetLibraryNameAsync(int id)
+        public async Task<string> GetLibraryNameAsync(int libraryId)
         {
-            return await _httpClient.GetStringAsync($"api/library/{id}/name");
+            return await _httpClient.GetStringAsync($"api/library/{libraryId}/name");
         }
 
 

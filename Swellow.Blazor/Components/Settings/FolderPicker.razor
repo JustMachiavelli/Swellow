@@ -1,16 +1,16 @@
 ﻿<h3>请选择文件夹</h3>
 
 <ul class="list-group">
-    @if (!string.IsNullOrEmpty(Directory.ParentPath))
+    @if (Directory.Path != "/")
     {
-        <li class="list-group-item" @onclick="@(e => Update(Directory.ParentPath))">
+        <li class="list-group-item" @onclick="@(e => UpdateParentAsync())">
             ···
         </li>
     }
-    @foreach (var directory in Directory.SubDirectorys)
+    @foreach (var folder in Directory.SubFolders)
     {
-        <li class="list-group-item" @onclick="@(e => Update(directory.Path))">
-            directory.Name
+        <li class="list-group-item" @onclick="@(e => UpdateSubAsync(folder))">
+            @folder
         </li>
     }
 </ul>

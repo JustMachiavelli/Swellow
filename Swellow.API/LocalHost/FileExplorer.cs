@@ -6,12 +6,11 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Swellow.Disk
+namespace Swellow.LocalHost
 {
-    public class Discover
+    public class FileExplorer
     {
-
-        // 1 获取主机名
+        // 0 获取主机名
         public static Task<string> GetHostName()
         {
             return Task.Run(() =>
@@ -20,28 +19,23 @@ namespace Swellow.Disk
             });
         }
 
-        // 2 获取所有磁盘 string[] driveInfos
-        public static Task<IEnumerable<string>> GetDrivesAsync()
+        // 1 获取所有磁盘 string[] driveInfos
+        public static IEnumerable<string> GetDrives()
         {
-            return Task.Run(() =>
-            {
-                IEnumerable<string> drives = Environment.GetLogicalDrives();
-                return drives;
-            });
+            IEnumerable<string> drives = Environment.GetLogicalDrives();
+            return drives;
         }
 
-        // 3 获取某一路径下的 DirectoryInfo[]
-        public static Task<IEnumerable<string>> GetDirectoryInfos(string path)
+        // 2 获取path路径的目录下的所有子文件名
+        public static Task<List<string>> GetSubFolders(string path)
         {
             return Task.Run(() =>
             {
-                DirectoryInfo[] result = null;
-
+                DirectoryInfo[] subDirectoryInfos = null;
                 try
                 {
-                    var dirInfo = new DirectoryInfo(path);
-
-                    result = dirInfo.GetDirectories();
+                    DirectoryInfo dirInfo = new DirectoryInfo(path);
+                    subDirectoryInfos = dirInfo.GetDirectories();
                 }
                 catch (Exception ex)
                 {
@@ -56,9 +50,9 @@ namespace Swellow.Disk
                 }
 
                 List<DirectoryInfo> filteredList = new List<DirectoryInfo>();
-                if (result != null && result.Length > 0)
+                if (subDirectoryInfos != null && subDirectoryInfos.Length > 0)
                 {
-                    foreach (var dirInfo in result)
+                    foreach (var dirInfo in subDirectoryInfos)
                     {
                         if ((dirInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden
                             || (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System)
@@ -70,11 +64,20 @@ namespace Swellow.Disk
                         filteredList.Add(dirInfo);
                     }
                 }
-
-                return null;
+                return filteredList.Select(directoryInfo => directoryInfo.Name).ToList();
             });
         }
         
 
+        // 4 获取路径path的上级目录
+        public static Task<string> GetParentPathAsync(string path)
+        {
+            return Task.Run(()=>
+            {
+                DirectoryInfo parent = Directory.GetParent(path);
+                string ParentPath = (parent is null) ? "/" : parent.FullName;
+                return ParentPath;
+            });
+        }
     }
 }

@@ -52,6 +52,11 @@ namespace Swellow.Blazor.Pages.Settings
                 Name = "",
             };
         }
+
+        protected override void OnAfterRender(bool firstRender = false)
+        {
+            System.Console.WriteLine("Settings Library Render完毕！");
+        }
         #endregion
 
         #region 表单数据验证
