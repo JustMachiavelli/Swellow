@@ -5,6 +5,8 @@
 @using Swellow.Blazor.Services;
 @using Swellow.Blazor.Components.Common
 @using Swellow.Shared.Dto.View
+@using Microsoft.Extensions.Logging;
+@inject ILoggerFactory LoggerFactory
 
 
 <h2>我的媒体库</h2>
@@ -32,6 +34,8 @@
     protected override async Task OnInitializedAsync()
     {
         LibraryPreviews = await LibraryService.GetAllLibraryPreviewsAsync();
+        var logger = LoggerFactory.CreateLogger<Home>();
+        logger.LogInformation("我的日志来了");
     }
 
 

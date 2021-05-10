@@ -36,8 +36,11 @@ namespace Swellow.Blazor.Pages.Media
         #region 生命周期
         protected override async Task OnInitializedAsync()
         {
-            SeasonDetail = await MediaService.GetSeasonDetailAsync(SeasonId);
-            EpisodePreviews = await MediaService.GetEpisodePreviewsAsync(SeasonId) ?? Enumerable.Empty<EpisodePreview>();
+            Task<SeasonDetail> seasonTask = MediaService.GetSeasonDetailAsync(SeasonId);
+            Task<IEnumerable<EpisodePreview>> episodeTask = MediaService.GetEpisodePreviewsAsync(SeasonId);
+            await Task.WhenAll(seasonTask, episodeTask);
+            SeasonDetail = await seasonTask;
+            EpisodePreviews = (await episodeTask) ?? Enumerable.Empty<EpisodePreview>();
         }
 
         protected override void OnAfterRender(bool firstRender = false)

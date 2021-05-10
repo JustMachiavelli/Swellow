@@ -38,7 +38,11 @@ namespace Swellow.Blazor.Services
             HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/detail", stringContent);
             if (response.IsSuccessStatusCode)
             {
-                return await JsonSerializer.DeserializeAsync<DirectoryDetail>(await response.Content.ReadAsStreamAsync());
+                var stream = await response.Content.ReadAsStreamAsync();
+                var directory = await JsonSerializer.DeserializeAsync<DirectoryDetail>(stream.Read());
+                Console.WriteLine(stream);
+                Console.WriteLine($"成功获取指定目录的路径：{directory.Path}");
+                return directory;
             }
             return null;
         }

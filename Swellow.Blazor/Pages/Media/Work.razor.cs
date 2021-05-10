@@ -43,11 +43,17 @@ namespace Swellow.Blazor.Pages.Media
         #region 生命周期
         protected override async Task OnInitializedAsync()
         {
-            WorkDetail = await MediaService.GetWorkDetailByIdAsync(WorkId);
-            Genres = await MediaService.GetGenrePreviewsAsync(WorkId) ?? Enumerable.Empty<GenrePreview>();
-            Casts = await MediaService.GetCastPreviewsAsync(WorkId) ?? Enumerable.Empty<CastPreview>();
-            Seasons = await MediaService.GetSeasonPreviewsAsync(WorkId) ?? Enumerable.Empty<SeasonPreview>();
-            Movies = await MediaService.GetMoviePreviewsAsync(WorkId) ?? Enumerable.Empty<MoviePreview>();
+            var workTask = MediaService.GetWorkDetailByIdAsync(WorkId);
+            var genresTask = MediaService.GetGenrePreviewsAsync(WorkId);
+            var castsTask = MediaService.GetCastPreviewsAsync(WorkId);
+            var seasonsTask = MediaService.GetSeasonPreviewsAsync(WorkId);
+            var moviesTask = MediaService.GetMoviePreviewsAsync(WorkId);
+            await Task.WhenAll(workTask, genresTask, castsTask, seasonsTask, moviesTask);
+            WorkDetail = await workTask ?? new WorkDetail();
+            Genres = (await genresTask) ?? Enumerable.Empty<GenrePreview>();
+            Casts = (await castsTask) ?? Enumerable.Empty<CastPreview>();
+            Seasons = (await seasonsTask) ?? Enumerable.Empty<SeasonPreview>();
+            Movies = (await moviesTask) ?? Enumerable.Empty<MoviePreview>();
         }
 
         protected override void OnAfterRender(bool firstRender=false)
