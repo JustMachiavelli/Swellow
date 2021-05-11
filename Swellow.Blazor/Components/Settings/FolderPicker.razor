@@ -1,16 +1,37 @@
-﻿<h3>请选择文件夹</h3>
+﻿
+<div class="modal fade show" tabindex="-1" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
 
-<ul class="list-group">
-    @if (Directory.Path != "/")
-    {
-        <li class="list-group-item" @onclick="@(e => UpdateParentAsync())">
-            ···
-        </li>
-    }
-    @foreach (var folder in Directory.SubFolders)
-    {
-        <li class="list-group-item" @onclick="@(e => UpdateSubAsync(folder))">
-            @folder
-        </li>
-    }
-</ul>
+            @*头部*@
+            <div class="modal-header">
+                <h5 class="modal-title">当前路径: @Directory.Path</h5>
+            </div>
+
+            @*身体*@
+            <div class="modal-body">
+                <ul class="list-group">
+                    @if (Directory.Path != "")
+                    {
+                        <li class="list-group-item" @onclick="@(e => UpdateParentAsync())">
+                            ···
+                        </li>
+                    }
+                    @foreach (var folder in Directory.SubFolders)
+                    {
+                        <li class="list-group-item" @onclick="@(e => UpdateSubAsync(folder))">
+                            @folder
+                        </li>
+                    }
+                </ul>
+            </div>
+
+            @*尾部*@
+            <div class="modal-footer ml-auto">
+                <button class="btn btn-primary mr-2">确认</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>

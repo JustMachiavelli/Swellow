@@ -11,73 +11,85 @@ namespace Swellow.LocalHost
     public class FileExplorer
     {
         // 0 获取主机名
-        public static Task<string> GetHostName()
+        public static string GetHostName()
         {
-            return Task.Run(() =>
-            {
-                return Environment.MachineName;
-            });
+            return Environment.MachineName;
         }
 
-        // 1 获取所有磁盘 string[] driveInfos
+        // 1 获取所有磁盘 IEnumerable<string> driveInfos
         public static IEnumerable<string> GetDrives()
         {
-            IEnumerable<string> drives = Environment.GetLogicalDrives();
-            return drives;
+            return Environment.GetLogicalDrives();
         }
 
-        // 2 获取path路径的目录下的所有子文件名
-        public static Task<List<string>> GetSubFolders(string path)
+        // 2 获取 目标目录path 下的所有子文件名
+        // 两种情况: (1)path = ""，返回GetDrives()
+        //           (2)path = "C:\"，返回正常
+        public static IEnumerable<string> GetSubFolders(string path)
         {
-            return Task.Run(() =>
+            // (1)该路径为空, 用户在获取“我的电脑”
+            if (path == "")
             {
-                DirectoryInfo[] subDirectoryInfos = null;
-                try
-                {
-                    DirectoryInfo dirInfo = new DirectoryInfo(path);
-                    subDirectoryInfos = dirInfo.GetDirectories();
-                }
-                catch (Exception ex)
-                {
-                    if (ex is UnauthorizedAccessException || ex is SecurityException)
-                    {
-                        Console.WriteLine("{0} = {1}", path, ex.Message);
-                    }
-                    else
-                    {
-                        Console.WriteLine("{0}", ex.Message, path);
-                    }
-                }
+                return GetDrives();
+            }
 
-                List<DirectoryInfo> filteredList = new List<DirectoryInfo>();
-                if (subDirectoryInfos != null && subDirectoryInfos.Length > 0)
+            // (2)正常路径
+            DirectoryInfo[] subDirectoryInfos;
+            try
+            {
+                subDirectoryInfos = new DirectoryInfo(path).GetDirectories();
+            }
+            catch (Exception ex)
+            {
+                subDirectoryInfos = Array.Empty<DirectoryInfo>();
+                if (ex is UnauthorizedAccessException || ex is SecurityException)
                 {
-                    foreach (var dirInfo in subDirectoryInfos)
-                    {
-                        if ((dirInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden
-                            || (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System)
-                        {
-                            //Console.WriteLine("{0} = {1}", dirInfo.FullName, dirInfo.Attributes.ToString());
-                            continue;
-                        }
-
-                        filteredList.Add(dirInfo);
-                    }
+                    Console.WriteLine("{0} = {1}", path, ex.Message);
                 }
-                return filteredList.Select(directoryInfo => directoryInfo.Name).ToList();
-            });
+                else
+                {
+                    Console.WriteLine("{0}", ex.Message, path);
+                }
+            }
+
+            List<DirectoryInfo> commonDirectorys = new();
+            foreach (var dirInfo in subDirectoryInfos)
+            {
+                if ((dirInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden
+                    || (dirInfo.Attributes & FileAttributes.System) == FileAttributes.System)
+                {
+                    //Console.WriteLine("{0} = {1}", dirInfo.FullName, dirInfo.Attributes.ToString());
+                    continue;
+                }
+                commonDirectorys.Add(dirInfo);
+            }
+            return commonDirectorys.Select(directoryInfo => directoryInfo.Name).ToList();
         }
-        
 
-        // 4 获取路径path的上级目录
-        public static Task<string> GetParentPathAsync(string path)
+
+        // 3 获取 当前目录path 的上级目录
+        // 3种情况: (1)path = "", DirectoryDetail{ ParentPath = null, }
+        //          (2)path = "C:\", DirectoryDetail{ ParentPath = "", }
+        //          (3)path = "C:\myFolder", DirectoryDetail{ ParentPath = "C:\", }
+        public static string? GetParentPathAsync(string path)
         {
-            return Task.Run(()=>
+            if (path == "")
             {
-                DirectoryInfo parent = Directory.GetParent(path);
-                string ParentPath = (parent is null) ? "/" : parent.FullName;
-                return ParentPath;
-            });
+                return null;
+            }
+            else
+            {
+                DirectoryInfo? parentDiretory = Directory.GetParent(path);
+                if (parentDiretory == null)
+                {
+                    return "";
+                }
+                else
+                {
+                    return parentDiretory.FullName;
+                }
+            }
         }
+
     }
 }

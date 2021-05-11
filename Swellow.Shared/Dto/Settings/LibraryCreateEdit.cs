@@ -19,8 +19,12 @@ namespace Swellow.Shared.Dto.Settings
 
         // 3 预览图路径
         //public IBrowserFile? Picture { get; set; }
+        public string? Picture { get; set; }
 
         // 4【集合导航】包含的文件夹的路径们
-        public List<VideoFolder>? Directorys { get; set; }
+        [Display(Name = "名称")]
+        [Required(ErrorMessage = "{0}是必填项")]
+        [MinLength(1, ErrorMessage = "至少选择一个文件夹")]
+        public List<string>? Directorys { get; set; }
     }
 }

@@ -20,9 +20,10 @@ namespace Swellow.Blazor.Pages.Settings
 
         #region 自身
         //1 是否显示“添加新媒体库”的模态框
-        public bool isShowModal { get; set; } = false;
+        public bool IsPickingDirectory { get; set; } = false;
 
         //2 新媒体库的form模型
+        private EditContext EditContext;
         public LibraryCreateEdit NewLibrary { get; set; }
 
         //3 新媒体库的类型选项
@@ -37,6 +38,12 @@ namespace Swellow.Blazor.Pages.Settings
         public IBrowserFile Picture { get; set; }
         #endregion
 
+        // 4 用户刚刚添加的文件夹
+        private string PickedDirectory { get; set; } = "待选择...";
+
+        // 5 用户添加的文件夹集
+        private List<string> Directorys { get; set; }
+
         #region httpClient
         //4 所有Library预览
         private IEnumerable<LibraryPreview> LibraryPreviews { get; set; } = new List<LibraryPreview>();
@@ -46,11 +53,8 @@ namespace Swellow.Blazor.Pages.Settings
         //【OnInitialized】
         protected override async Task OnInitializedAsync()
         {
+            EditContext = new(NewLibrary);
             LibraryPreviews = await LibraryService.GetAllLibraryPreviewsAsync();
-            NewLibrary = new LibraryCreateEdit
-            {
-                Name = "",
-            };
         }
 
         protected override void OnAfterRender(bool firstRender = false)
@@ -60,28 +64,41 @@ namespace Swellow.Blazor.Pages.Settings
         #endregion
 
         #region 表单数据验证
-        private Task OnValidSubmit(EditContext context)
+        private Task HandleSubmit()
+        {
+            if (PickedDirectory != "待选择...")
+            {
+                bool isValid = EditContext.Validate();
+                if (isValid)
+                {
+                    return HandleValidSubmit();
+                }
+            }
+            return HandleInvalidSubmit();
+        }
+
+        private Task HandleValidSubmit()
         {
             System.Console.WriteLine("表单合法");
-            isShowModal = false;
+            IsPickingDirectory = false;
             return Task.CompletedTask;
         }
 
-        private Task OnInvalidSubmit(EditContext context)
+        private static Task HandleInvalidSubmit()
         {
             System.Console.WriteLine("表单不合法");
             return Task.CompletedTask;
         }
 
-        private void ToShowModal()
+        private void ToShowModalDirectoryPicker()
         {
-            isShowModal = true;
+            IsPickingDirectory = true;
             System.Console.WriteLine("我要显示表单");
         }
 
-        private void ToCloseModal()
+        private void ToCloseModalDirectoryrPicker()
         {
-            isShowModal = false;
+            IsPickingDirectory = false;
             System.Console.WriteLine("我要关闭表单");
         }
         #endregion

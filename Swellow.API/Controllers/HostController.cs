@@ -13,30 +13,28 @@ namespace Swellow.API.Controllers
     {
         // 0 获取主机名
         [HttpGet("api/host/name")]
-        public async Task<string> GetHostName()
+        public string GetHostName()
         {
-            return await FileExplorer.GetHostName();
+            return FileExplorer.GetHostName();
         }
 
         // 1 获取所有磁盘 IEnumerable<string> driveInfos
         [HttpGet("api/host/drives")]
-        public IEnumerable<string> GetDrivesAsync()
+        public IEnumerable<string> GetDrives()
         {
-            IEnumerable<string> drives = FileExplorer.GetDrives();
-            return drives;
+            return FileExplorer.GetDrives();
         }
 
-        // 2 依据目录path获取当前目录的相关情况
+        // 2 依据 当前目录path 获取当前目录的相关情况
         [HttpPost("api/host/directory/detail")]
-        public async Task<DirectoryDetail> GetDirectoryDetailAsync([FromBody]string path)
+        public DirectoryDetail GetDirectoryDetail([FromBody]string path)
         {
-            DirectoryDetail directory = new()
+            return new DirectoryDetail()
             {
+                ParentPath = FileExplorer.GetParentPathAsync(path),
                 Path = path,
-                ParentPath = await FileExplorer.GetParentPathAsync(path),
-                SubFolders = await FileExplorer.GetSubFolders(path),
+                SubFolders = FileExplorer.GetSubFolders(path),
             };
-            return directory;
         }
 
     }

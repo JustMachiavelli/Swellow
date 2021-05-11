@@ -6,9 +6,10 @@ namespace Swellow.Shared.Dto.Settings
     {
         //public string? Name { get; set; }
 
-        public string? Path { get; set; } = "测试";
+        // 默认值 表示 在“我的电脑下的磁盘预览”
+        public string? ParentPath { get; set; } = null;
 
-        public string? ParentPath { get; set; } = "测试";
+        public string? Path { get; set; } = string.Empty;
 
         public IEnumerable<string>? SubFolders { get; set; } = new List<string>();
 

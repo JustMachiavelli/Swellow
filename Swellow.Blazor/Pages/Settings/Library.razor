@@ -1,62 +1,10 @@
 ﻿@page "/Web/Settings/Library"
 @using Swellow.Blazor.Components.Common;
-@using Microsoft.AspNetCore.Components;
 @using Swellow.Blazor.Components.Settings;
 
-<div class="text-center">
-
-    <button type="button" class="btn btn-primary" @onclick="ToShowModal">
-        新建媒体库
-    </button>
-
-    Modal
-    @if (isShowModal)
-    {
-        <div class="modal fade show" tabindex="-1" style="display: block;">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    @*头部*@
-                    <div class="modal-header">
-                        <h5 class="modal-title">新媒体库</h5>
-                    </div>
-
-                    @*身体*@
-                    <ValidateForm class="form-inline" Model="@NewLibrary" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@OnInvalidSubmit">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="form-group col-12">
-                                    <BootstrapInput @bind-Value="@NewLibrary.Name" />
-                                </div>
-                                @*<div class="form-group col-12">
-                                        <Select Items="@Items" @bind-Value="@NewLibrary.Type" />
-                                    </div>*@
-                                @*<div class="form-group col-12">
-                                        <InputUpload @bind-Value="@Picture" />
-                                    </div>*@
-                                <div class="form-group col-12">
-                                    <FolderPicker></FolderPicker>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer ml-auto">
-                            <button @onclick="@ToCloseModal" class="btn btn-secondary">取消</button>
-                            <button type="submit" class="btn btn-primary mr-2">创建</button>
-                        </div>
-                    </ValidateForm>
-
-                </div>
-
-            </div>
-        </div>
-    }
-
-
-    <a class="btn btn-success">扫描媒体库</a>
-
+<div>
+    <button class="btn btn-success">扫描刷新</button>
 </div>
-
-
 <div class="row row-cols-md-6 mt-md-4">
     @foreach (var lp in LibraryPreviews)
     {
@@ -67,3 +15,42 @@
         </div>
     }
 </div>
+
+
+<EditForm Model="@EditContext" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit" OnSubmit="HandleSubmit">
+
+    <button class="btn btn-primary">确认新建</button>
+
+    <div class="row">
+
+        <div class="form-group col-12">
+            名称:
+            <InputText @bind-Value="NewLibrary.Name" />
+        </div>
+
+        <div class="form-group col-12">
+            图片:
+            <InputFile @bind-Value="NewLibrary.Picture" />
+        </div>
+
+        <div class="form-group col-12">
+            <button class="btn-primary" @onclick="ToShowModalDirectoryPicker">添加文件夹</button>
+            <ul class="list-group">
+                @foreach (var directory in Directorys)
+                {
+                    <li>directory</li>
+                }
+            </ul>
+        </div>
+
+        <div class="form-group col-12">
+            <button type="submit" class="btn btn-primary mr-2">创建</button>
+        </div>
+
+    </div>
+</EditForm>
+
+@if (IsPickingDirectory)
+{
+    <FolderPicker @bind-PickedDirectory="PickedDirectory"></FolderPicker>
+}

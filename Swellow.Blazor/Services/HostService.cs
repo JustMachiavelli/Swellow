@@ -26,7 +26,6 @@ namespace Swellow.Blazor.Services
                 await _httpClient.GetStreamAsync("api/host/drives"),
                 new JsonSerializerOptions
                 {
-                    // 是 区分大小写
                     PropertyNameCaseInsensitive = true
                 });
         }
@@ -38,10 +37,13 @@ namespace Swellow.Blazor.Services
             HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/detail", stringContent);
             if (response.IsSuccessStatusCode)
             {
-                var stream = await response.Content.ReadAsStreamAsync();
-                var directory = await JsonSerializer.DeserializeAsync<DirectoryDetail>(stream.Read());
-                Console.WriteLine(stream);
-                Console.WriteLine($"成功获取指定目录的路径：{directory.Path}");
+                DirectoryDetail directory = await JsonSerializer.DeserializeAsync<DirectoryDetail>(
+                    await response.Content.ReadAsStreamAsync(), 
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                //Console.WriteLine($"成功获取指定目录的路径：{directory.SubFolders.ToString()}");
                 return directory;
             }
             return null;

@@ -23,8 +23,8 @@ namespace Swellow.Blazor.Components.Settings
             Console.WriteLine("初始化……");
             Directory = new()
             {
-                Path = "/",
                 ParentPath = null,
+                Path = "",
                 SubFolders = await HostService.GetDrivesAsync()
             };
         }
