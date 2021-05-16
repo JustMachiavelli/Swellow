@@ -30,23 +30,57 @@ namespace Swellow.Blazor.Services
                 });
         }
 
-        // 2 依据目录path获取当前目录的相关情况
-        internal async Task<DirectoryDetail> GetDirectoryDetailAsync(string path)
+        internal async Task<string> GetParentDirectoryAsync(object path)
         {
-            StringContent stringContent = new StringContent(JsonSerializer.Serialize(path), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/detail", stringContent);
+            StringContent stringContent = new(JsonSerializer.Serialize(path), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/parent", stringContent);
             if (response.IsSuccessStatusCode)
             {
-                DirectoryDetail directory = await JsonSerializer.DeserializeAsync<DirectoryDetail>(
-                    await response.Content.ReadAsStreamAsync(), 
+                string parentDirectory = await JsonSerializer.DeserializeAsync<string>(
+                    await response.Content.ReadAsStreamAsync(),
                     new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
-                //Console.WriteLine($"成功获取指定目录的路径：{directory.SubFolders.ToString()}");
-                return directory;
+                return parentDirectory;
             }
             return null;
         }
+
+        internal async Task<IEnumerable<string>> GetSubFoldersAsync(string path)
+        {
+            StringContent stringContent = new(JsonSerializer.Serialize(path), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/subfolders", stringContent);
+            if (response.IsSuccessStatusCode)
+            {
+                List<string> subFolders = await JsonSerializer.DeserializeAsync<List<string>>(
+                    await response.Content.ReadAsStreamAsync(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+                return subFolders;
+            }
+            return new List<string>();
+        }
     }
 }
+
+// 2 依据目录path获取当前目录的相关情况
+//internal async Task<DirectoryDetail> GetDirectoryDetailAsync(string path)
+//{
+//    StringContent stringContent = new StringContent(JsonSerializer.Serialize(path), Encoding.UTF8, "application/json");
+//    HttpResponseMessage response = await _httpClient.PostAsync("api/host/directory/detail", stringContent);
+//    if (response.IsSuccessStatusCode)
+//    {
+//        DirectoryDetail directory = await JsonSerializer.DeserializeAsync<DirectoryDetail>(
+//            await response.Content.ReadAsStreamAsync(),
+//            new JsonSerializerOptions
+//            {
+//                PropertyNameCaseInsensitive = true
+//            });
+//        //Console.WriteLine($"成功获取指定目录的路径：{directory.SubFolders.ToString()}");
+//        return directory;
+//    }
+//    return null;
+//}

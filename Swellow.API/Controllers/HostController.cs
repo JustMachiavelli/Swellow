@@ -37,5 +37,29 @@ namespace Swellow.API.Controllers
             };
         }
 
+        // 2 依据 当前目录path 获取当前目录的相关情况
+        [HttpPost("api/host/directory/parent")]
+        public DirectoryDetail PostToGetParentDirectoryAsync([FromBody] string path)
+        {
+            return new DirectoryDetail()
+            {
+                ParentPath = FileExplorer.GetParentPathAsync(path),
+                Path = path,
+                SubFolders = FileExplorer.GetSubFolders(path),
+            };
+        }
+
+        // 2 依据 当前目录path 获取当前目录的相关情况
+        [HttpPost("api/host/directory/detail")]
+        public DirectoryDetail PostToGetDirectoryDetail([FromBody] string path)
+        {
+            return new DirectoryDetail()
+            {
+                ParentPath = FileExplorer.GetParentPathAsync(path),
+                Path = path,
+                SubFolders = FileExplorer.GetSubFolders(path),
+            };
+        }
+
     }
 }
