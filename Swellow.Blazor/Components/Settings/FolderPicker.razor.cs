@@ -17,7 +17,7 @@ namespace Swellow.Blazor.Components.Settings
         // 当前所处文件夹路径
         public string ParentDirectory { get; set; } = null;
         public string CurrentDirectory { get; set; } = string.Empty;
-        public List<string> SubFolders { get; set; } = new List<string>();
+        public IEnumerable<string> SubFolders { get; set; } = new List<string>();
 
 
         protected override async Task OnInitializedAsync()

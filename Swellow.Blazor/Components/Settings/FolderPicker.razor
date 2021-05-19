@@ -5,19 +5,19 @@
 
             @*头部*@
             <div class="modal-header">
-                <h5 class="modal-title">当前路径: @Directory.Path</h5>
+                <h5 class="modal-title">当前路径: @CurrentDirectory</h5>
             </div>
 
             @*身体*@
             <div class="modal-body">
                 <ul class="list-group">
-                    @if (Directory.Path != "")
+                    @if (CurrentDirectory != "")
                     {
                         <li class="list-group-item" @onclick="@(e => UpdateParentAsync())">
                             ···
                         </li>
                     }
-                    @foreach (var folder in Directory.SubFolders)
+                    @foreach (var folder in SubFolders)
                     {
                         <li class="list-group-item" @onclick="@(e => UpdateSubAsync(folder))">
                             @folder
